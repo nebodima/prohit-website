@@ -1,0 +1,259 @@
+
+.jt-radio-player {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: row;
+	gap:10px;
+	min-height:70px;
+}
+.jt-radio-player audio {
+    display: none;
+}
+.jt-radio-player button {
+    background-color: transparent;
+    border: none;
+    outline: none;
+    margin: 0;
+    padding: 0;
+    font-size: 16px;
+    cursor: pointer;
+}
+.jt-radio-player #jt-controls {
+    display: flex;
+    align-items: center;
+    margin-top: 5px;
+    width: 100%;
+}
+.jt-radio-player .jt-progress-bar {
+    height: 5px;
+    background-color: #ccc;
+    position: relative;
+    flex-grow: 1;
+    margin: 0 10px;
+    border-radius: 3px;
+    cursor: pointer;
+}
+.jt-radio-player .jt-progress-bar-filled {
+    height: 100%;
+    position: absolute;
+    top: 0;
+    left: 0;
+    background-color: #000;
+    border-radius: 3px;
+}
+.jt-radio-player #jt-time {
+    font-size: 12px;
+    white-space: nowrap;
+}
+/*
+#bar1 {
+  animation: bar1 1.2s infinite linear;
+}
+
+#bar2 {
+  animation: bar2 0.8s infinite linear;
+}
+
+#bar3 {
+  animation: bar3 1s infinite linear;
+}
+
+#bar4 {
+  animation: bar4 0.7s infinite linear;
+}
+
+@keyframes bar1 {
+  0% {
+    height: 2px;
+  }
+  50% {
+    height: 7px;
+  }
+  100% {
+    height: 2px;
+  }
+}
+
+@keyframes bar2 {
+  0% {
+    height: 5px;
+  }
+  40% {
+    height: 1px;
+  }
+  80% {
+    height: 7px;
+  }
+  100% {
+    height: 5px;
+  }
+}
+
+@keyframes bar3 {
+  0% {
+    height: 7px;
+  }
+  50% {
+    height: 0;
+  }
+  100% {
+    height: 7px;
+  }
+}
+
+@keyframes bar4 {
+  0% {
+    height: 2px;
+  }
+  50% {
+    height: 7px;
+  }
+  100% {
+    height: 2px;
+  }
+}*/
+
+.jt-radio-player .volume-control{display:flex;align-items: center;gap:5px;}
+.jt-radio-player .volume-slider {
+    margin: 10px 2.5%;
+    width:95%;
+}
+.jt-radio-player .volume-slider::-webkit-slider-runnable-track {
+    background: rgba(0, 125, 181, 0.6);
+}
+.jt-radio-player .volume-slider::-moz-range-track {
+    background: rgba(0, 125, 181, 0.6);
+}
+.jt-radio-player .volume-slider::-ms-fill-upper {
+    background: rgba(0, 125, 181, 0.6);
+}
+.jt-radio-player .volume-slider::before {
+    width: var(--volume-before-width);
+}
+.jt-radio-player #mute-icon {
+    margin: 0 2.5%;
+}
+.jt-radio-player input[type="range"] {
+    position: relative;
+    -webkit-appearance: none;
+    margin: 0;
+    padding: 0;
+    height: 19px;
+    float: left;
+    outline: none;
+	border: 0;
+	background: none;
+}
+.jt-radio-player input[type="range"]::-webkit-slider-runnable-track {
+    width: 100%;
+    height: 3px;
+    cursor: pointer;
+    }
+.jt-radio-player input[type="range"]::before {
+    position: absolute;
+    content: "";
+    top: 8px;
+    left: 0;
+    width: var(--seek-before-width);
+    height: 3px;
+    background-color: #007db5;
+    cursor: pointer;
+}
+.jt-radio-player input[type="range"]::-webkit-slider-thumb {
+    position: relative;
+    -webkit-appearance: none;
+    box-sizing: content-box;
+    border: 1px solid #007db5;
+    height: 15px;
+    width: 15px;
+    border-radius: 50%;
+    background-color: #fff;
+    cursor: pointer;
+    margin: -7px 0 0 0;
+}
+.jt-radio-player input[type="range"]:active::-webkit-slider-thumb {
+    transform: scale(1.2);
+    background: #007db5;
+}
+.jt-radio-player input[type="range"]::-moz-range-track {
+    width: 100%;
+    height: 3px;
+    cursor: pointer;
+}
+.jt-radio-player input[type="range"]::-moz-range-progress {
+    background-color: #007db5;
+}
+.jt-radio-player input[type="range"]::-moz-focus-outer {
+    border: 0;
+}
+.jt-radio-player input[type="range"]::-moz-range-thumb {/*Thumb*/
+    box-sizing: content-box;
+    border: 1px solid #007db5;
+    height: 15px;
+    width: 15px;
+    border-radius: 50%;
+    background-color: #fff;
+    cursor: pointer;
+}
+.jt-radio-player input[type="range"]:active::-moz-range-thumb {/*Active Thumb*/
+    transform: scale(1);
+    background: #007db5;
+}
+.jt-radio-player input[type="range"]::-ms-track {
+    width: 100%;
+    height: 3px;
+    cursor: pointer;
+    background: transparent;
+    border: solid transparent;
+    color: transparent;
+}
+.jt-radio-player input[type="range"]::-ms-fill-lower {
+    background-color: #007db5;
+}
+.jt-radio-player input[type="range"]::-ms-fill-upper {
+    background: linear-gradient(to right, rgba(0, 125, 181, 0.6) var(--buffered-width), rgba(0, 125, 181, 0.2) var(--buffered-width));
+}
+.jt-radio-player input[type="range"]::-ms-thumb {
+    box-sizing: content-box;
+    border: 1px solid #007db5;
+    height: 15px;
+    width: 15px;
+    border-radius: 50%;
+    background-color: #fff;
+    cursor: pointer;
+}
+.jt-radio-player input[type="range"]:active::-ms-thumb {
+    transform: scale(1.2);
+    background: #007db5;
+}
+.jt-radio-player .volume-down,.jt-radio-player .volume-up{ font-size:24px}
+.jt-image-container,.jt-radio-player .pause-image{width: 3.5em;height: auto;}
+.jt-image-container{margin-top:0px;}
+.jt-radio-player .pause-image{margin-top:14.5px;}
+@-webkit-keyframes equalize{0%{height:60px}4%{height:50px}8%{height:40px}12%{height:30px}16%{height:20px}20%{height:30px}24%{height:40px}28%{height:10px}32%{height:40px}36%{height:60px}40%{height:20px}44%{height:40px}48%{height:70px}52%{height:30px}56%{height:10px}60%{height:30px}64%{height:50px}68%{height:60px}72%{height:70px}76%{height:80px}80%{height:70px}84%{height:60px}88%{height:50px}92%{height:60px}96%{height:70px}to{height:80px}}@keyframes equalize{0%{height:60px}4%{height:50px}8%{height:40px}12%{height:30px}16%{height:20px}20%{height:30px}24%{height:40px}28%{height:10px}32%{height:40px}36%{height:60px}40%{height:20px}44%{height:40px}48%{height:70px}52%{height:30px}56%{height:10px}60%{height:30px}64%{height:50px}68%{height:60px}72%{height:70px}76%{height:80px}80%{height:70px}84%{height:60px}88%{height:50px}92%{height:60px}96%{height:70px}to{height:80px}}
+#bouncing-bars {
+	-webkit-transform: rotate(180deg);
+	transform: rotate(180deg);
+	width: 3.5em;
+	height: auto;
+	margin-right: 1em;
+	margin-top: -1em;
+}
+
+#bouncing-bars .bar {
+	fill: #ff1493;
+	width: 10px;
+	-webkit-animation: equalize 2s steps(25) 0s infinite;
+	animation: equalize 2s steps(25) 0s infinite;
+	transition: all .2s;
+}
+#bouncing-bars.out .bar {
+	-webkit-animation: down 1.6s ease-in-out normal forwards;
+	animation: down 1.6s ease-in-out normal forwards;
+}
+svg {
+	overflow: hidden;vertical-align: middle;
+}
+#bouncing-bars-paused .bar-paused {
+	fill: #000;	transition: all .2s;}

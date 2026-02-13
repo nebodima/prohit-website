@@ -1,0 +1,32 @@
+
+/*------------------------------------------------------------------------
+# mod_jt_testimonial Extension
+# ------------------------------------------------------------------------
+# author    joomlatema
+# copyright Copyright (C) 2021 joomlatema.net. All Rights Reserved.
+# @license - http://www.gnu.org/licenses/gpl-2.0.html GNU/GPL
+# Websites: http://www.joomlatema.net
+-------------------------------------------------------------------------*/
+.reviews-block_template_zoom .testimonial_block__title {font-size: 16px;line-height: 1.125;text-transform: uppercase;font-weight: 600;background: #f14201;display: inline-block;vertical-align: top;color: #fff;padding: 4px 6px 1px;}
+.reviews-block_template_zoom .testimonial_block__title:empty {opacity: 0;}
+.testimonial_block__title {font-size: 16px;text-transform: uppercase;font-weight: 500;letter-spacing: 0.02em;}
+.jt_testimonial-block-slider {margin-top: 76px;}
+.testimonial_block__main:not(:last-child) {margin-bottom: 126px;}
+.jt_testimonial-block-slide {background: #fff;}
+.testimonial_block-text {position:relative;color: #666;font-size: 100%;line-height: 1.666666666666667;margin-bottom: 32px;}
+.testimonial_block-text::after {color: #ddd;content: "\f10e";font-family: FontAwesome;font-size: 32px;margin: auto;position: absolute;right:-30px;bottom:-20px;z-index: 2;opacity:0.85;}
+.testimonial_block {display: -ms-flexbox;display: flex;position: relative;-ms-flex-align:flex-start;;align-items:flex-start;;justify-content: space-between;}
+.testimonial_block-data {margin-top: 5px;}
+.testimonial_block-data div{margin-bottom:5px;}
+.testimonial_block-name {font-family: 'Teko', 'Raleway', sans-serif;font-size: 24px;line-height: 1;margin-bottom: 2px;}
+.testimonial_block-role {color: #999;}
+.testimonial_block-image {overflow: hidden;}
+.testimonial_block-image img {width: 100%;max-width:100%;}
+.testimonial_block__quote {width: auto !important;position: absolute;right: 0;top: 12px;}
+.testimonial_block__controls {display: -ms-flexbox;display: flex;font-size: 22px;-ms-flex-pack: justify;justify-content: space-between;margin-left: -5px;margin-right: -5px;margin-top: -2px;}
+.testimonial_block__control {background: none;border: 0;color: currentColor;margin-bottom: -2px;transition: 0.3s ease;transform: translateZ(0);}
+.reviews-block__control:hover {color: #999;}
+.testimonial_block-data .jt-social-icons{ display:flex;justify-content:flex-start;}
+.testimonial_block-data .jt-social-icons .fa,.testimonial_block-data .jt-social-icons .fas,.testimonial_block-data .jt-social-icons .far,.testimonial_block-data .jt-social-icons .fa-brands{ padding:5px 7px; font-size:20px}
+.jt_testimonial-block-slide .fa-star,.jt_testimonial-block-slide .fa-star-half-o{color: #fd5d14;text-shadow: 1px 1px #c60, 1px 1px #940, .1em .1em .1em rgba(0,0,0,.2); font-size:20px}
+.jt_testimonial-block-slide .fa-star-o{color: #ddd;text-shadow:1px 1px #bbb, 1px 1px #666, .1em .1em .1em rgba(0,0,0,.2); font-size:20px}

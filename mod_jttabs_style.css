@@ -1,0 +1,52 @@
+/*==================== General Styles ====================*/
+.jttabs-wrapper.layout-default .nav-tabs > li > a {
+	padding: 9px 15px;
+	margin-right: 2px;
+	line-height: 1;
+	border: 0;
+	border-radius: 0px;
+	margin-right: 1px;
+	position: relative;
+	display: block;
+}
+
+.jttabs-wrapper.layout-default .nav-tabs > li.active > a,.jttabs-wrapper.layout-default  .nav-tabs > li.active > a:focus,.jttabs-wrapper.layout-default  .nav-tabs > li.active > a:hover {
+	color: #555;
+	cursor: default;
+	background-color: #fff;
+	border: 1px solid #ddd;
+	border-bottom-color: transparent;
+}
+
+.jttabs-wrapper a:hover,
+.jttabs-wrapper a:focus{
+	outline: none;
+}
+.jttabs-wrapper .jp-item-wrapper{
+	clear: both;
+	margin-bottom: 30px;
+}
+.jttabs-wrapper .created_date{
+	color: #999;
+	display: block;
+	font-size: 12px;
+	padding-bottom: 10px;
+	padding-top: 5px;
+}
+.jttabs-wrapper.layout-default .tab-content{
+	border-left: 1px solid #ddd;
+	border-right: 1px solid #ddd;
+	border-bottom: 1px solid #ddd;
+  padding: 15px;
+  overflow-y:auto;
+}
+iframe.contentpanel body.modal{
+	padding: 0;
+}
+.jttabs-wrapper.layout-collapse{
+    
+}
+.fade.in {opacity: 1;}
+.fade {opacity: 0;}
+.fade.active.show{opacity: 1;}
+iframe.contentpanel div.phpdebugbar{ display:none;}
