@@ -113,6 +113,12 @@ body{
   width:32px;
   height:32px;
 }
+.inst-icon img{
+  width:38px;
+  height:38px;
+  object-fit:contain;
+  filter:brightness(0) invert(1);
+}
 .inst-name{
   font-family:'Raleway',sans-serif;
   font-weight:700;
@@ -398,6 +404,7 @@ body{
   .inst{width:110px}
   .inst-icon{width:52px;height:52px;box-shadow:none}
   .inst-icon svg{width:26px;height:26px}
+  .inst-icon img{width:30px;height:30px}
   .inst-name{font-size:13px}
 
   .genres{gap:8px;margin-bottom:14px}
@@ -443,103 +450,22 @@ body{
     <div class="wanted-sub">Присоединяйся к нашему проекту!</div>
   </div>
 
-  <!-- INSTRUMENTS (modern SVG icons) -->
+  <!-- INSTRUMENTS -->
   <div class="instruments">
     <div class="inst">
-      <div class="inst-icon">
-        <svg viewBox="0 0 64 64" fill="none" xmlns="http://www.w3.org/2000/svg">
-          <!-- Drum kit -->
-          <ellipse cx="32" cy="38" rx="18" ry="8" stroke="#fe0178" stroke-width="2.5" fill="none"/>
-          <line x1="14" y1="38" x2="14" y2="48" stroke="#fe0178" stroke-width="2.5" stroke-linecap="round"/>
-          <line x1="50" y1="38" x2="50" y2="48" stroke="#fe0178" stroke-width="2.5" stroke-linecap="round"/>
-          <ellipse cx="32" cy="48" rx="18" ry="6" stroke="#fe0178" stroke-width="2" fill="none" opacity=".4"/>
-          <!-- Hi-hat -->
-          <ellipse cx="12" cy="26" rx="8" ry="2.5" stroke="#fe0178" stroke-width="2" fill="none"/>
-          <line x1="12" y1="26" x2="12" y2="48" stroke="#fe0178" stroke-width="1.5" stroke-linecap="round"/>
-          <!-- Cymbal -->
-          <ellipse cx="52" cy="22" rx="9" ry="2.5" stroke="#fe0178" stroke-width="2" fill="none"/>
-          <line x1="52" y1="22" x2="52" y2="48" stroke="#fe0178" stroke-width="1.5" stroke-linecap="round"/>
-          <!-- Sticks -->
-          <line x1="22" y1="14" x2="34" y2="34" stroke="#fe0178" stroke-width="2" stroke-linecap="round"/>
-          <line x1="42" y1="14" x2="30" y2="34" stroke="#fe0178" stroke-width="2" stroke-linecap="round"/>
-        </svg>
-      </div>
+      <div class="inst-icon"><img src="./ico/free-icon-drums-2884318.png" alt="Барабаны"></div>
       <div class="inst-name">Барабаны</div>
     </div>
     <div class="inst">
-      <div class="inst-icon">
-        <svg viewBox="0 0 64 64" fill="none" xmlns="http://www.w3.org/2000/svg">
-          <!-- Bass guitar -->
-          <path d="M42 8L42 30" stroke="#fe0178" stroke-width="2.5" stroke-linecap="round"/>
-          <!-- Headstock -->
-          <circle cx="40" cy="10" r="2" fill="#fe0178"/>
-          <circle cx="44" cy="12" r="2" fill="#fe0178"/>
-          <circle cx="40" cy="14" r="2" fill="#fe0178"/>
-          <circle cx="44" cy="16" r="2" fill="#fe0178"/>
-          <!-- Body -->
-          <path d="M42 30C42 30 52 32 54 38C56 44 52 50 46 52C40 54 34 54 28 50C22 46 20 40 24 34C28 28 42 30 42 30Z" stroke="#fe0178" stroke-width="2.5" fill="none"/>
-          <!-- Pickup -->
-          <ellipse cx="38" cy="42" rx="5" ry="3" stroke="#fe0178" stroke-width="1.5" fill="none"/>
-          <!-- Sound hole -->
-          <circle cx="34" cy="36" r="2" fill="#fe0178" opacity=".5"/>
-          <circle cx="44" cy="46" r="2" fill="#fe0178" opacity=".5"/>
-          <!-- Strings on neck -->
-          <line x1="40.5" y1="18" x2="40.5" y2="30" stroke="#fe0178" stroke-width=".7" opacity=".5"/>
-          <line x1="43.5" y1="18" x2="43.5" y2="30" stroke="#fe0178" stroke-width=".7" opacity=".5"/>
-        </svg>
-      </div>
+      <div class="inst-icon"><img src="./ico/free-icon-guitar-7550697.png" alt="Бас-гитара"></div>
       <div class="inst-name">Бас-гитара</div>
     </div>
     <div class="inst">
-      <div class="inst-icon">
-        <svg viewBox="0 0 64 64" fill="none" xmlns="http://www.w3.org/2000/svg">
-          <!-- Professional condenser mic -->
-          <rect x="26" y="10" width="12" height="24" rx="6" stroke="#fe0178" stroke-width="2.5" fill="none"/>
-          <!-- Grille lines -->
-          <line x1="28" y1="15" x2="36" y2="15" stroke="#fe0178" stroke-width="1" opacity=".5"/>
-          <line x1="28" y1="18" x2="36" y2="18" stroke="#fe0178" stroke-width="1" opacity=".5"/>
-          <line x1="28" y1="21" x2="36" y2="21" stroke="#fe0178" stroke-width="1" opacity=".5"/>
-          <line x1="28" y1="24" x2="36" y2="24" stroke="#fe0178" stroke-width="1" opacity=".5"/>
-          <line x1="28" y1="27" x2="36" y2="27" stroke="#fe0178" stroke-width="1" opacity=".5"/>
-          <!-- Holder arc -->
-          <path d="M20 28C20 36 25 40 32 40C39 40 44 36 44 28" stroke="#fe0178" stroke-width="2.5" fill="none" stroke-linecap="round"/>
-          <!-- Stand -->
-          <line x1="32" y1="40" x2="32" y2="52" stroke="#fe0178" stroke-width="2.5" stroke-linecap="round"/>
-          <!-- Base -->
-          <line x1="24" y1="52" x2="40" y2="52" stroke="#fe0178" stroke-width="2.5" stroke-linecap="round"/>
-          <!-- Glow dot -->
-          <circle cx="32" cy="30" r="1.5" fill="#fe0178" opacity=".6"/>
-        </svg>
-      </div>
+      <div class="inst-icon"><img src="./ico/free-icon-music-13131473.png" alt="Вокал"></div>
       <div class="inst-name">Вокал</div>
     </div>
     <div class="inst">
-      <div class="inst-icon">
-        <svg viewBox="0 0 64 64" fill="none" xmlns="http://www.w3.org/2000/svg">
-          <!-- Synthesizer / Keyboard -->
-          <!-- Body -->
-          <rect x="6" y="24" width="52" height="20" rx="3" stroke="#fe0178" stroke-width="2.5" fill="none"/>
-          <!-- White keys -->
-          <line x1="14" y1="32" x2="14" y2="44" stroke="#fe0178" stroke-width="1.5"/>
-          <line x1="22" y1="32" x2="22" y2="44" stroke="#fe0178" stroke-width="1.5"/>
-          <line x1="30" y1="32" x2="30" y2="44" stroke="#fe0178" stroke-width="1.5"/>
-          <line x1="38" y1="32" x2="38" y2="44" stroke="#fe0178" stroke-width="1.5"/>
-          <line x1="46" y1="32" x2="46" y2="44" stroke="#fe0178" stroke-width="1.5"/>
-          <line x1="54" y1="32" x2="54" y2="44" stroke="#fe0178" stroke-width="1.5"/>
-          <!-- Key separator line -->
-          <line x1="6" y1="32" x2="58" y2="32" stroke="#fe0178" stroke-width="1.5"/>
-          <!-- Black keys -->
-          <rect x="11" y="24" width="4" height="9" rx="1" fill="#fe0178" opacity=".7"/>
-          <rect x="19" y="24" width="4" height="9" rx="1" fill="#fe0178" opacity=".7"/>
-          <rect x="35" y="24" width="4" height="9" rx="1" fill="#fe0178" opacity=".7"/>
-          <rect x="43" y="24" width="4" height="9" rx="1" fill="#fe0178" opacity=".7"/>
-          <rect x="51" y="24" width="4" height="9" rx="1" fill="#fe0178" opacity=".7"/>
-          <!-- Controls -->
-          <circle cx="12" cy="28" r="1.5" stroke="#fe0178" stroke-width="1" fill="none" opacity=".0"/>
-          <!-- Pitch wheel -->
-          <rect x="8" y="26" width="2" height="4" rx="1" fill="#fe0178" opacity=".5"/>
-        </svg>
-      </div>
+      <div class="inst-icon"><img src="./ico/free-icon-music-keyboard-12000349.png" alt="Клавиши"></div>
       <div class="inst-name">Клавиши</div>
     </div>
   </div>
@@ -631,6 +557,13 @@ body{
   <div class="contacts-section">
     <div class="contacts-title">Свяжитесь с нами</div>
     <div class="contacts-grid">
+      <!-- Site -->
+      <a href="https://xn----ptbqdfpt.xn--p1ai" class="contact-card">
+        <div class="cc-icon"><i class="fas fa-globe"></i></div>
+        <div class="cc-label">про-хит.рф</div>
+        <img class="cc-qr" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAXIAAAFyAQAAAADAX2ykAAADLElEQVR4nO1cQW6sMAy1Q6QuQZoD9Chwgx6pZ/o3GI7SA4wEy5FA/no2iWi/xMDiV0H4LRBM3sLS67MTJykLHUEfDtGJnL+N8GL8J5y/jXA9/sgLujES9c2M90jMeMNvaTyWGf8hhAvyK1EQ1U8mgshUTyQyVCJ3kFodH34rniMIh9h0UT6bOeHVT5lI7njraGbqG4zD4t0vxrMf4QD3ivy4/qiFmMaGmOoHnNz8fjzB+f9P3/E2Ud9UE9H4Jqxyt1J2/MH5O/QV+6ifLISs3P7B53ibpGfIXYMwlhh/cP5L/mzTY3NtN76tLMufmFX1Ot6UGv8RhIvx42JOxTjDvxNJjxoMSP8+JXcXGX9w/jZkwYRlEKbO+NHeal0ziVA7VPaQe2nxB+dvImqZxYSZhMabcCtzlL55YBJNgH5WtiYuL/7g/G1Itq62MUzGdiBzslhXQ6Wtxf170vxM2rBSQe/5bTWgmuPb9T0Zn346FJ9LER6WSpxEdn3Pxyez6ZKQK1m1nsWkTSa2dnRp8Qfn7/Fvm7RMds6zZlF4/T21vgLrLhk4F+EMy9Su7xn5ZBJqwbWdQk3DqmWtj+nbn0Bp8Qfn7+g/s616P9SnhN5VxCZD1AdWwoLp1q3A+IPzX+o7R+kZIn9BUJpZ+o8HCzYJ8TAK3F1g/MH5u/obg1bdVH+16pIm5FSOvf6eWV/SZRBgbQxKy6U2d7K8/p6RT+mYVT6EpYtgRa3G1jlXdndp8Qfn7+BzVz9xVpJ51Y4m3QlOqfkbfz+C8wvwL9mbrnVXnY4qLZcsU3t+Ph+fLPlaE0uVzk3oVWvD6+9Z+SQrrDpZeRNpWOrvMp0uLf7g/G3IIl5uQtv86tujzcZ2fU/Ir8y9NqFq5clJ85nT+mjmguM/gnDl+wt1mjXjElJi4HRlg9SsF1fKjH8/wpXPt9McBYcoiWoYeGxwJguHKDv0pPW30uIPzj/Ar/JePjz9PuESktZfaO7+PS1frEkJ4EJZOu4e7U4Dd7rdr5Qy49+PcDF+tGlUBrdfevXoEaXv9CYSkrQdkvX8fD4++/9n2ETYHv4Hzt9GeDH+E86nTfwF725I3WkZ/jYAAAAASUVORK5CYII=" alt="QR сайт">
+        <div class="cc-hint">Сайт группы</div>
+      </a>
       <!-- Phone -->
       <a href="tel:+79151515011" class="contact-card">
         <div class="cc-icon"><i class="fas fa-phone"></i></div>
@@ -642,15 +575,8 @@ body{
       <a href="https://t.me/prohit_group" class="contact-card">
         <div class="cc-icon"><i class="fab fa-telegram-plane"></i></div>
         <div class="cc-label">@prohit_group</div>
-        <img class="cc-qr" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAXIAAAFyAQAAAADAX2ykAAADGUlEQVR4nO1cXYqkQAz+Ugr9WMIeYI9i32yYm+lR+gAL+digZElS1e3Mgq2w22thvgfHMt9DICSVvx5i7EEfdtEB568jvJB/h/PXEc7HHynhOhKhbwCiZib09q1GltfH1H8Xwsn4YB4qVqDVP3LsoN8mky4FR9M/OH8Dn8w5xX/1eMVsbxB3Nhe/LvjbEZx/HH6cxLTJp9Grzf+nPhsQtpBOzK+Xh1GcNU52oJbnGi0fW//g/A32ZTtEloA8gNpOjVwxAdVkAoxH1D84/yV/tvQYkFz546Y3cX60g1zCKm+Oqv8ehJPx6+ScinEmBsR14wTumwrof07Zu9+iT3D+366PDBO0DNKovCiNEKVw0iLJ66Ni7QsJw8z6EHQi6MTSnXhyKodFcDT9g/O32BeSNbcPh7UHVCr2Vanbt1x+e7swfzYzmRN3ml9F5pRVvV2fzQjbqafkI3UgJU3WIC2h2W7iVr/pxawtTL9/C+TDUit90zAsXpvyK07HbG63b7n5Fef7t/0yboAlXtnSbt9i8yvOWbM5bE6o2BJrSbw0nT6a/sH5G/pXaG86IVIzzsSfdMlNjThJz1Iow1H134NwMj6yhz48WY1sVS9SupXuZI/PRfJjqn+1ycydjX5TQIaZdph9/lsuf5ZdnIvdtSlN1kl/lHGw7ec8Zg5H1H8Pwsn4WLaen22qZ1XEj+rJ86ty96+6fOGmNHnRmK4enUq/f8u1LwR212qv6su4gbNPu31L5UcdCMpqXbyTTn3RN+K6cuvqfP/D66MC+bXlV4iyixN/1dw3g1mVTAB5ET+XxZ3j6R+cvw5e4LnrbJjydrS6rudXBfKRjZemRimdfk6CkXrS3n8uNj5XVgIRxh+TLcnK6hVjTDvuLItZb9InOP8f8Mk6GPFORJJaPapetNK6siG/9zcK5OM5HFKrpjZGHgez7efkwZLH59L5pPWRtbNGLY0uaZPD/bdcPi+WODRcS0BurWd5J7pa43I6rP7bEU5a/xr0Byk6+p3zD1dGfdHq2Ovf8vjk/59hFWFd/Aecv47wQv4dzscqfgO6IVN/yNCOhwAAAABJRU5ErkJggg==" alt="QR Telegram">
+        <img class="cc-qr" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAPgAAAD4AQAAAADpqhamAAABUklEQVR4nO1YywrEMAgcZf//l2dxNO2ecilps1gLJc1A0Ti+YsRUfA7jxefiL741/gFguaQpFuI9dtDCfqTdMv20PE+hhf2wsjhIAIv12PGH9fMbccpubqvfatxMXueu+q3jP8c7MkDQ4DgEv/h//wf7LdfGeH7TIB7Xzxfj9sv2UfrYrP7z9LdKgKIgK0AT/rMOwc42KGnwtH5+B07Fvr5P6lM7W+i3OP7tsFwZMFvhygN+8f/+Bzj1qP/NBiBCgCqDW+i33P+swj8y4fGNLvxnpTvTKtmALvyHzI3JJwqBpoA4Fm6j33qcyvaM2p+u78T/IYr+ioRIhezS/0FSHlcgiP7W7f6HVvw/rn/QY/61kf2rD9Amd9DP78WtjiKLALbTb5H/U0bzo3FoE/38xvsfKOnH/U91RGgz/0rG7JPjQHKgU/3fUT9/8an4HMaLYypfjjKB9buJpa8AAAAASUVORK5CYII=" alt="QR Telegram">
         <div class="cc-hint">Telegram</div>
-      </a>
-      <!-- Site -->
-      <a href="https://xn----ptbqdfpt.xn--p1ai" class="contact-card">
-        <div class="cc-icon"><i class="fas fa-globe"></i></div>
-        <div class="cc-label">про-хит.рф</div>
-        <img class="cc-qr" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAXIAAAFyAQAAAADAX2ykAAADLElEQVR4nO1cQW6sMAy1Q6QuQZoD9Chwgx6pZ/o3GI7SA4wEy5FA/no2iWi/xMDiV0H4LRBM3sLS67MTJykLHUEfDtGJnL+N8GL8J5y/jXA9/sgLujES9c2M90jMeMNvaTyWGf8hhAvyK1EQ1U8mgshUTyQyVCJ3kFodH34rniMIh9h0UT6bOeHVT5lI7njraGbqG4zD4t0vxrMf4QD3ivy4/qiFmMaGmOoHnNz8fjzB+f9P3/E2Ud9UE9H4Jqxyt1J2/MH5O/QV+6ifLISs3P7B53ibpGfIXYMwlhh/cP5L/mzTY3NtN76tLMufmFX1Ot6UGv8RhIvx42JOxTjDvxNJjxoMSP8+JXcXGX9w/jZkwYRlEKbO+NHeal0ziVA7VPaQe2nxB+dvImqZxYSZhMabcCtzlL55YBJNgH5WtiYuL/7g/G1Itq62MUzGdiBzslhXQ6Wtxf170vxM2rBSQe/5bTWgmuPb9T0Zn346FJ9LER6WSpxEdn3Pxyez6ZKQK1m1nsWkTSa2dnRp8Qfn7/Fvm7RMds6zZlF4/T21vgLrLhk4F+EMy9Su7xn5ZBJqwbWdQk3DqmWtj+nbn0Bp8Qfn7+g/s616P9SnhN5VxCZD1AdWwoLp1q3A+IPzX+o7R+kZIn9BUJpZ+o8HCzYJ8TAK3F1g/MH5u/obg1bdVH+16pIm5FSOvf6eWV/SZRBgbQxKy6U2d7K8/p6RT+mYVT6EpYtgRa3G1jlXdndp8Qfn7+BzVz9xVpJ51Y4m3QlOqfkbfz+C8wvwL9mbrnVXnY4qLZcsU3t+Ph+fLPlaE0uVzk3oVWvD6+9Z+SQrrDpZeRNpWOrvMp0uLf7g/G3IIl5uQtv86tujzcZ2fU/Ir8y9NqFq5clJ85nT+mjmguM/gnDl+wt1mjXjElJi4HRlg9SsF1fKjH8/wpXPt9McBYcoiWoYeGxwJguHKDv0pPW30uIPzj/Ar/JePjz9PuESktZfaO7+PS1frEkJ4EJZOu4e7U4Dd7rdr5Qy49+PcDF+tGlUBrdfevXoEaXv9CYSkrQdkvX8fD4++/9n2ETYHv4Hzt9GeDH+E86nTfwF725I3WkZ/jYAAAAASUVORK5CYII=" alt="QR сайт">
-        <div class="cc-hint">Сайт группы</div>
       </a>
     </div>
   </div>
