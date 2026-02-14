@@ -83,27 +83,35 @@ body{
 .instruments{
   display:flex;
   justify-content:center;
-  gap:16px;
+  gap:24px;
   flex-wrap:wrap;
-  margin:0 0 24px;
+  margin:0 0 28px;
 }
 .inst{
   display:flex;
   flex-direction:column;
   align-items:center;
-  gap:8px;
+  gap:10px;
   width:120px;
 }
 .inst-icon{
-  width:56px;
-  height:56px;
+  width:64px;
+  height:64px;
   border-radius:50%;
   background:var(--dark);
   display:flex;
   align-items:center;
   justify-content:center;
-  color:var(--pink);
-  font-size:24px;
+  box-shadow:0 4px 16px rgba(26,26,46,0.25);
+  transition:transform .2s, box-shadow .2s;
+}
+.inst-icon:hover{
+  transform:scale(1.1);
+  box-shadow:0 6px 20px rgba(254,1,120,0.3);
+}
+.inst-icon svg{
+  width:32px;
+  height:32px;
 }
 .inst-name{
   font-family:'Raleway',sans-serif;
@@ -267,40 +275,70 @@ body{
 .plist-item .tn{flex:1;min-width:0;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
 .plist-item .td{font-size:11px;color:rgba(255,255,255,0.3);flex-shrink:0}
 
-/* ===== CONTACTS ===== */
-.contacts{
+/* ===== CONTACTS GRID ===== */
+.contacts-section{
+  margin-bottom:20px;
+}
+.contacts-title{
+  font-family:'Raleway',sans-serif;
+  font-weight:700;
+  font-size:18px;
+  color:var(--dark);
+  text-align:center;
+  margin-bottom:16px;
+}
+.contacts-grid{
+  display:flex;
+  justify-content:center;
+  gap:20px;
+  flex-wrap:wrap;
+}
+.contact-card{
+  display:flex;
+  flex-direction:column;
+  align-items:center;
+  gap:6px;
+  text-decoration:none;
+  color:var(--dark);
+  padding:16px 12px;
+  border-radius:12px;
+  background:#f8f8fb;
+  width:180px;
+  transition:transform .2s, box-shadow .2s;
+}
+.contact-card:hover{
+  transform:translateY(-2px);
+  box-shadow:0 4px 16px rgba(0,0,0,0.08);
+}
+.contact-card .cc-icon{
+  width:40px;
+  height:40px;
+  border-radius:50%;
   background:var(--dark);
-  border-radius:10px;
-  padding:24px 20px;
   display:flex;
   align-items:center;
   justify-content:center;
-  gap:30px;
-  flex-wrap:wrap;
-  margin-bottom:20px;
+  color:var(--pink);
+  font-size:18px;
+  flex-shrink:0;
 }
-.contacts-info{display:flex;flex-direction:column;gap:10px}
-.contact-row{
-  display:flex;
-  align-items:center;
-  gap:10px;
-  color:#fff;
-  text-decoration:none;
-  font-size:15px;
+.contact-card .cc-label{
+  font-family:'Raleway',sans-serif;
+  font-weight:600;
+  font-size:13px;
+  color:var(--dark);
+  text-align:center;
 }
-.contact-row:hover{color:var(--pink)}
-.contact-row i{color:var(--pink);width:20px;text-align:center;font-size:18px}
-.contacts-qr{text-align:center}
-.contacts-qr img{
-  width:100px;height:100px;
+.contact-card .cc-qr{
+  width:100px;
+  height:100px;
   border-radius:6px;
-  background:#fff;
-  padding:4px;
+  border:1px solid #eee;
 }
-.contacts-qr .qr-hint{
-  font-size:11px;
-  color:rgba(255,255,255,0.4);
-  margin-top:4px;
+.contact-card .cc-hint{
+  font-size:10px;
+  color:#aaa;
+  text-align:center;
 }
 
 /* ===== FOOTER ===== */
@@ -337,7 +375,7 @@ body{
 
 /* ===== PRINT ===== */
 @media print{
-  @page{margin:10mm 12mm}
+  @page{margin:8mm 10mm}
   *{-webkit-print-color-adjust:exact;print-color-adjust:exact}
   body{line-height:1.3}
 
@@ -347,33 +385,37 @@ body{
 
   .poster{max-width:100%;padding:0}
 
-  .band-logo{padding:16px 0 4px}
-  .band-logo svg{width:36px;height:36px}
-  .band-name{font-size:48px;letter-spacing:6px}
+  .band-logo{padding:12px 0 2px}
+  .band-logo svg{width:32px;height:32px}
+  .band-name{font-size:52px;letter-spacing:6px}
   .band-tagline{font-size:12px}
 
-  .wanted{margin:16px 0 12px}
-  .wanted-title{font-size:28px;letter-spacing:2px}
+  .wanted{margin:14px 0 12px}
+  .wanted-title{font-size:30px;letter-spacing:2px}
   .wanted-sub{font-size:13px}
 
-  .instruments{gap:12px;margin-bottom:16px}
-  .inst{width:100px}
-  .inst-icon{width:44px;height:44px;font-size:20px}
+  .instruments{gap:16px;margin-bottom:16px}
+  .inst{width:110px}
+  .inst-icon{width:52px;height:52px;box-shadow:none}
+  .inst-icon svg{width:26px;height:26px}
   .inst-name{font-size:13px}
 
-  .genres{gap:6px;margin-bottom:12px}
+  .genres{gap:8px;margin-bottom:14px}
   .genre{font-size:12px;padding:3px 12px;letter-spacing:2px}
 
   .about{font-size:13px;margin-bottom:14px;line-height:1.4}
   .divider{margin-bottom:12px}
 
-  .contacts{padding:16px;gap:20px;margin-bottom:10px}
-  .contact-row{font-size:13px}
-  .contact-row i{font-size:14px;width:18px}
-  .contacts-qr img{width:80px;height:80px}
-  .contacts-qr .qr-hint{font-size:9px}
+  .contacts-section{margin-bottom:10px}
+  .contacts-title{font-size:15px;margin-bottom:10px}
+  .contacts-grid{gap:12px}
+  .contact-card{padding:10px 8px;width:155px;gap:4px;background:#f8f8fb}
+  .contact-card .cc-icon{width:32px;height:32px;font-size:14px}
+  .contact-card .cc-label{font-size:11px}
+  .contact-card .cc-qr{width:80px;height:80px}
+  .contact-card .cc-hint{font-size:8px}
 
-  .foot{padding:6px 0;font-size:10px}
+  .foot{padding:4px 0;font-size:10px}
 }
 </style>
 </head>
@@ -401,22 +443,103 @@ body{
     <div class="wanted-sub">Присоединяйся к нашему проекту!</div>
   </div>
 
-  <!-- INSTRUMENTS -->
+  <!-- INSTRUMENTS (modern SVG icons) -->
   <div class="instruments">
     <div class="inst">
-      <div class="inst-icon"><i class="fas fa-drum"></i></div>
+      <div class="inst-icon">
+        <svg viewBox="0 0 64 64" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <!-- Drum kit -->
+          <ellipse cx="32" cy="38" rx="18" ry="8" stroke="#fe0178" stroke-width="2.5" fill="none"/>
+          <line x1="14" y1="38" x2="14" y2="48" stroke="#fe0178" stroke-width="2.5" stroke-linecap="round"/>
+          <line x1="50" y1="38" x2="50" y2="48" stroke="#fe0178" stroke-width="2.5" stroke-linecap="round"/>
+          <ellipse cx="32" cy="48" rx="18" ry="6" stroke="#fe0178" stroke-width="2" fill="none" opacity=".4"/>
+          <!-- Hi-hat -->
+          <ellipse cx="12" cy="26" rx="8" ry="2.5" stroke="#fe0178" stroke-width="2" fill="none"/>
+          <line x1="12" y1="26" x2="12" y2="48" stroke="#fe0178" stroke-width="1.5" stroke-linecap="round"/>
+          <!-- Cymbal -->
+          <ellipse cx="52" cy="22" rx="9" ry="2.5" stroke="#fe0178" stroke-width="2" fill="none"/>
+          <line x1="52" y1="22" x2="52" y2="48" stroke="#fe0178" stroke-width="1.5" stroke-linecap="round"/>
+          <!-- Sticks -->
+          <line x1="22" y1="14" x2="34" y2="34" stroke="#fe0178" stroke-width="2" stroke-linecap="round"/>
+          <line x1="42" y1="14" x2="30" y2="34" stroke="#fe0178" stroke-width="2" stroke-linecap="round"/>
+        </svg>
+      </div>
       <div class="inst-name">Барабаны</div>
     </div>
     <div class="inst">
-      <div class="inst-icon"><i class="fas fa-guitar"></i></div>
+      <div class="inst-icon">
+        <svg viewBox="0 0 64 64" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <!-- Bass guitar -->
+          <path d="M42 8L42 30" stroke="#fe0178" stroke-width="2.5" stroke-linecap="round"/>
+          <!-- Headstock -->
+          <circle cx="40" cy="10" r="2" fill="#fe0178"/>
+          <circle cx="44" cy="12" r="2" fill="#fe0178"/>
+          <circle cx="40" cy="14" r="2" fill="#fe0178"/>
+          <circle cx="44" cy="16" r="2" fill="#fe0178"/>
+          <!-- Body -->
+          <path d="M42 30C42 30 52 32 54 38C56 44 52 50 46 52C40 54 34 54 28 50C22 46 20 40 24 34C28 28 42 30 42 30Z" stroke="#fe0178" stroke-width="2.5" fill="none"/>
+          <!-- Pickup -->
+          <ellipse cx="38" cy="42" rx="5" ry="3" stroke="#fe0178" stroke-width="1.5" fill="none"/>
+          <!-- Sound hole -->
+          <circle cx="34" cy="36" r="2" fill="#fe0178" opacity=".5"/>
+          <circle cx="44" cy="46" r="2" fill="#fe0178" opacity=".5"/>
+          <!-- Strings on neck -->
+          <line x1="40.5" y1="18" x2="40.5" y2="30" stroke="#fe0178" stroke-width=".7" opacity=".5"/>
+          <line x1="43.5" y1="18" x2="43.5" y2="30" stroke="#fe0178" stroke-width=".7" opacity=".5"/>
+        </svg>
+      </div>
       <div class="inst-name">Бас-гитара</div>
     </div>
     <div class="inst">
-      <div class="inst-icon"><i class="fas fa-microphone-alt"></i></div>
+      <div class="inst-icon">
+        <svg viewBox="0 0 64 64" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <!-- Professional condenser mic -->
+          <rect x="26" y="10" width="12" height="24" rx="6" stroke="#fe0178" stroke-width="2.5" fill="none"/>
+          <!-- Grille lines -->
+          <line x1="28" y1="15" x2="36" y2="15" stroke="#fe0178" stroke-width="1" opacity=".5"/>
+          <line x1="28" y1="18" x2="36" y2="18" stroke="#fe0178" stroke-width="1" opacity=".5"/>
+          <line x1="28" y1="21" x2="36" y2="21" stroke="#fe0178" stroke-width="1" opacity=".5"/>
+          <line x1="28" y1="24" x2="36" y2="24" stroke="#fe0178" stroke-width="1" opacity=".5"/>
+          <line x1="28" y1="27" x2="36" y2="27" stroke="#fe0178" stroke-width="1" opacity=".5"/>
+          <!-- Holder arc -->
+          <path d="M20 28C20 36 25 40 32 40C39 40 44 36 44 28" stroke="#fe0178" stroke-width="2.5" fill="none" stroke-linecap="round"/>
+          <!-- Stand -->
+          <line x1="32" y1="40" x2="32" y2="52" stroke="#fe0178" stroke-width="2.5" stroke-linecap="round"/>
+          <!-- Base -->
+          <line x1="24" y1="52" x2="40" y2="52" stroke="#fe0178" stroke-width="2.5" stroke-linecap="round"/>
+          <!-- Glow dot -->
+          <circle cx="32" cy="30" r="1.5" fill="#fe0178" opacity=".6"/>
+        </svg>
+      </div>
       <div class="inst-name">Вокал</div>
     </div>
     <div class="inst">
-      <div class="inst-icon"><i class="fas fa-music"></i></div>
+      <div class="inst-icon">
+        <svg viewBox="0 0 64 64" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <!-- Synthesizer / Keyboard -->
+          <!-- Body -->
+          <rect x="6" y="24" width="52" height="20" rx="3" stroke="#fe0178" stroke-width="2.5" fill="none"/>
+          <!-- White keys -->
+          <line x1="14" y1="32" x2="14" y2="44" stroke="#fe0178" stroke-width="1.5"/>
+          <line x1="22" y1="32" x2="22" y2="44" stroke="#fe0178" stroke-width="1.5"/>
+          <line x1="30" y1="32" x2="30" y2="44" stroke="#fe0178" stroke-width="1.5"/>
+          <line x1="38" y1="32" x2="38" y2="44" stroke="#fe0178" stroke-width="1.5"/>
+          <line x1="46" y1="32" x2="46" y2="44" stroke="#fe0178" stroke-width="1.5"/>
+          <line x1="54" y1="32" x2="54" y2="44" stroke="#fe0178" stroke-width="1.5"/>
+          <!-- Key separator line -->
+          <line x1="6" y1="32" x2="58" y2="32" stroke="#fe0178" stroke-width="1.5"/>
+          <!-- Black keys -->
+          <rect x="11" y="24" width="4" height="9" rx="1" fill="#fe0178" opacity=".7"/>
+          <rect x="19" y="24" width="4" height="9" rx="1" fill="#fe0178" opacity=".7"/>
+          <rect x="35" y="24" width="4" height="9" rx="1" fill="#fe0178" opacity=".7"/>
+          <rect x="43" y="24" width="4" height="9" rx="1" fill="#fe0178" opacity=".7"/>
+          <rect x="51" y="24" width="4" height="9" rx="1" fill="#fe0178" opacity=".7"/>
+          <!-- Controls -->
+          <circle cx="12" cy="28" r="1.5" stroke="#fe0178" stroke-width="1" fill="none" opacity=".0"/>
+          <!-- Pitch wheel -->
+          <rect x="8" y="26" width="2" height="4" rx="1" fill="#fe0178" opacity=".5"/>
+        </svg>
+      </div>
       <div class="inst-name">Клавиши</div>
     </div>
   </div>
@@ -445,9 +568,9 @@ body{
       <img src="./3.jpg" alt="ПРО-ХИТ">
       <img src="./4.jpg" alt="ПРО-ХИТ">
       <img src="./5.jpg" alt="ПРО-ХИТ">
-      <img src="./media/1.jpg" alt="ПРО-ХИТ">
-      <img src="./media/2.jpg" alt="ПРО-ХИТ">
-      <img src="./media/3.jpg" alt="ПРО-ХИТ">
+      <img src="./6.jpg" alt="ПРО-ХИТ">
+      <img src="./7.jpg" alt="ПРО-ХИТ">
+      <img src="./8.jpg" alt="ПРО-ХИТ">
     </div>
     <div class="gallery-hint"><i class="fas fa-hand-point-left"></i> листайте</div>
   </div>
@@ -504,17 +627,31 @@ body{
     </div>
   </div>
 
-  <!-- CONTACTS -->
-  <div class="contacts">
-    <div class="contacts-info">
-      <a href="tel:+79151515011" class="contact-row"><i class="fas fa-phone"></i> +7 (915) 151-50-11</a>
-      <a href="https://t.me/prohit_group" class="contact-row"><i class="fab fa-telegram-plane"></i> @prohit_group</a>
-      <a href="#" class="contact-row"><i class="fab fa-vk"></i> ПРО•ХИТ</a>
-      <a href="https://xn----ptbqdfpt.xn--p1ai" class="contact-row"><i class="fas fa-globe"></i> про-хит.рф</a>
-    </div>
-    <div class="contacts-qr">
-      <img src="data:image/png;base64,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" alt="QR про-хит.рф">
-      <div class="qr-hint">про-хит.рф</div>
+  <!-- CONTACTS with QR codes -->
+  <div class="contacts-section">
+    <div class="contacts-title">Свяжитесь с нами</div>
+    <div class="contacts-grid">
+      <!-- Phone -->
+      <a href="tel:+79151515011" class="contact-card">
+        <div class="cc-icon"><i class="fas fa-phone"></i></div>
+        <div class="cc-label">+7 (915) 151-50-11</div>
+        <img class="cc-qr" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAUoAAAFKAQAAAABTUiuoAAACdElEQVR4nO1bQY6kMAysmEh9BGkeME+BH8yX4SnzgJXgOBLIK9tJN7OHFXvYxdrYBwY6dSjJsqviZBLjYix0FQkElAKKgGJLJSb5YRkOec9IaQDqUnbC9WrQ/wvtWMPyNm0Pxsg7mD8zMOrS6oZrQIFSPb3kaD0SFi2oQZY0g564XgpqA5omdIxx7ZjnWwj8JgitQ/O3r04c4ldibADG9e0fEKCA4g+zxfaxDWB5aE9M8gB6WdtccA0oAVATmJLWlnbCNG1iMMRlnBSMPHBtG5pL9WhsR+LlfQeW969kpuOvE6CA4nowvzy6tj4Vr55PD571QXdzpeahsEQ9TWDZeWl6flmlu7lS81Awy07Y3LrZit32xJqjujuObLnJVi0mqSOrqFk3XfxsgjLumG/nSs1DUSSrqlVVsO+SFbrlq7ZQ8qaNsTTBKlk2Spxv50rNQ2G69WyHp56oalW6Y2TLUbbM9Wmo3yguo8pYuAwnUJRUnLZa6gn1UzuhpCx0y9dUd8sytzhkoCtv2xsn9KtMNfacgLw74EoBhU5w5QSrjANVvCRvM45kaYzTSF+Tp1kPIs0d1naob2XIEbrlJVvV9dWyKlpmDv55D4BDt+AB2vPzIkZKxW/U2rImuMQtGo93njo739LfsMidp8kX18ahWUrI7LocR4odlL/9nsUY4nzmT3dzpYDidOdJTpGltpg/H1xuFppPlHw64doyFOYozP+9PKFJlhoMu5zB4TLgDXpoN5ThRTnpV/HiWa5pwBlXtH7nCapbQ8K4HsDy8UNWH+yFKzUPza+Kslg+1GAMp2kUdAaF27lS89AU/xGEgF4OCigux0/bnqz020sz4QAAAABJRU5ErkJggg==" alt="QR Телефон">
+        <div class="cc-hint">Позвонить</div>
+      </a>
+      <!-- Telegram -->
+      <a href="https://t.me/prohit_group" class="contact-card">
+        <div class="cc-icon"><i class="fab fa-telegram-plane"></i></div>
+        <div class="cc-label">@prohit_group</div>
+        <img class="cc-qr" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAXIAAAFyAQAAAADAX2ykAAADGUlEQVR4nO1cXYqkQAz+Ugr9WMIeYI9i32yYm+lR+gAL+digZElS1e3Mgq2w22thvgfHMt9DICSVvx5i7EEfdtEB568jvJB/h/PXEc7HHynhOhKhbwCiZib09q1GltfH1H8Xwsn4YB4qVqDVP3LsoN8mky4FR9M/OH8Dn8w5xX/1eMVsbxB3Nhe/LvjbEZx/HH6cxLTJp9Grzf+nPhsQtpBOzK+Xh1GcNU52oJbnGi0fW//g/A32ZTtEloA8gNpOjVwxAdVkAoxH1D84/yV/tvQYkFz546Y3cX60g1zCKm+Oqv8ehJPx6+ScinEmBsR14wTumwrof07Zu9+iT3D+366PDBO0DNKovCiNEKVw0iLJ66Ni7QsJw8z6EHQi6MTSnXhyKodFcDT9g/O32BeSNbcPh7UHVCr2Vanbt1x+e7swfzYzmRN3ml9F5pRVvV2fzQjbqafkI3UgJU3WIC2h2W7iVr/pxawtTL9/C+TDUit90zAsXpvyK07HbG63b7n5Fef7t/0yboAlXtnSbt9i8yvOWbM5bE6o2BJrSbw0nT6a/sH5G/pXaG86IVIzzsSfdMlNjThJz1Iow1H134NwMj6yhz48WY1sVS9SupXuZI/PRfJjqn+1ycydjX5TQIaZdph9/lsuf5ZdnIvdtSlN1kl/lHGw7ec8Zg5H1H8Pwsn4WLaen22qZ1XEj+rJ86ty96+6fOGmNHnRmK4enUq/f8u1LwR212qv6su4gbNPu31L5UcdCMpqXbyTTn3RN+K6cuvqfP/D66MC+bXlV4iyixN/1dw3g1mVTAB5ET+XxZ3j6R+cvw5e4LnrbJjydrS6rudXBfKRjZemRimdfk6CkXrS3n8uNj5XVgIRxh+TLcnK6hVjTDvuLItZb9InOP8f8Mk6GPFORJJaPapetNK6siG/9zcK5OM5HFKrpjZGHgez7efkwZLH59L5pPWRtbNGLY0uaZPD/bdcPi+WODRcS0BurWd5J7pa43I6rP7bEU5a/xr0Byk6+p3zD1dGfdHq2Ovf8vjk/59hFWFd/Aecv47wQv4dzscqfgO6IVN/yNCOhwAAAABJRU5ErkJggg==" alt="QR Telegram">
+        <div class="cc-hint">Telegram</div>
+      </a>
+      <!-- Site -->
+      <a href="https://xn----ptbqdfpt.xn--p1ai" class="contact-card">
+        <div class="cc-icon"><i class="fas fa-globe"></i></div>
+        <div class="cc-label">про-хит.рф</div>
+        <img class="cc-qr" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAXIAAAFyAQAAAADAX2ykAAADLElEQVR4nO1cQW6sMAy1Q6QuQZoD9Chwgx6pZ/o3GI7SA4wEy5FA/no2iWi/xMDiV0H4LRBM3sLS67MTJykLHUEfDtGJnL+N8GL8J5y/jXA9/sgLujES9c2M90jMeMNvaTyWGf8hhAvyK1EQ1U8mgshUTyQyVCJ3kFodH34rniMIh9h0UT6bOeHVT5lI7njraGbqG4zD4t0vxrMf4QD3ivy4/qiFmMaGmOoHnNz8fjzB+f9P3/E2Ud9UE9H4Jqxyt1J2/MH5O/QV+6ifLISs3P7B53ibpGfIXYMwlhh/cP5L/mzTY3NtN76tLMufmFX1Ot6UGv8RhIvx42JOxTjDvxNJjxoMSP8+JXcXGX9w/jZkwYRlEKbO+NHeal0ziVA7VPaQe2nxB+dvImqZxYSZhMabcCtzlL55YBJNgH5WtiYuL/7g/G1Itq62MUzGdiBzslhXQ6Wtxf170vxM2rBSQe/5bTWgmuPb9T0Zn346FJ9LER6WSpxEdn3Pxyez6ZKQK1m1nsWkTSa2dnRp8Qfn7/Fvm7RMds6zZlF4/T21vgLrLhk4F+EMy9Su7xn5ZBJqwbWdQk3DqmWtj+nbn0Bp8Qfn7+g/s616P9SnhN5VxCZD1AdWwoLp1q3A+IPzX+o7R+kZIn9BUJpZ+o8HCzYJ8TAK3F1g/MH5u/obg1bdVH+16pIm5FSOvf6eWV/SZRBgbQxKy6U2d7K8/p6RT+mYVT6EpYtgRa3G1jlXdndp8Qfn7+BzVz9xVpJ51Y4m3QlOqfkbfz+C8wvwL9mbrnVXnY4qLZcsU3t+Ph+fLPlaE0uVzk3oVWvD6+9Z+SQrrDpZeRNpWOrvMp0uLf7g/G3IIl5uQtv86tujzcZ2fU/Ir8y9NqFq5clJ85nT+mjmguM/gnDl+wt1mjXjElJi4HRlg9SsF1fKjH8/wpXPt9McBYcoiWoYeGxwJguHKDv0pPW30uIPzj/Ar/JePjz9PuESktZfaO7+PS1frEkJ4EJZOu4e7U4Dd7rdr5Qy49+PcDF+tGlUBrdfevXoEaXv9CYSkrQdkvX8fD4++/9n2ETYHv4Hzt9GeDH+E86nTfwF725I3WkZ/jYAAAAASUVORK5CYII=" alt="QR сайт">
+        <div class="cc-hint">Сайт группы</div>
+      </a>
     </div>
   </div>
 
