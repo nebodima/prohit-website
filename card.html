@@ -48,17 +48,13 @@ h2{
 .card::before{
   content:"";
   position:absolute;inset:0;
-  background:
-    radial-gradient(ellipse at 30% 0%, rgba(254,1,120,0.03) 0%, transparent 60%),
-    linear-gradient(180deg, #111 0%, #0a0a0a 100%);
+  background:#000;
   z-index:0;
 }
 .card::after{
   content:"";
   position:absolute;inset:0;
-  background:url("data:image/svg+xml,%3Csvg width='4' height='4' xmlns='http://www.w3.org/2000/svg'%3E%3Crect width='1' height='1' fill='rgba(255,255,255,0.012)'/%3E%3C/svg%3E") repeat;
-  z-index:1;
-  pointer-events:none;
+  display:none;
 }
 .card-inner{
   position:relative;z-index:2;
