@@ -1,91 +1,76 @@
 <!DOCTYPE html>
-<html lang="ru">
-<head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1">
-<title>О нас — ПРО•ХИТ</title>
-<link rel="icon" type="image/svg+xml" href="./favicon.svg">
+<html xmlns="http://www.w3.org/1999/xhtml" class="j4" xml:lang="ru" lang="ru" dir="ltr"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+
+	<meta name="generator" content="ПРО•ХИТ">
+	<meta name="description" content="О нас — ПРО•ХИТ. Музыканты проекта, живая музыка из Прокшино и Испанских кварталов.">
+	<title>О нас — ПРО•ХИТ | про-хит.рф</title>
+	<link rel="icon" type="image/svg+xml" href="./favicon.svg">
 <link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Poiret+One&family=Raleway:wght@300;400;700;900&family=Roboto:wght@400;500&family=Comfortaa:wght@400;600&display=swap" rel="stylesheet">
-<link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css" rel="stylesheet">
+	<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+	<link rel="preconnect" href="https://cdnjs.cloudflare.com">
+	<link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&family=Raleway:wght@300;400;500;600;700&family=Lobster+Two:ital@0;1&family=Teko:wght@400;500&family=Poiret+One&display=block" rel="stylesheet">
+	<link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css" rel="stylesheet">
+	<link href="./site.css" rel="stylesheet">
+	<link href="./button.min.css" rel="stylesheet">
+	<link href="./style.css" rel="stylesheet">
+	<link href="./style(1).css" rel="stylesheet">
+	<link href="./style(2).css" rel="stylesheet">
+	<link href="./style(3).css" rel="stylesheet">
+	<link href="./site(1).css" rel="stylesheet">
+	<link href="./module.min.css" rel="stylesheet">
+	<link href="./style(4).css" rel="stylesheet">
+	<link href="./style(5).css" rel="stylesheet">
+	<link href="./template.css" rel="stylesheet">
+	<link href="./12.css" rel="stylesheet">
+	<link href="./custom.css" rel="stylesheet">
+<script src="./jquery.min.js"></script>
+	<script src="./jquery-noconflict.min.js"></script>
+	<script src="./jquery-migrate.min.js"></script>
+	<script src="./core.min.js"></script>
+	<script src="./bootstrap-es5.min.js" defer=""></script>
+	<script src="./base(1).js"></script>
+	<script src="./theme.js"></script>
+	<script src="./site.js"></script>
+	<script src="./megamenu.js"></script>
+
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=yes">
+  <meta name="HandheldFriendly" content="true">
+  <meta name="apple-mobile-web-app-capable" content="YES">
+  <script src="./moduletitle.js"></script>
+  <script src="./scrollprogresbar.js"></script>
+
 <style>
-*{margin:0;padding:0;box-sizing:border-box}
-:root{
-  --pink:#fe0178;
-  --pink-dark:#d0006a;
-  --dark:#1a1a2e;
-  --dark2:#16213e;
-  --gray:#999;
-  --text:#e0e0e0;
-}
-body{
-  font-family:'Roboto',sans-serif;
-  background:var(--dark);
-  color:var(--text);
-  min-height:100vh;
-  line-height:1.6;
-}
-a{color:var(--pink);text-decoration:none}
-a:hover{color:#fff}
-
-/* ===== HEADER ===== */
-.site-header{
-  background:rgba(10,10,30,0.95);
-  border-bottom:1px solid rgba(254,1,120,0.15);
-  padding:14px 0;
-  position:sticky;top:0;z-index:100;
-  backdrop-filter:blur(12px);
-}
-.header-inner{
-  max-width:1100px;margin:0 auto;padding:0 20px;
-  display:flex;align-items:center;justify-content:space-between;
-}
-.logo{
-  font-family:'Poiret One',cursive;
-  font-size:36px;letter-spacing:4px;
-  color:var(--pink);text-decoration:none;
-}
-.logo b{color:#fff}
-.nav-links{display:flex;gap:24px;flex-wrap:wrap}
-.nav-links a{
-  font-family:'Raleway',sans-serif;
-  font-size:14px;font-weight:700;
-  text-transform:uppercase;letter-spacing:1px;
-  color:var(--gray);transition:color .2s;
-}
-.nav-links a:hover,.nav-links a.active{color:#fff}
-
-/* ===== HERO ===== */
-.hero{
+/* ===== ABOUT PAGE CONTENT ===== */
+.about-hero{
   text-align:center;
   padding:50px 20px 30px;
 }
-.hero h1{
+.about-hero h1{
   font-family:'Raleway',sans-serif;
   font-weight:900;font-size:48px;
   text-transform:uppercase;
   letter-spacing:3px;
   margin-bottom:8px;
+  color:#fff;
 }
-.hero h1 span{color:var(--pink)}
-.hero .subtitle{
+.about-hero h1 span{color:#fe0178}
+.about-hero .subtitle{
   font-family:'Comfortaa',sans-serif;
-  font-size:16px;color:var(--gray);
+  font-size:16px;color:#999;
   letter-spacing:2px;
 }
 
 /* ===== MEMBER CARD ===== */
-.members{
+.members-section{
   max-width:900px;margin:0 auto;
   padding:20px 20px 60px;
 }
 .member-card{
-  display:flex;gap:40px;
-  background:var(--dark2);
-  border-radius:16px;
+  display:flex;gap:0;
+  border-radius:5px;
   overflow:hidden;
   border:1px solid rgba(254,1,120,0.12);
+  background:rgba(22,33,62,0.5);
   transition:border-color .3s;
 }
 .member-card:hover{
@@ -108,7 +93,7 @@ a:hover{color:#fff}
   top:0;left:0;display:block;z-index:5;pointer-events:none;
 }
 .member-info{
-  flex:1;padding:40px 40px 40px 0;
+  flex:1;padding:40px;
   display:flex;flex-direction:column;justify-content:center;
 }
 .member-name{
@@ -117,10 +102,11 @@ a:hover{color:#fff}
   text-transform:uppercase;
   letter-spacing:1px;
   margin-bottom:6px;
+  color:#fff;
 }
 .member-role{
   font-family:'Comfortaa',sans-serif;
-  font-size:16px;color:var(--pink);
+  font-size:16px;color:#fe0178;
   font-weight:600;
   margin-bottom:24px;
   display:flex;align-items:center;gap:10px;
@@ -128,7 +114,6 @@ a:hover{color:#fff}
 .member-role i{font-size:14px}
 .member-bio{
   font-size:15px;line-height:1.8;
-  color:var(--text);
   margin-bottom:24px;
 }
 .member-tags{
@@ -136,28 +121,28 @@ a:hover{color:#fff}
 }
 .member-tag{
   padding:6px 16px;
-  border:1px solid var(--pink);
+  border:1px solid #fe0178;
   border-radius:20px;
   font-size:13px;font-weight:500;
-  color:var(--pink);
+  color:#fe0178;
   font-family:'Raleway',sans-serif;
   letter-spacing:0.5px;
 }
 .member-location{
   margin-top:20px;
-  font-size:14px;color:var(--gray);
+  font-size:14px;color:#999;
   display:flex;align-items:center;gap:8px;
 }
-.member-location i{color:var(--pink);font-size:13px}
+.member-location i{color:#fe0178;font-size:13px}
 
 /* ===== BAND INFO SECTION ===== */
-.band-info{
+.band-info-section{
   max-width:900px;margin:0 auto;
   padding:0 20px 50px;
 }
 .info-block{
-  background:var(--dark2);
-  border-radius:16px;
+  background:rgba(22,33,62,0.5);
+  border-radius:5px;
   padding:40px;
   border:1px solid rgba(254,1,120,0.12);
 }
@@ -167,11 +152,11 @@ a:hover{color:#fff}
   text-transform:uppercase;
   letter-spacing:2px;
   margin-bottom:20px;
+  color:#fff;
 }
-.info-block h2 span{color:var(--pink)}
+.info-block h2 span{color:#fe0178}
 .info-block p{
   font-size:15px;line-height:1.8;
-  color:var(--text);
   margin-bottom:16px;
 }
 .info-block .genre-tags{
@@ -181,10 +166,10 @@ a:hover{color:#fff}
 .info-block .genre-tag{
   padding:6px 18px;
   background:rgba(254,1,120,0.1);
-  border:1px solid var(--pink);
+  border:1px solid #fe0178;
   border-radius:20px;
   font-size:13px;font-weight:600;
-  color:var(--pink);
+  color:#fe0178;
   font-family:'Raleway',sans-serif;
 }
 .rondo-link{
@@ -192,62 +177,95 @@ a:hover{color:#fff}
   margin-top:24px;
   padding:16px 20px;
   background:rgba(254,1,120,0.05);
-  border-radius:12px;
+  border-radius:8px;
   border:1px solid rgba(254,1,120,0.15);
 }
 .rondo-link img{width:48px;height:48px;object-fit:contain;border-radius:8px}
-.rondo-link span{font-size:14px;color:var(--text)}
-.rondo-link a{font-weight:700}
-
-/* ===== FOOTER ===== */
-.site-footer{
-  text-align:center;
-  padding:30px 20px;
-  border-top:1px solid rgba(254,1,120,0.1);
-  font-size:13px;color:var(--gray);
-}
-.site-footer a{color:var(--pink)}
+.rondo-link span{font-size:14px}
+.rondo-link a{font-weight:700;color:#fe0178}
 
 /* ===== MOBILE ===== */
 @media(max-width:700px){
-  .hero h1{font-size:32px}
+  .about-hero h1{font-size:32px}
   .member-card{flex-direction:column}
   .member-photo{flex:none;height:300px}
-  .member-info{padding:30px 24px}
+  .member-info{padding:24px}
   .member-name{font-size:26px}
-  .nav-links{gap:14px}
-  .nav-links a{font-size:12px}
-  .logo{font-size:28px}
   .info-block{padding:24px}
 }
 </style>
 </head>
-<body>
 
-<!-- HEADER -->
-<header class="site-header">
-  <div class="header-inner">
-    <a href="./index.html" class="logo">ПРО•<b>ХИТ</b></a>
-    <nav class="nav-links">
-      <a href="./index.html">Главная</a>
-      <a href="./about.html" class="active">О нас</a>
-      <a href="./index.html#repertoire">Репертуар</a>
-      <a href="./flyer.html">Набор</a>
-      <a href="https://t.me/PROKSHINOHIT" target="_blank">Контакты</a>
-    </nav>
+<body class="site-default navigation-default theme-default layout-default nav-breakpoint-lg oc-desktop com_content view-featured loaded-bs5 dot-overlay" data-jver="4" data-top-t4-scroll-progress-bar="over" data-top-t4-topbar="under" data-top-t4-header="under" style="overflow-x: hidden;">
+
+  <main>
+    <div class="t4-wrapper c-offcanvas-content-wrap">
+      <div class="t4-content">
+        <div class="t4-content-inner"><a name="top-anchor"></a>
+
+<div id="t4-topbar" class="t4-section  t4-topbar  topbar d-none d-sm-block d-md-block d-lg-block d-xl-block">
+<div class="t4-section-inner container"><div class="t4-row row">
+<div class="t4-col topbar-l col-sm d-none d-sm-block d-md-block d-lg-block d-xl-block topbar-l">
+
+<div class="custom">
+	<ul class="top_social_icons">
+<li><a href="https://t.me/PROKSHINOHIT" target="_blank"><i class="fab fa-telegram-plane"> </i></a></li>
+<li><a href="#" target="_blank"><i class="fab fa-youtube"></i></a></li>
+<li><a href="#" target="_blank"><i class="fab fa-vk"></i></a></li>
+</ul></div>
+
+</div>
+</div></div>
+</div>
+
+<div id="t4-header" class="t4-section  t4-header  t4-sticky">
+<header class="header-block header-block-2">
+  <div class="container-xxl">
+    <div class="header-wrap d-flex align-items-center justify-content-between collapse-static">
+      <div class="navbar-brand logo-image">
+    <a href="./index.html" title="ПРО•ХИТ — Музыка нашего района | про-хит.рф">
+          <span class="logo-img" style="font-family:'Poiret One',cursive;font-size:42px;color:#fe0178;letter-spacing:5px;white-space:nowrap"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32" width="52" height="52" style="vertical-align:middle;margin-right:8px;margin-top:-6px"><path d="M16 4C9.4 4 4 9.4 4 16v6c0 1.1.9 2 2 2h2c1.1 0 2-.9 2-2v-4c0-1.1-.9-2-2-2H6.1C6.5 10.2 10.8 6 16 6s9.5 4.2 9.9 9.6H24c-1.1 0-2 .9-2 2v4c0 1.1.9 2 2 2h2c1.1 0 2-.9 2-2v-6c0-6.6-5.4-12-12-12z" fill="#fe0178"/><rect x="5" y="16" width="4" height="8" rx="1.5" fill="#fe0178"/><rect x="23" y="16" width="4" height="8" rx="1.5" fill="#fe0178"/></svg>ПРО•<span style="color:#fff">ХИТ</span></span>
+    </a>
+      </div>
+      <div class="t4-navbar collapse-static">
+
+<nav class="navbar navbar-expand-lg">
+<button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#t4-megamenu-about" aria-controls="t4-megamenu-about" aria-expanded="false" aria-label="Toggle navigation">
+  <span class="navbar-toggler-icon"></span>
+</button>
+	<div id="t4-megamenu-about" class="t4-megamenu collapse navbar-collapse slide animate" data-duration="400">
+
+<ul class="nav navbar-nav level0">
+<li class="nav-item has-icon has-caption" data-level="1"><a href="./index.html" itemprop="url" class="nav-link"><span itemprop="name"><i class="icon-n-earphone" aria-hidden="true"></i><span class="menu-item-title">Главная</span><span class="menu-item-caption"><small class="mega-caption">главная</small></span></span></a></li>
+<li class="nav-item current active has-icon has-caption" data-level="1"><a href="./about.html" itemprop="url" class="nav-link"><span itemprop="name"><i class="icon-n-earphone" aria-hidden="true"></i><span class="menu-item-title">О нас</span><span class="menu-item-caption"><small class="mega-caption">группа</small></span></span></a></li>
+<li class="nav-item has-icon has-caption" data-level="1"><a href="./index.html#repertoire" itemprop="url" class="nav-link"><span itemprop="name"><i class="icon-n-earphone" aria-hidden="true"></i><span class="menu-item-title">Репертуар</span><span class="menu-item-caption"><small class="mega-caption">музыка</small></span></span></a></li>
+<li class="nav-item dropdown parent has-icon has-caption" data-level="1"><a href="./index.html#venues" itemprop="url" class="nav-link dropdown-toggle" role="button" aria-haspopup="true" aria-expanded="false"><span itemprop="name"><i class="icon-n-earphone" aria-hidden="true"></i><span class="menu-item-title">Сцены</span><span class="menu-item-caption"><small class="mega-caption">площадки</small></span></span><i class="item-caret"></i></a>
+<ul class="dropdown-menu mega-dropdown-menu">
+<li class="nav-item" data-level="2"><a href="#" itemprop="url" class="dropdown-item"><span itemprop="name"><span class="menu-item-title">GosGusPub</span></span></a></li>
+<li class="nav-item" data-level="2"><a href="#" itemprop="url" class="dropdown-item"><span itemprop="name"><span class="menu-item-title">La Vida Loca</span></span></a></li>
+<li class="nav-item" data-level="2"><a href="#" itemprop="url" class="dropdown-item"><span itemprop="name"><span class="menu-item-title">Bebo Chito</span></span></a></li>
+<li class="nav-item" data-level="2"><a href="#" itemprop="url" class="dropdown-item"><span itemprop="name"><span class="menu-item-title">Птицы и Пчёлы</span></span></a></li>
+</ul></li>
+<li class="nav-item has-icon has-caption" data-level="1"><a href="./flyer.html" itemprop="url" class="nav-link"><span itemprop="name"><i class="icon-n-earphone" aria-hidden="true"></i><span class="menu-item-title">Набор</span><span class="menu-item-caption"><small class="mega-caption">музыканты</small></span></span></a></li>
+<li class="nav-item has-icon has-caption" data-level="1"><a href="https://t.me/PROKSHINOHIT" target="_blank" itemprop="url" class="nav-link"><span itemprop="name"><i class="icon-n-earphone" aria-hidden="true"></i><span class="menu-item-title">Контакты</span><span class="menu-item-caption"><small class="mega-caption">telegram</small></span></span></a></li>
+</ul>
+
+</div>
+</nav>
+      </div>
+    </div>
   </div>
 </header>
+</div>
 
-<!-- HERO -->
-<section class="hero">
+<!-- ===== PAGE CONTENT ===== -->
+
+<section class="about-hero">
   <h1>О <span>нас</span></h1>
   <div class="subtitle">Музыканты проекта ПРО•ХИТ</div>
 </section>
 
-<!-- MEMBERS -->
-<section class="members">
-
-  <!-- Дмитрий Краснопольский -->
+<section class="members-section">
   <div class="member-card">
     <div class="member-photo">
       <img src="./6.jpg" alt="Дмитрий Краснопольский">
@@ -272,11 +290,9 @@ a:hover{color:#fff}
       </div>
     </div>
   </div>
-
 </section>
 
-<!-- BAND INFO -->
-<section class="band-info">
+<section class="band-info-section">
   <div class="info-block">
     <h2>О <span>проекте</span></h2>
     <p>
@@ -298,10 +314,99 @@ a:hover{color:#fff}
   </div>
 </section>
 
-<!-- FOOTER -->
-<footer class="site-footer">
-  <p>&copy; 2026 ПРО•ХИТ &nbsp;|&nbsp; <a href="https://xn----ptbqdfpt.xn--p1ai">про-хит.рф</a> &nbsp;|&nbsp; Прокшино &bull; Испанские кварталы &bull; Москва</p>
-</footer>
+<!-- ===== FOOTER ===== -->
+<div id="t4-footer" class="t4-section  t4-footer">
+<div class="t4-section-inner container"><div class="t4-col footerblock"><div id="t4-footerblock" class="t4-section  t4-footerblock">
+<div class="t4-section-inner container">
+<div class="suprafooter-wrap">
+<div class="t4-row row">
+</div>
+</div>
+</div>
+<div class="footnav-wrap">
+<div class="t4-row row">
+<div class="t4-col footerblock-1 col-12 col-sm-12 col-md-6 col-lg-3">
+<div class="t4-module module "><div class="module-inner"><div class="module-ct">
+<div class="custom">
+	<p><span style="font-family:'Poiret One',cursive;font-size:30px;color:#fe0178;letter-spacing:4px"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32" width="38" height="38" style="vertical-align:middle;margin-right:6px;margin-top:-5px"><path d="M16 4C9.4 4 4 9.4 4 16v6c0 1.1.9 2 2 2h2c1.1 0 2-.9 2-2v-4c0-1.1-.9-2-2-2H6.1C6.5 10.2 10.8 6 16 6s9.5 4.2 9.9 9.6H24c-1.1 0-2 .9-2 2v4c0 1.1.9 2 2 2h2c1.1 0 2-.9 2-2v-6c0-6.6-5.4-12-12-12z" fill="#fe0178"/><rect x="5" y="16" width="4" height="8" rx="1.5" fill="#fe0178"/><rect x="23" y="16" width="4" height="8" rx="1.5" fill="#fe0178"/></svg>ПРО•<span style="color:#fff">ХИТ</span></span></p>
+<p>&nbsp;</p>
+<p>Живая музыка от ПРО•ХИТ на лучших площадках Испанских кварталов и Прокшино.</p>
+<p style="margin-top:10px;opacity:0.7;font-size:14px;">про-хит.рф</p>
+<ul class="as-social bottom_social_icons">
+<li><a href="https://t.me/PROKSHINOHIT" target="_blank"><i class="fab fa-telegram-plane"></i></a></li>
+<li><a href="#" target="_blank"><i class="fab fa-youtube"></i></a></li>
+<li><a href="#" target="_blank"><i class="fab fa-vk"></i></a></li>
+</ul></div>
+</div></div></div>
+</div>
+<div class="t4-col footerblock-2 col-12 col-sm-12 col-md-6 col-lg-3">
+<div class="t4-module module "><div class="module-inner"><h3 class="module-title "><span>Быстрые ссылки</span></h3><div class="module-ct"><nav class="navbar">
+<ul class="nav navbar-nav ">
+<li class="nav-item"><a href="./index.html" itemprop="url" class="nav-link"><span itemprop="name"><span class="menu-item-title">Главная</span></span></a></li>
+<li class="nav-item"><a href="./about.html" itemprop="url" class="nav-link"><span itemprop="name"><span class="menu-item-title">О нас</span></span></a></li>
+<li class="nav-item"><a href="./index.html#repertoire" itemprop="url" class="nav-link"><span itemprop="name"><span class="menu-item-title">Репертуар</span></span></a></li>
+<li class="nav-item"><a href="./flyer.html" itemprop="url" class="nav-link"><span itemprop="name"><span class="menu-item-title">Набор музыкантов</span></span></a></li>
+<li class="nav-item"><a href="https://t.me/PROKSHINOHIT" target="_blank" itemprop="url" class="nav-link"><span itemprop="name"><span class="menu-item-title">Написать нам</span></span></a></li></ul></nav></div></div></div>
+</div>
+<div class="t4-col footerblock-3 col-12 col-sm-12 col-md-6 col-lg-3">
+<div class="t4-module module "><div class="module-inner"><h3 class="module-title "><span>Наши сцены</span></h3><div class="module-ct"><nav class="navbar">
+<ul class="nav navbar-nav ">
+<li class="nav-item"><a href="#" itemprop="url" class="nav-link"><span itemprop="name"><span class="menu-item-title">GosGusPub</span></span></a></li>
+<li class="nav-item"><a href="#" itemprop="url" class="nav-link"><span itemprop="name"><span class="menu-item-title">La Vida Loca</span></span></a></li>
+<li class="nav-item"><a href="#" itemprop="url" class="nav-link"><span itemprop="name"><span class="menu-item-title">Bebo Chito</span></span></a></li>
+<li class="nav-item"><a href="#" itemprop="url" class="nav-link"><span itemprop="name"><span class="menu-item-title">Птицы и Пчёлы</span></span></a></li></ul></nav></div></div></div>
+</div>
+<div class="t4-col footerblock-4 col-12 col-sm-12 col-md-6 col-lg-3">
+<div class="t4-module module "><div class="module-inner"><h3 class="module-title "><span>Мы в Telegram</span></h3><div class="module-ct">
+<div class="custom">
+	<p><a href="https://t.me/PROKSHINOHIT" target="_blank" class="btn btn-primary" style="display:inline-block;padding:12px 30px;font-size:16px;"><i class="fab fa-telegram-plane"></i>&nbsp; Канал @PROKSHINOHIT</a></p>
+<p style="margin-top:10px"><a href="https://t.me/prohit_group" target="_blank" class="btn btn-primary" style="display:inline-block;padding:10px 24px;font-size:14px;opacity:0.85"><i class="fab fa-telegram-plane"></i>&nbsp; Чат группы</a></p></div>
+</div></div></div>
+</div>
+</div>
+</div></div>
+</div></div></div>
+</div>
 
-</body>
-</html>
+<div id="t4-copyright" class="t4-section  t4-copyright  copyright">
+<div class="t4-section-inner container"><div class="t4-row row">
+<div class="t4-col copyright-l col-sm copyright-l">
+
+<div class="custom">
+	<p>&copy; 2026 ПРО•ХИТ | про-хит.рф | Прокшино &bull; Испанские кварталы &bull; Москва</p></div>
+
+</div>
+<div class="t4-col copyright-r col-sm copyright-r">
+<nav class="navbar">
+<ul class="nav navbar-nav ">
+<li class="nav-item"><a href="./index.html" itemprop="url" class="nav-link"><span itemprop="name"><span class="menu-item-title">Главная</span></span></a></li>
+<li class="nav-item current active"><a href="./about.html" itemprop="url" class="nav-link"><span itemprop="name"><span class="menu-item-title">О нас</span></span></a></li>
+<li class="nav-item"><a href="./index.html#repertoire" itemprop="url" class="nav-link"><span itemprop="name"><span class="menu-item-title">Репертуар</span></span></a></li>
+<li class="nav-item"><a href="./flyer.html" itemprop="url" class="nav-link"><span itemprop="name"><span class="menu-item-title">Набор</span></span></a></li></ul></nav>
+</div>
+</div></div>
+</div><a href="javascript:" id="back-to-top"><i class="fas fa-chevron-up"></i></a>
+        </div>
+      </div>
+    </div>
+  </main>
+
+<style>.ph{font-family:'Poiret One',cursive;letter-spacing:2px}</style>
+<script>
+document.addEventListener('DOMContentLoaded',function(){
+  var walk=document.createTreeWalker(document.body,NodeFilter.SHOW_TEXT,null,false);
+  var nodes=[];
+  while(walk.nextNode()) nodes.push(walk.currentNode);
+  nodes.forEach(function(n){
+    if(n.nodeValue.indexOf('ПРО•ХИТ')===-1) return;
+    var p=n.parentNode;
+    if(p.classList&&p.classList.contains('ph')) return;
+    if(p.tagName==='SCRIPT'||p.tagName==='STYLE') return;
+    var span=document.createElement('span');
+    span.innerHTML=n.nodeValue.replace(/ПРО•ХИТ/g,'<span class="ph">ПРО•ХИТ</span>');
+    p.replaceChild(span,n);
+  });
+});
+</script>
+
+</body></html>
