@@ -1071,11 +1071,11 @@ ul.top_social_icons li a{margin:0 10px 0 0;display:grid;place-items:center;posit
   width:min(710px,90vw)!important;
 }
 body.dot-overlay .n2-ss-slide-background::after,
-body.dot-overlay .jtcs-image::after,
+body.dot-overlay .jt-imagecover::after,
 body.dot-overlay .testimonial_block-image::after,
 body.dot-overlay .showimg::after,
 body.dot-overlay .carousel-image::after{position:absolute;width:100%;height:100%;content:"";background:url(./overlay-mesh.png) repeat;top:0;left:0;display:block!important;z-index:5;pointer-events:none}
-body.dot-overlay .jtcs-image,
+body.dot-overlay .jt-imagecover,
 body.dot-overlay .testimonial_block-image,
 body.dot-overlay .showimg,
 body.dot-overlay .carousel-image{position:relative}

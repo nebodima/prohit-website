@@ -186,12 +186,11 @@ body{
 }
 .gallery-scroll::-webkit-scrollbar{display:none}
 .gallery-scroll img{
-  flex:0 0 70%;
-  max-width:280px;
-  height:200px;
+  width:100%;height:200px;
   object-fit:cover;
   border-radius:8px;
   scroll-snap-align:center;
+  display:block;
 }
 .gallery-hint{
   text-align:center;
@@ -285,12 +284,29 @@ body{
 .band-photo{
   text-align:center;
   margin-bottom:20px;
+  position:relative;
 }
 .band-photo img{
   width:100%;
   max-height:200px;
   object-fit:cover;
   border-radius:10px;
+}
+/* ===== MESH OVERLAY ===== */
+.band-photo::after,
+.gallery-img-wrap::after{
+  position:absolute;width:100%;height:100%;content:"";
+  background:url(./overlay-mesh.png) repeat;
+  top:0;left:0;display:block;z-index:5;pointer-events:none;
+  border-radius:10px;
+}
+.gallery-img-wrap{
+  position:relative;display:inline-block;
+  flex:0 0 70%;max-width:280px;
+}
+.gallery-img-wrap img{
+  width:100%;height:200px;object-fit:cover;border-radius:8px;
+  scroll-snap-align:center;display:block;
 }
 
 /* ===== BENEFITS ===== */
@@ -586,14 +602,14 @@ body{
   <div class="gallery">
     <div class="gallery-title">Мы на сцене</div>
     <div class="gallery-scroll">
-      <img src="./1.jpg" alt="ПРО-ХИТ">
-      <img src="./2.jpg" alt="ПРО-ХИТ">
-      <img src="./3.jpg" alt="ПРО-ХИТ">
-      <img src="./4.jpg" alt="ПРО-ХИТ">
-      <img src="./5.jpg" alt="ПРО-ХИТ">
-      <img src="./6.jpg" alt="ПРО-ХИТ">
-      <img src="./7.jpg" alt="ПРО-ХИТ">
-      <img src="./8.jpg" alt="ПРО-ХИТ">
+      <div class="gallery-img-wrap"><img src="./1.jpg" alt="ПРО-ХИТ"></div>
+      <div class="gallery-img-wrap"><img src="./2.jpg" alt="ПРО-ХИТ"></div>
+      <div class="gallery-img-wrap"><img src="./3.jpg" alt="ПРО-ХИТ"></div>
+      <div class="gallery-img-wrap"><img src="./4.jpg" alt="ПРО-ХИТ"></div>
+      <div class="gallery-img-wrap"><img src="./5.jpg" alt="ПРО-ХИТ"></div>
+      <div class="gallery-img-wrap"><img src="./6.jpg" alt="ПРО-ХИТ"></div>
+      <div class="gallery-img-wrap"><img src="./7.jpg" alt="ПРО-ХИТ"></div>
+      <div class="gallery-img-wrap"><img src="./8.jpg" alt="ПРО-ХИТ"></div>
     </div>
     <div class="gallery-hint"><i class="fas fa-hand-point-left"></i> листайте</div>
   </div>
