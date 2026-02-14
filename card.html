@@ -76,14 +76,14 @@ h2{
   justify-content:space-between;
 }
 .front .name{
-  font-family:'Raleway',sans-serif;
-  font-weight:700;
-  font-size:15px;
-  letter-spacing:2px;
-  text-transform:uppercase;
+  font-family:'Poiret One',cursive;
+  font-weight:400;
+  font-size:18px;
+  letter-spacing:3px;
   color:#fff;
-  line-height:1.3;
+  line-height:1.4;
 }
+.front .name span{color:#fe0178}
 .front .role{
   font-family:'Raleway',sans-serif;
   font-weight:300;
@@ -123,6 +123,26 @@ h2{
   font-weight:400;
 }
 
+/* ===== FRONT QR ===== */
+.front .qr-corner{
+  position:absolute;
+  bottom:20px;right:24px;
+  z-index:3;
+  display:flex;align-items:center;gap:6px;
+}
+.front .qr-corner canvas{
+  border-radius:2px;
+}
+.front .qr-label{
+  font-size:7px;
+  letter-spacing:0.5px;
+  color:rgba(255,255,255,0.35);
+  font-weight:300;
+  writing-mode:vertical-rl;
+  text-orientation:mixed;
+  transform:rotate(180deg);
+}
+
 /* ===== BACK ===== */
 .back{
   text-align:center;
@@ -130,7 +150,8 @@ h2{
 .back .card-inner{
   align-items:center;
   justify-content:center;
-  gap:12px;
+  gap:10px;
+  padding:20px 30px;
 }
 .back .logo-big{
   font-family:'Poiret One',cursive;
@@ -147,13 +168,26 @@ h2{
   text-transform:uppercase;
   color:rgba(255,255,255,0.35);
 }
-.back .site{
+.back .qr-row{
+  display:flex;
+  gap:24px;
+  align-items:center;
+  margin-top:2px;
+}
+.back .qr-item{
+  display:flex;flex-direction:column;
+  align-items:center;gap:4px;
+}
+.back .qr-item canvas{
+  border-radius:2px;
+}
+.back .qr-item .qr-text{
   font-family:'Raleway',sans-serif;
   font-weight:400;
-  font-size:9px;
-  letter-spacing:2px;
-  color:#fe0178;
-  margin-top:4px;
+  font-size:7px;
+  letter-spacing:1.5px;
+  color:rgba(255,255,255,0.4);
+  text-transform:uppercase;
 }
 
 /* ===== PRINT ===== */
@@ -187,7 +221,7 @@ h2{
   <div class="card-inner">
     <div class="top-line">
       <div>
-        <div class="name">Дмитрий<br>Краснопольский</div>
+        <div class="name">Дмитрий<br><span>Краснопольский</span></div>
         <div class="role">Гитара &bull; Вокал</div>
       </div>
       <div class="logo">ПРО•<span>ХИТ</span></div>
@@ -198,6 +232,10 @@ h2{
       <div class="contact"><strong>@prohit_group</strong></div>
       <div class="contact"><strong>про-хит.рф</strong></div>
     </div>
+    <div class="qr-corner">
+      <span class="qr-label">SITE</span>
+      <canvas id="qr-front"></canvas>
+    </div>
   </div>
 </div>
 
@@ -207,11 +245,42 @@ h2{
   <div class="card-inner">
     <div class="logo-big">ПРО•<span>ХИТ</span></div>
     <div class="tagline">Live Music Band</div>
-    <div class="site">про-хит.рф</div>
+    <div class="qr-row">
+      <div class="qr-item">
+        <canvas id="qr-site"></canvas>
+        <span class="qr-text">Сайт</span>
+      </div>
+      <div class="qr-item">
+        <canvas id="qr-tg"></canvas>
+        <span class="qr-text">Telegram</span>
+      </div>
+    </div>
   </div>
 </div>
 
 <div class="print-hint">Размер: 90 &times; 50 мм &nbsp;|&nbsp; Ctrl+P для печати</div>
+
+<script src="https://cdn.jsdelivr.net/npm/qrcode-generator@1.4.4/qrcode.min.js"></script>
+<script>
+function renderQR(canvasId, data, size, fg){
+  var qr=qrcode(0,'M');
+  qr.addData(data);
+  qr.make();
+  var c=document.getElementById(canvasId);
+  var cnt=qr.getModuleCount();
+  c.width=size;c.height=size;
+  var ctx=c.getContext('2d');
+  var cell=size/cnt;
+  for(var r=0;r<cnt;r++)
+    for(var col=0;col<cnt;col++){
+      ctx.fillStyle=qr.isDark(r,col)?fg:'rgba(0,0,0,0)';
+      ctx.fillRect(col*cell,r*cell,cell+0.5,cell+0.5);
+    }
+}
+renderQR('qr-front','https://xn----ptbqdfpt.xn--p1ai',40,'rgba(255,255,255,0.5)');
+renderQR('qr-site','https://xn----ptbqdfpt.xn--p1ai',52,'#fe0178');
+renderQR('qr-tg','https://t.me/prohit_group',52,'#fe0178');
+</script>
 
 </body>
 </html>
