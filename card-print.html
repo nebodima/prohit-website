@@ -2,67 +2,50 @@
 <html lang="ru">
 <head>
 <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Визитка — Дмитрий Краснопольский | ПРО•ХИТ</title>
-<link rel="icon" type="image/svg+xml" href="./favicon.svg">
+<title>Визитка ПРО•ХИТ — макет для печати 300dpi</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Poiret+One&family=Raleway:wght@300;400;700;900&family=Roboto:wght@300;400;500&display=swap" rel="stylesheet">
 <style>
 *{margin:0;padding:0;box-sizing:border-box}
 body{
-  background:#2a2a2a;
-  min-height:100vh;
+  background:#fff;
   display:flex;
   flex-direction:column;
   align-items:center;
-  justify-content:center;
   gap:40px;
-  padding:40px 20px;
+  padding:40px;
   font-family:'Roboto',sans-serif;
-  color:#999;
+  color:#333;
 }
 h2{
   font-family:'Raleway',sans-serif;
   font-weight:300;
-  font-size:13px;
+  font-size:14px;
   text-transform:uppercase;
-  letter-spacing:4px;
-  color:#666;
+  letter-spacing:3px;
+  color:#999;
+}
+.info{
+  font-size:12px;color:#999;
+  text-align:center;line-height:1.8;
 }
 
-/* ===== CARD ===== */
+/* ===== CARD 300dpi: 90x50mm = 1063x591px ===== */
 .card{
-  width:340px;
-  height:189px; /* 90x50mm ratio */
-  border-radius:4px;
+  width:1063px;
+  height:591px;
+  background:#000;
   position:relative;
   overflow:hidden;
-  box-shadow:
-    0 20px 60px rgba(0,0,0,0.5),
-    0 1px 3px rgba(0,0,0,0.3),
-    inset 0 0 0 1px rgba(254,1,120,0.08);
-}
-
-/* Velvet texture */
-.card::before{
-  content:"";
-  position:absolute;inset:0;
-  background:#000;
-  z-index:0;
-}
-.card::after{
-  content:"";
-  position:absolute;inset:0;
-  display:none;
 }
 .card-inner{
-  position:relative;z-index:2;
+  position:relative;
   width:100%;height:100%;
   display:flex;
   flex-direction:column;
   justify-content:space-between;
-  padding:28px 30px 24px;
+  padding:87px 94px 75px;
 }
 
 /* ===== FRONT ===== */
@@ -74,8 +57,8 @@ h2{
 .front .name{
   font-family:'Poiret One',cursive;
   font-weight:400;
-  font-size:18px;
-  letter-spacing:3px;
+  font-size:56px;
+  letter-spacing:9px;
   color:#fff;
   line-height:1.4;
 }
@@ -83,30 +66,30 @@ h2{
 .front .role{
   font-family:'Raleway',sans-serif;
   font-weight:300;
-  font-size:9.5px;
-  letter-spacing:3px;
+  font-size:30px;
+  letter-spacing:9px;
   text-transform:uppercase;
   color:#fe0178;
-  margin-top:5px;
+  margin-top:15px;
+}
+.front .logo-row{
+  display:flex;
+  align-items:center;
+  gap:18px;
 }
 .front .logo{
   font-family:'Poiret One',cursive;
-  font-size:16px;
-  letter-spacing:3px;
+  font-size:50px;
+  letter-spacing:9px;
   color:#fe0178;
   white-space:nowrap;
   line-height:1;
 }
 .front .logo span{color:#fff}
 .front .divider{
-  width:32px;
-  height:1px;
-  background:linear-gradient(90deg, #fe0178, transparent);
-}
-.front .logo-row{
-  display:flex;
-  align-items:center;
-  gap:6px;
+  width:100px;
+  height:3px;
+  background:#fe0178;
 }
 .front .bottom-row{
   display:flex;
@@ -116,116 +99,96 @@ h2{
 .front .contacts{
   display:flex;
   flex-direction:column;
-  gap:4px;
+  gap:0;
 }
 .front .contact{
-  font-size:9px;
-  letter-spacing:0.5px;
-  color:rgba(255,255,255,0.55);
-  font-weight:300;
-}
-.front .contact strong{
-  color:rgba(255,255,255,0.8);
-  font-weight:400;
+  font-family:'Poiret One',cursive;
+  font-size:44px;
+  letter-spacing:6px;
+  color:#fff;
 }
 .front .qr-group{
   display:flex;
-  gap:10px;
+  gap:30px;
   align-items:flex-end;
 }
 .front .qr-block{
   display:flex;flex-direction:column;
-  align-items:center;gap:3px;
+  align-items:center;gap:8px;
 }
 .front .qr-block svg{
-  border-radius:2px;
+  border-radius:4px;
 }
 .front .qr-block .qr-lbl{
-  font-size:6.5px;
-  letter-spacing:1px;
+  font-size:20px;
+  letter-spacing:3px;
   color:rgba(255,255,255,0.35);
   font-weight:300;
-  text-transform:uppercase;
+}
+.front .qr-block .qr-lbl-site{
+  font-family:'Poiret One',cursive;
+  font-size:24px;
+  letter-spacing:5px;
+  color:rgba(255,255,255,0.35);
 }
 
 /* ===== BACK ===== */
-.back{
-  text-align:center;
-}
 .back .card-inner{
   align-items:center;
   justify-content:center;
-  gap:10px;
-  padding:20px 30px;
+  gap:30px;
 }
 .back .logo-row{
   display:flex;
   align-items:center;
-  gap:10px;
+  gap:30px;
 }
 .back .logo-big{
   font-family:'Poiret One',cursive;
-  font-size:32px;
-  letter-spacing:6px;
+  font-size:100px;
+  letter-spacing:18px;
   color:#fe0178;
 }
 .back .logo-big span{color:#fff}
 .back .tagline{
   font-family:'Raleway',sans-serif;
   font-weight:300;
-  font-size:8.5px;
-  letter-spacing:5px;
+  font-size:26px;
+  letter-spacing:15px;
   text-transform:uppercase;
   color:rgba(255,255,255,0.35);
 }
 .back .qr-row{
   display:flex;
-  gap:24px;
+  gap:72px;
   align-items:center;
-  margin-top:2px;
 }
 .back .qr-item{
   display:flex;flex-direction:column;
-  align-items:center;gap:4px;
+  align-items:center;gap:12px;
 }
 .back .qr-item svg{
-  border-radius:2px;
+  border-radius:4px;
 }
 .back .qr-item .qr-text{
   font-family:'Raleway',sans-serif;
   font-weight:400;
-  font-size:7px;
-  letter-spacing:1.5px;
+  font-size:21px;
+  letter-spacing:4px;
   color:rgba(255,255,255,0.4);
   text-transform:uppercase;
 }
-
-/* ===== PRINT ===== */
-.print-hint{
-  font-size:11px;
-  color:#555;
-  text-align:center;
-  line-height:1.6;
-}
-@media print{
-  body{
-    background:#fff;
-    padding:10mm;
-    gap:15mm;
-  }
-  h2,.print-hint{display:none}
-  .card{
-    box-shadow:none;
-    border:0.5px solid #ddd;
-    -webkit-print-color-adjust:exact;
-    print-color-adjust:exact;
-  }
+.back .qr-item .qr-text-site{
+  font-family:'Poiret One',cursive;
+  font-size:27px;
+  letter-spacing:6px;
+  color:rgba(255,255,255,0.4);
 }
 </style>
 </head>
 <body>
 
-<h2>Лицевая сторона</h2>
+<h2>Лицевая сторона &mdash; 90 &times; 50 мм @ 300dpi (1063 &times; 591 px)</h2>
 
 <div class="card front">
   <div class="card-inner">
@@ -235,19 +198,19 @@ h2{
         <div class="role">Гитара &bull; Вокал</div>
       </div>
       <div class="logo-row">
-        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32" width="20" height="20"><path d="M16 4C9.4 4 4 9.4 4 16v6c0 1.1.9 2 2 2h2c1.1 0 2-.9 2-2v-4c0-1.1-.9-2-2-2H6.1C6.5 10.2 10.8 6 16 6s9.5 4.2 9.9 9.6H24c-1.1 0-2 .9-2 2v4c0 1.1.9 2 2 2h2c1.1 0 2-.9 2-2v-6c0-6.6-5.4-12-12-12z" fill="#fe0178"/><rect x="5" y="16" width="4" height="8" rx="1.5" fill="#fe0178"/><rect x="23" y="16" width="4" height="8" rx="1.5" fill="#fe0178"/></svg>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32" width="62" height="62"><path d="M16 4C9.4 4 4 9.4 4 16v6c0 1.1.9 2 2 2h2c1.1 0 2-.9 2-2v-4c0-1.1-.9-2-2-2H6.1C6.5 10.2 10.8 6 16 6s9.5 4.2 9.9 9.6H24c-1.1 0-2 .9-2 2v4c0 1.1.9 2 2 2h2c1.1 0 2-.9 2-2v-6c0-6.6-5.4-12-12-12z" fill="#fe0178"/><rect x="5" y="16" width="4" height="8" rx="1.5" fill="#fe0178"/><rect x="23" y="16" width="4" height="8" rx="1.5" fill="#fe0178"/></svg>
         <div class="logo">ПРО•<span>ХИТ</span></div>
       </div>
     </div>
     <div class="divider"></div>
     <div class="bottom-row">
       <div class="contacts">
-        <div class="contact" style="font-family:'Poiret One',cursive;font-size:14px;letter-spacing:2px;color:#fff">+7 915 151-50-11</div>
+        <div class="contact">+7 915 151-50-11</div>
       </div>
       <div class="qr-group">
         <div class="qr-block">
           <div id="qr-front-site"></div>
-          <span class="qr-lbl" style="font-family:'Poiret One',cursive;font-size:8px;letter-spacing:2px;text-transform:none">про-хит.рф</span>
+          <span class="qr-lbl qr-lbl-site">про-хит.рф</span>
         </div>
         <div class="qr-block">
           <div id="qr-front-tg"></div>
@@ -258,19 +221,19 @@ h2{
   </div>
 </div>
 
-<h2>Оборотная сторона</h2>
+<h2>Оборотная сторона &mdash; 90 &times; 50 мм @ 300dpi (1063 &times; 591 px)</h2>
 
 <div class="card back">
   <div class="card-inner">
     <div class="logo-row">
-      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32" width="38" height="38"><path d="M16 4C9.4 4 4 9.4 4 16v6c0 1.1.9 2 2 2h2c1.1 0 2-.9 2-2v-4c0-1.1-.9-2-2-2H6.1C6.5 10.2 10.8 6 16 6s9.5 4.2 9.9 9.6H24c-1.1 0-2 .9-2 2v4c0 1.1.9 2 2 2h2c1.1 0 2-.9 2-2v-6c0-6.6-5.4-12-12-12z" fill="#fe0178"/><rect x="5" y="16" width="4" height="8" rx="1.5" fill="#fe0178"/><rect x="23" y="16" width="4" height="8" rx="1.5" fill="#fe0178"/></svg>
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32" width="118" height="118"><path d="M16 4C9.4 4 4 9.4 4 16v6c0 1.1.9 2 2 2h2c1.1 0 2-.9 2-2v-4c0-1.1-.9-2-2-2H6.1C6.5 10.2 10.8 6 16 6s9.5 4.2 9.9 9.6H24c-1.1 0-2 .9-2 2v4c0 1.1.9 2 2 2h2c1.1 0 2-.9 2-2v-6c0-6.6-5.4-12-12-12z" fill="#fe0178"/><rect x="5" y="16" width="4" height="8" rx="1.5" fill="#fe0178"/><rect x="23" y="16" width="4" height="8" rx="1.5" fill="#fe0178"/></svg>
       <div class="logo-big">ПРО•<span>ХИТ</span></div>
     </div>
     <div class="tagline">Live Music Band</div>
     <div class="qr-row">
       <div class="qr-item">
         <div id="qr-site"></div>
-        <span class="qr-text" style="font-family:'Poiret One',cursive;font-size:9px;letter-spacing:2px;text-transform:none">про-хит.рф</span>
+        <span class="qr-text qr-text-site">про-хит.рф</span>
       </div>
       <div class="qr-item">
         <div id="qr-tg"></div>
@@ -280,7 +243,12 @@ h2{
   </div>
 </div>
 
-<div class="print-hint">Размер: 90 &times; 50 мм &nbsp;|&nbsp; Ctrl+P для печати</div>
+<div class="info">
+  <strong>Инструкция:</strong> Правый клик на каждую карточку &rarr; «Сохранить изображение» или сделать скриншот.<br>
+  Размер каждой стороны: 1063 &times; 591 px = 90 &times; 50 мм при 300dpi.<br>
+  Фон: чистый чёрный #000000. Цвета: белый #FFFFFF, розовый #FE0178.<br>
+  Шрифты: Poiret One, Raleway.
+</div>
 
 <script src="https://cdn.jsdelivr.net/npm/qrcode-generator@1.4.4/qrcode.min.js"></script>
 <script>
@@ -297,10 +265,10 @@ function renderQR(containerId, data, size, fg){
   var container=document.getElementById(containerId);
   container.innerHTML='<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 '+cnt+' '+cnt+'" width="'+size+'" height="'+size+'" shape-rendering="crispEdges"><g fill="'+fg+'">'+rects+'</g></svg>';
 }
-renderQR('qr-front-site','https://xn----ptbqdfpt.xn--p1ai',38,'rgba(255,255,255,0.7)');
-renderQR('qr-front-tg','https://t.me/prohit_group',38,'rgba(255,255,255,0.7)');
-renderQR('qr-site','https://xn----ptbqdfpt.xn--p1ai',52,'#fe0178');
-renderQR('qr-tg','https://t.me/prohit_group',52,'#fe0178');
+renderQR('qr-front-site','https://xn----ptbqdfpt.xn--p1ai',120,'rgba(255,255,255,0.7)');
+renderQR('qr-front-tg','https://t.me/prohit_group',120,'rgba(255,255,255,0.7)');
+renderQR('qr-site','https://xn----ptbqdfpt.xn--p1ai',160,'#fe0178');
+renderQR('qr-tg','https://t.me/prohit_group',160,'#fe0178');
 </script>
 
 </body>
