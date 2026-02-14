@@ -14,7 +14,7 @@
 .testimonial_block__main:not(:last-child) {margin-bottom: 126px;}
 .jt_testimonial-block-slide {background: #fff;}
 .testimonial_block-text {position:relative;color: #666;font-size: 100%;line-height: 1.666666666666667;margin-bottom: 32px;}
-.testimonial_block-text::after {color: #ddd;content: "\f10e";font-family: FontAwesome;font-size: 32px;margin: auto;position: absolute;right:-30px;bottom:-20px;z-index: 2;opacity:0.85;}
+.testimonial_block-text::after {color: #ddd;content: "\f10e";font-family: 'Font Awesome 6 Free';font-weight:900;font-size: 32px;margin: auto;position: absolute;right:-30px;bottom:-20px;z-index: 2;opacity:0.85;}
 .testimonial_block {display: -ms-flexbox;display: flex;position: relative;-ms-flex-align:flex-start;;align-items:flex-start;;justify-content: space-between;}
 .testimonial_block-data {margin-top: 5px;}
 .testimonial_block-data div{margin-bottom:5px;}

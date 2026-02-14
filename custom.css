@@ -1,5 +1,5 @@
 /* icomoon font files not available locally - using Font Awesome fallbacks */
-.icon-n-earphone:before,.icon-microphone:before,.icon-microphone-big:before,.icon-equalizer:before {font-family:'FontAwesome' !important;speak:never;font-style:normal;font-weight:normal;font-variant:normal;
+.icon-n-earphone:before,.icon-microphone:before,.icon-microphone-big:before,.icon-equalizer:before {font-family:'Font Awesome 6 Free' !important;font-weight:900 !important;speak:never;font-style:normal;font-variant:normal;
   text-transform:none;
   line-height:1;
   -webkit-font-smoothing:antialiased;
@@ -241,11 +241,11 @@ h3.module-title.equalizer,h3.equalizer{padding-left:30px;line-height:1;}
 h3.module-title.microphone,h3.microphone{padding-left:20px;line-height:1;}
 h3.module-title.microphone-big,h3.microphone-big{padding-left:30px;line-height:1;}
 
-h3.module-title.equalizer::before,h3.equalizer::before{content:"\f0c9";position:absolute;left:0;bottom:11px;font-family:'FontAwesome';font-size:22px}
+h3.module-title.equalizer::before,h3.equalizer::before{content:"\f0c9";position:absolute;left:0;bottom:11px;font-family:'Font Awesome 6 Free';font-weight:900;font-size:22px}
 h3.equalizer::before{bottom:0px;}
-h3.module-title.microphone::before,h3.microphone::before{content:"\f130";position:absolute;left:0;bottom:11px;font-family:'FontAwesome';font-size:22px}
+h3.module-title.microphone::before,h3.microphone::before{content:"\f130";position:absolute;left:0;bottom:11px;font-family:'Font Awesome 6 Free';font-weight:900;font-size:22px}
 h3.microphone::before{bottom:0px;}
-h3.module-title.microphone-big::before,h3.microphone-big::before{content:"\f130";position:absolute;left:0;bottom:9px;font-family:'FontAwesome';font-size:18px}
+h3.module-title.microphone-big::before,h3.microphone-big::before{content:"\f130";position:absolute;left:0;bottom:9px;font-family:'Font Awesome 6 Free';font-weight:900;font-size:18px}
 h3.microphone-big::before{bottom:0px;}
 
 h3.module-title .titlespan{position:relative;}
@@ -873,7 +873,7 @@ body.modal-open .header-top-3 .modal-toggle.register,body.modal-open .header-top
 .glow {position: absolute;top: 0;left: -75%;z-index: 2;display: block;content: '';width: 50%;height: 100%;background: -webkit-linear-gradient(left,rgba(255,255,255,0) 0%,rgba(255,255,255,.1) 100%);background: linear-gradient(to right,rgba(255,255,255,0) 0%,rgba(255,255,255,.1) 100%);-webkit-transform: skewX(-25deg);transform: skewX(-25deg);}
 .about-us{position:relative;overflow:hidden;}
 .aboutus-right:hover .glow{/*-webkit-animation:shine 1s;animation:shine 1s;*/}
-.aboutus-right::before{position:absolute; content:"\f026"; top:60px; left:-10px; width:150px; height:150px;font-family:'FontAwesome'; font-size:120px;transform: rotate(35deg);}
+.aboutus-right::before{position:absolute; content:"\f026"; top:60px; left:-10px; width:150px; height:150px;font-family:'Font Awesome 6 Free';font-weight:900; font-size:120px;transform: rotate(35deg);}
 .aboutus-right{ position:relative;}
 /********************************/
 a:link,a:visited,a strong{text-decoration:none;transition:all 0.3s  linear 0s;}
@@ -1029,10 +1029,10 @@ ul.top_social_icons li a{margin:0 10px 0 0;display:grid;place-items:center;posit
 .t4-megamenu .dropdown-menu li > a:hover,.t4-megamenu .dropdown-menu li > .nav-link:hover,.t4-megamenu .dropdown-menu li .dropdown-item:hover{opacity:.85;}
 .t4-megamenu .nav > .dropdown > .nav-link .item-caret,.t4-megamenu .nav > .dropdown > .dropdown-toggle .item-caret{border:0;margin-left:0.25rem;vertical-align:middle;margin-top:-4px;margin-left:5px;}
 .t4-navbar .dropdown-item.dropdown-toggle::after{right:-0.6rem}
-.t4-megamenu .nav > .dropdown > .nav-link .item-caret::before{content:"\f078";font-style:normal;font-size:0.8rem;font-weight:400;font-family:FontAwesome;text-transform:none;}
+.t4-megamenu .nav > .dropdown > .nav-link .item-caret::before{content:"\f078";font-style:normal;font-size:0.8rem;font-weight:400;font-family:'Font Awesome 6 Free';font-weight:900;text-transform:none;}
 .t4-megamenu .navbar-nav > li > a,.t4-megamenu .navbar-nav > li > .nav-link{text-transform:uppercase;transition:all 0.3s linear 0s;}
 .t4-megamenu .dropdown-menu li >  a{position:relative;}
-.t4-megamenu .dropdown-menu li >  a::before,.t4-megamenu .dropdown-menu li >  .separator::before{content:"\f130";position:absolute;top:11px;left:0;font-family:'FontAwesome';text-align:center;border-radius:50%;display:inline-block;font-size:1.2em;line-height:1;font-weight:700;transition:all 0.3s ease-in-out 0s;}
+.t4-megamenu .dropdown-menu li >  a::before,.t4-megamenu .dropdown-menu li >  .separator::before{content:"\f130";position:absolute;top:11px;left:0;font-family:'Font Awesome 6 Free';font-weight:900;text-align:center;border-radius:50%;display:inline-block;font-size:1.2em;line-height:1;font-weight:700;transition:all 0.3s ease-in-out 0s;}
 .t4-megamenu .dropdown-menu li:hover >  a::before,.t4-megamenu .dropdown-menu li:hover >  .separator::before{transition:all 0.3s ease-in-out 0s;}
 .t4-megamenu .mega-caption{left:50px;text-transform:none; position: absolute;}
 .t4-navbar .dropdown-menu::before{}
@@ -1056,7 +1056,7 @@ ul.top_social_icons li a{margin:0 10px 0 0;display:grid;place-items:center;posit
 .popup-search-box{position:absolute;top:50%;left:50%;display:inline-block;padding-bottom:40px;cursor:auto;width:100%;max-width:700px;-webkit-transform:translate(-50%,-50%) scale(0);-ms-transform:translate(-50%,-50%) scale(0);transform:translate(-50%,-50%) scale(0);-webkit-transition:-webkit-transform ease 0.4s;transition:-webkit-transform ease 0.4s;transition:transform ease 0.4s;transition:transform ease 0.4s,-webkit-transform ease 0.4s;}
 .jt-search-wrap.nonda .jt-search.container.nonda.show .popup-search-box{-webkit-transition-delay:0.5s;transition-delay:0.5s;-webkit-transform:translate(-50%,-50%) scale(1);-ms-transform:translate(-50%,-50%) scale(1);transform:translate(-50%,-50%) scale(1);}
 
-.jt-search-wrap.nonda .mod-jtsearch .popup-search-box::after{position:absolute;right:40px;top:50%;content:"\f002";z-index:9;color:#fff;font-family:'FontAwesome';font-size:24px;-webkit-transform:translateY(-50%);-ms-transform:translateY(-50%);transform:translateY(-50%);}
+.jt-search-wrap.nonda .mod-jtsearch .popup-search-box::after{position:absolute;right:40px;top:50%;content:"\f002";z-index:9;color:#fff;font-family:'Font Awesome 6 Free';font-weight:900;font-size:24px;-webkit-transform:translateY(-50%);-ms-transform:translateY(-50%);transform:translateY(-50%);}
 .header-block.fastfood .header-m{display:flex;gap:10px;}
 /*
 	==================================================
@@ -1388,7 +1388,7 @@ body.layout-boxed-solidcolor-bg #nonda-team .owl2-nav .owl2-next,body.layout-box
 .nonda .owl2-dots::before{right:calc(100% + 10px);}
 .nonda .owl2-dots::after{left:calc(100% + 10px);}
 .nonda .jt_testimonial-block-slide{border-radius:5px;}
-.nonda .owl2-nav .owl2-prev::before,.nonda .owl2-nav .owl2-next::before,.jt-cs.nonda .owl-carousel .nav-button.owl-prev::before,.jt-cs.nonda .owl-carousel .nav-button.owl-next::before{position:absolute;width:100%;height:100%;display:grid;place-items:center;top:0;left:0;font-family:"FontAwesome"}
+.nonda .owl2-nav .owl2-prev::before,.nonda .owl2-nav .owl2-next::before,.jt-cs.nonda .owl-carousel .nav-button.owl-prev::before,.jt-cs.nonda .owl-carousel .nav-button.owl-next::before{position:absolute;width:100%;height:100%;display:grid;place-items:center;top:0;left:0;font-family:"Font Awesome 6 Free";font-weight:900}
 .jt-cs.nonda .owl-carousel .nav-button.owl-prev::before,.nonda .owl2-nav .owl2-prev::before{content:"\f060";}
 .jt-cs.nonda .owl-carousel .nav-button.owl-next::before,.nonda .owl2-nav .owl2-next::before{content:"\f061";}
 .nonda .owl2-nav .owl2-prev,.nonda .owl2-nav .owl2-next{background-image:none;}
@@ -2098,7 +2098,7 @@ table.dark-colors td{padding-right:15px;border-top:0;}
 .summary-content .product-rating .star-rating,.product-about .product-rating .star-rating{width:80px;margin-right:8px;}
 .summary-content .product-rating,.product-about .product-rating{display:-webkit-inline-box;display:-webkit-inline-flex;display:-ms-inline-flexbox;display:inline-flex;gap:5px;-webkit-box-align:center;-webkit-align-items:center;-ms-flex-align:center;align-items:center;position:relative;top:2px;font-size:16px;line-height:20px;padding:0 0 0 0;margin:0 0 0 0;margin-bottom:20px;}
 .star-rating{overflow:hidden;position:relative;width:100px;height:1.2em;line-height:1.2em;display:block;font-family:var(--icon-font);font-weight:700;font-size:14px;}
-.star-rating::before{content:"\f005\f005\f005\f005\f005";float:left;top:0;left:0;position:absolute;letter-spacing:3px;font-weight:400;font-family:'FontAwesome'}
+.star-rating::before{content:"\f005\f005\f005\f005\f005";float:left;top:0;left:0;position:absolute;letter-spacing:3px;font-weight:400;font-family:'Font Awesome 6 Free';font-weight:900}
 .star-rating span{overflow:hidden;float:left;top:0;left:0;position:absolute;padding-top:1.5em;}
 .summary-content > .price,.product-about > .price{font-size:20px;font-weight:700;display:inline-block;margin-bottom:20px;}
 .summary-content > .price del,.product-about > .price del{margin-left:15px}

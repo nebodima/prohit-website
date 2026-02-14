@@ -9778,7 +9778,7 @@ input[type=radio].inputbox, input[type=radio].form-control, input[type=checkbox]
   height: auto;
 }
 [class^="icon-"].fa::before, [class*=" icon-"].fa::before {
-  font-family: FontAwesome;
+  font-family: 'Font Awesome 6 Free';font-weight:900;
 }
 @media (max-width: 575.98px) {
   .t4-sticky {
@@ -10430,7 +10430,7 @@ form .form-no-margin .control-group .control-label {
 .t4-module .nav li ul > li > a:before, .t4-card .nav li ul > li > a:before, .moduletable .nav li ul > li > a:before, .module_menu .nav li ul > li > a:before {
   content: "";
   display: inline-block;
-  font-family: FontAwesome;
+  font-family: 'Font Awesome 6 Free';font-weight:900;
   font-weight: normal;
   font-style: normal;
   position: absolute;
@@ -10500,7 +10500,7 @@ form .form-no-margin .control-group .control-label {
 .categories-module li a:before {
   content: "";
   display: inline-block;
-  font-family: FontAwesome;
+  font-family: 'Font Awesome 6 Free';font-weight:900;
   font-weight: normal;
   font-style: normal;
   text-align: left;
@@ -10549,7 +10549,7 @@ form .form-no-margin .control-group .control-label {
 .category-module li a:before {
   content: "";
   display: inline-block;
-  font-family: FontAwesome;
+  font-family: 'Font Awesome 6 Free';font-weight:900;
   font-weight: normal;
   font-style: normal;
   text-align: left;
@@ -10588,7 +10588,7 @@ form .form-no-margin .control-group .control-label {
 .mostread li a:before, .latestnews li a:before, .relateditems li a:before, .tagssimilar ul li a:before {
   content: "";
   display: inline-block;
-  font-family: FontAwesome;
+  font-family: 'Font Awesome 6 Free';font-weight:900;
   font-weight: normal;
   font-style: normal;
   text-align: left;
@@ -10624,7 +10624,7 @@ form .form-no-margin .control-group .control-label {
 .archive-module li a:before {
   content: "";
   display: inline-block;
-  font-family: FontAwesome;
+  font-family: 'Font Awesome 6 Free';font-weight:900;
   font-weight: normal;
   font-style: normal;
   text-align: left;
@@ -10670,7 +10670,7 @@ a.syndicate-module img {
 a.syndicate-module:before {
   content: "";
   display: inline-block;
-  font-family: FontAwesome;
+  font-family: 'Font Awesome 6 Free';font-weight:900;
   font-weight: normal;
   font-style: normal;
   margin-right: 5px;
@@ -10818,7 +10818,7 @@ a.syndicate-module:hover, a.syndicate-module:active, a.syndicate-module:focus {
 .categories-module li a:before {
   content: "";
   display: inline-block;
-  font-family: FontAwesome;
+  font-family: 'Font Awesome 6 Free';font-weight:900;
   font-weight: normal;
   font-style: normal;
   text-align: left;
@@ -11390,7 +11390,7 @@ figure.pull-none.item-image img {
 .items-more .nav-tabs > li > a:before {
   content: "";
   display: inline-block;
-  font-family: FontAwesome;
+  font-family: 'Font Awesome 6 Free';font-weight:900;
   font-weight: normal;
   font-style: normal;
   margin-right: 5px;
@@ -14393,7 +14393,7 @@ pre {
 .t4-header .form-inline .search:before {
   content: "";
   display: inline-block;
-  font-family: FontAwesome;
+  font-family: 'Font Awesome 6 Free';font-weight:900;
   font-weight: normal;
   font-style: normal;
   float: left;
@@ -14750,7 +14750,7 @@ select {
 }
 .input-password-toggle .icon-eye-slash:before {
   content: "";
-  font-family: FontAwesome;
+  font-family: 'Font Awesome 6 Free';font-weight:900;
 }
 .contentpane.com_media .subhead {
   border-bottom: 1px solid #e9ecef;
@@ -14775,7 +14775,7 @@ select {
   color: #fff;
 }
 .contentpane.com_media .subhead .icon-times::before {
-  font-family: FontAwesome;
+  font-family: 'Font Awesome 6 Free';font-weight:900;
   content: "";
 }
 .contentpane.com_media .hidden {
@@ -14808,11 +14808,11 @@ select {
   border-left: 1px solid #e9ecef;
 }
 .contentpane.com_media .media-container .media-main .media-toolbar .icon-search-plus::before {
-  font-family: FontAwesome;
+  font-family: 'Font Awesome 6 Free';font-weight:900;
   content: "";
 }
 .contentpane.com_media .media-container .media-main .media-toolbar .icon-search-minus::before {
-  font-family: FontAwesome;
+  font-family: 'Font Awesome 6 Free';font-weight:900;
   content: "";
 }
 .contentpane div.container-popup {
@@ -15358,7 +15358,7 @@ span.star {
 }
 .icon-check {
   color: #198754;
-  font-family: FontAwesome;
+  font-family: 'Font Awesome 6 Free';font-weight:900;
 }
 .icon-check::before {
   content: "";

@@ -1,0 +1,307 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>О нас — ПРО•ХИТ</title>
+<link rel="icon" type="image/svg+xml" href="./favicon.svg">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Poiret+One&family=Raleway:wght@300;400;700;900&family=Roboto:wght@400;500&family=Comfortaa:wght@400;600&display=swap" rel="stylesheet">
+<link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css" rel="stylesheet">
+<style>
+*{margin:0;padding:0;box-sizing:border-box}
+:root{
+  --pink:#fe0178;
+  --pink-dark:#d0006a;
+  --dark:#1a1a2e;
+  --dark2:#16213e;
+  --gray:#999;
+  --text:#e0e0e0;
+}
+body{
+  font-family:'Roboto',sans-serif;
+  background:var(--dark);
+  color:var(--text);
+  min-height:100vh;
+  line-height:1.6;
+}
+a{color:var(--pink);text-decoration:none}
+a:hover{color:#fff}
+
+/* ===== HEADER ===== */
+.site-header{
+  background:rgba(10,10,30,0.95);
+  border-bottom:1px solid rgba(254,1,120,0.15);
+  padding:14px 0;
+  position:sticky;top:0;z-index:100;
+  backdrop-filter:blur(12px);
+}
+.header-inner{
+  max-width:1100px;margin:0 auto;padding:0 20px;
+  display:flex;align-items:center;justify-content:space-between;
+}
+.logo{
+  font-family:'Poiret One',cursive;
+  font-size:36px;letter-spacing:4px;
+  color:var(--pink);text-decoration:none;
+}
+.logo b{color:#fff}
+.nav-links{display:flex;gap:24px;flex-wrap:wrap}
+.nav-links a{
+  font-family:'Raleway',sans-serif;
+  font-size:14px;font-weight:700;
+  text-transform:uppercase;letter-spacing:1px;
+  color:var(--gray);transition:color .2s;
+}
+.nav-links a:hover,.nav-links a.active{color:#fff}
+
+/* ===== HERO ===== */
+.hero{
+  text-align:center;
+  padding:50px 20px 30px;
+}
+.hero h1{
+  font-family:'Raleway',sans-serif;
+  font-weight:900;font-size:48px;
+  text-transform:uppercase;
+  letter-spacing:3px;
+  margin-bottom:8px;
+}
+.hero h1 span{color:var(--pink)}
+.hero .subtitle{
+  font-family:'Comfortaa',sans-serif;
+  font-size:16px;color:var(--gray);
+  letter-spacing:2px;
+}
+
+/* ===== MEMBER CARD ===== */
+.members{
+  max-width:900px;margin:0 auto;
+  padding:20px 20px 60px;
+}
+.member-card{
+  display:flex;gap:40px;
+  background:var(--dark2);
+  border-radius:16px;
+  overflow:hidden;
+  border:1px solid rgba(254,1,120,0.12);
+  transition:border-color .3s;
+}
+.member-card:hover{
+  border-color:rgba(254,1,120,0.35);
+}
+.member-photo{
+  flex:0 0 340px;
+  position:relative;
+  overflow:hidden;
+}
+.member-photo img{
+  width:100%;height:100%;
+  object-fit:cover;
+  display:block;
+  min-height:400px;
+}
+.member-photo::after{
+  position:absolute;width:100%;height:100%;content:"";
+  background:url(./overlay-mesh.png) repeat;
+  top:0;left:0;display:block;z-index:5;pointer-events:none;
+}
+.member-info{
+  flex:1;padding:40px 40px 40px 0;
+  display:flex;flex-direction:column;justify-content:center;
+}
+.member-name{
+  font-family:'Raleway',sans-serif;
+  font-weight:900;font-size:32px;
+  text-transform:uppercase;
+  letter-spacing:1px;
+  margin-bottom:6px;
+}
+.member-role{
+  font-family:'Comfortaa',sans-serif;
+  font-size:16px;color:var(--pink);
+  font-weight:600;
+  margin-bottom:24px;
+  display:flex;align-items:center;gap:10px;
+}
+.member-role i{font-size:14px}
+.member-bio{
+  font-size:15px;line-height:1.8;
+  color:var(--text);
+  margin-bottom:24px;
+}
+.member-tags{
+  display:flex;gap:10px;flex-wrap:wrap;
+}
+.member-tag{
+  padding:6px 16px;
+  border:1px solid var(--pink);
+  border-radius:20px;
+  font-size:13px;font-weight:500;
+  color:var(--pink);
+  font-family:'Raleway',sans-serif;
+  letter-spacing:0.5px;
+}
+.member-location{
+  margin-top:20px;
+  font-size:14px;color:var(--gray);
+  display:flex;align-items:center;gap:8px;
+}
+.member-location i{color:var(--pink);font-size:13px}
+
+/* ===== BAND INFO SECTION ===== */
+.band-info{
+  max-width:900px;margin:0 auto;
+  padding:0 20px 50px;
+}
+.info-block{
+  background:var(--dark2);
+  border-radius:16px;
+  padding:40px;
+  border:1px solid rgba(254,1,120,0.12);
+}
+.info-block h2{
+  font-family:'Raleway',sans-serif;
+  font-weight:900;font-size:24px;
+  text-transform:uppercase;
+  letter-spacing:2px;
+  margin-bottom:20px;
+}
+.info-block h2 span{color:var(--pink)}
+.info-block p{
+  font-size:15px;line-height:1.8;
+  color:var(--text);
+  margin-bottom:16px;
+}
+.info-block .genre-tags{
+  display:flex;gap:10px;flex-wrap:wrap;
+  margin-top:10px;
+}
+.info-block .genre-tag{
+  padding:6px 18px;
+  background:rgba(254,1,120,0.1);
+  border:1px solid var(--pink);
+  border-radius:20px;
+  font-size:13px;font-weight:600;
+  color:var(--pink);
+  font-family:'Raleway',sans-serif;
+}
+.rondo-link{
+  display:flex;align-items:center;gap:14px;
+  margin-top:24px;
+  padding:16px 20px;
+  background:rgba(254,1,120,0.05);
+  border-radius:12px;
+  border:1px solid rgba(254,1,120,0.15);
+}
+.rondo-link img{width:48px;height:48px;object-fit:contain;border-radius:8px}
+.rondo-link span{font-size:14px;color:var(--text)}
+.rondo-link a{font-weight:700}
+
+/* ===== FOOTER ===== */
+.site-footer{
+  text-align:center;
+  padding:30px 20px;
+  border-top:1px solid rgba(254,1,120,0.1);
+  font-size:13px;color:var(--gray);
+}
+.site-footer a{color:var(--pink)}
+
+/* ===== MOBILE ===== */
+@media(max-width:700px){
+  .hero h1{font-size:32px}
+  .member-card{flex-direction:column}
+  .member-photo{flex:none;height:300px}
+  .member-info{padding:30px 24px}
+  .member-name{font-size:26px}
+  .nav-links{gap:14px}
+  .nav-links a{font-size:12px}
+  .logo{font-size:28px}
+  .info-block{padding:24px}
+}
+</style>
+</head>
+<body>
+
+<!-- HEADER -->
+<header class="site-header">
+  <div class="header-inner">
+    <a href="./index.html" class="logo">ПРО•<b>ХИТ</b></a>
+    <nav class="nav-links">
+      <a href="./index.html">Главная</a>
+      <a href="./about.html" class="active">О нас</a>
+      <a href="./index.html#repertoire">Репертуар</a>
+      <a href="./flyer.html">Набор</a>
+      <a href="https://t.me/PROKSHINOHIT" target="_blank">Контакты</a>
+    </nav>
+  </div>
+</header>
+
+<!-- HERO -->
+<section class="hero">
+  <h1>О <span>нас</span></h1>
+  <div class="subtitle">Музыканты проекта ПРО•ХИТ</div>
+</section>
+
+<!-- MEMBERS -->
+<section class="members">
+
+  <!-- Дмитрий Краснопольский -->
+  <div class="member-card">
+    <div class="member-photo">
+      <img src="./6.jpg" alt="Дмитрий Краснопольский">
+    </div>
+    <div class="member-info">
+      <div class="member-name">Дмитрий Краснопольский</div>
+      <div class="member-role">
+        <i class="fas fa-guitar"></i> Гитарист &nbsp;|&nbsp; <i class="fas fa-microphone-alt"></i> Вокалист
+      </div>
+      <div class="member-bio">
+        Основатель и фронтмен проекта ПРО•ХИТ. Гитара и вокал — два инструмента, которые сливаются в одну энергию на сцене. Вдохновляется классикой рока, фанком и современным поп-звучанием. Каждое выступление — это драйв, живой звук и настоящие эмоции.
+      </div>
+      <div class="member-tags">
+        <span class="member-tag">Гитара</span>
+        <span class="member-tag">Вокал</span>
+        <span class="member-tag">Pop</span>
+        <span class="member-tag">Rock</span>
+        <span class="member-tag">Funk</span>
+      </div>
+      <div class="member-location">
+        <i class="fas fa-map-marker-alt"></i> Прокшино, Москва
+      </div>
+    </div>
+  </div>
+
+</section>
+
+<!-- BAND INFO -->
+<section class="band-info">
+  <div class="info-block">
+    <h2>О <span>проекте</span></h2>
+    <p>
+      ПРО•ХИТ — музыкальный проект из Прокшино и Испанских кварталов. Мы играем живую музыку в барах, ресторанах и на мероприятиях Москвы. Наша программа — хиты, которые знает каждый: от рока 80-х до современного попа.
+    </p>
+    <p>
+      Репетируем еженедельно, выступаем регулярно. Каждый концерт — это энергия, импровизация и контакт с аудиторией.
+    </p>
+    <div class="genre-tags">
+      <span class="genre-tag">Pop</span>
+      <span class="genre-tag">Rock</span>
+      <span class="genre-tag">Disco</span>
+      <span class="genre-tag">Funk</span>
+    </div>
+    <div class="rondo-link">
+      <img src="./ico/rondo.png" alt="Rondo Music Studio">
+      <span>Репетируем в <strong>Rondo Music Studio</strong> &nbsp;|&nbsp; <a href="https://rondomusicstudio.ru/" target="_blank">rondomusicstudio.ru</a></span>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer class="site-footer">
+  <p>&copy; 2025 ПРО•ХИТ &nbsp;|&nbsp; <a href="https://xn----ptbqdfpt.xn--p1ai">про-хит.рф</a> &nbsp;|&nbsp; Прокшино &bull; Испанские кварталы &bull; Москва</p>
+</footer>
+
+</body>
+</html>
