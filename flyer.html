@@ -281,6 +281,75 @@ body{
 .plist-item .tn{flex:1;min-width:0;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
 .plist-item .td{font-size:11px;color:rgba(255,255,255,0.3);flex-shrink:0}
 
+/* ===== BAND PHOTO ===== */
+.band-photo{
+  text-align:center;
+  margin-bottom:20px;
+}
+.band-photo img{
+  width:100%;
+  max-height:200px;
+  object-fit:cover;
+  border-radius:10px;
+}
+
+/* ===== BENEFITS ===== */
+.benefits{
+  display:flex;
+  justify-content:center;
+  gap:24px;
+  flex-wrap:wrap;
+  margin-bottom:20px;
+  text-align:center;
+}
+.benefit{
+  display:flex;
+  align-items:center;
+  gap:8px;
+  font-size:14px;
+  color:var(--dark);
+}
+.benefit i{color:var(--pink);font-size:16px;width:20px;text-align:center}
+
+/* ===== CTA ===== */
+.cta{
+  text-align:center;
+  margin-bottom:24px;
+}
+.cta-text{
+  font-family:'Raleway',sans-serif;
+  font-weight:800;
+  font-size:20px;
+  color:#fff;
+  background:var(--pink);
+  display:inline-block;
+  padding:10px 32px;
+  border-radius:30px;
+  letter-spacing:1px;
+}
+
+/* ===== RONDO FOOTER ===== */
+.rondo-block{
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  gap:12px;
+  padding:12px 0;
+  margin-bottom:8px;
+  border-top:2px solid #eee;
+}
+.rondo-block img{
+  height:36px;
+  object-fit:contain;
+}
+.rondo-block .rondo-text{
+  font-family:'Raleway',sans-serif;
+  font-size:13px;
+  color:var(--gray);
+}
+.rondo-block .rondo-text strong{color:var(--dark)}
+.rondo-block a{color:var(--pink);text-decoration:none;font-weight:600}
+
 /* ===== CONTACTS GRID ===== */
 .contacts-section{
   margin-bottom:20px;
@@ -413,6 +482,17 @@ body{
   .about{font-size:13px;margin-bottom:14px;line-height:1.4}
   .divider{margin-bottom:12px}
 
+  .band-photo img{max-height:130px;border-radius:6px}
+  .band-photo{margin-bottom:12px}
+  .benefits{gap:14px;margin-bottom:12px}
+  .benefit{font-size:12px}
+  .benefit i{font-size:13px}
+  .cta{margin-bottom:14px}
+  .cta-text{font-size:16px;padding:7px 24px}
+  .rondo-block{padding:8px 0;margin-bottom:4px}
+  .rondo-block img{height:28px}
+  .rondo-block .rondo-text{font-size:11px}
+
   .contacts-section{margin-bottom:10px}
   .contacts-title{font-size:15px;margin-bottom:10px}
   .contacts-grid{gap:12px}
@@ -482,8 +562,25 @@ body{
   <div class="divider"></div>
   <p class="about">
     Играем в <strong>клубах и ресторанах</strong> Прокшино и Испанских кварталов.<br>
-    Репетиции на базах района. Опыт приветствуется, главное — драйв и желание играть!
+    Опыт приветствуется, главное — драйв и желание играть!
   </p>
+
+  <!-- BAND PHOTO (visible on print too) -->
+  <div class="band-photo">
+    <img src="./6.jpg" alt="ПРО•ХИТ на сцене">
+  </div>
+
+  <!-- BENEFITS -->
+  <div class="benefits">
+    <div class="benefit"><i class="fas fa-check-circle"></i> Репетиционная база</div>
+    <div class="benefit"><i class="fas fa-check-circle"></i> Живые выступления</div>
+    <div class="benefit"><i class="fas fa-check-circle"></i> Дружная команда</div>
+  </div>
+
+  <!-- CTA -->
+  <div class="cta">
+    <div class="cta-text">Напиши — и приходи на репетицию!</div>
+  </div>
 
   <!-- GALLERY (interactive only) -->
   <div class="gallery">
@@ -581,9 +678,15 @@ body{
     </div>
   </div>
 
+  <!-- RONDO -->
+  <div class="rondo-block">
+    <img src="./ico/rondo.png" alt="Rondo Music Studio">
+    <div class="rondo-text">Репетируем в <strong>Rondo Music Studio</strong> &nbsp;|&nbsp; <a href="https://rondomusicstudio.ru/">rondomusicstudio.ru</a></div>
+  </div>
+
   <!-- FOOTER -->
   <div class="foot">
-    Встречаемся на репетициях в Рондо! &nbsp;|&nbsp; <a href="./">про-хит.рф</a>
+    <a href="./">про-хит.рф</a>
   </div>
 
 </div>
