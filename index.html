@@ -3081,9 +3081,11 @@ lightbox2.option({
 
 
  
-<style>.ph{font-family:'Poiret One',cursive;letter-spacing:2px}</style>
+<style>.ph{font-family:'Poiret One',cursive;letter-spacing:2px;color:#fe0178;white-space:nowrap;display:inline}.ph .hit{color:#fff !important}</style>
 <script>
 document.addEventListener('DOMContentLoaded',function(){
+  var svg='<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32" width="1.25em" height="1.25em" style="vertical-align:-0.25em;margin-right:3px"><path d="M16 4C9.4 4 4 9.4 4 16v6c0 1.1.9 2 2 2h2c1.1 0 2-.9 2-2v-4c0-1.1-.9-2-2-2H6.1C6.5 10.2 10.8 6 16 6s9.5 4.2 9.9 9.6H24c-1.1 0-2 .9-2 2v4c0 1.1.9 2 2 2h2c1.1 0 2-.9 2-2v-6c0-6.6-5.4-12-12-12z" fill="#fe0178"/><rect x="5" y="16" width="4" height="8" rx="1.5" fill="#fe0178"/><rect x="23" y="16" width="4" height="8" rx="1.5" fill="#fe0178"/></svg>';
+  var brand='<span class="ph">'+svg+'ПРО•<span class="hit">ХИТ</span></span>';
   var walk=document.createTreeWalker(document.body,NodeFilter.SHOW_TEXT,null,false);
   var nodes=[];
   while(walk.nextNode()) nodes.push(walk.currentNode);
@@ -3093,7 +3095,7 @@ document.addEventListener('DOMContentLoaded',function(){
     if(p.classList&&p.classList.contains('ph')) return;
     if(p.tagName==='SCRIPT'||p.tagName==='STYLE') return;
     var span=document.createElement('span');
-    span.innerHTML=n.nodeValue.replace(/ПРО•ХИТ/g,'<span class="ph">ПРО•ХИТ</span>');
+    span.innerHTML=n.nodeValue.replace(/ПРО•ХИТ/g,brand);
     p.replaceChild(span,n);
   });
 });
