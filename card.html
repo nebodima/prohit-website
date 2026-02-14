@@ -107,10 +107,20 @@ h2{
   height:1px;
   background:linear-gradient(90deg, #fe0178, transparent);
 }
+.front .logo-row{
+  display:flex;
+  align-items:center;
+  gap:6px;
+}
+.front .bottom-row{
+  display:flex;
+  align-items:flex-end;
+  justify-content:space-between;
+}
 .front .contacts{
   display:flex;
-  gap:20px;
-  align-items:center;
+  flex-direction:column;
+  gap:4px;
 }
 .front .contact{
   font-size:9px;
@@ -122,25 +132,24 @@ h2{
   color:rgba(255,255,255,0.8);
   font-weight:400;
 }
-
-/* ===== FRONT QR ===== */
-.front .qr-corner{
-  position:absolute;
-  bottom:20px;right:24px;
-  z-index:3;
-  display:flex;align-items:center;gap:6px;
+.front .qr-group{
+  display:flex;
+  gap:10px;
+  align-items:flex-end;
 }
-.front .qr-corner canvas{
+.front .qr-block{
+  display:flex;flex-direction:column;
+  align-items:center;gap:3px;
+}
+.front .qr-block canvas{
   border-radius:2px;
 }
-.front .qr-label{
-  font-size:7px;
-  letter-spacing:0.5px;
+.front .qr-block .qr-lbl{
+  font-size:6.5px;
+  letter-spacing:1px;
   color:rgba(255,255,255,0.35);
   font-weight:300;
-  writing-mode:vertical-rl;
-  text-orientation:mixed;
-  transform:rotate(180deg);
+  text-transform:uppercase;
 }
 
 /* ===== BACK ===== */
@@ -152,6 +161,11 @@ h2{
   justify-content:center;
   gap:10px;
   padding:20px 30px;
+}
+.back .logo-row{
+  display:flex;
+  align-items:center;
+  gap:10px;
 }
 .back .logo-big{
   font-family:'Poiret One',cursive;
@@ -224,17 +238,26 @@ h2{
         <div class="name">Дмитрий<br><span>Краснопольский</span></div>
         <div class="role">Гитара &bull; Вокал</div>
       </div>
-      <div class="logo">ПРО•<span>ХИТ</span></div>
+      <div class="logo-row">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32" width="20" height="20"><path d="M16 4C9.4 4 4 9.4 4 16v6c0 1.1.9 2 2 2h2c1.1 0 2-.9 2-2v-4c0-1.1-.9-2-2-2H6.1C6.5 10.2 10.8 6 16 6s9.5 4.2 9.9 9.6H24c-1.1 0-2 .9-2 2v4c0 1.1.9 2 2 2h2c1.1 0 2-.9 2-2v-6c0-6.6-5.4-12-12-12z" fill="#fe0178"/><rect x="5" y="16" width="4" height="8" rx="1.5" fill="#fe0178"/><rect x="23" y="16" width="4" height="8" rx="1.5" fill="#fe0178"/></svg>
+        <div class="logo">ПРО•<span>ХИТ</span></div>
+      </div>
     </div>
     <div class="divider"></div>
-    <div class="contacts">
-      <div class="contact"><strong>+7 915 151-50-11</strong></div>
-      <div class="contact"><strong>@prohit_group</strong></div>
-      <div class="contact"><strong>про-хит.рф</strong></div>
-    </div>
-    <div class="qr-corner">
-      <span class="qr-label">SITE</span>
-      <canvas id="qr-front"></canvas>
+    <div class="bottom-row">
+      <div class="contacts">
+        <div class="contact" style="font-family:'Poiret One',cursive;font-size:14px;letter-spacing:2px;color:#fff">+7 915 151-50-11</div>
+      </div>
+      <div class="qr-group">
+        <div class="qr-block">
+          <canvas id="qr-front-site"></canvas>
+          <span class="qr-lbl" style="font-family:'Poiret One',cursive;font-size:8px;letter-spacing:2px;text-transform:none">про-хит.рф</span>
+        </div>
+        <div class="qr-block">
+          <canvas id="qr-front-tg"></canvas>
+          <span class="qr-lbl">Telegram</span>
+        </div>
+      </div>
     </div>
   </div>
 </div>
@@ -243,12 +266,15 @@ h2{
 
 <div class="card back">
   <div class="card-inner">
-    <div class="logo-big">ПРО•<span>ХИТ</span></div>
+    <div class="logo-row">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32" width="38" height="38"><path d="M16 4C9.4 4 4 9.4 4 16v6c0 1.1.9 2 2 2h2c1.1 0 2-.9 2-2v-4c0-1.1-.9-2-2-2H6.1C6.5 10.2 10.8 6 16 6s9.5 4.2 9.9 9.6H24c-1.1 0-2 .9-2 2v4c0 1.1.9 2 2 2h2c1.1 0 2-.9 2-2v-6c0-6.6-5.4-12-12-12z" fill="#fe0178"/><rect x="5" y="16" width="4" height="8" rx="1.5" fill="#fe0178"/><rect x="23" y="16" width="4" height="8" rx="1.5" fill="#fe0178"/></svg>
+      <div class="logo-big">ПРО•<span>ХИТ</span></div>
+    </div>
     <div class="tagline">Live Music Band</div>
     <div class="qr-row">
       <div class="qr-item">
         <canvas id="qr-site"></canvas>
-        <span class="qr-text">Сайт</span>
+        <span class="qr-text" style="font-family:'Poiret One',cursive;font-size:9px;letter-spacing:2px;text-transform:none">про-хит.рф</span>
       </div>
       <div class="qr-item">
         <canvas id="qr-tg"></canvas>
@@ -277,7 +303,8 @@ function renderQR(canvasId, data, size, fg){
       ctx.fillRect(col*cell,r*cell,cell+0.5,cell+0.5);
     }
 }
-renderQR('qr-front','https://xn----ptbqdfpt.xn--p1ai',40,'rgba(255,255,255,0.5)');
+renderQR('qr-front-site','https://xn----ptbqdfpt.xn--p1ai',38,'rgba(255,255,255,0.7)');
+renderQR('qr-front-tg','https://t.me/prohit_group',38,'rgba(255,255,255,0.7)');
 renderQR('qr-site','https://xn----ptbqdfpt.xn--p1ai',52,'#fe0178');
 renderQR('qr-tg','https://t.me/prohit_group',52,'#fe0178');
 </script>
