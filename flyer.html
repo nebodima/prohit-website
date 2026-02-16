@@ -465,6 +465,70 @@ body{
 }
 .back-btn:hover{background:var(--pink)}
 
+/* ===== THEME TOGGLE ===== */
+.theme-toggle{
+  position:fixed;
+  top:12px;
+  right:120px;
+  z-index:100;
+  display:inline-flex;
+  align-items:center;
+  gap:6px;
+  background:var(--dark);
+  color:#fff;
+  font-family:'Raleway',sans-serif;
+  font-weight:600;
+  font-size:12px;
+  padding:8px 14px;
+  border-radius:20px;
+  border:none;
+  cursor:pointer;
+  box-shadow:0 2px 12px rgba(0,0,0,0.2);
+  transition:background .2s;
+}
+.theme-toggle:hover{background:var(--pink)}
+
+/* ===== DARK THEME ===== */
+body.dark{
+  background:#000;
+  color:#e0e0e0;
+}
+body.dark .band-name{color:#fff}
+body.dark .band-name .accent{color:var(--pink)}
+body.dark .band-tagline{color:#aaa}
+body.dark .wanted-title{color:#fff}
+body.dark .wanted-sub{color:#aaa}
+body.dark .inst-icon{
+  background:#111;
+  box-shadow:0 4px 16px rgba(254,1,120,0.25);
+  border:1px solid rgba(254,1,120,0.2);
+}
+body.dark .inst-icon:hover{box-shadow:0 6px 20px rgba(254,1,120,0.4)}
+body.dark .inst-name{color:#ddd}
+body.dark .about{color:#aaa}
+body.dark .about strong{color:#fff}
+body.dark .gallery-title{color:#fff}
+body.dark .gallery-hint{color:#555}
+body.dark .player{background:#111;border:1px solid rgba(254,1,120,0.15)}
+body.dark .pbar-wrap{background:rgba(255,255,255,0.1)}
+body.dark .benefit{color:#ddd}
+body.dark .rondo-block{border-top-color:#222}
+body.dark .rondo-block .rondo-text{color:#aaa}
+body.dark .rondo-block .rondo-text strong{color:#fff}
+body.dark .contacts-title{color:#fff}
+body.dark .contact-card{
+  background:#111;
+  color:#ddd;
+  border:1px solid rgba(254,1,120,0.15);
+}
+body.dark .contact-card:hover{box-shadow:0 4px 16px rgba(254,1,120,0.2)}
+body.dark .contact-card .cc-icon{background:#000}
+body.dark .contact-card .cc-label{color:#ddd}
+body.dark .contact-card .cc-qr{border-color:#333}
+body.dark .foot{color:#555}
+body.dark .back-btn{background:#111;border:1px solid rgba(254,1,120,0.2)}
+body.dark .theme-toggle{background:#111;border:1px solid rgba(254,1,120,0.2)}
+
 /* ===== PRINT ===== */
 @media print{
   @page{margin:8mm 10mm}
@@ -472,6 +536,7 @@ body{
   body{line-height:1.3}
 
   .back-btn{display:none}
+  .theme-toggle{display:none}
   .gallery{display:none !important}
   .player{display:none !important}
 
@@ -528,6 +593,7 @@ body{
 
 <!-- BACK TO SITE -->
 <a href="./" class="back-btn"><i class="fas fa-arrow-left"></i> На сайт</a>
+<button class="theme-toggle" id="theme-toggle"><i class="fas fa-moon"></i> Тёмная</button>
 
 <div class="poster">
 
@@ -705,7 +771,21 @@ body{
 <!-- AUDIO -->
 <audio id="fl-audio"></audio>
 
-<script>if(location.search.indexOf('norondo')!==-1)document.body.classList.add('no-rondo');</script>
+<script>
+if(location.search.indexOf('norondo')!==-1)document.body.classList.add('no-rondo');
+(function(){
+  var btn=document.getElementById('theme-toggle');
+  var dark=localStorage.getItem('flyer-dark')==='1'||location.search.indexOf('dark')!==-1;
+  function apply(d){
+    dark=d;
+    document.body.classList.toggle('dark',d);
+    btn.innerHTML=d?'<i class="fas fa-sun"></i> Светлая':'<i class="fas fa-moon"></i> Тёмная';
+    localStorage.setItem('flyer-dark',d?'1':'0');
+  }
+  apply(dark);
+  btn.addEventListener('click',function(){apply(!dark)});
+})();
+</script>
 <script>
 (function(){
   var audio = document.getElementById('fl-audio');
