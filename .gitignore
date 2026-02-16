@@ -5,3 +5,5 @@ media/
 images/
 avatar-png-export.html
 tg-avatar-preview.html
+bot/.env
+bot/node_modules/

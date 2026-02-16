@@ -1,0 +1,15 @@
+{
+  "name": "prohit-bot",
+  "version": "1.0.0",
+  "description": "Telegram bot for PRO-HIT cover band with Claude AI content generation",
+  "main": "bot.js",
+  "scripts": {
+    "start": "node bot.js"
+  },
+  "dependencies": {
+    "node-telegram-bot-api": "^0.66.0",
+    "@anthropic-ai/sdk": "^0.39.0",
+    "node-cron": "^3.0.3",
+    "dotenv": "^16.4.7"
+  }
+}
