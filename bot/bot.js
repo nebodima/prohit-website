@@ -2,12 +2,17 @@ require('dotenv').config();
 const TelegramBot = require('node-telegram-bot-api');
 const cron = require('node-cron');
 const fs = require('fs');
+const path = require('path');
+const os = require('os');
 const {
   generateTrackPost,
   generateFact,
   generatePollData,
   generateAnnounce,
-  getNextContentType
+  getNextContentType,
+  generateVoice,
+  transcribeAudio,
+  chatWithClaude
 } = require('./content');
 
 const bot = new TelegramBot(process.env.TELEGRAM_BOT_TOKEN, { polling: true });
@@ -24,6 +29,18 @@ function isOwner(msg) {
 
 async function sendPost(chatId, text) {
   await bot.sendMessage(chatId, text, { parse_mode: 'HTML', disable_web_page_preview: true });
+}
+
+async function sendVoice(chatId, text) {
+  try {
+    const voiceFile = await generateVoice(text);
+    if (voiceFile && fs.existsSync(voiceFile)) {
+      await bot.sendVoice(chatId, voiceFile);
+      try { fs.unlinkSync(voiceFile); } catch(e) {}
+    }
+  } catch (err) {
+    console.error('Ошибка голосового:', err.message);
+  }
 }
 
 async function sendPhotoPost(chatId, data) {
@@ -45,6 +62,8 @@ async function sendPhotoPost(chatId, data) {
   } else {
     await sendPost(chatId, data.text);
   }
+  // Голосовое сообщение
+  await sendVoice(chatId, data.text);
 }
 
 async function sendTrackPost(chatId, trackData) {
@@ -131,6 +150,73 @@ bot.onText(/\/poll/, async (msg) => {
     await sendPoll(msg.chat.id);
   } catch (err) {
     bot.sendMessage(msg.chat.id, 'Ошибка: ' + err.message);
+  }
+});
+
+// --- Режим разговора: голосовые сообщения ---
+
+bot.on('voice', async (msg) => {
+  if (!isOwner(msg)) return;
+  try {
+    // Скачиваем голосовое
+    const fileId = msg.voice.file_id;
+    const file = await bot.getFile(fileId);
+    const fileUrl = `https://api.telegram.org/file/bot${process.env.TELEGRAM_BOT_TOKEN}/${file.file_path}`;
+    const tmpOgg = path.join(os.tmpdir(), 'voice_' + Date.now() + '.ogg');
+
+    const res = await fetch(fileUrl);
+    const buffer = Buffer.from(await res.arrayBuffer());
+    fs.writeFileSync(tmpOgg, buffer);
+
+    // Распознаём речь
+    const userText = await transcribeAudio(tmpOgg);
+    fs.unlinkSync(tmpOgg);
+
+    if (!userText) {
+      await bot.sendMessage(msg.chat.id, 'Не удалось распознать речь.');
+      return;
+    }
+
+    // Показываем что распознали
+    await bot.sendMessage(msg.chat.id, `🎤 <i>${userText}</i>`, { parse_mode: 'HTML' });
+
+    // Claude отвечает
+    const reply = await chatWithClaude(msg.from.id, userText);
+
+    // Отправляем текст
+    await bot.sendMessage(msg.chat.id, reply);
+
+    // Озвучиваем ответ
+    const voiceFile = await generateVoice(reply);
+    if (voiceFile && fs.existsSync(voiceFile)) {
+      await bot.sendVoice(msg.chat.id, voiceFile);
+      try { fs.unlinkSync(voiceFile); } catch(e) {}
+    }
+  } catch (err) {
+    console.error('Voice chat error:', err.message);
+    bot.sendMessage(msg.chat.id, 'Ошибка: ' + err.message);
+  }
+});
+
+// --- Режим разговора: текстовые сообщения ---
+
+bot.on('message', async (msg) => {
+  // Пропускаем команды и не-текст
+  if (!msg.text || msg.text.startsWith('/') || msg.voice) return;
+  if (!isOwner(msg)) return;
+
+  try {
+    const reply = await chatWithClaude(msg.from.id, msg.text);
+    await bot.sendMessage(msg.chat.id, reply);
+
+    // Озвучиваем ответ
+    const voiceFile = await generateVoice(reply);
+    if (voiceFile && fs.existsSync(voiceFile)) {
+      await bot.sendVoice(msg.chat.id, voiceFile);
+      try { fs.unlinkSync(voiceFile); } catch(e) {}
+    }
+  } catch (err) {
+    console.error('Text chat error:', err.message);
   }
 });
 

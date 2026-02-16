@@ -7,10 +7,11 @@
     "start": "node bot.js"
   },
   "dependencies": {
-    "node-telegram-bot-api": "^0.66.0",
     "@anthropic-ai/sdk": "^0.39.0",
-    "node-cron": "^3.0.3",
+    "@elevenlabs/elevenlabs-js": "^2.36.0",
+    "@google/generative-ai": "^0.24.0",
     "dotenv": "^16.4.7",
-    "@google/generative-ai": "^0.24.0"
+    "node-cron": "^3.0.3",
+    "node-telegram-bot-api": "^0.66.0"
   }
 }

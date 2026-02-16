@@ -4,8 +4,13 @@ const path = require('path');
 const fs = require('fs');
 const os = require('os');
 
+const { ElevenLabsClient } = require('@elevenlabs/elevenlabs-js');
+
 const client = new Anthropic({ apiKey: process.env.CLAUDE_API_KEY });
 const genAI = new GoogleGenerativeAI(process.env.GEMINI_API_KEY);
+const elevenlabs = new ElevenLabsClient({ apiKey: process.env.ELEVENLABS_API_KEY });
+
+const ELEVENLABS_VOICE_ID = 'gJEfHTTiifXEDmO687lC'; // Prince Nur — русский мужской голос
 
 const BAND_CONTEXT = `Ты — AI-помощник кавер-группы 🎧 ПРО•ХИТ из Москвы (район Прокшино, Испанские кварталы).
 Группа играет живую музыку в клубах и ресторанах.
@@ -91,6 +96,79 @@ async function generateImage(prompt) {
   }
 }
 
+// Генерация голосового сообщения через ElevenLabs
+async function generateVoice(text) {
+  try {
+    // Убираем HTML-теги для озвучки
+    const cleanText = text.replace(/<[^>]+>/g, '').replace(/&amp;/g, '&').replace(/&lt;/g, '<').replace(/&gt;/g, '>');
+    const audio = await elevenlabs.textToSpeech.convert(ELEVENLABS_VOICE_ID, {
+      text: cleanText,
+      modelId: 'eleven_multilingual_v2',
+      voiceSettings: {
+        stability: 0.3,
+        similarityBoost: 0.8,
+        style: 0.7,
+        useSpeakerBoost: true
+      }
+    });
+    const tmpFile = path.join(os.tmpdir(), 'prohit_voice_' + Date.now() + '.mp3');
+    const chunks = [];
+    for await (const chunk of audio) {
+      chunks.push(chunk);
+    }
+    fs.writeFileSync(tmpFile, Buffer.concat(chunks));
+    return tmpFile;
+  } catch (err) {
+    console.error('ElevenLabs voice error:', err.message);
+    return null;
+  }
+}
+
+// Распознавание речи через ElevenLabs Scribe
+async function transcribeAudio(filePath) {
+  try {
+    const fileBuffer = fs.readFileSync(filePath);
+    const blob = new Blob([fileBuffer], { type: 'audio/ogg' });
+    const formData = new FormData();
+    formData.append('file', blob, 'voice.ogg');
+    formData.append('model_id', 'scribe_v1');
+    formData.append('language_code', 'ru');
+
+    const res = await fetch('https://api.elevenlabs.io/v1/speech-to-text', {
+      method: 'POST',
+      headers: { 'xi-api-key': process.env.ELEVENLABS_API_KEY },
+      body: formData
+    });
+    if (!res.ok) throw new Error(await res.text());
+    const data = await res.json();
+    return data.text || '';
+  } catch (err) {
+    console.error('Transcription error:', err.message);
+    return null;
+  }
+}
+
+// Диалог с Claude (с историей сообщений)
+const chatHistories = new Map();
+
+async function chatWithClaude(userId, userMessage) {
+  if (!chatHistories.has(userId)) chatHistories.set(userId, []);
+  const history = chatHistories.get(userId);
+  history.push({ role: 'user', content: userMessage });
+  // Держим последние 20 сообщений
+  if (history.length > 20) history.splice(0, history.length - 20);
+
+  const msg = await client.messages.create({
+    model: 'claude-sonnet-4-20250514',
+    max_tokens: 300,
+    system: BAND_CONTEXT + '\n\nСейчас ты ведёшь живой диалог с пользователем. Отвечай коротко, дружелюбно, по-русски. Без HTML-тегов.',
+    messages: history
+  });
+  const reply = msg.content[0].text;
+  history.push({ role: 'assistant', content: reply });
+  return reply;
+}
+
 // Получить картинку: сначала пробуем AI, если не вышло — фото из репозитория
 async function getPostImage(imagePrompt) {
   const aiImage = await generateImage(imagePrompt);
@@ -162,5 +240,8 @@ module.exports = {
   generateAnnounce,
   getNextContentType,
   generateImage,
+  generateVoice,
+  transcribeAudio,
+  chatWithClaude,
   getRandomPhoto
 };
