@@ -1,8 +1,13 @@
 const Anthropic = require('@anthropic-ai/sdk');
+const { GoogleGenerativeAI } = require('@google/generative-ai');
+const path = require('path');
+const fs = require('fs');
+const os = require('os');
 
 const client = new Anthropic({ apiKey: process.env.CLAUDE_API_KEY });
+const genAI = new GoogleGenerativeAI(process.env.GEMINI_API_KEY);
 
-const BAND_CONTEXT = `Ты — AI-помощник кавер-группы ПРО•ХИТ из Москвы (район Прокшино, Испанские кварталы).
+const BAND_CONTEXT = `Ты — AI-помощник кавер-группы 🎧 ПРО•ХИТ из Москвы (район Прокшино, Испанские кварталы).
 Группа играет живую музыку в клубах и ресторанах.
 Жанры: POP, ROCK, DISCO, FUNK.
 Сайт: про-хит.рф
@@ -24,9 +29,8 @@ Telegram-группа: @prohit_group
 Пиши посты на русском языке. Используй эмодзи. Формат — Telegram HTML (теги <b>, <i>, <a href="">).
 Посты должны быть короткими (3-6 строк), живыми и дружелюбными.`;
 
-const path = require('path');
-
 const MUSIC_DIR = path.join(__dirname, '..', 'media', 'music');
+const PHOTOS_DIR = path.join(__dirname, '..');
 
 const TRACKS = [
   { name: 'The Weeknd — Save Your Tears', file: 'SaveYourTearsOfficial Music.mp3' },
@@ -38,8 +42,16 @@ const TRACKS = [
   { name: 'Ferhat Göçer & Aysegül Coskun — Yıllarım Gitti', file: 'FerhatGöçerAysegülCoskunYıllarımGitti.mp3' },
 ];
 
+// Фото группы из репозитория
+const BAND_PHOTOS = ['1.jpg','2.jpg','3.jpg','4.jpg','5.jpg','6.jpg','8.jpg'];
+
 function getRandomTrack() {
   return TRACKS[Math.floor(Math.random() * TRACKS.length)];
+}
+
+function getRandomPhoto() {
+  const file = BAND_PHOTOS[Math.floor(Math.random() * BAND_PHOTOS.length)];
+  return path.join(PHOTOS_DIR, file);
 }
 
 const CONTENT_TYPES = ['track', 'fact', 'poll', 'announce'];
@@ -56,6 +68,36 @@ async function askClaude(prompt) {
   return msg.content[0].text;
 }
 
+// Генерация картинки через Gemini Imagen
+async function generateImage(prompt) {
+  try {
+    const model = genAI.getGenerativeModel({ model: 'gemini-2.5-flash-image' });
+    const result = await model.generateContent({
+      contents: [{ role: 'user', parts: [{ text: prompt }] }],
+      generationConfig: { responseModalities: ['image', 'text'] }
+    });
+    const response = result.response;
+    for (const part of response.candidates[0].content.parts) {
+      if (part.inlineData) {
+        const tmpFile = path.join(os.tmpdir(), 'prohit_img_' + Date.now() + '.png');
+        fs.writeFileSync(tmpFile, Buffer.from(part.inlineData.data, 'base64'));
+        return tmpFile;
+      }
+    }
+    return null;
+  } catch (err) {
+    console.error('Gemini image error:', err.message);
+    return null;
+  }
+}
+
+// Получить картинку: сначала пробуем AI, если не вышло — фото из репозитория
+async function getPostImage(imagePrompt) {
+  const aiImage = await generateImage(imagePrompt);
+  if (aiImage) return { file: aiImage, generated: true };
+  return { file: getRandomPhoto(), generated: false };
+}
+
 async function generateTrackPost() {
   const track = getRandomTrack();
   const text = await askClaude(
@@ -63,19 +105,26 @@ async function generateTrackPost() {
     'Расскажи коротко интересный факт об этой песне или исполнителе. ' +
     'В конце добавь призыв прийти на выступление послушать живое исполнение.'
   );
-  return { text, audioFile: path.join(MUSIC_DIR, track.file), trackName: track.name };
+  const image = await getPostImage(
+    `Concert stage with colorful lights, live band performing, energetic atmosphere, neon pink and dark blue tones. Text overlay: "${track.name}". Music poster style, modern design.`
+  );
+  return { text, audioFile: path.join(MUSIC_DIR, track.file), trackName: track.name, image };
 }
 
 async function generateFact() {
-  return askClaude(
+  const text = await askClaude(
     'Напиши короткий интересный пост — факт о живой музыке, кавер-группах или одном из жанров (POP/ROCK/DISCO/FUNK). ' +
-    'Свяжи это с группой ПРО•ХИТ. Сделай пост вовлекающим, задай вопрос читателям в конце.'
+    'Свяжи это с группой 🎧 ПРО•ХИТ. Сделай пост вовлекающим, задай вопрос читателям в конце.'
   );
+  const image = await getPostImage(
+    'Musical instruments on stage: guitar, drums, microphone, keyboard. Atmospheric lighting with pink neon glow. Concert venue mood.'
+  );
+  return { text, image };
 }
 
 async function generatePollData() {
   const raw = await askClaude(
-    'Придумай опрос для подписчиков группы ПРО•ХИТ. Тема — музыка, выступления, песни. ' +
+    'Придумай опрос для подписчиков группы 🎧 ПРО•ХИТ. Тема — музыка, выступления, песни. ' +
     'Ответь строго в формате JSON: {"question": "текст вопроса", "options": ["вариант1", "вариант2", "вариант3", "вариант4"]}. ' +
     'Только JSON, без пояснений.'
   );
@@ -88,12 +137,16 @@ async function generatePollData() {
 }
 
 async function generateAnnounce() {
-  return askClaude(
-    'Напиши пост-анонс/напоминание о группе ПРО•ХИТ. ' +
+  const text = await askClaude(
+    'Напиши пост-анонс/напоминание о группе 🎧 ПРО•ХИТ. ' +
     'Можно написать про: поиск музыкантов, приглашение на репетицию, атмосферу выступлений, ' +
     'или просто мотивационный пост про музыку и драйв. ' +
     'В конце упомяни сайт про-хит.рф или предложи написать в группу.'
   );
+  const image = await getPostImage(
+    'Band looking for musicians poster. Silhouettes of drummer, bassist, vocalist, keyboardist. Neon pink on black background. Modern flyer design.'
+  );
+  return { text, image };
 }
 
 function getNextContentType() {
@@ -107,5 +160,7 @@ module.exports = {
   generateFact,
   generatePollData,
   generateAnnounce,
-  getNextContentType
+  getNextContentType,
+  generateImage,
+  getRandomPhoto
 };
