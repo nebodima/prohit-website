@@ -509,6 +509,7 @@ body{
   .rondo-block{padding:8px 0;margin-bottom:4px}
   .rondo-block img{height:28px}
   .rondo-block .rondo-text{font-size:11px}
+  .no-rondo .rondo-block{display:none !important}
 
   .contacts-section{margin-bottom:10px}
   .contacts-title{font-size:15px;margin-bottom:10px}
@@ -707,6 +708,7 @@ body{
 <!-- AUDIO -->
 <audio id="fl-audio"></audio>
 
+<script>if(location.search.indexOf('norondo')!==-1)document.body.classList.add('no-rondo');</script>
 <script>
 (function(){
   var audio = document.getElementById('fl-audio');
