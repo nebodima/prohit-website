@@ -106,7 +106,7 @@ async function generateTrackPost() {
     'В конце добавь призыв прийти на выступление послушать живое исполнение.'
   );
   const image = await getPostImage(
-    `Concert stage with colorful lights, live band performing, energetic atmosphere, neon pink and dark blue tones. Text overlay: "${track.name}". Music poster style, modern design.`
+    `Концертная сцена с яркими цветными огнями, живая группа выступает, энергичная атмосфера, неоновые розовые и тёмно-синие тона. Надпись: "${track.name}". Стиль музыкального постера, современный дизайн.`
   );
   return { text, audioFile: path.join(MUSIC_DIR, track.file), trackName: track.name, image };
 }
@@ -117,7 +117,7 @@ async function generateFact() {
     'Свяжи это с группой 🎧 ПРО•ХИТ. Сделай пост вовлекающим, задай вопрос читателям в конце.'
   );
   const image = await getPostImage(
-    'Musical instruments on stage: guitar, drums, microphone, keyboard. Atmospheric lighting with pink neon glow. Concert venue mood.'
+    'Музыкальные инструменты на сцене: гитара, барабаны, микрофон, клавиши. Атмосферное освещение с розовым неоновым свечением. Настроение концертного зала.'
   );
   return { text, image };
 }
@@ -144,7 +144,7 @@ async function generateAnnounce() {
     'В конце упомяни сайт про-хит.рф или предложи написать в группу.'
   );
   const image = await getPostImage(
-    'Band looking for musicians poster. Silhouettes of drummer, bassist, vocalist, keyboardist. Neon pink on black background. Modern flyer design.'
+    'Постер группы, ищущей музыкантов. Силуэты барабанщика, басиста, вокалиста, клавишника. Неоновый розовый на чёрном фоне. Современный дизайн флаера.'
   );
   return { text, image };
 }
