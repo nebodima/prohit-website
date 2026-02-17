@@ -3090,7 +3090,26 @@ document.addEventListener('DOMContentLoaded',function(){
         </div>
     </div>
 <div id="lightbox2Overlay" tabindex="-1" class="lightbox2Overlay" style="display: none;"></div><div id="lightbox2" tabindex="-1" class="lightbox2" style="display: none;"><div class="lbl-outerContainer"><div class="lbl-container"><div class="lbl-closeContainer"><a class="lbl-close"></a></div><img class="lbl-image" src="data:image/gif;base64,R0lGODlhAQABAIAAAP///wAAACH5BAEAAAAALAAAAAABAAEAAAICRAEAOw==" alt=""><div class="lbl-nav"><a class="lbl-prev" aria-label="Previous image" href="#"></a><a class="lbl-next" aria-label="Next image" href="#"></a></div><div class="lbl-loader"><a class="lbl-cancel"></a></div></div></div><div class="lbl-dataContainer"><div class="lbl-data"><div class="lbl-details"><span class="lbl-caption"></span><span class="lbl-number"></span></div></div></div></div><div id="lightboxOverlay" tabindex="-1" class="lightboxOverlay" style="display: none;"></div><div id="lightbox" tabindex="-1" class="lightbox" style="display: none;"><div class="lb-outerContainer"><div class="lb-dataContainer"><div class="lb-data"><div class="lb-details"><span class="lb-caption"></span><span class="lb-number"></span></div><div class="lb-closeContainer"><a class="lb-close"></a></div></div></div><div class="lb-container"><img class="lb-image" src="data:image/gif;base64,R0lGODlhAQABAIAAAP///wAAACH5BAEAAAAALAAAAAABAAEAAAICRAEAOw==" alt=""><div class="lb-nav"><a class="lb-prev" aria-label="Previous image" href="#"></a><a class="lb-next" aria-label="Next image" href="#"></a></div><div class="lb-loader"><a class="lb-cancel"></a></div></div></div></div>
-<!-- ElevenLabs Voice Chat Widget -->
+<!-- ElevenLabs Voice Chat Widget (proxied through our server to bypass geo-blocks) -->
+<script>
+(function(){
+  const origFetch = window.fetch;
+  window.fetch = function(url, opts) {
+    if (typeof url === 'string') {
+      url = url.replace('https://api.us.elevenlabs.io/', '/el-us-api/');
+      url = url.replace('https://api.elevenlabs.io/', '/el-api/');
+    } else if (url instanceof Request) {
+      const newUrl = url.url
+        .replace('https://api.us.elevenlabs.io/', window.location.origin + '/el-us-api/')
+        .replace('https://api.elevenlabs.io/', window.location.origin + '/el-api/');
+      if (newUrl !== url.url) {
+        url = new Request(newUrl, url);
+      }
+    }
+    return origFetch.call(this, url, opts);
+  };
+})();
+</script>
 <elevenlabs-convai agent-id="agent_0801khk5kby4ft0t0m0am640gasm"></elevenlabs-convai>
 <script src="https://unpkg.com/@elevenlabs/convai-widget-embed@latest/dist/index.js" type="module" async></script>
 </body></html>
