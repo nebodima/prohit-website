@@ -1079,12 +1079,6 @@ body.dot-overlay .jt-imagecover,
 body.dot-overlay .testimonial_block-image,
 body.dot-overlay .showimg,
 body.dot-overlay .carousel-image{position:relative;overflow:visible!important}
-body.dot-overlay .owl-carousel .owl-stage-outer,
-body.dot-overlay .owl-carousel .owl-item,
-body.dot-overlay .owl-carousel .fake-col-wrapper,
-body.dot-overlay .jt-cs .slide,
-body.dot-overlay .jt-cs .jt-inner,
-body.dot-overlay .jt-cs .jt-imagecover{overflow:visible!important;position:relative}
 .slider .as-btn.primary,.slider .as-btn.warning.fastfood{margin-left:20px;}
 .n2-ss-control-bullet{position:relative;}
 div#n2-ss-1 .nextend-bullet-bar .n2-bullet.n2-active,div#n2-ss-1 .nextend-bullet-bar .n2-bullet{display:grid;place-items:center;font-size:75%;position:relative;}
