@@ -2274,7 +2274,7 @@ body.site-default-home-pizzaburger-dark .header-wrap,body.site-default-home-pizz
 .nonda-schedule .show-outer{display:flex;border-radius:5px; padding:15px;gap:15px;}
 .nonda-schedule .showtime{font-weight:bold;text-align: center;padding-right: 20px;}
 .show-outer .showimg{flex:1;}
-.show-outer .showimg img{ width:102px; height:102px;border-radius:100%;}
+.show-outer .showimg img{ width:68px; height:68px;border-radius:100%;}
 .show-outer .showtext{flex:3;}
 .nonda-schedule .showimg-text{display:flex;}
 .nonda-schedule .showimg-text{gap:10px;}
