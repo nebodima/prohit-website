@@ -44,7 +44,7 @@
 	<link href="./style(5).css" rel="stylesheet">
 	<link href="./template.css" rel="stylesheet">
 	<link href="./12.css" rel="stylesheet">
-	<link href="./custom.css?v=20260218j" rel="stylesheet">
+	<link href="./custom.css?v=20260218k" rel="stylesheet">
 <script src="./jquery.min.js"></script>
 	<script src="./jquery-noconflict.min.js"></script>
 	<script src="./jquery-migrate.min.js"></script>
@@ -108,6 +108,18 @@
   "sameAs": ["https://t.me/PROKSHINOHIT", "https://t.me/prohit_group"]
 }
 </script>
+<!-- Yandex.Metrika counter -->
+<script type="text/javascript">
+    (function(m,e,t,r,i,k,a){
+        m[i]=m[i]||function(){(m[i].a=m[i].a||[]).push(arguments)};
+        m[i].l=1*new Date();
+        for (var j = 0; j < document.scripts.length; j++) {if (document.scripts[j].src === r) { return; }}
+        k=e.createElement(t),a=e.getElementsByTagName(t)[0],k.async=1,k.src=r,a.parentNode.insertBefore(k,a)
+    })(window, document,'script','https://mc.yandex.ru/metrika/tag.js?id=106901651', 'ym');
+    ym(106901651, 'init', {ssr:true, clickmap:true, referrer: document.referrer, url: location.href, accurateTrackBounce:true, trackLinks:true});
+</script>
+<noscript><div><img src="https://mc.yandex.ru/watch/106901651" style="position:absolute; left:-9999px;" alt="" /></div></noscript>
+<!-- /Yandex.Metrika counter -->
 </head>	
 	
 <body class="site-default navigation-default theme-default layout-default nav-breakpoint-lg oc-desktop com_content view-featured item-101 loaded-bs5 dot-overlay" data-jver="4" data-top-t4-scroll-progress-bar="over" data-top-t4-topbar="under" data-top-t4-header="under" style="overflow-x: hidden;">
@@ -276,6 +288,8 @@
 
     // Add click event listener to play button
     playButton.addEventListener('click', function() {
+      if (typeof stopTrack115 === 'function') stopTrack115();
+      if (typeof stopTrack129 === 'function') stopTrack129();
       audioPlayer.play();
       imageContainer.style.display = 'block'; // show the image container
       pauseImage.style.display = 'none'; // hide the pause image
@@ -423,31 +437,31 @@ volumeBarFilled.style.width = audioPlayer114.volume * 100 + '%';
     <span class="duration">2:34</span>
   </li>
 
-  <li class="jt-playlist" data-src="./media/music/SaveYourTearsOfficial Music.mp3" data-desc="ПРО•ХИТ Band" data-img="./1.jpg">
+  <li class="jt-playlist" data-src="./media/music/Old/SaveYourTearsOfficial Music.mp3" data-desc="ПРО•ХИТ Band" data-img="./1.jpg">
     <span><i class="fas fa-music"></i>13. The Weeknd — Save Your Tears</span>
     <span class="duration">4:08</span>
   </li>
-  <li class="jt-playlist" data-src="./media/music/senorita.mp3" data-desc="ПРО•ХИТ Band" data-img="./1.jpg">
+  <li class="jt-playlist" data-src="./media/music/Old/senorita.mp3" data-desc="ПРО•ХИТ Band" data-img="./1.jpg">
     <span><i class="fas fa-music"></i>14. Shawn Mendes — Senorita</span>
     <span class="duration">3:11</span>
   </li>
-  <li class="jt-playlist" data-src="./media/music/Maroon - Don't Wanna Know.mp3" data-desc="ПРО•ХИТ Band" data-img="./1.jpg">
+  <li class="jt-playlist" data-src="./media/music/Old/Maroon - Don't Wanna Know.mp3" data-desc="ПРО•ХИТ Band" data-img="./1.jpg">
     <span><i class="fas fa-music"></i>15. Maroon 5 — Don't Wanna Know</span>
     <span class="duration">4:05</span>
   </li>
-  <li class="jt-playlist" data-src="./media/music/romantic-dinner.mp3" data-desc="ПРО•ХИТ Band" data-img="./1.jpg">
+  <li class="jt-playlist" data-src="./media/music/Old/romantic-dinner.mp3" data-desc="ПРО•ХИТ Band" data-img="./1.jpg">
     <span><i class="fas fa-music"></i>16. Романтический ужин</span>
     <span class="duration">2:19</span>
   </li>
-  <li class="jt-playlist" data-src="./media/music/the-beat.mp3" data-desc="ПРО•ХИТ Band" data-img="./1.jpg">
+  <li class="jt-playlist" data-src="./media/music/Old/the-beat.mp3" data-desc="ПРО•ХИТ Band" data-img="./1.jpg">
     <span><i class="fas fa-music"></i>17. The Beat</span>
     <span class="duration">1:44</span>
   </li>
-  <li class="jt-playlist" data-src="./media/music/Maroon 5 - Girls Like You ft. Cardi.mp3" data-desc="ПРО•ХИТ Band" data-img="./1.jpg">
+  <li class="jt-playlist" data-src="./media/music/Old/Maroon 5 - Girls Like You ft. Cardi.mp3" data-desc="ПРО•ХИТ Band" data-img="./1.jpg">
     <span><i class="fas fa-music"></i>18. Maroon 5 — Girls Like You</span>
     <span class="duration">4:30</span>
   </li>
-  <li class="jt-playlist" data-src="./media/music/Miley Cyrus - Flowers Official Video.mp3" data-desc="ПРО•ХИТ Band" data-img="./1.jpg">
+  <li class="jt-playlist" data-src="./media/music/Old/Miley Cyrus - Flowers Official Video.mp3" data-desc="ПРО•ХИТ Band" data-img="./1.jpg">
     <span><i class="fas fa-music"></i>19. Miley Cyrus — Flowers</span>
     <span class="duration">3:21</span>
   </li>
@@ -546,14 +560,21 @@ function playTrack115() {
   }
 
   // if the audio player is already playing, pause it and save the current playback position
+  // Stop radio and other playlist
+  var _radioEl = document.getElementById('jt-radio-player114');
+  if (_radioEl && !_radioEl.paused) _radioEl.pause();
+  if (window.audioPlayer129 && !audioPlayer129.paused) {
+    audioPlayer129.pause(); isPlaying129 = false;
+    if (window.playPauseButton129) playPauseButton129.innerHTML = "<i class='fas fa-play'></i>";
+  }
+
   if (!audioPlayer115.paused) {
     audioPlayer115.pause();
   }
-  var playbackPosition = audioPlayer115.currentTime;
 
-  // load the new track and set the playback position
+  // load the new track from the beginning
   audioPlayer115.src = trackSrc;
-  audioPlayer115.currentTime = playbackPosition;
+  audioPlayer115.currentTime = 0;
   audioPlayer115.play();
   
   isPlaying115 = true;
@@ -728,13 +749,9 @@ for (var i = 0; i < playlistItems115.length; i++) {
     playTrack115();
   });
 }
-$('#repeat-button115').click(function() {
-	isRepeat115 = !isRepeat115; // toggle repeat mode
-	if (isRepeat115) {
-		$('#repeat-button115').addClass('active');
-	} else {
-		$('#repeat-button115').removeClass('active');
-	}
+if (repeatButton115) repeatButton115.addEventListener('click', function() {
+	isRepeat115 = !isRepeat115;
+	repeatButton115.classList.toggle('active', isRepeat115);
 });
 
 audioPlayer115.addEventListener('ended', function() {
@@ -743,14 +760,9 @@ audioPlayer115.addEventListener('ended', function() {
 		audioPlayer115.play();
 	}
 });
-$('#shuffle-button115').click(function() {
-    isShuffle115 = !isShuffle115; // toggle shuffle mode
-    if (isShuffle115) {
-        $('#shuffle-button115').addClass('active');
-        
-    } else {
-        $('#shuffle-button115').removeClass('active');
-    }
+if (shuffleButton115) shuffleButton115.addEventListener('click', function() {
+    isShuffle115 = !isShuffle115;
+    shuffleButton115.classList.toggle('active', isShuffle115);
 });
 playlistItems115.forEach(function(item, index) {
     var src = item.getAttribute('data-src');
@@ -1464,31 +1476,31 @@ lightbox.option({
     <span><i class="fas fa-music"></i>12. Розовые очки</span>
     <span class="duration">2:34</span>
   </li>
-  <li class="jt-playlist" data-src="./media/music/SaveYourTearsOfficial Music.mp3" data-desc="ПРО•ХИТ Band" data-img="./1.jpg">
+  <li class="jt-playlist" data-src="./media/music/Old/SaveYourTearsOfficial Music.mp3" data-desc="ПРО•ХИТ Band" data-img="./1.jpg">
     <span><i class="fas fa-music"></i>13. The Weeknd — Save Your Tears</span>
     <span class="duration">4:08</span>
   </li>
-  <li class="jt-playlist" data-src="./media/music/senorita.mp3" data-desc="ПРО•ХИТ Band" data-img="./1.jpg">
+  <li class="jt-playlist" data-src="./media/music/Old/senorita.mp3" data-desc="ПРО•ХИТ Band" data-img="./1.jpg">
     <span><i class="fas fa-music"></i>14. Shawn Mendes — Senorita</span>
     <span class="duration">3:11</span>
   </li>
-  <li class="jt-playlist" data-src="./media/music/Maroon - Don't Wanna Know.mp3" data-desc="ПРО•ХИТ Band" data-img="./1.jpg">
+  <li class="jt-playlist" data-src="./media/music/Old/Maroon - Don't Wanna Know.mp3" data-desc="ПРО•ХИТ Band" data-img="./1.jpg">
     <span><i class="fas fa-music"></i>15. Maroon 5 — Don't Wanna Know</span>
     <span class="duration">4:05</span>
   </li>
-  <li class="jt-playlist" data-src="./media/music/romantic-dinner.mp3" data-desc="ПРО•ХИТ Band" data-img="./1.jpg">
+  <li class="jt-playlist" data-src="./media/music/Old/romantic-dinner.mp3" data-desc="ПРО•ХИТ Band" data-img="./1.jpg">
     <span><i class="fas fa-music"></i>16. Романтический ужин</span>
     <span class="duration">2:19</span>
   </li>
-  <li class="jt-playlist" data-src="./media/music/the-beat.mp3" data-desc="ПРО•ХИТ Band" data-img="./1.jpg">
+  <li class="jt-playlist" data-src="./media/music/Old/the-beat.mp3" data-desc="ПРО•ХИТ Band" data-img="./1.jpg">
     <span><i class="fas fa-music"></i>17. The Beat</span>
     <span class="duration">1:44</span>
   </li>
-  <li class="jt-playlist" data-src="./media/music/Maroon 5 - Girls Like You ft. Cardi.mp3" data-desc="ПРО•ХИТ Band" data-img="./1.jpg">
+  <li class="jt-playlist" data-src="./media/music/Old/Maroon 5 - Girls Like You ft. Cardi.mp3" data-desc="ПРО•ХИТ Band" data-img="./1.jpg">
     <span><i class="fas fa-music"></i>18. Maroon 5 — Girls Like You</span>
     <span class="duration">4:30</span>
   </li>
-  <li class="jt-playlist" data-src="./media/music/Miley Cyrus - Flowers Official Video.mp3" data-desc="ПРО•ХИТ Band" data-img="./1.jpg">
+  <li class="jt-playlist" data-src="./media/music/Old/Miley Cyrus - Flowers Official Video.mp3" data-desc="ПРО•ХИТ Band" data-img="./1.jpg">
     <span><i class="fas fa-music"></i>19. Miley Cyrus — Flowers</span>
     <span class="duration">3:21</span>
   </li>
@@ -1587,14 +1599,21 @@ function playTrack129() {
   }
 
   // if the audio player is already playing, pause it and save the current playback position
+  // Stop radio and other playlist
+  var _radioEl2 = document.getElementById('jt-radio-player114');
+  if (_radioEl2 && !_radioEl2.paused) _radioEl2.pause();
+  if (window.audioPlayer115 && !audioPlayer115.paused) {
+    audioPlayer115.pause(); isPlaying115 = false;
+    if (window.playPauseButton115) playPauseButton115.innerHTML = "<i class='fas fa-play'></i>";
+  }
+
   if (!audioPlayer129.paused) {
     audioPlayer129.pause();
   }
-  var playbackPosition = audioPlayer129.currentTime;
 
-  // load the new track and set the playback position
+  // load the new track from the beginning
   audioPlayer129.src = trackSrc;
-  audioPlayer129.currentTime = playbackPosition;
+  audioPlayer129.currentTime = 0;
   audioPlayer129.play();
   
   isPlaying129 = true;
@@ -1769,13 +1788,9 @@ for (var i = 0; i < playlistItems129.length; i++) {
     playTrack129();
   });
 }
-$('#repeat-button129').click(function() {
-	isRepeat129 = !isRepeat129; // toggle repeat mode
-	if (isRepeat129) {
-		$('#repeat-button129').addClass('active');
-	} else {
-		$('#repeat-button129').removeClass('active');
-	}
+if (repeatButton129) repeatButton129.addEventListener('click', function() {
+	isRepeat129 = !isRepeat129;
+	repeatButton129.classList.toggle('active', isRepeat129);
 });
 
 audioPlayer129.addEventListener('ended', function() {
@@ -1784,14 +1799,9 @@ audioPlayer129.addEventListener('ended', function() {
 		audioPlayer129.play();
 	}
 });
-$('#shuffle-button129').click(function() {
-    isShuffle129 = !isShuffle129; // toggle shuffle mode
-    if (isShuffle129) {
-        $('#shuffle-button129').addClass('active');
-        
-    } else {
-        $('#shuffle-button129').removeClass('active');
-    }
+if (shuffleButton129) shuffleButton129.addEventListener('click', function() {
+    isShuffle129 = !isShuffle129;
+    shuffleButton129.classList.toggle('active', isShuffle129);
 });
 playlistItems129.forEach(function(item, index) {
     var src = item.getAttribute('data-src');
@@ -2443,7 +2453,8 @@ lightbox.option({
 <style>
 .t4-video-section{padding:40px 0 20px;}
 .prohit-video-grid{display:flex;flex-wrap:wrap;gap:20px;justify-content:center;padding-bottom:20px;}
-.prohit-video-item{flex:1 1 300px;max-width:480px;background:#1e2022;border-radius:8px;overflow:hidden;box-shadow:0 4px 16px rgba(0,0,0,.4);}
+.prohit-video-item{position:relative;flex:1 1 300px;max-width:480px;background:#1e2022;border-radius:8px;overflow:hidden;box-shadow:0 4px 16px rgba(0,0,0,.4);}
+.prohit-video-item::after{content:'';position:absolute;inset:0;background:url(./overlay-mesh.png) repeat;pointer-events:none;z-index:1;}
 .prohit-video-item video{width:100%;display:block;aspect-ratio:16/9;background:#000;}
 .prohit-video-title{margin:0;padding:10px 14px;color:#ccc;font-size:14px;font-family:Raleway,sans-serif;font-weight:600;letter-spacing:.05em;}
 </style>
