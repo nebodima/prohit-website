@@ -1126,7 +1126,7 @@ div#n2-ss-1 .nextend-bullet-bar .n2-bullet.n2-active::after,div#n2-ss-1 .nextend
 .jt-playlist.nonda .playlist-wrap.style1 .volume,.jt-playlist.nonda .playlist-wrap.style1 .audio-time,.jt-playlist.toplist .playlist-wrap.style1 .volume,.jt-playlist.toplist .playlist-wrap.style1 .audio-time{border-radius:3px;padding-top:5px;}
 .jt-playlist.nonda .playlist-wrap.style1 .audio-time-inner,.jt-playlist.toplist .playlist-wrap.style1 .audio-time-inner{display:flex;width:100%;min-height:40px}
 .jt-playlist.nonda .playlist-wrap.style1 .buttons,.jt-playlist.toplist .playlist-wrap.style1 .buttons{flex:1;margin:0;gap:10px;justify-content:flex-start;border-radius:3px 0px 0px 3px;min-height:20px;padding-top:5px;padding-bottom:10px;padding-left:10px;display:flex;align-items:center;}
-.jt-playlist.nonda .playlist-wrap.style1 #time-controls,.jt-playlist.toplist .playlist-wrap.style1 #time-controls{flex:2;padding-right:10px;border-radius:0px 3px 3px 0;min-height:20px;padding-top:10px;padding-bottom:10px;display:flex;align-items:center;}
+.jt-playlist.nonda .playlist-wrap.style1 #time-controls115,.jt-playlist.toplist .playlist-wrap.style1 #time-controls129{flex:2;padding-right:10px;border-radius:0px 3px 3px 0;min-height:20px;padding-top:10px;padding-bottom:10px;display:flex;align-items:center;}
 .jt-playlist.nonda .playlist-wrap.style1 .buttons button,.jt-playlist.toplist .playlist-wrap.style1 .buttons button{background:none;width:12px;height:12px;padding:0px;line-height:1;}
 .jt-playlist.toplist .playlist-wrap.style1 .PlayList{box-shadow:none}
 .jt-playlist.nonda .playlist-wrap.style1 .progress-bar,.jt-playlist.toplist .playlist-wrap.style1 .progress-bar{margin:0;height:8px;border-radius:2px}
