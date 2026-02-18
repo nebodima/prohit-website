@@ -1287,7 +1287,9 @@ body.com_content .lightbox .lb-image{border:10px solid #fff;}
 .jt-cs.nonda.scroller .title-desc-onimage p.readmore{position:absolute;right:0;bottom:0;text-shadow:none;border-radius:0px;}
 .jt-cs.nonda.scroller .title-desc-onimage p.readmore i{font-size:17px}
 .jt-cs.nonda.scroller .title-desc-onimage p.readmore a.btn{border-radius:0px;}
-.jt-cs.nonda.scroller .jt-imagecover img{border-radius:0px;}
+.jt-cs.nonda.scroller .jt-imagecover{height:180px;overflow:hidden !important;}
+.jt-cs.nonda.scroller .jt-imagecover img{border-radius:0px;width:100%!important;height:180px;object-fit:cover;}
+.jt-cs.nonda.scroller .jt-imagecover:hover img{-webkit-transform:none!important;transform:none!important;}
 .jt-cs.nonda.scroller .jt-introtext{line-height:1.1}
 
 /*
