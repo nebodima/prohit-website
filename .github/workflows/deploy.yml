@@ -23,5 +23,6 @@ jobs:
             --exclude='.git/' \
             --exclude='.github/' \
             --exclude='.gitignore' \
+            --exclude='media/' \
             -e "ssh -i ~/.ssh/deploy_key" \
             ./ root@${HOST}:/opt/prohit/site/
