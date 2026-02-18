@@ -2280,6 +2280,9 @@ body .show-outer .showimg img{ width:68px; height:68px; border-radius:100%; obje
 .nonda-schedule .showimg-text{gap:10px;}
 .nonda-schedule .showtitle,.nonda-rj{font-weight:bold;}
 
+/* Mesh overlay for Топ месяца album cover */
+body.dot-overlay .audio-image{position:relative;overflow:hidden;}
+body.dot-overlay .audio-image::after{position:absolute;width:100%;height:100%;content:"";background:url(./overlay-mesh.png) repeat;top:0;left:0;display:block!important;z-index:5;pointer-events:none;}
 
 /*
 	==================================================
