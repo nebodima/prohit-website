@@ -2446,7 +2446,7 @@ lightbox.option({
 
     var np=document.createElement('div');
     np.className='sc-now-playing';
-    np.innerHTML='<img class="sc-artwork" alt=""><div class="sc-track-info"><div class="sc-now-playing-label">&#9654; СЕЙЧАС ИГРАЕТ</div><div class="sc-track-title"></div><div class="sc-track-artist"></div></div>';
+    np.innerHTML='<img class="sc-artwork" alt=""><div class="sc-track-info"><div class="sc-now-playing-label"><i class="fas fa-music"></i> СЕЙЧАС ИГРАЕТ</div><div class="sc-track-title"></div><div class="sc-track-artist"></div></div>';
     wrap.insertBefore(np,iframe);
     var artEl=np.querySelector('.sc-artwork');
     var titleEl=np.querySelector('.sc-track-title');
