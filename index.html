@@ -2418,14 +2418,14 @@ lightbox.option({
 </div>
 <style>
 .sc-section{background:#1e2022;border-radius:6px;border:1px solid #33393f;overflow:hidden;margin-top:10px;}
-.sc-header{padding:7px 12px;font-size:11px;color:#ff5500;font-weight:bold;letter-spacing:1px;text-transform:uppercase;border-bottom:1px solid #33393f;background:#161819;}
+.sc-header{padding:7px 12px;font-size:11px;color:#79d9f2;font-weight:bold;letter-spacing:1px;text-transform:uppercase;border-bottom:1px solid #33393f;background:#161819;}
 .sc-header .fab{margin-right:6px;}
 .sc-list{list-style:none;margin:0;padding:0;}
 .sc-item{display:flex;justify-content:space-between;align-items:center;padding:7px 12px;cursor:pointer;border-bottom:1px solid #2a2d30;color:#999;transition:background .15s;font-size:13px;}
 .sc-item:last-child{border-bottom:none;}
 .sc-item:hover{background:#1a1d1f;color:#fff;}
 .sc-item.active{background:#121315;color:#fff;}
-.sc-item .fas{margin-right:6px;color:#ff5500;font-size:11px;}
+.sc-item .fas{margin-right:6px;color:#79d9f2;font-size:11px;}
 .sc-dur{font-size:12px;color:#666;flex-shrink:0;}
 .sc-player-wrap{border-top:1px solid #33393f;}
 .sc-player-wrap iframe{width:100%;height:166px;border:none;display:block;}
@@ -2439,7 +2439,7 @@ lightbox.option({
     items.forEach(function(item){
       item.addEventListener('click',function(){
         var url=encodeURIComponent(this.getAttribute('data-url'));
-        iframe.src='https://w.soundcloud.com/player/?url='+url+'&color=%23ff5500&auto_play=true&hide_related=true&show_comments=false&show_user=true&show_reposts=false&show_teaser=false';
+        iframe.src='https://w.soundcloud.com/player/?url='+url+'&color=%2379d9f2&auto_play=true&hide_related=true&show_comments=false&show_user=true&show_reposts=false&show_teaser=false';
         wrap.style.display='block';
         items.forEach(function(e){e.classList.remove('active');});
         this.classList.add('active');
