@@ -2,7 +2,7 @@ name: Deploy to server
 
 on:
   push:
-    branches: [main]
+    branches: [main, claude/setup-website-project-Ro6TE]
 
 jobs:
   deploy:
