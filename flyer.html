@@ -758,6 +758,21 @@ body.dark .theme-toggle{background:#111;border:1px solid rgba(254,1,120,0.2)}
       <div class="plist-item" data-src="./media/music/12_Розовые очки.mp3" data-img="./1(1).jpg">
         <span class="n">12</span><span class="tn">Розовые очки</span><span class="td">2:34</span>
       </div>
+      <div class="plist-yandex" data-yandex="63883257/10203027">
+        <span class="n">13</span><span class="tn"><i class="fab fa-yandex" style="color:#fc3f1d;margin-right:4px;"></i>The Weeknd — Save Your Tears</span><span class="td">4:08</span>
+      </div>
+      <div class="plist-yandex" data-yandex="54400255/7841737">
+        <span class="n">14</span><span class="tn"><i class="fab fa-yandex" style="color:#fc3f1d;margin-right:4px;"></i>Shawn Mendes — Señorita</span><span class="td">3:11</span>
+      </div>
+      <div class="plist-yandex" data-yandex="31739845/5469749">
+        <span class="n">15</span><span class="tn"><i class="fab fa-yandex" style="color:#fc3f1d;margin-right:4px;"></i>Maroon 5 — Don't Wanna Know</span><span class="td">4:05</span>
+      </div>
+      <div class="plist-yandex" data-yandex="41388219/5469749">
+        <span class="n">16</span><span class="tn"><i class="fab fa-yandex" style="color:#fc3f1d;margin-right:4px;"></i>Maroon 5 — Girls Like You</span><span class="td">4:30</span>
+      </div>
+      <div class="plist-yandex" data-yandex="125656385/24897493">
+        <span class="n">17</span><span class="tn"><i class="fab fa-yandex" style="color:#fc3f1d;margin-right:4px;"></i>Miley Cyrus — Flowers</span><span class="td">3:21</span>
+      </div>
     </div>
   </div>
 
@@ -895,6 +910,40 @@ if(location.search.indexOf('norondo')!==-1)document.body.classList.add('no-rondo
   });
 
   load(0);
+})();
+</script>
+<!-- Яндекс Музыка модальное окно -->
+<div id="ym-modal" style="display:none;position:fixed;inset:0;z-index:9999;background:rgba(0,0,0,.85);align-items:center;justify-content:center;">
+  <div style="position:relative;width:90%;max-width:500px;background:#1e2022;border-radius:10px;overflow:hidden;">
+    <button id="ym-modal-close" style="position:absolute;top:6px;right:10px;background:none;border:none;color:#fff;font-size:24px;cursor:pointer;z-index:1;">&times;</button>
+    <iframe id="ym-modal-iframe" frameborder="0" style="width:100%;height:180px;border:none;display:block;" src=""></iframe>
+  </div>
+</div>
+<style>
+.plist-yandex{display:flex;align-items:center;gap:8px;padding:8px 10px;cursor:pointer;border-top:1px solid rgba(255,255,255,.07);color:#aaa;transition:background .15s;}
+.plist-yandex:hover{background:rgba(255,255,255,.06);color:#fff;}
+.plist-yandex.active{background:rgba(252,63,29,.12);color:#fff;}
+</style>
+<script>
+(function(){
+  var modal=document.getElementById('ym-modal');
+  var iframe=document.getElementById('ym-modal-iframe');
+  var allYa=document.querySelectorAll('.plist-yandex');
+  allYa.forEach(function(el){
+    el.addEventListener('click',function(){
+      iframe.src='https://music.yandex.ru/iframe/#track/'+this.getAttribute('data-yandex');
+      modal.style.display='flex';
+      allYa.forEach(function(e){e.classList.remove('active');});
+      this.classList.add('active');
+    });
+  });
+  document.getElementById('ym-modal-close').addEventListener('click',function(){
+    modal.style.display='none'; iframe.src='';
+    allYa.forEach(function(e){e.classList.remove('active');});
+  });
+  modal.addEventListener('click',function(e){
+    if(e.target===modal){modal.style.display='none';iframe.src='';}
+  });
 })();
 </script>
 </body>
