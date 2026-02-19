@@ -2452,31 +2452,47 @@ lightbox.option({
     var titleEl=np.querySelector('.sc-track-title');
     var artistEl=np.querySelector('.sc-track-artist');
 
+    var widget=null;
+
+    function updateNowPlaying(){
+      if(!widget) return;
+      widget.getCurrentSound(function(sound){
+        if(!sound) return;
+        var art=(sound.artwork_url||'').replace('large','t200x200');
+        artEl.src=art;
+        artEl.style.display=art?'block':'none';
+        titleEl.textContent=sound.title||'';
+        artistEl.textContent=(sound.user&&sound.user.username)||'';
+      });
+    }
+
+    function initWidget(){
+      if(typeof SC==='undefined') return;
+      widget=SC.Widget(iframe);
+      widget.bind(SC.Widget.Events.PLAY,function(){ updateNowPlaying(); });
+      widget.bind(SC.Widget.Events.FINISH,function(){
+        var all=Array.from(items);
+        var idx=all.findIndex(function(e){return e.classList.contains('active');});
+        if(idx>=0&&idx<all.length-1){
+          var next=all[idx+1];
+          items.forEach(function(e){e.classList.remove('active');});
+          next.classList.add('active');
+          widget.load(next.getAttribute('data-url'),{auto_play:true,callback:function(){widget.play();}});
+        }
+      });
+    }
+
     function playItem(item){
-      var url=encodeURIComponent(item.getAttribute('data-url'));
-      iframe.onload=function(){
-        if(typeof SC==='undefined') return;
-        var widget=SC.Widget(iframe);
-        widget.bind(SC.Widget.Events.PLAY,function(){
-          widget.getCurrentSound(function(sound){
-            if(!sound) return;
-            var art=(sound.artwork_url||'').replace('large','t200x200');
-            artEl.src=art;
-            artEl.style.display=art?'block':'none';
-            titleEl.textContent=sound.title||'';
-            artistEl.textContent=(sound.user&&sound.user.username)||'';
-          });
-        });
-        widget.bind(SC.Widget.Events.FINISH,function(){
-          var all=Array.from(items);
-          var idx=all.findIndex(function(e){return e.classList.contains('active');});
-          if(idx>=0&&idx<all.length-1) playItem(all[idx+1]);
-        });
-      };
-      iframe.src='https://w.soundcloud.com/player/?url='+url+'&color=%23fe0178&auto_play=true&hide_related=true&show_comments=false&show_user=true&show_reposts=false&show_teaser=false';
-      wrap.style.display='block';
       items.forEach(function(e){e.classList.remove('active');});
       item.classList.add('active');
+      if(!widget){
+        var url=encodeURIComponent(item.getAttribute('data-url'));
+        iframe.onload=function(){ initWidget(); };
+        iframe.src='https://w.soundcloud.com/player/?url='+url+'&color=%23fe0178&auto_play=true&hide_related=true&show_comments=false&show_user=true&show_reposts=false&show_teaser=false';
+        wrap.style.display='block';
+      } else {
+        widget.load(item.getAttribute('data-url'),{auto_play:true,callback:function(){widget.play();}});
+      }
     }
 
     items.forEach(function(item){
