@@ -458,6 +458,9 @@ volumeBarFilled.style.width = audioPlayer114.volume * 100 + '%';
   </li>
 
 </ul>
+<div class="jt-sc-player" style="display:none;">
+  <iframe class="jt-sc-iframe" frameborder="0" style="width:100%;height:166px;border:none;display:block;" src=""></iframe>
+</div>
  </div>
       </div><!--jt-playlist-container-->
         </div><!--//PlayList-->
@@ -1489,6 +1492,9 @@ lightbox.option({
     <span class="duration">3:21</span>
   </li>
 </ul>
+<div class="jt-sc-player" style="display:none;">
+  <iframe class="jt-sc-iframe" frameborder="0" style="width:100%;height:166px;border:none;display:block;" src=""></iframe>
+</div>
 
       </div><!--//PlayList-->
         </div><!--//playlist-wrap-->
@@ -2399,13 +2405,6 @@ lightbox.option({
 </div>
 </div></div>
 </div>
-<!-- Яндекс Музыка модальное окно -->
-<div id="ym-modal" style="display:none;position:fixed;inset:0;z-index:9999;background:rgba(0,0,0,.85);align-items:center;justify-content:center;">
-  <div style="position:relative;width:90%;max-width:500px;background:#1e2022;border-radius:10px;overflow:hidden;">
-    <button id="ym-modal-close" style="position:absolute;top:6px;right:10px;background:none;border:none;color:#fff;font-size:24px;cursor:pointer;z-index:1;">&times;</button>
-    <iframe id="ym-modal-iframe" frameborder="0" style="width:100%;height:180px;border:none;display:block;" src=""></iframe>
-  </div>
-</div>
 <style>
 .jt-sc-track{display:flex;justify-content:space-between;align-items:center;padding:8px 10px;cursor:pointer;border-bottom:1px solid #33393f;color:#999;transition:background .15s;}
 .jt-sc-track:hover{background:#1a1d1f;color:#fff;}
@@ -2413,28 +2412,20 @@ lightbox.option({
 .jt-sc-track span:first-child{font-size:13px;}
 .jt-sc-track .duration{font-size:12px;color:#666;}
 .jt-sc-track .fab{margin-right:6px;color:#ff5500;}
+.jt-sc-player{width:100%;border-top:1px solid #33393f;}
 </style>
 <script>
 (function(){
-  var modal=document.getElementById('ym-modal');
-  var iframe=document.getElementById('ym-modal-iframe');
-  iframe.style.height='166px';
-  var allSc=document.querySelectorAll('.jt-sc-track');
-  allSc.forEach(function(el){
+  document.querySelectorAll('.jt-sc-track').forEach(function(el){
     el.addEventListener('click',function(){
       var url=encodeURIComponent(this.getAttribute('data-soundcloud'));
+      var player=this.closest('ul').parentNode.querySelector('.jt-sc-player');
+      var iframe=player.querySelector('iframe');
       iframe.src='https://w.soundcloud.com/player/?url='+url+'&color=%23ff5500&auto_play=true&hide_related=true&show_comments=false&show_user=false&show_reposts=false&show_teaser=false';
-      modal.style.display='flex';
-      allSc.forEach(function(e){e.classList.remove('active');});
+      player.style.display='block';
+      this.closest('ul').querySelectorAll('.jt-sc-track').forEach(function(e){e.classList.remove('active');});
       this.classList.add('active');
     });
-  });
-  document.getElementById('ym-modal-close').addEventListener('click',function(){
-    modal.style.display='none'; iframe.src='';
-    allSc.forEach(function(e){e.classList.remove('active');});
-  });
-  modal.addEventListener('click',function(e){
-    if(e.target===modal){modal.style.display='none';iframe.src='';}
   });
 })();
 </script>
