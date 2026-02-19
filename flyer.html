@@ -760,28 +760,21 @@ body.dark .theme-toggle{background:#111;border:1px solid rgba(254,1,120,0.2)}
       <div class="plist-item" data-src="./media/music/12_Розовые очки.mp3" data-img="./1(1).jpg">
         <span class="n">12</span><span class="tn">Розовые очки</span><span class="td">2:34</span>
       </div>
-      <div class="plist-sc" data-soundcloud="https://soundcloud.com/theweeknd/save-your-tears">
-        <span class="n">13</span><span class="tn"><i class="fab fa-soundcloud" style="color:#ff5500;margin-right:4px;"></i>The Weeknd — Save Your Tears</span><span class="td">4:08</span>
+      <div class="plist-item" data-src="./media/music/Old/SaveYourTearsOfficial Music.mp3" data-img="./1(1).jpg">
+        <span class="n">13</span><span class="tn">The Weeknd — Save Your Tears</span><span class="td">4:08</span>
       </div>
-      <div class="plist-sc" data-soundcloud="https://soundcloud.com/officialshawnmendes/shawn-mendes-camila-cabello">
-        <span class="n">14</span><span class="tn"><i class="fab fa-soundcloud" style="color:#ff5500;margin-right:4px;"></i>Shawn Mendes — Señorita</span><span class="td">3:11</span>
+      <div class="plist-item" data-src="./media/music/Old/senorita.mp3" data-img="./1(1).jpg">
+        <span class="n">14</span><span class="tn">Shawn Mendes — Señorita</span><span class="td">3:11</span>
       </div>
-      <div class="plist-sc" data-soundcloud="https://soundcloud.com/maroon-5/dont-wanna-know">
-        <span class="n">15</span><span class="tn"><i class="fab fa-soundcloud" style="color:#ff5500;margin-right:4px;"></i>Maroon 5 — Don't Wanna Know</span><span class="td">4:05</span>
+      <div class="plist-item" data-src="./media/music/Old/Maroon - Don't Wanna Know.mp3" data-img="./1(1).jpg">
+        <span class="n">15</span><span class="tn">Maroon 5 — Don't Wanna Know</span><span class="td">4:05</span>
       </div>
-      <div class="plist-sc" data-soundcloud="https://soundcloud.com/maroon-5/girls-like-you">
-        <span class="n">16</span><span class="tn"><i class="fab fa-soundcloud" style="color:#ff5500;margin-right:4px;"></i>Maroon 5 — Girls Like You</span><span class="td">4:30</span>
+      <div class="plist-item" data-src="./media/music/Old/Maroon 5 - Girls Like You ft. Cardi.mp3" data-img="./1(1).jpg">
+        <span class="n">16</span><span class="tn">Maroon 5 — Girls Like You</span><span class="td">4:30</span>
       </div>
-      <div class="plist-sc" data-soundcloud="https://soundcloud.com/mileycyrus/flowers">
-        <span class="n">17</span><span class="tn"><i class="fab fa-soundcloud" style="color:#ff5500;margin-right:4px;"></i>Miley Cyrus — Flowers</span><span class="td">3:21</span>
+      <div class="plist-item" data-src="./media/music/Old/Miley Cyrus - Flowers Official Video.mp3" data-img="./1(1).jpg">
+        <span class="n">17</span><span class="tn">Miley Cyrus — Flowers</span><span class="td">3:21</span>
       </div>
-    </div>
-    <div id="fl-sc-player" style="display:none;">
-      <div class="fl-sc-header">
-        <div class="fl-sc-header-left"><i class="fab fa-soundcloud"></i><span class="fl-sc-trackname">SoundCloud</span></div>
-        <button class="fl-sc-close" title="Закрыть">&times;</button>
-      </div>
-      <iframe id="fl-sc-iframe" frameborder="0" style="width:100%;height:150px;border:none;display:block;" src=""></iframe>
     </div>
   </div>
 
@@ -919,40 +912,6 @@ if(location.search.indexOf('norondo')!==-1)document.body.classList.add('no-rondo
   });
 
   load(0);
-})();
-</script>
-<style>
-.plist-sc{display:flex;align-items:center;gap:8px;padding:8px 10px;cursor:pointer;border-top:1px solid rgba(255,255,255,.07);color:#aaa;transition:background .15s;}
-.plist-sc:hover{background:rgba(255,255,255,.06);color:#fff;}
-.plist-sc.active{background:rgba(254,1,120,.12);color:#fff;}
-#fl-sc-player{overflow:hidden;border-top:1px solid rgba(254,1,120,.3);background:#0d0f14;}
-.fl-sc-header{display:flex;align-items:center;justify-content:space-between;padding:8px 12px;background:linear-gradient(90deg,var(--dark) 0%,#12131e 100%);border-bottom:1px solid rgba(254,1,120,.25);}
-.fl-sc-header-left{display:flex;align-items:center;gap:7px;overflow:hidden;}
-.fl-sc-header-left .fab{color:#ff5500;font-size:15px;flex-shrink:0;}
-.fl-sc-trackname{white-space:nowrap;overflow:hidden;text-overflow:ellipsis;color:rgba(255,255,255,.85);font-size:12px;font-weight:500;}
-.fl-sc-close{background:none;border:none;color:rgba(255,255,255,.35);cursor:pointer;font-size:22px;line-height:1;padding:0 2px;transition:color .15s;flex-shrink:0;}
-.fl-sc-close:hover{color:var(--pink);}
-</style>
-<script>
-(function(){
-  var player=document.getElementById('fl-sc-player');
-  var iframe=document.getElementById('fl-sc-iframe');
-  var nameEl=player.querySelector('.fl-sc-trackname');
-  document.querySelectorAll('.plist-sc').forEach(function(el){
-    el.addEventListener('click',function(){
-      var url=encodeURIComponent(this.getAttribute('data-soundcloud'));
-      if(nameEl) nameEl.textContent=this.querySelector('.tn').textContent.replace(/^[\s\S]*?—\s*/,'').trim()||this.querySelector('.tn').textContent.trim();
-      iframe.src='https://w.soundcloud.com/player/?url='+url+'&color=%23fe0178&auto_play=true&hide_related=true&show_comments=false&show_user=false&show_reposts=false&show_teaser=false';
-      player.style.display='block';
-      document.querySelectorAll('.plist-sc').forEach(function(e){e.classList.remove('active');});
-      this.classList.add('active');
-    });
-  });
-  player.querySelector('.fl-sc-close').addEventListener('click',function(){
-    player.style.display='none';
-    iframe.src='';
-    document.querySelectorAll('.plist-sc').forEach(function(e){e.classList.remove('active');});
-  });
 })();
 </script>
 </body>
