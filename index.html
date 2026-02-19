@@ -2428,9 +2428,7 @@ lightbox.option({
     <p class="prohit-video-title">Mamma Mia</p>
   </div>
   <div class="prohit-video-item">
-    <video controls preload="metadata" playsinline>
-      <source src="./media/video/NJ_2517 - Жду чуда_mp4_720.mp4" type="video/mp4">
-    </video>
+    <iframe src="https://rutube.ru/play/embed/9f12cdffd2a9b6d0a583725a3f04cf25/" frameborder="0" allow="clipboard-write; autoplay" webkitAllowFullScreen mozallowfullscreen allowfullscreen class="prohit-rutube-iframe"></iframe>
     <p class="prohit-video-title">Жду чуда</p>
   </div>
   <div class="prohit-video-item">
@@ -2456,6 +2454,7 @@ lightbox.option({
 .prohit-video-item{position:relative;flex:1 1 300px;max-width:480px;background:#1e2022;border-radius:8px;overflow:hidden;box-shadow:0 4px 16px rgba(0,0,0,.4);}
 .prohit-video-item::after{content:'';position:absolute;inset:0;background:url(./overlay-mesh.png) repeat;pointer-events:none;z-index:1;}
 .prohit-video-item video{width:100%;display:block;aspect-ratio:16/9;background:#000;}
+.prohit-video-item iframe.prohit-rutube-iframe{width:100%;display:block;aspect-ratio:16/9;background:#000;border:none;}
 .prohit-video-title{margin:0;padding:10px 14px;color:#ccc;font-size:14px;font-family:Raleway,sans-serif;font-weight:600;letter-spacing:.05em;}
 </style>
 
