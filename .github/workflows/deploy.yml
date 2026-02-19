@@ -28,4 +28,7 @@ jobs:
             ./ root@${HOST}:/opt/prohit/site/
           ssh -i ~/.ssh/deploy_key root@${HOST} \
             "rm -rf /opt/prohit/site/media/music/Old && \
-             rm -f '/opt/prohit/site/media/video/NJ_2517 - Жду чуда_mp4_720.mp4'"
+             rm -f '/opt/prohit/site/media/video/NJ_2517 - Жду чуда_mp4_720.mp4' && \
+             ffmpeg -y -ss 00:00:03 -i '/opt/prohit/site/media/video/МСМ 2017 Mamma mia_mp4_1080.mp4' -frames:v 1 -q:v 2 /opt/prohit/site/media/video/thumb_mamma_mia.jpg 2>/dev/null || true && \
+             ffmpeg -y -ss 00:00:03 -i '/opt/prohit/site/media/video/New Jersy .mp4' -frames:v 1 -q:v 2 /opt/prohit/site/media/video/thumb_new_jersey.jpg 2>/dev/null || true && \
+             ffmpeg -y -ss 00:00:03 -i '/opt/prohit/site/media/video/25_Let'\''s dance_mp4_720.mp4' -frames:v 1 -q:v 2 /opt/prohit/site/media/video/thumb_lets_dance.jpg 2>/dev/null || true"
