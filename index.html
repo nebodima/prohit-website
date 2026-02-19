@@ -2473,12 +2473,11 @@ lightbox.option({
       widget.bind(SC.Widget.Events.FINISH,function(){
         var all=Array.from(items);
         var idx=all.findIndex(function(e){return e.classList.contains('active');});
-        if(idx>=0&&idx<all.length-1){
-          var next=all[idx+1];
-          items.forEach(function(e){e.classList.remove('active');});
-          next.classList.add('active');
-          widget.load(next.getAttribute('data-url'),{auto_play:true,callback:function(){widget.play();}});
-        }
+        var nextIdx=(idx>=0&&idx<all.length-1)?idx+1:0;
+        var next=all[nextIdx];
+        items.forEach(function(e){e.classList.remove('active');});
+        next.classList.add('active');
+        widget.load(next.getAttribute('data-url'),{auto_play:true,callback:function(){widget.play();}});
       });
     }
 
