@@ -931,6 +931,7 @@ p.readmore .btn, p.readmore .blog-list .item-readmore a, .blog-list .item-readmo
 /********************************************************/
 .pagenavigation .pagination a{background-color:transparent;cursor:pointer;display:inline-block;font-size:14px;font-weight:400;text-transform:uppercase;line-height:1;padding:8px 15px;margin-right:5px;margin-bottom:10px;background-color:transparent;border-radius:5px;}
 .logo-image{display:grid;align-items:center;min-height:88px;min-width:153px;}
+ss3-loader{display:none!important;}
 #t4-header{box-shadow:0px 2px 8px 0px rgba(50,50,50,0.04);}
 .not-at-top .t4-sticky{position:fixed;top:0;animation:fadein 0.5s;-moz-animation:fadein 0.5s;-webkit-animation:fadein 0.5s;-o-animation:fadein 0.5s;opacity:1;z-index:9;top:0!important}
 .not-at-top #t4-header.t4-sticky{position:fixed;animation:fadein 0.5s;-moz-animation:fadein 0.5s;-webkit-animation:fadein 0.5s;-o-animation:fadein 0.5s;opacity:1;z-index:10;width:100%;top:0!important}

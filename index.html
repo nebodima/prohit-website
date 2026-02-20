@@ -32,6 +32,25 @@
 <script src="./bundle-sync.min.js"></script>
 	<script type="application/json" class="joomla-script-options loaded">{"bootstrap.modal":{"#modal":{"keyboard":true,"focus":true}},"joomla.jtext":{"MOD_FINDER_SEARCH_VALUE":"поиск по сайту...","JLIB_JS_AJAX_ERROR_OTHER":"An error has occurred while fetching the JSON data: HTTP %s status code.","JLIB_JS_AJAX_ERROR_PARSE":"A parse error has occurred while processing the following JSON data:<br><code style=\"color:inherit;white-space:pre-wrap;padding:0;margin:0;border:0;background:inherit;\">%s<\/code>","PLG_SYSTEM_WEBAUTHN_ERR_CANNOT_FIND_USERNAME":"Cannot find the username field in the login module. Sorry, Passwordless authentication will not work on this site unless you use a different login module.","PLG_SYSTEM_WEBAUTHN_ERR_EMPTY_USERNAME":"You need to enter your username (but NOT your password) before selecting the Web Authentication login button.","PLG_SYSTEM_WEBAUTHN_ERR_INVALID_USERNAME":"The specified username does not correspond to a user account that has enabled passwordless login on this site.","JSHOW":"Show","JHIDE":"Hide","ERROR":"Error","MESSAGE":"Message","NOTICE":"Notice","WARNING":"Warning","JCLOSE":"Close","JOK":"OK","JOPEN":"Open"},"finder-search":{"url":"\/component\/finder\/?task=suggestions.suggest&format=json&tmpl=component&Itemid=101"},"system.paths":{"root":"","rootFull":"","base":"","baseFull":""},"csrf.token":"26a0c16a6caf310323f45116ee0d86b4","system.keepalive":{"interval":840000,"uri":"\/component\/ajax\/?format=json"}}</script>
 	<script src="./bundle-deferred.min.js" defer></script>
+	<script src="./megamenu.js" defer></script>
+	<script>
+	/* Mobile menu toggle fallback — не зависит от Bootstrap */
+	(function(){
+	  function initMenuToggle(){
+	    document.querySelectorAll('.navbar-toggler[data-bs-target]').forEach(function(btn){
+	      btn.addEventListener('click',function(){
+	        var menu=document.querySelector(this.getAttribute('data-bs-target'));
+	        if(!menu)return;
+	        var open=menu.classList.toggle('show');
+	        this.setAttribute('aria-expanded',String(open));
+	      });
+	    });
+	  }
+	  document.readyState==='loading'
+	    ? document.addEventListener('DOMContentLoaded',initMenuToggle)
+	    : initMenuToggle();
+	})();
+	</script>
 	<!-- lightbox-plus-jquery.js removed: duplicate of lightbox.js -->
 	<!-- jquery(1).jtcarousel.js removed: duplicate of jquery.jtcarousel.js (both are Tiny Slider) -->
 	<!-- AcyMailing removed -->
