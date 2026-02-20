@@ -823,7 +823,7 @@ body.dark .theme-toggle{background:#111;border:1px solid rgba(254,1,120,0.2)}
 if(location.search.indexOf('norondo')!==-1)document.body.classList.add('no-rondo');
 (function(){
   var btn=document.getElementById('theme-toggle');
-  var dark=localStorage.getItem('flyer-dark')==='1'||location.search.indexOf('dark')!==-1;
+  var dark=localStorage.getItem('flyer-dark')!=='0';
   function apply(d){
     dark=d;
     document.body.classList.toggle('dark',d);
