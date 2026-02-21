@@ -1,0 +1,1325 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+<meta charset="UTF-8">
+<title>Сетлист 2026</title>
+<style>
+  body { font-family: Arial, sans-serif; font-size: 13px; background: #1a1a2e; color: #eee; margin: 0; padding: 20px; }
+  h1 { color: #e94560; text-align: center; margin-bottom: 20px; }
+  .filters { text-align: center; margin-bottom: 15px; }
+  .filters button { margin: 3px; padding: 5px 12px; border: none; border-radius: 4px; cursor: pointer; background: #16213e; color: #eee; }
+  .filters button.active, .filters button:hover { background: #e94560; color: #fff; }
+  table { width: 100%; border-collapse: collapse; }
+  th { background: #16213e; color: #e94560; padding: 8px 6px; text-align: left; position: sticky; top: 0; z-index: 10; }
+  tr:nth-child(even) { background: #16213e55; }
+  tr:hover { background: #e9456022; }
+  td { padding: 6px 6px; border-bottom: 1px solid #ffffff11; vertical-align: middle; }
+  .badge { display: inline-block; padding: 2px 8px; border-radius: 10px; font-weight: bold; font-size: 12px; }
+  .check { color: #2ecc71; font-size: 16px; }
+  .links a { display: inline-block; padding: 3px 8px; border-radius: 4px; text-decoration: none; font-size: 11px; font-weight: bold; margin-right: 4px; }
+  .yt { background: #ff0000; color: #fff; }
+  .sp { background: #1db954; color: #fff; }
+  .num { color: #888; width: 30px; }
+  .key { font-family: monospace; color: #f39c12; }
+  #search { width: 300px; padding: 7px 12px; border-radius: 6px; border: 1px solid #e94560; background: #16213e; color: #eee; font-size: 13px; display: block; margin: 0 auto 15px; }
+</style>
+</head>
+<body>
+<h1>🎸 Сетлист 2026</h1>
+<input id="search" type="text" placeholder="Поиск по названию или исполнителю...">
+<div class="filters">
+  <button class="active" onclick="filterPriority('all',this)">Все</button>
+  <button onclick="filterPriority('A',this)">🟢 Приоритет A</button>
+  <button onclick="filterPriority('B',this)">🟡 Приоритет B</button>
+  <button onclick="filterPriority('C',this)">⚪ Приоритет C</button>
+</div>
+<table id="tbl">
+<thead>
+<tr>
+  <th>№</th><th>Песня</th><th>Исполнитель</th><th>Илья</th><th>Дима</th><th>Саша</th>
+  <th>Приоритет</th><th>Стиль</th><th>Тональность</th><th>Слушать</th>
+</tr>
+</thead>
+<tbody>
+<tr data-priority="C" data-search="just the two of us bill withers">
+  <td class="num">1</td>
+  <td><b>Just the Two of Us</b></td>
+  <td>Bill Withers</td>
+  <td style="text-align:center"><span class="check">✅</span></td>
+  <td style="text-align:center"></td>
+  <td style="text-align:center"></td>
+  <td><span class="badge" style="background:#95a5a6;color:#111">C</span></td>
+  <td style="color:#aaa;font-size:12px">Соул / Фанк</td>
+  <td class="key">G maj</td>
+  <td class="links"><a class="yt" href="https://www.youtube.com/results?search_query=Bill%20Withers%20Just%20the%20Two%20of%20Us" target="_blank">▶ YT</a><a class="sp" href="https://open.spotify.com/search/Bill%20Withers%20Just%20the%20Two%20of%20Us" target="_blank">♫ SP</a></td>
+</tr>
+<tr data-priority="C" data-search="i love you baby (slow) frankie valli">
+  <td class="num">2</td>
+  <td><b>I Love You Baby (slow)</b></td>
+  <td>Frankie Valli</td>
+  <td style="text-align:center"><span class="check">✅</span></td>
+  <td style="text-align:center"></td>
+  <td style="text-align:center"></td>
+  <td><span class="badge" style="background:#95a5a6;color:#111">C</span></td>
+  <td style="color:#aaa;font-size:12px">Поп / Баллада</td>
+  <td class="key">F maj</td>
+  <td class="links"><a class="yt" href="https://www.youtube.com/results?search_query=Frankie%20Valli%20I%20Love%20You%20Baby%20%28slow%29" target="_blank">▶ YT</a><a class="sp" href="https://open.spotify.com/search/Frankie%20Valli%20I%20Love%20You%20Baby%20%28slow%29" target="_blank">♫ SP</a></td>
+</tr>
+<tr data-priority="C" data-search="what a wonderful world louis armstrong">
+  <td class="num">3</td>
+  <td><b>What a Wonderful World</b></td>
+  <td>Louis Armstrong</td>
+  <td style="text-align:center"><span class="check">✅</span></td>
+  <td style="text-align:center"></td>
+  <td style="text-align:center"></td>
+  <td><span class="badge" style="background:#95a5a6;color:#111">C</span></td>
+  <td style="color:#aaa;font-size:12px">Джаз</td>
+  <td class="key">F maj</td>
+  <td class="links"><a class="yt" href="https://www.youtube.com/results?search_query=Louis%20Armstrong%20What%20a%20Wonderful%20World" target="_blank">▶ YT</a><a class="sp" href="https://open.spotify.com/search/Louis%20Armstrong%20What%20a%20Wonderful%20World" target="_blank">♫ SP</a></td>
+</tr>
+<tr data-priority="C" data-search="california dreamin' the mamas & the papas">
+  <td class="num">4</td>
+  <td><b>California Dreamin'</b></td>
+  <td>The Mamas & The Papas</td>
+  <td style="text-align:center"><span class="check">✅</span></td>
+  <td style="text-align:center"></td>
+  <td style="text-align:center"></td>
+  <td><span class="badge" style="background:#95a5a6;color:#111">C</span></td>
+  <td style="color:#aaa;font-size:12px">Фолк-рок</td>
+  <td class="key">C maj</td>
+  <td class="links"><a class="yt" href="https://www.youtube.com/results?search_query=The%20Mamas%20%26%20The%20Papas%20California%20Dreamin%27" target="_blank">▶ YT</a><a class="sp" href="https://open.spotify.com/search/The%20Mamas%20%26%20The%20Papas%20California%20Dreamin%27" target="_blank">♫ SP</a></td>
+</tr>
+<tr data-priority="C" data-search="monro ?">
+  <td class="num">5</td>
+  <td><b>Monro</b></td>
+  <td>?</td>
+  <td style="text-align:center"><span class="check">✅</span></td>
+  <td style="text-align:center"></td>
+  <td style="text-align:center"></td>
+  <td><span class="badge" style="background:#95a5a6;color:#111">C</span></td>
+  <td style="color:#aaa;font-size:12px">уточни</td>
+  <td class="key">?</td>
+  <td class="links"><a class="yt" href="https://www.youtube.com/results?search_query=%3F%20Monro" target="_blank">▶ YT</a><a class="sp" href="https://open.spotify.com/search/%3F%20Monro" target="_blank">♫ SP</a></td>
+</tr>
+<tr data-priority="C" data-search="the thrill is gone b.b. king">
+  <td class="num">6</td>
+  <td><b>The Thrill Is Gone</b></td>
+  <td>B.B. King</td>
+  <td style="text-align:center"><span class="check">✅</span></td>
+  <td style="text-align:center"></td>
+  <td style="text-align:center"></td>
+  <td><span class="badge" style="background:#95a5a6;color:#111">C</span></td>
+  <td style="color:#aaa;font-size:12px">Блюз</td>
+  <td class="key">B min</td>
+  <td class="links"><a class="yt" href="https://www.youtube.com/results?search_query=B.B.%20King%20The%20Thrill%20Is%20Gone" target="_blank">▶ YT</a><a class="sp" href="https://open.spotify.com/search/B.B.%20King%20The%20Thrill%20Is%20Gone" target="_blank">♫ SP</a></td>
+</tr>
+<tr data-priority="C" data-search="layla eric clapton">
+  <td class="num">7</td>
+  <td><b>Layla</b></td>
+  <td>Eric Clapton</td>
+  <td style="text-align:center"><span class="check">✅</span></td>
+  <td style="text-align:center"></td>
+  <td style="text-align:center"></td>
+  <td><span class="badge" style="background:#95a5a6;color:#111">C</span></td>
+  <td style="color:#aaa;font-size:12px">Рок / Блюз-рок</td>
+  <td class="key">D min</td>
+  <td class="links"><a class="yt" href="https://www.youtube.com/results?search_query=Eric%20Clapton%20Layla" target="_blank">▶ YT</a><a class="sp" href="https://open.spotify.com/search/Eric%20Clapton%20Layla" target="_blank">♫ SP</a></td>
+</tr>
+<tr data-priority="C" data-search="moon river henry mancini">
+  <td class="num">8</td>
+  <td><b>Moon River</b></td>
+  <td>Henry Mancini</td>
+  <td style="text-align:center"><span class="check">✅</span></td>
+  <td style="text-align:center"></td>
+  <td style="text-align:center"></td>
+  <td><span class="badge" style="background:#95a5a6;color:#111">C</span></td>
+  <td style="color:#aaa;font-size:12px">Джаз / Баллада</td>
+  <td class="key">C maj</td>
+  <td class="links"><a class="yt" href="https://www.youtube.com/results?search_query=Henry%20Mancini%20Moon%20River" target="_blank">▶ YT</a><a class="sp" href="https://open.spotify.com/search/Henry%20Mancini%20Moon%20River" target="_blank">♫ SP</a></td>
+</tr>
+<tr data-priority="C" data-search="fly me to the moon frank sinatra">
+  <td class="num">9</td>
+  <td><b>Fly Me to the Moon</b></td>
+  <td>Frank Sinatra</td>
+  <td style="text-align:center"><span class="check">✅</span></td>
+  <td style="text-align:center"></td>
+  <td style="text-align:center"></td>
+  <td><span class="badge" style="background:#95a5a6;color:#111">C</span></td>
+  <td style="color:#aaa;font-size:12px">Джаз</td>
+  <td class="key">E min</td>
+  <td class="links"><a class="yt" href="https://www.youtube.com/results?search_query=Frank%20Sinatra%20Fly%20Me%20to%20the%20Moon" target="_blank">▶ YT</a><a class="sp" href="https://open.spotify.com/search/Frank%20Sinatra%20Fly%20Me%20to%20the%20Moon" target="_blank">♫ SP</a></td>
+</tr>
+<tr data-priority="C" data-search="casablanca bertie higgins">
+  <td class="num">10</td>
+  <td><b>Casablanca</b></td>
+  <td>Bertie Higgins</td>
+  <td style="text-align:center"><span class="check">✅</span></td>
+  <td style="text-align:center"></td>
+  <td style="text-align:center"></td>
+  <td><span class="badge" style="background:#95a5a6;color:#111">C</span></td>
+  <td style="color:#aaa;font-size:12px">Поп / Баллада</td>
+  <td class="key">G maj</td>
+  <td class="links"><a class="yt" href="https://www.youtube.com/results?search_query=Bertie%20Higgins%20Casablanca" target="_blank">▶ YT</a><a class="sp" href="https://open.spotify.com/search/Bertie%20Higgins%20Casablanca" target="_blank">♫ SP</a></td>
+</tr>
+<tr data-priority="C" data-search="hero mariah carey">
+  <td class="num">11</td>
+  <td><b>Hero</b></td>
+  <td>Mariah Carey</td>
+  <td style="text-align:center"><span class="check">✅</span></td>
+  <td style="text-align:center"></td>
+  <td style="text-align:center"></td>
+  <td><span class="badge" style="background:#95a5a6;color:#111">C</span></td>
+  <td style="color:#aaa;font-size:12px">Поп / Баллада</td>
+  <td class="key">F maj</td>
+  <td class="links"><a class="yt" href="https://www.youtube.com/results?search_query=Mariah%20Carey%20Hero" target="_blank">▶ YT</a><a class="sp" href="https://open.spotify.com/search/Mariah%20Carey%20Hero" target="_blank">♫ SP</a></td>
+</tr>
+<tr data-priority="C" data-search="nosa ayo">
+  <td class="num">12</td>
+  <td><b>Nosa</b></td>
+  <td>Ayo</td>
+  <td style="text-align:center"><span class="check">✅</span></td>
+  <td style="text-align:center"></td>
+  <td style="text-align:center"></td>
+  <td><span class="badge" style="background:#95a5a6;color:#111">C</span></td>
+  <td style="color:#aaa;font-size:12px">Этно / Акустика</td>
+  <td class="key">C maj</td>
+  <td class="links"><a class="yt" href="https://www.youtube.com/results?search_query=Ayo%20Nosa" target="_blank">▶ YT</a><a class="sp" href="https://open.spotify.com/search/Ayo%20Nosa" target="_blank">♫ SP</a></td>
+</tr>
+<tr data-priority="C" data-search="bonita ?">
+  <td class="num">13</td>
+  <td><b>Bonita</b></td>
+  <td>?</td>
+  <td style="text-align:center"><span class="check">✅</span></td>
+  <td style="text-align:center"></td>
+  <td style="text-align:center"></td>
+  <td><span class="badge" style="background:#95a5a6;color:#111">C</span></td>
+  <td style="color:#aaa;font-size:12px">уточни</td>
+  <td class="key">?</td>
+  <td class="links"><a class="yt" href="https://www.youtube.com/results?search_query=%3F%20Bonita" target="_blank">▶ YT</a><a class="sp" href="https://open.spotify.com/search/%3F%20Bonita" target="_blank">♫ SP</a></td>
+</tr>
+<tr data-priority="C" data-search="вавилон серьга">
+  <td class="num">14</td>
+  <td><b>Вавилон</b></td>
+  <td>Серьга</td>
+  <td style="text-align:center"><span class="check">✅</span></td>
+  <td style="text-align:center"></td>
+  <td style="text-align:center"></td>
+  <td><span class="badge" style="background:#95a5a6;color:#111">C</span></td>
+  <td style="color:#aaa;font-size:12px">Рок</td>
+  <td class="key">E min</td>
+  <td class="links"><a class="yt" href="https://www.youtube.com/results?search_query=%D0%A1%D0%B5%D1%80%D1%8C%D0%B3%D0%B0%20%D0%92%D0%B0%D0%B2%D0%B8%D0%BB%D0%BE%D0%BD" target="_blank">▶ YT</a><a class="sp" href="https://open.spotify.com/search/%D0%A1%D0%B5%D1%80%D1%8C%D0%B3%D0%B0%20%D0%92%D0%B0%D0%B2%D0%B8%D0%BB%D0%BE%D0%BD" target="_blank">♫ SP</a></td>
+</tr>
+<tr data-priority="C" data-search="подмосковные вечера трошин">
+  <td class="num">15</td>
+  <td><b>Подмосковные вечера</b></td>
+  <td>Трошин</td>
+  <td style="text-align:center"><span class="check">✅</span></td>
+  <td style="text-align:center"></td>
+  <td style="text-align:center"></td>
+  <td><span class="badge" style="background:#95a5a6;color:#111">C</span></td>
+  <td style="color:#aaa;font-size:12px">Советская классика</td>
+  <td class="key">C maj</td>
+  <td class="links"><a class="yt" href="https://www.youtube.com/results?search_query=%D0%A2%D1%80%D0%BE%D1%88%D0%B8%D0%BD%20%D0%9F%D0%BE%D0%B4%D0%BC%D0%BE%D1%81%D0%BA%D0%BE%D0%B2%D0%BD%D1%8B%D0%B5%20%D0%B2%D0%B5%D1%87%D0%B5%D1%80%D0%B0" target="_blank">▶ YT</a><a class="sp" href="https://open.spotify.com/search/%D0%A2%D1%80%D0%BE%D1%88%D0%B8%D0%BD%20%D0%9F%D0%BE%D0%B4%D0%BC%D0%BE%D1%81%D0%BA%D0%BE%D0%B2%D0%BD%D1%8B%D0%B5%20%D0%B2%D0%B5%D1%87%D0%B5%D1%80%D0%B0" target="_blank">♫ SP</a></td>
+</tr>
+<tr data-priority="C" data-search="enjoy the silence depeche mode">
+  <td class="num">16</td>
+  <td><b>Enjoy the Silence</b></td>
+  <td>Depeche Mode</td>
+  <td style="text-align:center"><span class="check">✅</span></td>
+  <td style="text-align:center"></td>
+  <td style="text-align:center"></td>
+  <td><span class="badge" style="background:#95a5a6;color:#111">C</span></td>
+  <td style="color:#aaa;font-size:12px">Синти-поп / Электронный рок</td>
+  <td class="key">A min</td>
+  <td class="links"><a class="yt" href="https://www.youtube.com/results?search_query=Depeche%20Mode%20Enjoy%20the%20Silence" target="_blank">▶ YT</a><a class="sp" href="https://open.spotify.com/search/Depeche%20Mode%20Enjoy%20the%20Silence" target="_blank">♫ SP</a></td>
+</tr>
+<tr data-priority="B" data-search="stand by me ben e. king">
+  <td class="num">17</td>
+  <td><b>Stand by Me</b></td>
+  <td>Ben E. King</td>
+  <td style="text-align:center"><span class="check">✅</span></td>
+  <td style="text-align:center"></td>
+  <td style="text-align:center"></td>
+  <td><span class="badge" style="background:#f39c12;color:#111">B</span></td>
+  <td style="color:#aaa;font-size:12px">Соул / Ритм-н-блюз</td>
+  <td class="key">A maj</td>
+  <td class="links"><a class="yt" href="https://www.youtube.com/results?search_query=Ben%20E.%20King%20Stand%20by%20Me" target="_blank">▶ YT</a><a class="sp" href="https://open.spotify.com/search/Ben%20E.%20King%20Stand%20by%20Me" target="_blank">♫ SP</a></td>
+</tr>
+<tr data-priority="C" data-search="seven nation army the white stripes">
+  <td class="num">18</td>
+  <td><b>Seven Nation Army</b></td>
+  <td>The White Stripes</td>
+  <td style="text-align:center"><span class="check">✅</span></td>
+  <td style="text-align:center"></td>
+  <td style="text-align:center"></td>
+  <td><span class="badge" style="background:#95a5a6;color:#111">C</span></td>
+  <td style="color:#aaa;font-size:12px">Гараж-рок</td>
+  <td class="key">A min</td>
+  <td class="links"><a class="yt" href="https://www.youtube.com/results?search_query=The%20White%20Stripes%20Seven%20Nation%20Army" target="_blank">▶ YT</a><a class="sp" href="https://open.spotify.com/search/The%20White%20Stripes%20Seven%20Nation%20Army" target="_blank">♫ SP</a></td>
+</tr>
+<tr data-priority="B" data-search="wonderful tonight eric clapton">
+  <td class="num">19</td>
+  <td><b>Wonderful Tonight</b></td>
+  <td>Eric Clapton</td>
+  <td style="text-align:center"><span class="check">✅</span></td>
+  <td style="text-align:center"></td>
+  <td style="text-align:center"></td>
+  <td><span class="badge" style="background:#f39c12;color:#111">B</span></td>
+  <td style="color:#aaa;font-size:12px">Поп-рок / Блюз-рок</td>
+  <td class="key">G maj</td>
+  <td class="links"><a class="yt" href="https://www.youtube.com/results?search_query=Eric%20Clapton%20Wonderful%20Tonight" target="_blank">▶ YT</a><a class="sp" href="https://open.spotify.com/search/Eric%20Clapton%20Wonderful%20Tonight" target="_blank">♫ SP</a></td>
+</tr>
+<tr data-priority="B" data-search="get lucky daft punk">
+  <td class="num">20</td>
+  <td><b>Get Lucky</b></td>
+  <td>Daft Punk</td>
+  <td style="text-align:center"><span class="check">✅</span></td>
+  <td style="text-align:center"></td>
+  <td style="text-align:center"></td>
+  <td><span class="badge" style="background:#f39c12;color:#111">B</span></td>
+  <td style="color:#aaa;font-size:12px">Диско / Фанк</td>
+  <td class="key">F maj</td>
+  <td class="links"><a class="yt" href="https://www.youtube.com/results?search_query=Daft%20Punk%20Get%20Lucky" target="_blank">▶ YT</a><a class="sp" href="https://open.spotify.com/search/Daft%20Punk%20Get%20Lucky" target="_blank">♫ SP</a></td>
+</tr>
+<tr data-priority="C" data-search="flowers miley cyrus">
+  <td class="num">21</td>
+  <td><b>Flowers</b></td>
+  <td>Miley Cyrus</td>
+  <td style="text-align:center"><span class="check">✅</span></td>
+  <td style="text-align:center"></td>
+  <td style="text-align:center"></td>
+  <td><span class="badge" style="background:#95a5a6;color:#111">C</span></td>
+  <td style="color:#aaa;font-size:12px">Поп</td>
+  <td class="key">F maj</td>
+  <td class="links"><a class="yt" href="https://www.youtube.com/results?search_query=Miley%20Cyrus%20Flowers" target="_blank">▶ YT</a><a class="sp" href="https://open.spotify.com/search/Miley%20Cyrus%20Flowers" target="_blank">♫ SP</a></td>
+</tr>
+<tr data-priority="C" data-search="i feel so close calvin harris">
+  <td class="num">22</td>
+  <td><b>I Feel So Close</b></td>
+  <td>Calvin Harris</td>
+  <td style="text-align:center"><span class="check">✅</span></td>
+  <td style="text-align:center"></td>
+  <td style="text-align:center"></td>
+  <td><span class="badge" style="background:#95a5a6;color:#111">C</span></td>
+  <td style="color:#aaa;font-size:12px">Электронный поп / Дэнс</td>
+  <td class="key">A min</td>
+  <td class="links"><a class="yt" href="https://www.youtube.com/results?search_query=Calvin%20Harris%20I%20Feel%20So%20Close" target="_blank">▶ YT</a><a class="sp" href="https://open.spotify.com/search/Calvin%20Harris%20I%20Feel%20So%20Close" target="_blank">♫ SP</a></td>
+</tr>
+<tr data-priority="C" data-search="summertime ella fitzgerald">
+  <td class="num">23</td>
+  <td><b>Summertime</b></td>
+  <td>Ella Fitzgerald</td>
+  <td style="text-align:center"><span class="check">✅</span></td>
+  <td style="text-align:center"></td>
+  <td style="text-align:center"></td>
+  <td><span class="badge" style="background:#95a5a6;color:#111">C</span></td>
+  <td style="color:#aaa;font-size:12px">Джаз / Блюз</td>
+  <td class="key">A min</td>
+  <td class="links"><a class="yt" href="https://www.youtube.com/results?search_query=Ella%20Fitzgerald%20Summertime" target="_blank">▶ YT</a><a class="sp" href="https://open.spotify.com/search/Ella%20Fitzgerald%20Summertime" target="_blank">♫ SP</a></td>
+</tr>
+<tr data-priority="C" data-search="after dark mr. kitty">
+  <td class="num">24</td>
+  <td><b>After Dark</b></td>
+  <td>Mr. Kitty</td>
+  <td style="text-align:center"><span class="check">✅</span></td>
+  <td style="text-align:center"></td>
+  <td style="text-align:center"></td>
+  <td><span class="badge" style="background:#95a5a6;color:#111">C</span></td>
+  <td style="color:#aaa;font-size:12px">Синти-поп / Дарквейв</td>
+  <td class="key">C min</td>
+  <td class="links"><a class="yt" href="https://www.youtube.com/results?search_query=Mr.%20Kitty%20After%20Dark" target="_blank">▶ YT</a><a class="sp" href="https://open.spotify.com/search/Mr.%20Kitty%20After%20Dark" target="_blank">♫ SP</a></td>
+</tr>
+<tr data-priority="C" data-search="singin' in the rain gene kelly">
+  <td class="num">25</td>
+  <td><b>Singin' in the Rain</b></td>
+  <td>Gene Kelly</td>
+  <td style="text-align:center"><span class="check">✅</span></td>
+  <td style="text-align:center"></td>
+  <td style="text-align:center"></td>
+  <td><span class="badge" style="background:#95a5a6;color:#111">C</span></td>
+  <td style="color:#aaa;font-size:12px">Джаз / Мюзикл</td>
+  <td class="key">G maj</td>
+  <td class="links"><a class="yt" href="https://www.youtube.com/results?search_query=Gene%20Kelly%20Singin%27%20in%20the%20Rain" target="_blank">▶ YT</a><a class="sp" href="https://open.spotify.com/search/Gene%20Kelly%20Singin%27%20in%20the%20Rain" target="_blank">♫ SP</a></td>
+</tr>
+<tr data-priority="C" data-search="oh pretty woman roy orbison">
+  <td class="num">26</td>
+  <td><b>Oh Pretty Woman</b></td>
+  <td>Roy Orbison</td>
+  <td style="text-align:center"><span class="check">✅</span></td>
+  <td style="text-align:center"></td>
+  <td style="text-align:center"></td>
+  <td><span class="badge" style="background:#95a5a6;color:#111">C</span></td>
+  <td style="color:#aaa;font-size:12px">Рок-н-ролл / Поп</td>
+  <td class="key">A maj</td>
+  <td class="links"><a class="yt" href="https://www.youtube.com/results?search_query=Roy%20Orbison%20Oh%20Pretty%20Woman" target="_blank">▶ YT</a><a class="sp" href="https://open.spotify.com/search/Roy%20Orbison%20Oh%20Pretty%20Woman" target="_blank">♫ SP</a></td>
+</tr>
+<tr data-priority="C" data-search="midnight city m83">
+  <td class="num">27</td>
+  <td><b>Midnight City</b></td>
+  <td>M83</td>
+  <td style="text-align:center"><span class="check">✅</span></td>
+  <td style="text-align:center"></td>
+  <td style="text-align:center"></td>
+  <td><span class="badge" style="background:#95a5a6;color:#111">C</span></td>
+  <td style="color:#aaa;font-size:12px">Инди / Синти-поп</td>
+  <td class="key">C min</td>
+  <td class="links"><a class="yt" href="https://www.youtube.com/results?search_query=M83%20Midnight%20City" target="_blank">▶ YT</a><a class="sp" href="https://open.spotify.com/search/M83%20Midnight%20City" target="_blank">♫ SP</a></td>
+</tr>
+<tr data-priority="C" data-search="diamonds rihanna">
+  <td class="num">28</td>
+  <td><b>Diamonds</b></td>
+  <td>Rihanna</td>
+  <td style="text-align:center"><span class="check">✅</span></td>
+  <td style="text-align:center"></td>
+  <td style="text-align:center"></td>
+  <td><span class="badge" style="background:#95a5a6;color:#111">C</span></td>
+  <td style="color:#aaa;font-size:12px">Поп / R&B</td>
+  <td class="key">Db maj</td>
+  <td class="links"><a class="yt" href="https://www.youtube.com/results?search_query=Rihanna%20Diamonds" target="_blank">▶ YT</a><a class="sp" href="https://open.spotify.com/search/Rihanna%20Diamonds" target="_blank">♫ SP</a></td>
+</tr>
+<tr data-priority="C" data-search="tell me why neil young / abba">
+  <td class="num">29</td>
+  <td><b>Tell Me Why</b></td>
+  <td>Neil Young / ABBA</td>
+  <td style="text-align:center"><span class="check">✅</span></td>
+  <td style="text-align:center"></td>
+  <td style="text-align:center"></td>
+  <td><span class="badge" style="background:#95a5a6;color:#111">C</span></td>
+  <td style="color:#aaa;font-size:12px">уточни</td>
+  <td class="key">?</td>
+  <td class="links"><a class="yt" href="https://www.youtube.com/results?search_query=Neil%20Young%20/%20ABBA%20Tell%20Me%20Why" target="_blank">▶ YT</a><a class="sp" href="https://open.spotify.com/search/Neil%20Young%20/%20ABBA%20Tell%20Me%20Why" target="_blank">♫ SP</a></td>
+</tr>
+<tr data-priority="C" data-search="despacito luis fonsi">
+  <td class="num">30</td>
+  <td><b>Despacito</b></td>
+  <td>Luis Fonsi</td>
+  <td style="text-align:center"><span class="check">✅</span></td>
+  <td style="text-align:center"></td>
+  <td style="text-align:center"></td>
+  <td><span class="badge" style="background:#95a5a6;color:#111">C</span></td>
+  <td style="color:#aaa;font-size:12px">Латина / Реггетон</td>
+  <td class="key">B min</td>
+  <td class="links"><a class="yt" href="https://www.youtube.com/results?search_query=Luis%20Fonsi%20Despacito" target="_blank">▶ YT</a><a class="sp" href="https://open.spotify.com/search/Luis%20Fonsi%20Despacito" target="_blank">♫ SP</a></td>
+</tr>
+<tr data-priority="C" data-search="can't help falling in love elvis presley">
+  <td class="num">31</td>
+  <td><b>Can't Help Falling in Love</b></td>
+  <td>Elvis Presley</td>
+  <td style="text-align:center"><span class="check">✅</span></td>
+  <td style="text-align:center"></td>
+  <td style="text-align:center"></td>
+  <td><span class="badge" style="background:#95a5a6;color:#111">C</span></td>
+  <td style="color:#aaa;font-size:12px">Поп / Баллада</td>
+  <td class="key">D maj</td>
+  <td class="links"><a class="yt" href="https://www.youtube.com/results?search_query=Elvis%20Presley%20Can%27t%20Help%20Falling%20in%20Love" target="_blank">▶ YT</a><a class="sp" href="https://open.spotify.com/search/Elvis%20Presley%20Can%27t%20Help%20Falling%20in%20Love" target="_blank">♫ SP</a></td>
+</tr>
+<tr data-priority="C" data-search="dschinghis khan dschinghis khan">
+  <td class="num">32</td>
+  <td><b>Dschinghis Khan</b></td>
+  <td>Dschinghis Khan</td>
+  <td style="text-align:center"><span class="check">✅</span></td>
+  <td style="text-align:center"></td>
+  <td style="text-align:center"></td>
+  <td><span class="badge" style="background:#95a5a6;color:#111">C</span></td>
+  <td style="color:#aaa;font-size:12px">Диско / Поп</td>
+  <td class="key">A maj</td>
+  <td class="links"><a class="yt" href="https://www.youtube.com/results?search_query=Dschinghis%20Khan%20Dschinghis%20Khan" target="_blank">▶ YT</a><a class="sp" href="https://open.spotify.com/search/Dschinghis%20Khan%20Dschinghis%20Khan" target="_blank">♫ SP</a></td>
+</tr>
+<tr data-priority="C" data-search="sorry seems to be the hardest word elton john">
+  <td class="num">33</td>
+  <td><b>Sorry Seems to Be the Hardest Word</b></td>
+  <td>Elton John</td>
+  <td style="text-align:center"><span class="check">✅</span></td>
+  <td style="text-align:center"></td>
+  <td style="text-align:center"></td>
+  <td><span class="badge" style="background:#95a5a6;color:#111">C</span></td>
+  <td style="color:#aaa;font-size:12px">Поп / Баллада</td>
+  <td class="key">Eb maj</td>
+  <td class="links"><a class="yt" href="https://www.youtube.com/results?search_query=Elton%20John%20Sorry%20Seems%20to%20Be%20the%20Hardest%20Word" target="_blank">▶ YT</a><a class="sp" href="https://open.spotify.com/search/Elton%20John%20Sorry%20Seems%20to%20Be%20the%20Hardest%20Word" target="_blank">♫ SP</a></td>
+</tr>
+<tr data-priority="C" data-search="ain't nobody chaka khan">
+  <td class="num">34</td>
+  <td><b>Ain't Nobody</b></td>
+  <td>Chaka Khan</td>
+  <td style="text-align:center"><span class="check">✅</span></td>
+  <td style="text-align:center"></td>
+  <td style="text-align:center"></td>
+  <td><span class="badge" style="background:#95a5a6;color:#111">C</span></td>
+  <td style="color:#aaa;font-size:12px">Фанк / R&B</td>
+  <td class="key">C min</td>
+  <td class="links"><a class="yt" href="https://www.youtube.com/results?search_query=Chaka%20Khan%20Ain%27t%20Nobody" target="_blank">▶ YT</a><a class="sp" href="https://open.spotify.com/search/Chaka%20Khan%20Ain%27t%20Nobody" target="_blank">♫ SP</a></td>
+</tr>
+<tr data-priority="C" data-search="summertime sadness lana del rey">
+  <td class="num">35</td>
+  <td><b>Summertime Sadness</b></td>
+  <td>Lana Del Rey</td>
+  <td style="text-align:center"><span class="check">✅</span></td>
+  <td style="text-align:center"></td>
+  <td style="text-align:center"></td>
+  <td><span class="badge" style="background:#95a5a6;color:#111">C</span></td>
+  <td style="color:#aaa;font-size:12px">Инди-поп / Баллада</td>
+  <td class="key">G min</td>
+  <td class="links"><a class="yt" href="https://www.youtube.com/results?search_query=Lana%20Del%20Rey%20Summertime%20Sadness" target="_blank">▶ YT</a><a class="sp" href="https://open.spotify.com/search/Lana%20Del%20Rey%20Summertime%20Sadness" target="_blank">♫ SP</a></td>
+</tr>
+<tr data-priority="C" data-search="невеста ?">
+  <td class="num">36</td>
+  <td><b>Невеста</b></td>
+  <td>?</td>
+  <td style="text-align:center"><span class="check">✅</span></td>
+  <td style="text-align:center"></td>
+  <td style="text-align:center"></td>
+  <td><span class="badge" style="background:#95a5a6;color:#111">C</span></td>
+  <td style="color:#aaa;font-size:12px">уточни</td>
+  <td class="key">?</td>
+  <td class="links"><a class="yt" href="https://www.youtube.com/results?search_query=%3F%20%D0%9D%D0%B5%D0%B2%D0%B5%D1%81%D1%82%D0%B0" target="_blank">▶ YT</a><a class="sp" href="https://open.spotify.com/search/%3F%20%D0%9D%D0%B5%D0%B2%D0%B5%D1%81%D1%82%D0%B0" target="_blank">♫ SP</a></td>
+</tr>
+<tr data-priority="C" data-search="www ?">
+  <td class="num">37</td>
+  <td><b>Www</b></td>
+  <td>?</td>
+  <td style="text-align:center"><span class="check">✅</span></td>
+  <td style="text-align:center"></td>
+  <td style="text-align:center"></td>
+  <td><span class="badge" style="background:#95a5a6;color:#111">C</span></td>
+  <td style="color:#aaa;font-size:12px">уточни</td>
+  <td class="key">?</td>
+  <td class="links"><a class="yt" href="https://www.youtube.com/results?search_query=%3F%20Www" target="_blank">▶ YT</a><a class="sp" href="https://open.spotify.com/search/%3F%20Www" target="_blank">♫ SP</a></td>
+</tr>
+<tr data-priority="B" data-search="lambada kaoma">
+  <td class="num">38</td>
+  <td><b>Lambada</b></td>
+  <td>Kaoma</td>
+  <td style="text-align:center"><span class="check">✅</span></td>
+  <td style="text-align:center"></td>
+  <td style="text-align:center"></td>
+  <td><span class="badge" style="background:#f39c12;color:#111">B</span></td>
+  <td style="color:#aaa;font-size:12px">Латина / Самба</td>
+  <td class="key">D min</td>
+  <td class="links"><a class="yt" href="https://www.youtube.com/results?search_query=Kaoma%20Lambada" target="_blank">▶ YT</a><a class="sp" href="https://open.spotify.com/search/Kaoma%20Lambada" target="_blank">♫ SP</a></td>
+</tr>
+<tr data-priority="C" data-search="like a rolling stone bob dylan">
+  <td class="num">39</td>
+  <td><b>Like a Rolling Stone</b></td>
+  <td>Bob Dylan</td>
+  <td style="text-align:center"><span class="check">✅</span></td>
+  <td style="text-align:center"></td>
+  <td style="text-align:center"></td>
+  <td><span class="badge" style="background:#95a5a6;color:#111">C</span></td>
+  <td style="color:#aaa;font-size:12px">Рок / Фолк-рок</td>
+  <td class="key">C maj</td>
+  <td class="links"><a class="yt" href="https://www.youtube.com/results?search_query=Bob%20Dylan%20Like%20a%20Rolling%20Stone" target="_blank">▶ YT</a><a class="sp" href="https://open.spotify.com/search/Bob%20Dylan%20Like%20a%20Rolling%20Stone" target="_blank">♫ SP</a></td>
+</tr>
+<tr data-priority="B" data-search="knockin' on heaven's door bob dylan">
+  <td class="num">40</td>
+  <td><b>Knockin' on Heaven's Door</b></td>
+  <td>Bob Dylan</td>
+  <td style="text-align:center"><span class="check">✅</span></td>
+  <td style="text-align:center"></td>
+  <td style="text-align:center"></td>
+  <td><span class="badge" style="background:#f39c12;color:#111">B</span></td>
+  <td style="color:#aaa;font-size:12px">Фолк-рок / Рок</td>
+  <td class="key">G maj</td>
+  <td class="links"><a class="yt" href="https://www.youtube.com/results?search_query=Bob%20Dylan%20Knockin%27%20on%20Heaven%27s%20Door" target="_blank">▶ YT</a><a class="sp" href="https://open.spotify.com/search/Bob%20Dylan%20Knockin%27%20on%20Heaven%27s%20Door" target="_blank">♫ SP</a></td>
+</tr>
+<tr data-priority="B" data-search="рок-н-ролл би-2">
+  <td class="num">41</td>
+  <td><b>Рок-н-ролл</b></td>
+  <td>Би-2</td>
+  <td style="text-align:center"><span class="check">✅</span></td>
+  <td style="text-align:center"><span class="check">✅</span></td>
+  <td style="text-align:center"></td>
+  <td><span class="badge" style="background:#f39c12;color:#111">B</span></td>
+  <td style="color:#aaa;font-size:12px">Рок</td>
+  <td class="key">E min</td>
+  <td class="links"><a class="yt" href="https://www.youtube.com/results?search_query=%D0%91%D0%B8-2%20%D0%A0%D0%BE%D0%BA-%D0%BD-%D1%80%D0%BE%D0%BB%D0%BB" target="_blank">▶ YT</a><a class="sp" href="https://open.spotify.com/search/%D0%91%D0%B8-2%20%D0%A0%D0%BE%D0%BA-%D0%BD-%D1%80%D0%BE%D0%BB%D0%BB" target="_blank">♫ SP</a></td>
+</tr>
+<tr data-priority="C" data-search="cocaine eric clapton">
+  <td class="num">42</td>
+  <td><b>Cocaine</b></td>
+  <td>Eric Clapton</td>
+  <td style="text-align:center"><span class="check">✅</span></td>
+  <td style="text-align:center"></td>
+  <td style="text-align:center"></td>
+  <td><span class="badge" style="background:#95a5a6;color:#111">C</span></td>
+  <td style="color:#aaa;font-size:12px">Блюз-рок</td>
+  <td class="key">E maj</td>
+  <td class="links"><a class="yt" href="https://www.youtube.com/results?search_query=Eric%20Clapton%20Cocaine" target="_blank">▶ YT</a><a class="sp" href="https://open.spotify.com/search/Eric%20Clapton%20Cocaine" target="_blank">♫ SP</a></td>
+</tr>
+<tr data-priority="C" data-search="луна агата кристи">
+  <td class="num">43</td>
+  <td><b>Луна</b></td>
+  <td>Агата Кристи</td>
+  <td style="text-align:center"><span class="check">✅</span></td>
+  <td style="text-align:center"></td>
+  <td style="text-align:center"></td>
+  <td><span class="badge" style="background:#95a5a6;color:#111">C</span></td>
+  <td style="color:#aaa;font-size:12px">Русский рок</td>
+  <td class="key">D min</td>
+  <td class="links"><a class="yt" href="https://www.youtube.com/results?search_query=%D0%90%D0%B3%D0%B0%D1%82%D0%B0%20%D0%9A%D1%80%D0%B8%D1%81%D1%82%D0%B8%20%D0%9B%D1%83%D0%BD%D0%B0" target="_blank">▶ YT</a><a class="sp" href="https://open.spotify.com/search/%D0%90%D0%B3%D0%B0%D1%82%D0%B0%20%D0%9A%D1%80%D0%B8%D1%81%D1%82%D0%B8%20%D0%9B%D1%83%D0%BD%D0%B0" target="_blank">♫ SP</a></td>
+</tr>
+<tr data-priority="C" data-search="cheap thrills sia">
+  <td class="num">44</td>
+  <td><b>Cheap Thrills</b></td>
+  <td>Sia</td>
+  <td style="text-align:center"><span class="check">✅</span></td>
+  <td style="text-align:center"></td>
+  <td style="text-align:center"></td>
+  <td><span class="badge" style="background:#95a5a6;color:#111">C</span></td>
+  <td style="color:#aaa;font-size:12px">Поп</td>
+  <td class="key">F maj</td>
+  <td class="links"><a class="yt" href="https://www.youtube.com/results?search_query=Sia%20Cheap%20Thrills" target="_blank">▶ YT</a><a class="sp" href="https://open.spotify.com/search/Sia%20Cheap%20Thrills" target="_blank">♫ SP</a></td>
+</tr>
+<tr data-priority="C" data-search="don't be so shy imany">
+  <td class="num">45</td>
+  <td><b>Don't Be So Shy</b></td>
+  <td>Imany</td>
+  <td style="text-align:center"><span class="check">✅</span></td>
+  <td style="text-align:center"></td>
+  <td style="text-align:center"></td>
+  <td><span class="badge" style="background:#95a5a6;color:#111">C</span></td>
+  <td style="color:#aaa;font-size:12px">Поп / Этно</td>
+  <td class="key">C min</td>
+  <td class="links"><a class="yt" href="https://www.youtube.com/results?search_query=Imany%20Don%27t%20Be%20So%20Shy" target="_blank">▶ YT</a><a class="sp" href="https://open.spotify.com/search/Imany%20Don%27t%20Be%20So%20Shy" target="_blank">♫ SP</a></td>
+</tr>
+<tr data-priority="C" data-search="утекай ?">
+  <td class="num">46</td>
+  <td><b>Утекай</b></td>
+  <td>?</td>
+  <td style="text-align:center"><span class="check">✅</span></td>
+  <td style="text-align:center"></td>
+  <td style="text-align:center"></td>
+  <td><span class="badge" style="background:#95a5a6;color:#111">C</span></td>
+  <td style="color:#aaa;font-size:12px">уточни</td>
+  <td class="key">?</td>
+  <td class="links"><a class="yt" href="https://www.youtube.com/results?search_query=%3F%20%D0%A3%D1%82%D0%B5%D0%BA%D0%B0%D0%B9" target="_blank">▶ YT</a><a class="sp" href="https://open.spotify.com/search/%3F%20%D0%A3%D1%82%D0%B5%D0%BA%D0%B0%D0%B9" target="_blank">♫ SP</a></td>
+</tr>
+<tr data-priority="C" data-search="let it be the beatles">
+  <td class="num">47</td>
+  <td><b>Let It Be</b></td>
+  <td>The Beatles</td>
+  <td style="text-align:center"><span class="check">✅</span></td>
+  <td style="text-align:center"></td>
+  <td style="text-align:center"></td>
+  <td><span class="badge" style="background:#95a5a6;color:#111">C</span></td>
+  <td style="color:#aaa;font-size:12px">Рок / Баллада</td>
+  <td class="key">C maj</td>
+  <td class="links"><a class="yt" href="https://www.youtube.com/results?search_query=The%20Beatles%20Let%20It%20Be" target="_blank">▶ YT</a><a class="sp" href="https://open.spotify.com/search/The%20Beatles%20Let%20It%20Be" target="_blank">♫ SP</a></td>
+</tr>
+<tr data-priority="C" data-search="hit the road jack ray charles">
+  <td class="num">48</td>
+  <td><b>Hit the Road Jack</b></td>
+  <td>Ray Charles</td>
+  <td style="text-align:center"><span class="check">✅</span></td>
+  <td style="text-align:center"></td>
+  <td style="text-align:center"></td>
+  <td><span class="badge" style="background:#95a5a6;color:#111">C</span></td>
+  <td style="color:#aaa;font-size:12px">Ритм-н-блюз / Джаз</td>
+  <td class="key">G maj</td>
+  <td class="links"><a class="yt" href="https://www.youtube.com/results?search_query=Ray%20Charles%20Hit%20the%20Road%20Jack" target="_blank">▶ YT</a><a class="sp" href="https://open.spotify.com/search/Ray%20Charles%20Hit%20the%20Road%20Jack" target="_blank">♫ SP</a></td>
+</tr>
+<tr data-priority="C" data-search="i'm you ?">
+  <td class="num">49</td>
+  <td><b>I'm You</b></td>
+  <td>?</td>
+  <td style="text-align:center"><span class="check">✅</span></td>
+  <td style="text-align:center"></td>
+  <td style="text-align:center"></td>
+  <td><span class="badge" style="background:#95a5a6;color:#111">C</span></td>
+  <td style="color:#aaa;font-size:12px">уточни</td>
+  <td class="key">?</td>
+  <td class="links"><a class="yt" href="https://www.youtube.com/results?search_query=%3F%20I%27m%20You" target="_blank">▶ YT</a><a class="sp" href="https://open.spotify.com/search/%3F%20I%27m%20You" target="_blank">♫ SP</a></td>
+</tr>
+<tr data-priority="C" data-search="eight days a week the beatles">
+  <td class="num">50</td>
+  <td><b>Eight Days a Week</b></td>
+  <td>The Beatles</td>
+  <td style="text-align:center"><span class="check">✅</span></td>
+  <td style="text-align:center"></td>
+  <td style="text-align:center"></td>
+  <td><span class="badge" style="background:#95a5a6;color:#111">C</span></td>
+  <td style="color:#aaa;font-size:12px">Поп-рок / Битл</td>
+  <td class="key">D maj</td>
+  <td class="links"><a class="yt" href="https://www.youtube.com/results?search_query=The%20Beatles%20Eight%20Days%20a%20Week" target="_blank">▶ YT</a><a class="sp" href="https://open.spotify.com/search/The%20Beatles%20Eight%20Days%20a%20Week" target="_blank">♫ SP</a></td>
+</tr>
+<tr data-priority="C" data-search="dua lipa (трек?) dua lipa">
+  <td class="num">51</td>
+  <td><b>Dua Lipa (трек?)</b></td>
+  <td>Dua Lipa</td>
+  <td style="text-align:center"><span class="check">✅</span></td>
+  <td style="text-align:center"></td>
+  <td style="text-align:center"></td>
+  <td><span class="badge" style="background:#95a5a6;color:#111">C</span></td>
+  <td style="color:#aaa;font-size:12px">Поп / Дэнс</td>
+  <td class="key">?</td>
+  <td class="links"><a class="yt" href="https://www.youtube.com/results?search_query=Dua%20Lipa%20Dua%20Lipa%20%28%D1%82%D1%80%D0%B5%D0%BA%3F%29" target="_blank">▶ YT</a><a class="sp" href="https://open.spotify.com/search/Dua%20Lipa%20Dua%20Lipa%20%28%D1%82%D1%80%D0%B5%D0%BA%3F%29" target="_blank">♫ SP</a></td>
+</tr>
+<tr data-priority="B" data-search="every breath you take the police">
+  <td class="num">52</td>
+  <td><b>Every Breath You Take</b></td>
+  <td>The Police</td>
+  <td style="text-align:center"><span class="check">✅</span></td>
+  <td style="text-align:center"></td>
+  <td style="text-align:center"></td>
+  <td><span class="badge" style="background:#f39c12;color:#111">B</span></td>
+  <td style="color:#aaa;font-size:12px">Поп-рок / Нью-вейв</td>
+  <td class="key">A maj</td>
+  <td class="links"><a class="yt" href="https://www.youtube.com/results?search_query=The%20Police%20Every%20Breath%20You%20Take" target="_blank">▶ YT</a><a class="sp" href="https://open.spotify.com/search/The%20Police%20Every%20Breath%20You%20Take" target="_blank">♫ SP</a></td>
+</tr>
+<tr data-priority="B" data-search="sunny bobby hebb">
+  <td class="num">53</td>
+  <td><b>Sunny</b></td>
+  <td>Bobby Hebb</td>
+  <td style="text-align:center"><span class="check">✅</span></td>
+  <td style="text-align:center"></td>
+  <td style="text-align:center"></td>
+  <td><span class="badge" style="background:#f39c12;color:#111">B</span></td>
+  <td style="color:#aaa;font-size:12px">Соул / Поп</td>
+  <td class="key">F maj</td>
+  <td class="links"><a class="yt" href="https://www.youtube.com/results?search_query=Bobby%20Hebb%20Sunny" target="_blank">▶ YT</a><a class="sp" href="https://open.spotify.com/search/Bobby%20Hebb%20Sunny" target="_blank">♫ SP</a></td>
+</tr>
+<tr data-priority="C" data-search="lady уточни версию">
+  <td class="num">54</td>
+  <td><b>Lady</b></td>
+  <td>уточни версию</td>
+  <td style="text-align:center"><span class="check">✅</span></td>
+  <td style="text-align:center"></td>
+  <td style="text-align:center"></td>
+  <td><span class="badge" style="background:#95a5a6;color:#111">C</span></td>
+  <td style="color:#aaa;font-size:12px">уточни</td>
+  <td class="key">?</td>
+  <td class="links"><a class="yt" href="https://www.youtube.com/results?search_query=%D1%83%D1%82%D0%BE%D1%87%D0%BD%D0%B8%20%D0%B2%D0%B5%D1%80%D1%81%D0%B8%D1%8E%20Lady" target="_blank">▶ YT</a><a class="sp" href="https://open.spotify.com/search/%D1%83%D1%82%D0%BE%D1%87%D0%BD%D0%B8%20%D0%B2%D0%B5%D1%80%D1%81%D0%B8%D1%8E%20Lady" target="_blank">♫ SP</a></td>
+</tr>
+<tr data-priority="C" data-search="one more time daft punk">
+  <td class="num">55</td>
+  <td><b>One More Time</b></td>
+  <td>Daft Punk</td>
+  <td style="text-align:center"><span class="check">✅</span></td>
+  <td style="text-align:center"></td>
+  <td style="text-align:center"></td>
+  <td><span class="badge" style="background:#95a5a6;color:#111">C</span></td>
+  <td style="color:#aaa;font-size:12px">Диско / Электронный поп</td>
+  <td class="key">F maj</td>
+  <td class="links"><a class="yt" href="https://www.youtube.com/results?search_query=Daft%20Punk%20One%20More%20Time" target="_blank">▶ YT</a><a class="sp" href="https://open.spotify.com/search/Daft%20Punk%20One%20More%20Time" target="_blank">♫ SP</a></td>
+</tr>
+<tr data-priority="C" data-search="astik ?">
+  <td class="num">56</td>
+  <td><b>Astik</b></td>
+  <td>?</td>
+  <td style="text-align:center"><span class="check">✅</span></td>
+  <td style="text-align:center"></td>
+  <td style="text-align:center"></td>
+  <td><span class="badge" style="background:#95a5a6;color:#111">C</span></td>
+  <td style="color:#aaa;font-size:12px">уточни</td>
+  <td class="key">?</td>
+  <td class="links"><a class="yt" href="https://www.youtube.com/results?search_query=%3F%20Astik" target="_blank">▶ YT</a><a class="sp" href="https://open.spotify.com/search/%3F%20Astik" target="_blank">♫ SP</a></td>
+</tr>
+<tr data-priority="C" data-search="price tag jessie j">
+  <td class="num">57</td>
+  <td><b>Price Tag</b></td>
+  <td>Jessie J</td>
+  <td style="text-align:center"><span class="check">✅</span></td>
+  <td style="text-align:center"></td>
+  <td style="text-align:center"></td>
+  <td><span class="badge" style="background:#95a5a6;color:#111">C</span></td>
+  <td style="color:#aaa;font-size:12px">Поп / R&B</td>
+  <td class="key">C maj</td>
+  <td class="links"><a class="yt" href="https://www.youtube.com/results?search_query=Jessie%20J%20Price%20Tag" target="_blank">▶ YT</a><a class="sp" href="https://open.spotify.com/search/Jessie%20J%20Price%20Tag" target="_blank">♫ SP</a></td>
+</tr>
+<tr data-priority="C" data-search="калина ?">
+  <td class="num">58</td>
+  <td><b>Калина</b></td>
+  <td>?</td>
+  <td style="text-align:center"><span class="check">✅</span></td>
+  <td style="text-align:center"></td>
+  <td style="text-align:center"></td>
+  <td><span class="badge" style="background:#95a5a6;color:#111">C</span></td>
+  <td style="color:#aaa;font-size:12px">уточни</td>
+  <td class="key">?</td>
+  <td class="links"><a class="yt" href="https://www.youtube.com/results?search_query=%3F%20%D0%9A%D0%B0%D0%BB%D0%B8%D0%BD%D0%B0" target="_blank">▶ YT</a><a class="sp" href="https://open.spotify.com/search/%3F%20%D0%9A%D0%B0%D0%BB%D0%B8%D0%BD%D0%B0" target="_blank">♫ SP</a></td>
+</tr>
+<tr data-priority="B" data-search="la bamba ritchie valens">
+  <td class="num">59</td>
+  <td><b>La Bamba</b></td>
+  <td>Ritchie Valens</td>
+  <td style="text-align:center"><span class="check">✅</span></td>
+  <td style="text-align:center"></td>
+  <td style="text-align:center"></td>
+  <td><span class="badge" style="background:#f39c12;color:#111">B</span></td>
+  <td style="color:#aaa;font-size:12px">Латина / Рок-н-ролл</td>
+  <td class="key">C maj</td>
+  <td class="links"><a class="yt" href="https://www.youtube.com/results?search_query=Ritchie%20Valens%20La%20Bamba" target="_blank">▶ YT</a><a class="sp" href="https://open.spotify.com/search/Ritchie%20Valens%20La%20Bamba" target="_blank">♫ SP</a></td>
+</tr>
+<tr data-priority="C" data-search="you will never know imany">
+  <td class="num">60</td>
+  <td><b>You Will Never Know</b></td>
+  <td>Imany</td>
+  <td style="text-align:center"><span class="check">✅</span></td>
+  <td style="text-align:center"></td>
+  <td style="text-align:center"></td>
+  <td><span class="badge" style="background:#95a5a6;color:#111">C</span></td>
+  <td style="color:#aaa;font-size:12px">Соул / Поп</td>
+  <td class="key">D min</td>
+  <td class="links"><a class="yt" href="https://www.youtube.com/results?search_query=Imany%20You%20Will%20Never%20Know" target="_blank">▶ YT</a><a class="sp" href="https://open.spotify.com/search/Imany%20You%20Will%20Never%20Know" target="_blank">♫ SP</a></td>
+</tr>
+<tr data-priority="C" data-search="твои глаза ?">
+  <td class="num">61</td>
+  <td><b>Твои глаза</b></td>
+  <td>?</td>
+  <td style="text-align:center"><span class="check">✅</span></td>
+  <td style="text-align:center"></td>
+  <td style="text-align:center"></td>
+  <td><span class="badge" style="background:#95a5a6;color:#111">C</span></td>
+  <td style="color:#aaa;font-size:12px">уточни</td>
+  <td class="key">?</td>
+  <td class="links"><a class="yt" href="https://www.youtube.com/results?search_query=%3F%20%D0%A2%D0%B2%D0%BE%D0%B8%20%D0%B3%D0%BB%D0%B0%D0%B7%D0%B0" target="_blank">▶ YT</a><a class="sp" href="https://open.spotify.com/search/%3F%20%D0%A2%D0%B2%D0%BE%D0%B8%20%D0%B3%D0%BB%D0%B0%D0%B7%D0%B0" target="_blank">♫ SP</a></td>
+</tr>
+<tr data-priority="C" data-search="human the killers">
+  <td class="num">62</td>
+  <td><b>Human</b></td>
+  <td>The Killers</td>
+  <td style="text-align:center"><span class="check">✅</span></td>
+  <td style="text-align:center"></td>
+  <td style="text-align:center"></td>
+  <td><span class="badge" style="background:#95a5a6;color:#111">C</span></td>
+  <td style="color:#aaa;font-size:12px">Инди-рок / Синти-поп</td>
+  <td class="key">Eb maj</td>
+  <td class="links"><a class="yt" href="https://www.youtube.com/results?search_query=The%20Killers%20Human" target="_blank">▶ YT</a><a class="sp" href="https://open.spotify.com/search/The%20Killers%20Human" target="_blank">♫ SP</a></td>
+</tr>
+<tr data-priority="C" data-search="alejandro lady gaga">
+  <td class="num">63</td>
+  <td><b>Alejandro</b></td>
+  <td>Lady Gaga</td>
+  <td style="text-align:center"><span class="check">✅</span></td>
+  <td style="text-align:center"></td>
+  <td style="text-align:center"></td>
+  <td><span class="badge" style="background:#95a5a6;color:#111">C</span></td>
+  <td style="color:#aaa;font-size:12px">Поп / Дэнс</td>
+  <td class="key">A min</td>
+  <td class="links"><a class="yt" href="https://www.youtube.com/results?search_query=Lady%20Gaga%20Alejandro" target="_blank">▶ YT</a><a class="sp" href="https://open.spotify.com/search/Lady%20Gaga%20Alejandro" target="_blank">♫ SP</a></td>
+</tr>
+<tr data-priority="C" data-search="havana camila cabello">
+  <td class="num">64</td>
+  <td><b>Havana</b></td>
+  <td>Camila Cabello</td>
+  <td style="text-align:center"><span class="check">✅</span></td>
+  <td style="text-align:center"></td>
+  <td style="text-align:center"></td>
+  <td><span class="badge" style="background:#95a5a6;color:#111">C</span></td>
+  <td style="color:#aaa;font-size:12px">Латина / Поп</td>
+  <td class="key">G min</td>
+  <td class="links"><a class="yt" href="https://www.youtube.com/results?search_query=Camila%20Cabello%20Havana" target="_blank">▶ YT</a><a class="sp" href="https://open.spotify.com/search/Camila%20Cabello%20Havana" target="_blank">♫ SP</a></td>
+</tr>
+<tr data-priority="C" data-search="bésame mucho consuelo velázquez">
+  <td class="num">65</td>
+  <td><b>Bésame Mucho</b></td>
+  <td>Consuelo Velázquez</td>
+  <td style="text-align:center"><span class="check">✅</span></td>
+  <td style="text-align:center"></td>
+  <td style="text-align:center"></td>
+  <td><span class="badge" style="background:#95a5a6;color:#111">C</span></td>
+  <td style="color:#aaa;font-size:12px">Болеро / Латина</td>
+  <td class="key">D min</td>
+  <td class="links"><a class="yt" href="https://www.youtube.com/results?search_query=Consuelo%20Vel%C3%A1zquez%20B%C3%A9same%20Mucho" target="_blank">▶ YT</a><a class="sp" href="https://open.spotify.com/search/Consuelo%20Vel%C3%A1zquez%20B%C3%A9same%20Mucho" target="_blank">♫ SP</a></td>
+</tr>
+<tr data-priority="C" data-search="you're my heart you're my soul modern talking">
+  <td class="num">66</td>
+  <td><b>You're My Heart You're My Soul</b></td>
+  <td>Modern Talking</td>
+  <td style="text-align:center"><span class="check">✅</span></td>
+  <td style="text-align:center"></td>
+  <td style="text-align:center"></td>
+  <td><span class="badge" style="background:#95a5a6;color:#111">C</span></td>
+  <td style="color:#aaa;font-size:12px">Диско / Евродэнс</td>
+  <td class="key">D maj</td>
+  <td class="links"><a class="yt" href="https://www.youtube.com/results?search_query=Modern%20Talking%20You%27re%20My%20Heart%20You%27re%20My%20Soul" target="_blank">▶ YT</a><a class="sp" href="https://open.spotify.com/search/Modern%20Talking%20You%27re%20My%20Heart%20You%27re%20My%20Soul" target="_blank">♫ SP</a></td>
+</tr>
+<tr data-priority="C" data-search="monster ?">
+  <td class="num">67</td>
+  <td><b>Monster</b></td>
+  <td>?</td>
+  <td style="text-align:center"><span class="check">✅</span></td>
+  <td style="text-align:center"></td>
+  <td style="text-align:center"></td>
+  <td><span class="badge" style="background:#95a5a6;color:#111">C</span></td>
+  <td style="color:#aaa;font-size:12px">уточни</td>
+  <td class="key">?</td>
+  <td class="links"><a class="yt" href="https://www.youtube.com/results?search_query=%3F%20Monster" target="_blank">▶ YT</a><a class="sp" href="https://open.spotify.com/search/%3F%20Monster" target="_blank">♫ SP</a></td>
+</tr>
+<tr data-priority="C" data-search="don't you forget about me simple minds">
+  <td class="num">68</td>
+  <td><b>Don't You Forget About Me</b></td>
+  <td>Simple Minds</td>
+  <td style="text-align:center"><span class="check">✅</span></td>
+  <td style="text-align:center"></td>
+  <td style="text-align:center"></td>
+  <td><span class="badge" style="background:#95a5a6;color:#111">C</span></td>
+  <td style="color:#aaa;font-size:12px">Нью-вейв / Поп-рок</td>
+  <td class="key">F maj</td>
+  <td class="links"><a class="yt" href="https://www.youtube.com/results?search_query=Simple%20Minds%20Don%27t%20You%20Forget%20About%20Me" target="_blank">▶ YT</a><a class="sp" href="https://open.spotify.com/search/Simple%20Minds%20Don%27t%20You%20Forget%20About%20Me" target="_blank">♫ SP</a></td>
+</tr>
+<tr data-priority="C" data-search="sway dean martin">
+  <td class="num">69</td>
+  <td><b>Sway</b></td>
+  <td>Dean Martin</td>
+  <td style="text-align:center"><span class="check">✅</span></td>
+  <td style="text-align:center"></td>
+  <td style="text-align:center"></td>
+  <td><span class="badge" style="background:#95a5a6;color:#111">C</span></td>
+  <td style="color:#aaa;font-size:12px">Латина / Джаз</td>
+  <td class="key">B maj</td>
+  <td class="links"><a class="yt" href="https://www.youtube.com/results?search_query=Dean%20Martin%20Sway" target="_blank">▶ YT</a><a class="sp" href="https://open.spotify.com/search/Dean%20Martin%20Sway" target="_blank">♫ SP</a></td>
+</tr>
+<tr data-priority="C" data-search="try ?">
+  <td class="num">70</td>
+  <td><b>Try</b></td>
+  <td>?</td>
+  <td style="text-align:center"><span class="check">✅</span></td>
+  <td style="text-align:center"></td>
+  <td style="text-align:center"></td>
+  <td><span class="badge" style="background:#95a5a6;color:#111">C</span></td>
+  <td style="color:#aaa;font-size:12px">уточни</td>
+  <td class="key">?</td>
+  <td class="links"><a class="yt" href="https://www.youtube.com/results?search_query=%3F%20Try" target="_blank">▶ YT</a><a class="sp" href="https://open.spotify.com/search/%3F%20Try" target="_blank">♫ SP</a></td>
+</tr>
+<tr data-priority="C" data-search="к чёрту любовь лобода">
+  <td class="num">71</td>
+  <td><b>К чёрту любовь</b></td>
+  <td>Лобода</td>
+  <td style="text-align:center"><span class="check">✅</span></td>
+  <td style="text-align:center"></td>
+  <td style="text-align:center"></td>
+  <td><span class="badge" style="background:#95a5a6;color:#111">C</span></td>
+  <td style="color:#aaa;font-size:12px">Русский поп</td>
+  <td class="key">A min</td>
+  <td class="links"><a class="yt" href="https://www.youtube.com/results?search_query=%D0%9B%D0%BE%D0%B1%D0%BE%D0%B4%D0%B0%20%D0%9A%20%D1%87%D1%91%D1%80%D1%82%D1%83%20%D0%BB%D1%8E%D0%B1%D0%BE%D0%B2%D1%8C" target="_blank">▶ YT</a><a class="sp" href="https://open.spotify.com/search/%D0%9B%D0%BE%D0%B1%D0%BE%D0%B4%D0%B0%20%D0%9A%20%D1%87%D1%91%D1%80%D1%82%D1%83%20%D0%BB%D1%8E%D0%B1%D0%BE%D0%B2%D1%8C" target="_blank">♫ SP</a></td>
+</tr>
+<tr data-priority="C" data-search="friends ?">
+  <td class="num">72</td>
+  <td><b>Friends</b></td>
+  <td>?</td>
+  <td style="text-align:center"><span class="check">✅</span></td>
+  <td style="text-align:center"></td>
+  <td style="text-align:center"></td>
+  <td><span class="badge" style="background:#95a5a6;color:#111">C</span></td>
+  <td style="color:#aaa;font-size:12px">уточни</td>
+  <td class="key">?</td>
+  <td class="links"><a class="yt" href="https://www.youtube.com/results?search_query=%3F%20Friends" target="_blank">▶ YT</a><a class="sp" href="https://open.spotify.com/search/%3F%20Friends" target="_blank">♫ SP</a></td>
+</tr>
+<tr data-priority="C" data-search="dance monkey tones and i">
+  <td class="num">73</td>
+  <td><b>Dance Monkey</b></td>
+  <td>Tones and I</td>
+  <td style="text-align:center"><span class="check">✅</span></td>
+  <td style="text-align:center"></td>
+  <td style="text-align:center"></td>
+  <td><span class="badge" style="background:#95a5a6;color:#111">C</span></td>
+  <td style="color:#aaa;font-size:12px">Инди-поп</td>
+  <td class="key">C min</td>
+  <td class="links"><a class="yt" href="https://www.youtube.com/results?search_query=Tones%20and%20I%20Dance%20Monkey" target="_blank">▶ YT</a><a class="sp" href="https://open.spotify.com/search/Tones%20and%20I%20Dance%20Monkey" target="_blank">♫ SP</a></td>
+</tr>
+<tr data-priority="C" data-search="simply the best tina turner">
+  <td class="num">74</td>
+  <td><b>Simply the Best</b></td>
+  <td>Tina Turner</td>
+  <td style="text-align:center"><span class="check">✅</span></td>
+  <td style="text-align:center"></td>
+  <td style="text-align:center"></td>
+  <td><span class="badge" style="background:#95a5a6;color:#111">C</span></td>
+  <td style="color:#aaa;font-size:12px">Поп-рок / R&B</td>
+  <td class="key">D maj</td>
+  <td class="links"><a class="yt" href="https://www.youtube.com/results?search_query=Tina%20Turner%20Simply%20the%20Best" target="_blank">▶ YT</a><a class="sp" href="https://open.spotify.com/search/Tina%20Turner%20Simply%20the%20Best" target="_blank">♫ SP</a></td>
+</tr>
+<tr data-priority="C" data-search="walk away ?">
+  <td class="num">75</td>
+  <td><b>Walk Away</b></td>
+  <td>?</td>
+  <td style="text-align:center"><span class="check">✅</span></td>
+  <td style="text-align:center"></td>
+  <td style="text-align:center"></td>
+  <td><span class="badge" style="background:#95a5a6;color:#111">C</span></td>
+  <td style="color:#aaa;font-size:12px">уточни</td>
+  <td class="key">?</td>
+  <td class="links"><a class="yt" href="https://www.youtube.com/results?search_query=%3F%20Walk%20Away" target="_blank">▶ YT</a><a class="sp" href="https://open.spotify.com/search/%3F%20Walk%20Away" target="_blank">♫ SP</a></td>
+</tr>
+<tr data-priority="C" data-search="случайная лобода">
+  <td class="num">76</td>
+  <td><b>Случайная</b></td>
+  <td>Лобода</td>
+  <td style="text-align:center"><span class="check">✅</span></td>
+  <td style="text-align:center"></td>
+  <td style="text-align:center"></td>
+  <td><span class="badge" style="background:#95a5a6;color:#111">C</span></td>
+  <td style="color:#aaa;font-size:12px">Русский поп</td>
+  <td class="key">A min</td>
+  <td class="links"><a class="yt" href="https://www.youtube.com/results?search_query=%D0%9B%D0%BE%D0%B1%D0%BE%D0%B4%D0%B0%20%D0%A1%D0%BB%D1%83%D1%87%D0%B0%D0%B9%D0%BD%D0%B0%D1%8F" target="_blank">▶ YT</a><a class="sp" href="https://open.spotify.com/search/%D0%9B%D0%BE%D0%B1%D0%BE%D0%B4%D0%B0%20%D0%A1%D0%BB%D1%83%D1%87%D0%B0%D0%B9%D0%BD%D0%B0%D1%8F" target="_blank">♫ SP</a></td>
+</tr>
+<tr data-priority="C" data-search="stay with me sam smith">
+  <td class="num">77</td>
+  <td><b>Stay With Me</b></td>
+  <td>Sam Smith</td>
+  <td style="text-align:center"><span class="check">✅</span></td>
+  <td style="text-align:center"></td>
+  <td style="text-align:center"></td>
+  <td><span class="badge" style="background:#95a5a6;color:#111">C</span></td>
+  <td style="color:#aaa;font-size:12px">Поп / Соул</td>
+  <td class="key">C maj</td>
+  <td class="links"><a class="yt" href="https://www.youtube.com/results?search_query=Sam%20Smith%20Stay%20With%20Me" target="_blank">▶ YT</a><a class="sp" href="https://open.spotify.com/search/Sam%20Smith%20Stay%20With%20Me" target="_blank">♫ SP</a></td>
+</tr>
+<tr data-priority="C" data-search="venus shocking blue">
+  <td class="num">78</td>
+  <td><b>Venus</b></td>
+  <td>Shocking Blue</td>
+  <td style="text-align:center"><span class="check">✅</span></td>
+  <td style="text-align:center"></td>
+  <td style="text-align:center"></td>
+  <td><span class="badge" style="background:#95a5a6;color:#111">C</span></td>
+  <td style="color:#aaa;font-size:12px">Рок / Поп</td>
+  <td class="key">A min</td>
+  <td class="links"><a class="yt" href="https://www.youtube.com/results?search_query=Shocking%20Blue%20Venus" target="_blank">▶ YT</a><a class="sp" href="https://open.spotify.com/search/Shocking%20Blue%20Venus" target="_blank">♫ SP</a></td>
+</tr>
+<tr data-priority="B" data-search="billie jean michael jackson">
+  <td class="num">79</td>
+  <td><b>Billie Jean</b></td>
+  <td>Michael Jackson</td>
+  <td style="text-align:center"></td>
+  <td style="text-align:center"><span class="check">✅</span></td>
+  <td style="text-align:center"></td>
+  <td><span class="badge" style="background:#f39c12;color:#111">B</span></td>
+  <td style="color:#aaa;font-size:12px">Поп / Фанк</td>
+  <td class="key">F# min</td>
+  <td class="links"><a class="yt" href="https://www.youtube.com/results?search_query=Michael%20Jackson%20Billie%20Jean" target="_blank">▶ YT</a><a class="sp" href="https://open.spotify.com/search/Michael%20Jackson%20Billie%20Jean" target="_blank">♫ SP</a></td>
+</tr>
+<tr data-priority="C" data-search="give it to me michael jackson">
+  <td class="num">80</td>
+  <td><b>Give It to Me</b></td>
+  <td>Michael Jackson</td>
+  <td style="text-align:center"></td>
+  <td style="text-align:center"><span class="check">✅</span></td>
+  <td style="text-align:center"></td>
+  <td><span class="badge" style="background:#95a5a6;color:#111">C</span></td>
+  <td style="color:#aaa;font-size:12px">Поп / R&B</td>
+  <td class="key">Bb maj</td>
+  <td class="links"><a class="yt" href="https://www.youtube.com/results?search_query=Michael%20Jackson%20Give%20It%20to%20Me" target="_blank">▶ YT</a><a class="sp" href="https://open.spotify.com/search/Michael%20Jackson%20Give%20It%20to%20Me" target="_blank">♫ SP</a></td>
+</tr>
+<tr data-priority="B" data-search="smooth criminal michael jackson">
+  <td class="num">81</td>
+  <td><b>Smooth Criminal</b></td>
+  <td>Michael Jackson</td>
+  <td style="text-align:center"></td>
+  <td style="text-align:center"><span class="check">✅</span></td>
+  <td style="text-align:center"></td>
+  <td><span class="badge" style="background:#f39c12;color:#111">B</span></td>
+  <td style="color:#aaa;font-size:12px">Поп / Фанк</td>
+  <td class="key">E min</td>
+  <td class="links"><a class="yt" href="https://www.youtube.com/results?search_query=Michael%20Jackson%20Smooth%20Criminal" target="_blank">▶ YT</a><a class="sp" href="https://open.spotify.com/search/Michael%20Jackson%20Smooth%20Criminal" target="_blank">♫ SP</a></td>
+</tr>
+<tr data-priority="C" data-search="хали гали леприконсы">
+  <td class="num">82</td>
+  <td><b>Хали Гали</b></td>
+  <td>Леприконсы</td>
+  <td style="text-align:center"></td>
+  <td style="text-align:center"></td>
+  <td style="text-align:center"><span class="check">✅</span></td>
+  <td><span class="badge" style="background:#95a5a6;color:#111">C</span></td>
+  <td style="color:#aaa;font-size:12px">Русский поп / Юмор</td>
+  <td class="key">?</td>
+  <td class="links"><a class="yt" href="https://www.youtube.com/results?search_query=%D0%9B%D0%B5%D0%BF%D1%80%D0%B8%D0%BA%D0%BE%D0%BD%D1%81%D1%8B%20%D0%A5%D0%B0%D0%BB%D0%B8%20%D0%93%D0%B0%D0%BB%D0%B8" target="_blank">▶ YT</a><a class="sp" href="https://open.spotify.com/search/%D0%9B%D0%B5%D0%BF%D1%80%D0%B8%D0%BA%D0%BE%D0%BD%D1%81%D1%8B%20%D0%A5%D0%B0%D0%BB%D0%B8%20%D0%93%D0%B0%D0%BB%D0%B8" target="_blank">♫ SP</a></td>
+</tr>
+<tr data-priority="C" data-search="москвич леприконсы">
+  <td class="num">83</td>
+  <td><b>Москвич</b></td>
+  <td>Леприконсы</td>
+  <td style="text-align:center"></td>
+  <td style="text-align:center"></td>
+  <td style="text-align:center"><span class="check">✅</span></td>
+  <td><span class="badge" style="background:#95a5a6;color:#111">C</span></td>
+  <td style="color:#aaa;font-size:12px">Русский поп / Юмор</td>
+  <td class="key">?</td>
+  <td class="links"><a class="yt" href="https://www.youtube.com/results?search_query=%D0%9B%D0%B5%D0%BF%D1%80%D0%B8%D0%BA%D0%BE%D0%BD%D1%81%D1%8B%20%D0%9C%D0%BE%D1%81%D0%BA%D0%B2%D0%B8%D1%87" target="_blank">▶ YT</a><a class="sp" href="https://open.spotify.com/search/%D0%9B%D0%B5%D0%BF%D1%80%D0%B8%D0%BA%D0%BE%D0%BD%D1%81%D1%8B%20%D0%9C%D0%BE%D1%81%D0%BA%D0%B2%D0%B8%D1%87" target="_blank">♫ SP</a></td>
+</tr>
+<tr data-priority="C" data-search="как мне сегодня хочется руки вверх">
+  <td class="num">84</td>
+  <td><b>Как мне сегодня хочется</b></td>
+  <td>Руки Вверх</td>
+  <td style="text-align:center"></td>
+  <td style="text-align:center"><span class="check">✅</span></td>
+  <td style="text-align:center"></td>
+  <td><span class="badge" style="background:#95a5a6;color:#111">C</span></td>
+  <td style="color:#aaa;font-size:12px">Русский поп / Еврохаус</td>
+  <td class="key">C maj</td>
+  <td class="links"><a class="yt" href="https://www.youtube.com/results?search_query=%D0%A0%D1%83%D0%BA%D0%B8%20%D0%92%D0%B2%D0%B5%D1%80%D1%85%20%D0%9A%D0%B0%D0%BA%20%D0%BC%D0%BD%D0%B5%20%D1%81%D0%B5%D0%B3%D0%BE%D0%B4%D0%BD%D1%8F%20%D1%85%D0%BE%D1%87%D0%B5%D1%82%D1%81%D1%8F" target="_blank">▶ YT</a><a class="sp" href="https://open.spotify.com/search/%D0%A0%D1%83%D0%BA%D0%B8%20%D0%92%D0%B2%D0%B5%D1%80%D1%85%20%D0%9A%D0%B0%D0%BA%20%D0%BC%D0%BD%D0%B5%20%D1%81%D0%B5%D0%B3%D0%BE%D0%B4%D0%BD%D1%8F%20%D1%85%D0%BE%D1%87%D0%B5%D1%82%D1%81%D1%8F" target="_blank">♫ SP</a></td>
+</tr>
+<tr data-priority="B" data-search="любите девушки браво">
+  <td class="num">85</td>
+  <td><b>Любите девушки</b></td>
+  <td>Браво</td>
+  <td style="text-align:center"></td>
+  <td style="text-align:center"><span class="check">✅</span></td>
+  <td style="text-align:center"></td>
+  <td><span class="badge" style="background:#f39c12;color:#111">B</span></td>
+  <td style="color:#aaa;font-size:12px">Русский поп-рок / Ретро</td>
+  <td class="key">G maj</td>
+  <td class="links"><a class="yt" href="https://www.youtube.com/results?search_query=%D0%91%D1%80%D0%B0%D0%B2%D0%BE%20%D0%9B%D1%8E%D0%B1%D0%B8%D1%82%D0%B5%20%D0%B4%D0%B5%D0%B2%D1%83%D1%88%D0%BA%D0%B8" target="_blank">▶ YT</a><a class="sp" href="https://open.spotify.com/search/%D0%91%D1%80%D0%B0%D0%B2%D0%BE%20%D0%9B%D1%8E%D0%B1%D0%B8%D1%82%D0%B5%20%D0%B4%D0%B5%D0%B2%D1%83%D1%88%D0%BA%D0%B8" target="_blank">♫ SP</a></td>
+</tr>
+<tr data-priority="B" data-search="замок из песка браво">
+  <td class="num">86</td>
+  <td><b>Замок из песка</b></td>
+  <td>Браво</td>
+  <td style="text-align:center"></td>
+  <td style="text-align:center"><span class="check">✅</span></td>
+  <td style="text-align:center"></td>
+  <td><span class="badge" style="background:#f39c12;color:#111">B</span></td>
+  <td style="color:#aaa;font-size:12px">Русский поп-рок / Баллада</td>
+  <td class="key">D maj</td>
+  <td class="links"><a class="yt" href="https://www.youtube.com/results?search_query=%D0%91%D1%80%D0%B0%D0%B2%D0%BE%20%D0%97%D0%B0%D0%BC%D0%BE%D0%BA%20%D0%B8%D0%B7%20%D0%BF%D0%B5%D1%81%D0%BA%D0%B0" target="_blank">▶ YT</a><a class="sp" href="https://open.spotify.com/search/%D0%91%D1%80%D0%B0%D0%B2%D0%BE%20%D0%97%D0%B0%D0%BC%D0%BE%D0%BA%20%D0%B8%D0%B7%20%D0%BF%D0%B5%D1%81%D0%BA%D0%B0" target="_blank">♫ SP</a></td>
+</tr>
+<tr data-priority="C" data-search="дорога в облака сюткин">
+  <td class="num">87</td>
+  <td><b>Дорога в облака</b></td>
+  <td>Сюткин</td>
+  <td style="text-align:center"></td>
+  <td style="text-align:center"><span class="check">✅</span></td>
+  <td style="text-align:center"></td>
+  <td><span class="badge" style="background:#95a5a6;color:#111">C</span></td>
+  <td style="color:#aaa;font-size:12px">Русский поп / Джаз</td>
+  <td class="key">Bb maj</td>
+  <td class="links"><a class="yt" href="https://www.youtube.com/results?search_query=%D0%A1%D1%8E%D1%82%D0%BA%D0%B8%D0%BD%20%D0%94%D0%BE%D1%80%D0%BE%D0%B3%D0%B0%20%D0%B2%20%D0%BE%D0%B1%D0%BB%D0%B0%D0%BA%D0%B0" target="_blank">▶ YT</a><a class="sp" href="https://open.spotify.com/search/%D0%A1%D1%8E%D1%82%D0%BA%D0%B8%D0%BD%20%D0%94%D0%BE%D1%80%D0%BE%D0%B3%D0%B0%20%D0%B2%20%D0%BE%D0%B1%D0%BB%D0%B0%D0%BA%D0%B0" target="_blank">♫ SP</a></td>
+</tr>
+<tr data-priority="B" data-search="музыка нас связала мираж">
+  <td class="num">88</td>
+  <td><b>Музыка нас связала</b></td>
+  <td>Мираж</td>
+  <td style="text-align:center"></td>
+  <td style="text-align:center"><span class="check">✅</span></td>
+  <td style="text-align:center"></td>
+  <td><span class="badge" style="background:#f39c12;color:#111">B</span></td>
+  <td style="color:#aaa;font-size:12px">Синти-поп / Диско</td>
+  <td class="key">A min</td>
+  <td class="links"><a class="yt" href="https://www.youtube.com/results?search_query=%D0%9C%D0%B8%D1%80%D0%B0%D0%B6%20%D0%9C%D1%83%D0%B7%D1%8B%D0%BA%D0%B0%20%D0%BD%D0%B0%D1%81%20%D1%81%D0%B2%D1%8F%D0%B7%D0%B0%D0%BB%D0%B0" target="_blank">▶ YT</a><a class="sp" href="https://open.spotify.com/search/%D0%9C%D0%B8%D1%80%D0%B0%D0%B6%20%D0%9C%D1%83%D0%B7%D1%8B%D0%BA%D0%B0%20%D0%BD%D0%B0%D1%81%20%D1%81%D0%B2%D1%8F%D0%B7%D0%B0%D0%BB%D0%B0" target="_blank">♫ SP</a></td>
+</tr>
+<tr data-priority="C" data-search="не дано hi-fi">
+  <td class="num">89</td>
+  <td><b>Не дано</b></td>
+  <td>Hi-Fi</td>
+  <td style="text-align:center"></td>
+  <td style="text-align:center"></td>
+  <td style="text-align:center"><span class="check">✅</span></td>
+  <td><span class="badge" style="background:#95a5a6;color:#111">C</span></td>
+  <td style="color:#aaa;font-size:12px">Русский поп / R&B</td>
+  <td class="key">C maj</td>
+  <td class="links"><a class="yt" href="https://www.youtube.com/results?search_query=Hi-Fi%20%D0%9D%D0%B5%20%D0%B4%D0%B0%D0%BD%D0%BE" target="_blank">▶ YT</a><a class="sp" href="https://open.spotify.com/search/Hi-Fi%20%D0%9D%D0%B5%20%D0%B4%D0%B0%D0%BD%D0%BE" target="_blank">♫ SP</a></td>
+</tr>
+<tr data-priority="C" data-search="а мы любили hi-fi">
+  <td class="num">90</td>
+  <td><b>А мы любили</b></td>
+  <td>Hi-Fi</td>
+  <td style="text-align:center"></td>
+  <td style="text-align:center"></td>
+  <td style="text-align:center"><span class="check">✅</span></td>
+  <td><span class="badge" style="background:#95a5a6;color:#111">C</span></td>
+  <td style="color:#aaa;font-size:12px">Русский поп / R&B</td>
+  <td class="key">F maj</td>
+  <td class="links"><a class="yt" href="https://www.youtube.com/results?search_query=Hi-Fi%20%D0%90%20%D0%BC%D1%8B%20%D0%BB%D1%8E%D0%B1%D0%B8%D0%BB%D0%B8" target="_blank">▶ YT</a><a class="sp" href="https://open.spotify.com/search/Hi-Fi%20%D0%90%20%D0%BC%D1%8B%20%D0%BB%D1%8E%D0%B1%D0%B8%D0%BB%D0%B8" target="_blank">♫ SP</a></td>
+</tr>
+<tr data-priority="A" data-search="в городе лето уматурман">
+  <td class="num">91</td>
+  <td><b>В городе лето</b></td>
+  <td>Уматурман</td>
+  <td style="text-align:center"></td>
+  <td style="text-align:center"></td>
+  <td style="text-align:center"><span class="check">✅</span></td>
+  <td><span class="badge" style="background:#2ecc71;color:#111">A</span></td>
+  <td style="color:#aaa;font-size:12px">Русский рок-поп</td>
+  <td class="key">E min</td>
+  <td class="links"><a class="yt" href="https://www.youtube.com/results?search_query=%D0%A3%D0%BC%D0%B0%D1%82%D1%83%D1%80%D0%BC%D0%B0%D0%BD%20%D0%92%20%D0%B3%D0%BE%D1%80%D0%BE%D0%B4%D0%B5%20%D0%BB%D0%B5%D1%82%D0%BE" target="_blank">▶ YT</a><a class="sp" href="https://open.spotify.com/search/%D0%A3%D0%BC%D0%B0%D1%82%D1%83%D1%80%D0%BC%D0%B0%D0%BD%20%D0%92%20%D0%B3%D0%BE%D1%80%D0%BE%D0%B4%D0%B5%20%D0%BB%D0%B5%D1%82%D0%BE" target="_blank">♫ SP</a></td>
+</tr>
+<tr data-priority="C" data-search="девушка прасковья уматурман">
+  <td class="num">92</td>
+  <td><b>Девушка Прасковья</b></td>
+  <td>Уматурман</td>
+  <td style="text-align:center"></td>
+  <td style="text-align:center"></td>
+  <td style="text-align:center"><span class="check">✅</span></td>
+  <td><span class="badge" style="background:#95a5a6;color:#111">C</span></td>
+  <td style="color:#aaa;font-size:12px">Русский рок-поп</td>
+  <td class="key">G maj</td>
+  <td class="links"><a class="yt" href="https://www.youtube.com/results?search_query=%D0%A3%D0%BC%D0%B0%D1%82%D1%83%D1%80%D0%BC%D0%B0%D0%BD%20%D0%94%D0%B5%D0%B2%D1%83%D1%88%D0%BA%D0%B0%20%D0%9F%D1%80%D0%B0%D1%81%D0%BA%D0%BE%D0%B2%D1%8C%D1%8F" target="_blank">▶ YT</a><a class="sp" href="https://open.spotify.com/search/%D0%A3%D0%BC%D0%B0%D1%82%D1%83%D1%80%D0%BC%D0%B0%D0%BD%20%D0%94%D0%B5%D0%B2%D1%83%D1%88%D0%BA%D0%B0%20%D0%9F%D1%80%D0%B0%D1%81%D0%BA%D0%BE%D0%B2%D1%8C%D1%8F" target="_blank">♫ SP</a></td>
+</tr>
+<tr data-priority="C" data-search="лайки би-2">
+  <td class="num">93</td>
+  <td><b>Лайки</b></td>
+  <td>Би-2</td>
+  <td style="text-align:center"></td>
+  <td style="text-align:center"><span class="check">✅</span></td>
+  <td style="text-align:center"></td>
+  <td><span class="badge" style="background:#95a5a6;color:#111">C</span></td>
+  <td style="color:#aaa;font-size:12px">Русский рок</td>
+  <td class="key">D min</td>
+  <td class="links"><a class="yt" href="https://www.youtube.com/results?search_query=%D0%91%D0%B8-2%20%D0%9B%D0%B0%D0%B9%D0%BA%D0%B8" target="_blank">▶ YT</a><a class="sp" href="https://open.spotify.com/search/%D0%91%D0%B8-2%20%D0%9B%D0%B0%D0%B9%D0%BA%D0%B8" target="_blank">♫ SP</a></td>
+</tr>
+<tr data-priority="B" data-search="компромисс би-2">
+  <td class="num">94</td>
+  <td><b>Компромисс</b></td>
+  <td>Би-2</td>
+  <td style="text-align:center"></td>
+  <td style="text-align:center"><span class="check">✅</span></td>
+  <td style="text-align:center"></td>
+  <td><span class="badge" style="background:#f39c12;color:#111">B</span></td>
+  <td style="color:#aaa;font-size:12px">Русский рок</td>
+  <td class="key">G min</td>
+  <td class="links"><a class="yt" href="https://www.youtube.com/results?search_query=%D0%91%D0%B8-2%20%D0%9A%D0%BE%D0%BC%D0%BF%D1%80%D0%BE%D0%BC%D0%B8%D1%81%D1%81" target="_blank">▶ YT</a><a class="sp" href="https://open.spotify.com/search/%D0%91%D0%B8-2%20%D0%9A%D0%BE%D0%BC%D0%BF%D1%80%D0%BE%D0%BC%D0%B8%D1%81%D1%81" target="_blank">♫ SP</a></td>
+</tr>
+<tr data-priority="C" data-search="полковник би-2">
+  <td class="num">95</td>
+  <td><b>Полковник</b></td>
+  <td>Би-2</td>
+  <td style="text-align:center"></td>
+  <td style="text-align:center"><span class="check">✅</span></td>
+  <td style="text-align:center"></td>
+  <td><span class="badge" style="background:#95a5a6;color:#111">C</span></td>
+  <td style="color:#aaa;font-size:12px">Русский рок</td>
+  <td class="key">E min</td>
+  <td class="links"><a class="yt" href="https://www.youtube.com/results?search_query=%D0%91%D0%B8-2%20%D0%9F%D0%BE%D0%BB%D0%BA%D0%BE%D0%B2%D0%BD%D0%B8%D0%BA" target="_blank">▶ YT</a><a class="sp" href="https://open.spotify.com/search/%D0%91%D0%B8-2%20%D0%9F%D0%BE%D0%BB%D0%BA%D0%BE%D0%B2%D0%BD%D0%B8%D0%BA" target="_blank">♫ SP</a></td>
+</tr>
+<tr data-priority="A" data-search="скользкие улицы брэйнстом">
+  <td class="num">96</td>
+  <td><b>Скользкие улицы</b></td>
+  <td>Брэйнстом</td>
+  <td style="text-align:center"></td>
+  <td style="text-align:center"><span class="check">✅</span></td>
+  <td style="text-align:center"><span class="check">✅</span></td>
+  <td><span class="badge" style="background:#2ecc71;color:#111">A</span></td>
+  <td style="color:#aaa;font-size:12px">Поп-рок / Баллада</td>
+  <td class="key">C maj</td>
+  <td class="links"><a class="yt" href="https://www.youtube.com/results?search_query=%D0%91%D1%80%D1%8D%D0%B9%D0%BD%D1%81%D1%82%D0%BE%D0%BC%20%D0%A1%D0%BA%D0%BE%D0%BB%D1%8C%D0%B7%D0%BA%D0%B8%D0%B5%20%D1%83%D0%BB%D0%B8%D1%86%D1%8B" target="_blank">▶ YT</a><a class="sp" href="https://open.spotify.com/search/%D0%91%D1%80%D1%8D%D0%B9%D0%BD%D1%81%D1%82%D0%BE%D0%BC%20%D0%A1%D0%BA%D0%BE%D0%BB%D1%8C%D0%B7%D0%BA%D0%B8%D0%B5%20%D1%83%D0%BB%D0%B8%D1%86%D1%8B" target="_blank">♫ SP</a></td>
+</tr>
+<tr data-priority="A" data-search="ветер брэйнстом">
+  <td class="num">97</td>
+  <td><b>Ветер</b></td>
+  <td>Брэйнстом</td>
+  <td style="text-align:center"></td>
+  <td style="text-align:center"><span class="check">✅</span></td>
+  <td style="text-align:center"><span class="check">✅</span></td>
+  <td><span class="badge" style="background:#2ecc71;color:#111">A</span></td>
+  <td style="color:#aaa;font-size:12px">Поп-рок</td>
+  <td class="key">G maj</td>
+  <td class="links"><a class="yt" href="https://www.youtube.com/results?search_query=%D0%91%D1%80%D1%8D%D0%B9%D0%BD%D1%81%D1%82%D0%BE%D0%BC%20%D0%92%D0%B5%D1%82%D0%B5%D1%80" target="_blank">▶ YT</a><a class="sp" href="https://open.spotify.com/search/%D0%91%D1%80%D1%8D%D0%B9%D0%BD%D1%81%D1%82%D0%BE%D0%BC%20%D0%92%D0%B5%D1%82%D0%B5%D1%80" target="_blank">♫ SP</a></td>
+</tr>
+<tr data-priority="C" data-search="своя 1 дима к.">
+  <td class="num">98</td>
+  <td><b>Своя 1</b></td>
+  <td>Дима К.</td>
+  <td style="text-align:center"></td>
+  <td style="text-align:center"><span class="check">✅</span></td>
+  <td style="text-align:center"></td>
+  <td><span class="badge" style="background:#95a5a6;color:#111">C</span></td>
+  <td style="color:#aaa;font-size:12px">Авторская</td>
+  <td class="key">?</td>
+  <td class="links"><a class="yt" href="https://www.youtube.com/results?search_query=%D0%94%D0%B8%D0%BC%D0%B0%20%D0%9A.%20%D0%A1%D0%B2%D0%BE%D1%8F%201" target="_blank">▶ YT</a><a class="sp" href="https://open.spotify.com/search/%D0%94%D0%B8%D0%BC%D0%B0%20%D0%9A.%20%D0%A1%D0%B2%D0%BE%D1%8F%201" target="_blank">♫ SP</a></td>
+</tr>
+<tr data-priority="C" data-search="своя 2 дима к.">
+  <td class="num">99</td>
+  <td><b>Своя 2</b></td>
+  <td>Дима К.</td>
+  <td style="text-align:center"></td>
+  <td style="text-align:center"><span class="check">✅</span></td>
+  <td style="text-align:center"></td>
+  <td><span class="badge" style="background:#95a5a6;color:#111">C</span></td>
+  <td style="color:#aaa;font-size:12px">Авторская</td>
+  <td class="key">?</td>
+  <td class="links"><a class="yt" href="https://www.youtube.com/results?search_query=%D0%94%D0%B8%D0%BC%D0%B0%20%D0%9A.%20%D0%A1%D0%B2%D0%BE%D1%8F%202" target="_blank">▶ YT</a><a class="sp" href="https://open.spotify.com/search/%D0%94%D0%B8%D0%BC%D0%B0%20%D0%9A.%20%D0%A1%D0%B2%D0%BE%D1%8F%202" target="_blank">♫ SP</a></td>
+</tr>
+<tr data-priority="C" data-search="своя 3 дима к.">
+  <td class="num">100</td>
+  <td><b>Своя 3</b></td>
+  <td>Дима К.</td>
+  <td style="text-align:center"></td>
+  <td style="text-align:center"><span class="check">✅</span></td>
+  <td style="text-align:center"></td>
+  <td><span class="badge" style="background:#95a5a6;color:#111">C</span></td>
+  <td style="color:#aaa;font-size:12px">Авторская</td>
+  <td class="key">?</td>
+  <td class="links"><a class="yt" href="https://www.youtube.com/results?search_query=%D0%94%D0%B8%D0%BC%D0%B0%20%D0%9A.%20%D0%A1%D0%B2%D0%BE%D1%8F%203" target="_blank">▶ YT</a><a class="sp" href="https://open.spotify.com/search/%D0%94%D0%B8%D0%BC%D0%B0%20%D0%9A.%20%D0%A1%D0%B2%D0%BE%D1%8F%203" target="_blank">♫ SP</a></td>
+</tr>
+<tr data-priority="C" data-search="на сиреневой луне агутин">
+  <td class="num">101</td>
+  <td><b>На сиреневой луне</b></td>
+  <td>Агутин</td>
+  <td style="text-align:center"></td>
+  <td style="text-align:center"><span class="check">✅</span></td>
+  <td style="text-align:center"></td>
+  <td><span class="badge" style="background:#95a5a6;color:#111">C</span></td>
+  <td style="color:#aaa;font-size:12px">Русский поп / Латина</td>
+  <td class="key">F maj</td>
+  <td class="links"><a class="yt" href="https://www.youtube.com/results?search_query=%D0%90%D0%B3%D1%83%D1%82%D0%B8%D0%BD%20%D0%9D%D0%B0%20%D1%81%D0%B8%D1%80%D0%B5%D0%BD%D0%B5%D0%B2%D0%BE%D0%B9%20%D0%BB%D1%83%D0%BD%D0%B5" target="_blank">▶ YT</a><a class="sp" href="https://open.spotify.com/search/%D0%90%D0%B3%D1%83%D1%82%D0%B8%D0%BD%20%D0%9D%D0%B0%20%D1%81%D0%B8%D1%80%D0%B5%D0%BD%D0%B5%D0%B2%D0%BE%D0%B9%20%D0%BB%D1%83%D0%BD%D0%B5" target="_blank">♫ SP</a></td>
+</tr>
+<tr data-priority="A" data-search="самая любимая музыка братья грим">
+  <td class="num">102</td>
+  <td><b>Самая любимая музыка</b></td>
+  <td>Братья Грим</td>
+  <td style="text-align:center"></td>
+  <td style="text-align:center"></td>
+  <td style="text-align:center"><span class="check">✅</span></td>
+  <td><span class="badge" style="background:#2ecc71;color:#111">A</span></td>
+  <td style="color:#aaa;font-size:12px">Русский рок-поп</td>
+  <td class="key">G maj</td>
+  <td class="links"><a class="yt" href="https://www.youtube.com/results?search_query=%D0%91%D1%80%D0%B0%D1%82%D1%8C%D1%8F%20%D0%93%D1%80%D0%B8%D0%BC%20%D0%A1%D0%B0%D0%BC%D0%B0%D1%8F%20%D0%BB%D1%8E%D0%B1%D0%B8%D0%BC%D0%B0%D1%8F%20%D0%BC%D1%83%D0%B7%D1%8B%D0%BA%D0%B0" target="_blank">▶ YT</a><a class="sp" href="https://open.spotify.com/search/%D0%91%D1%80%D0%B0%D1%82%D1%8C%D1%8F%20%D0%93%D1%80%D0%B8%D0%BC%20%D0%A1%D0%B0%D0%BC%D0%B0%D1%8F%20%D0%BB%D1%8E%D0%B1%D0%B8%D0%BC%D0%B0%D1%8F%20%D0%BC%D1%83%D0%B7%D1%8B%D0%BA%D0%B0" target="_blank">♫ SP</a></td>
+</tr>
+<tr data-priority="A" data-search="fairytale gone bad sunrise avenue">
+  <td class="num">103</td>
+  <td><b>Fairytale Gone Bad</b></td>
+  <td>Sunrise Avenue</td>
+  <td style="text-align:center"></td>
+  <td style="text-align:center"><span class="check">✅</span></td>
+  <td style="text-align:center"><span class="check">✅</span></td>
+  <td><span class="badge" style="background:#2ecc71;color:#111">A</span></td>
+  <td style="color:#aaa;font-size:12px">Поп-рок</td>
+  <td class="key">G min</td>
+  <td class="links"><a class="yt" href="https://www.youtube.com/results?search_query=Sunrise%20Avenue%20Fairytale%20Gone%20Bad" target="_blank">▶ YT</a><a class="sp" href="https://open.spotify.com/search/Sunrise%20Avenue%20Fairytale%20Gone%20Bad" target="_blank">♫ SP</a></td>
+</tr>
+<tr data-priority="B" data-search="johnny b. goode chuck berry">
+  <td class="num">104</td>
+  <td><b>Johnny B. Goode</b></td>
+  <td>Chuck Berry</td>
+  <td style="text-align:center"></td>
+  <td style="text-align:center"><span class="check">✅</span></td>
+  <td style="text-align:center"></td>
+  <td><span class="badge" style="background:#f39c12;color:#111">B</span></td>
+  <td style="color:#aaa;font-size:12px">Рок-н-ролл</td>
+  <td class="key">Bb maj</td>
+  <td class="links"><a class="yt" href="https://www.youtube.com/results?search_query=Chuck%20Berry%20Johnny%20B.%20Goode" target="_blank">▶ YT</a><a class="sp" href="https://open.spotify.com/search/Chuck%20Berry%20Johnny%20B.%20Goode" target="_blank">♫ SP</a></td>
+</tr>
+<tr data-priority="C" data-search="i'm alive céline dion">
+  <td class="num">105</td>
+  <td><b>I'm Alive</b></td>
+  <td>Céline Dion</td>
+  <td style="text-align:center"></td>
+  <td style="text-align:center"><span class="check">✅</span></td>
+  <td style="text-align:center"></td>
+  <td><span class="badge" style="background:#95a5a6;color:#111">C</span></td>
+  <td style="color:#aaa;font-size:12px">Поп / Баллада</td>
+  <td class="key">C maj</td>
+  <td class="links"><a class="yt" href="https://www.youtube.com/results?search_query=C%C3%A9line%20Dion%20I%27m%20Alive" target="_blank">▶ YT</a><a class="sp" href="https://open.spotify.com/search/C%C3%A9line%20Dion%20I%27m%20Alive" target="_blank">♫ SP</a></td>
+</tr>
+</tbody>
+</table>
+<script>
+let currentPriority = 'all';
+document.getElementById('search').addEventListener('input', filterRows);
+function filterPriority(p, btn) {
+  currentPriority = p;
+  document.querySelectorAll('.filters button').forEach(b => b.classList.remove('active'));
+  btn.classList.add('active');
+  filterRows();
+}
+function filterRows() {
+  const q = document.getElementById('search').value.toLowerCase();
+  document.querySelectorAll('#tbl tbody tr').forEach(tr => {
+    const matchP = currentPriority === 'all' || tr.dataset.priority === currentPriority;
+    const matchQ = !q || tr.dataset.search.includes(q);
+    tr.style.display = (matchP && matchQ) ? '' : 'none';
+  });
+}
+</script>
+</body>
+</html>
