@@ -2435,7 +2435,3 @@ h1,h2,h3,h4,h5,h6{margin-bottom:20px;}
 @media only screen and (max-width:990px) and (min-width:768px){
 .header-block.fastfood .header-m{padding-right:70px;}
 }
-@media (min-width:992px){
-#t4-main-body .mainbody-block{order:2;flex:0 0 auto;width:41.66666667%;min-width:0;overflow:hidden;}
-#t4-main-body .sidebar-r{order:1;flex:1 0 0%;width:auto;min-width:0;overflow:hidden;}
-}
