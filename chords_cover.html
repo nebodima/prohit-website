@@ -1,0 +1,1924 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>ПРО•ХИТ — Аккорды (каверы)</title>
+<style>
+* { box-sizing: border-box; margin: 0; padding: 0; }
+
+body {
+  background: #111;
+  color: #e0e0e0;
+  font-family: 'Segoe UI', Arial, sans-serif;
+  font-size: 15px;
+  line-height: 1.6;
+}
+
+#songs-nav {
+  position: fixed;
+  top: 0; left: 0; right: 0;
+  background: #1a1a1a;
+  border-bottom: 2px solid #fe0178;
+  z-index: 100;
+  display: flex;
+  align-items: center;
+  overflow-x: auto;
+  white-space: nowrap;
+  scrollbar-width: thin;
+  scrollbar-color: #fe0178 #1a1a1a;
+}
+
+#songs-nav::-webkit-scrollbar { height: 3px; }
+#songs-nav::-webkit-scrollbar-track { background: #1a1a1a; }
+#songs-nav::-webkit-scrollbar-thumb { background: #fe0178; border-radius: 2px; }
+
+#songs-nav .brand {
+  display: inline-block;
+  padding: 10px 14px;
+  color: #fe0178;
+  font-weight: 700;
+  font-size: 13px;
+  letter-spacing: 1.5px;
+  flex-shrink: 0;
+  border-right: 1px solid #333;
+}
+
+#songs-nav .back-link {
+  display: inline-block;
+  padding: 10px 12px;
+  color: #555;
+  text-decoration: none;
+  font-size: 12px;
+  border-right: 1px solid #222;
+  flex-shrink: 0;
+  transition: color 0.2s;
+}
+#songs-nav .back-link:hover { color: #fe0178; }
+
+#songs-nav a:not(.back-link) {
+  display: inline-block;
+  padding: 10px 10px;
+  color: #777;
+  text-decoration: none;
+  font-size: 11px;
+  transition: color 0.2s;
+  border-right: 1px solid #1e1e1e;
+  flex-shrink: 0;
+}
+#songs-nav a:not(.back-link):hover { color: #fe0178; }
+#songs-nav a.active { color: #fff; background: #1e1e1e; }
+
+main {
+  padding-top: 46px;
+  max-width: 820px;
+  margin: 0 auto;
+  padding-bottom: 80px;
+}
+
+.song-section {
+  padding: 28px 20px 24px;
+  border-bottom: 1px solid #1e1e1e;
+  scroll-margin-top: 46px;
+}
+
+.song-section h2 {
+  font-size: 20px;
+  color: #fff;
+  font-weight: 700;
+  margin-bottom: 6px;
+}
+
+.song-meta {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 14px;
+  margin-bottom: 16px;
+  font-size: 13px;
+  color: #666;
+}
+
+.song-meta .meta-key   { color: #fe0178; font-weight: 600; }
+.song-meta .meta-tempo { color: #999; }
+.song-meta .meta-note  { color: #555; font-style: italic; }
+
+.part-label {
+  font-size: 11px;
+  text-transform: uppercase;
+  letter-spacing: 1.5px;
+  color: #444;
+  margin: 14px 0 4px;
+}
+
+.chord-block {
+  background: #161616;
+  border-left: 3px solid #fe0178;
+  border-radius: 0 4px 4px 0;
+  padding: 12px 14px;
+  font-family: 'Courier New', Courier, monospace;
+  font-size: 14px;
+  line-height: 1.9;
+  white-space: pre;
+  overflow-x: auto;
+  color: #bbb;
+}
+
+.placeholder {
+  color: #333;
+  font-style: italic;
+}
+
+@media (max-width: 600px) {
+  .song-section { padding: 20px 14px 18px; }
+  .chord-block  { font-size: 12px; }
+  .song-section h2 { font-size: 17px; }
+}
+</style>
+</head>
+<body>
+
+<nav id="songs-nav">
+  <span class="brand">ПРО•ХИТ</span>
+  <a class="back-link" href="setlist_2026.html">← Сетлист</a>
+  <a href="#song-1">1. Just the Two of Us</a>
+  <a href="#song-2">2. I Love You Baby (slow)</a>
+  <a href="#song-3">3. What a Wonderful World</a>
+  <a href="#song-4">4. California Dreamin'</a>
+  <a href="#song-5">5. Monro</a>
+  <a href="#song-6">6. The Thrill Is Gone</a>
+  <a href="#song-7">7. Layla</a>
+  <a href="#song-8">8. Moon River</a>
+  <a href="#song-9">9. Fly Me to the Moon</a>
+  <a href="#song-10">10. Casablanca</a>
+  <a href="#song-11">11. Hero</a>
+  <a href="#song-12">12. Nosa</a>
+  <a href="#song-13">13. Bonita</a>
+  <a href="#song-14">14. Вавилон</a>
+  <a href="#song-15">15. Подмосковные вечера</a>
+  <a href="#song-16">16. Enjoy the Silence</a>
+  <a href="#song-17">17. Stand by Me</a>
+  <a href="#song-18">18. Seven Nation Army</a>
+  <a href="#song-19">19. Wonderful Tonight</a>
+  <a href="#song-20">20. Get Lucky</a>
+  <a href="#song-21">21. Flowers</a>
+  <a href="#song-22">22. I Feel So Close</a>
+  <a href="#song-23">23. Summertime</a>
+  <a href="#song-24">24. After Dark</a>
+  <a href="#song-25">25. Singin' in the Rain</a>
+  <a href="#song-26">26. Oh Pretty Woman</a>
+  <a href="#song-27">27. Midnight City</a>
+  <a href="#song-28">28. Diamonds</a>
+  <a href="#song-29">29. Tell Me Why</a>
+  <a href="#song-30">30. Despacito</a>
+  <a href="#song-31">31. Can't Help Falling in Love</a>
+  <a href="#song-32">32. Dschinghis Khan</a>
+  <a href="#song-33">33. Sorry Seems to Be the Hardest Word</a>
+  <a href="#song-34">34. Ain't Nobody</a>
+  <a href="#song-35">35. Summertime Sadness</a>
+  <a href="#song-36">36. Невеста</a>
+  <a href="#song-37">37. Www</a>
+  <a href="#song-38">38. Lambada</a>
+  <a href="#song-39">39. Like a Rolling Stone</a>
+  <a href="#song-40">40. Knockin' on Heaven's Door</a>
+  <a href="#song-41">41. Рок-н-ролл</a>
+  <a href="#song-42">42. Cocaine</a>
+  <a href="#song-43">43. Луна</a>
+  <a href="#song-44">44. Cheap Thrills</a>
+  <a href="#song-45">45. Don't Be So Shy</a>
+  <a href="#song-46">46. Утекай</a>
+  <a href="#song-47">47. Let It Be</a>
+  <a href="#song-48">48. Hit the Road Jack</a>
+  <a href="#song-49">49. I'm You</a>
+  <a href="#song-50">50. Eight Days a Week</a>
+  <a href="#song-51">51. Dua Lipa (трек?)</a>
+  <a href="#song-52">52. Every Breath You Take</a>
+  <a href="#song-53">53. Sunny</a>
+  <a href="#song-54">54. Lady</a>
+  <a href="#song-55">55. One More Time</a>
+  <a href="#song-56">56. Astik</a>
+  <a href="#song-57">57. Price Tag</a>
+  <a href="#song-58">58. Калина</a>
+  <a href="#song-59">59. La Bamba</a>
+  <a href="#song-60">60. You Will Never Know</a>
+  <a href="#song-61">61. Твои глаза</a>
+  <a href="#song-62">62. Human</a>
+  <a href="#song-63">63. Alejandro</a>
+  <a href="#song-64">64. Havana</a>
+  <a href="#song-65">65. Bésame Mucho</a>
+  <a href="#song-66">66. You're My Heart You're My Soul</a>
+  <a href="#song-67">67. Monster</a>
+  <a href="#song-68">68. Don't You Forget About Me</a>
+  <a href="#song-69">69. Sway</a>
+  <a href="#song-70">70. Try</a>
+  <a href="#song-71">71. К чёрту любовь</a>
+  <a href="#song-72">72. Friends</a>
+  <a href="#song-73">73. Dance Monkey</a>
+  <a href="#song-74">74. Simply the Best</a>
+  <a href="#song-75">75. Walk Away</a>
+  <a href="#song-76">76. Случайная</a>
+  <a href="#song-77">77. Stay With Me</a>
+  <a href="#song-78">78. Venus</a>
+  <a href="#song-79">79. Billie Jean</a>
+  <a href="#song-80">80. Give It to Me</a>
+  <a href="#song-81">81. Smooth Criminal</a>
+  <a href="#song-82">82. Хали Гали</a>
+  <a href="#song-83">83. Москвич</a>
+  <a href="#song-84">84. Как мне сегодня хочется</a>
+  <a href="#song-85">85. Любите девушки</a>
+  <a href="#song-86">86. Замок из песка</a>
+  <a href="#song-87">87. Дорога в облака</a>
+  <a href="#song-88">88. Музыка нас связала</a>
+  <a href="#song-89">89. Не дано</a>
+  <a href="#song-90">90. А мы любили</a>
+  <a href="#song-91">91. В городе лето</a>
+  <a href="#song-92">92. Девушка Прасковья</a>
+  <a href="#song-93">93. Лайки</a>
+  <a href="#song-94">94. Компромисс</a>
+  <a href="#song-95">95. Полковник</a>
+  <a href="#song-96">96. Скользкие улицы</a>
+  <a href="#song-97">97. Ветер</a>
+  <a href="#song-98">98. На сиреневой луне</a>
+  <a href="#song-99">99. Самая любимая музыка</a>
+  <a href="#song-100">100. Fairytale Gone Bad</a>
+  <a href="#song-101">101. Johnny B. Goode</a>
+  <a href="#song-102">102. I'm Alive</a>
+</nav>
+
+<main>
+
+<!-- =============================================== -->
+<!-- 1. Just the Two of Us -->
+<!-- =============================================== -->
+<section class="song-section" id="song-1">
+  <h2>1. Just the Two of Us</h2>
+  <div class="song-meta">
+    <span class="meta-key">Тональность: G maj</span>
+    <span class="meta-tempo">Bill Withers</span>
+    <span class="meta-note">Соул / Фанк</span>
+  </div>
+  <div class="part-label">Куплет</div>
+  <div class="chord-block">Gmaj7      C#m7      F#7
+Bm7        E7        Am7       D7</div>
+  <div class="part-label">Припев</div>
+  <div class="chord-block">Gmaj7      C#m7      F#7
+Bm7        E7        Am7       D7</div>
+</section>
+
+<!-- =============================================== -->
+<!-- 2. I Love You Baby (slow) -->
+<!-- =============================================== -->
+<section class="song-section" id="song-2">
+  <h2>2. I Love You Baby (slow)</h2>
+  <div class="song-meta">
+    <span class="meta-key">Тональность: F maj</span>
+    <span class="meta-tempo">Frankie Valli</span>
+    <span class="meta-note">Поп / Баллада</span>
+  </div>
+  <div class="part-label">Куплет</div>
+  <div class="chord-block">F          Dm        Gm        C7</div>
+  <div class="part-label">Припев</div>
+  <div class="chord-block">F          Dm        Gm        C7        F</div>
+</section>
+
+<!-- =============================================== -->
+<!-- 3. What a Wonderful World -->
+<!-- =============================================== -->
+<section class="song-section" id="song-3">
+  <h2>3. What a Wonderful World</h2>
+  <div class="song-meta">
+    <span class="meta-key">Тональность: F maj</span>
+    <span class="meta-tempo">Louis Armstrong</span>
+    <span class="meta-note">Джаз</span>
+  </div>
+  <div class="part-label">Куплет</div>
+  <div class="chord-block">F    Am    Bb   Am   Gm   F    Dm
+Bb   C7   F</div>
+  <div class="part-label">Припев</div>
+  <div class="chord-block">F    Am    Bb   Am   Gm   F    Dm
+Bb   C7   F</div>
+</section>
+
+<!-- =============================================== -->
+<!-- 4. California Dreamin' -->
+<!-- =============================================== -->
+<section class="song-section" id="song-4">
+  <h2>4. California Dreamin'</h2>
+  <div class="song-meta">
+    <span class="meta-key">Тональность: C maj</span>
+    <span class="meta-tempo">The Mamas &amp; The Papas</span>
+    <span class="meta-note">Фолк-рок</span>
+  </div>
+  <div class="part-label">Куплет</div>
+  <div class="chord-block">Am   G    F    G    E7   Am</div>
+  <div class="part-label">Припев</div>
+  <div class="chord-block">F    C    G    Am</div>
+</section>
+
+<!-- =============================================== -->
+<!-- 5. Monro -->
+<!-- =============================================== -->
+<section class="song-section" id="song-5">
+  <h2>5. Monro</h2>
+  <div class="song-meta">
+    <span class="meta-key">Тональность: ?</span>
+    <span class="meta-tempo">?</span>
+    <span class="meta-note">уточни</span>
+  </div>
+  <div class="part-label">Куплет</div>
+  <div class="chord-block"><span class="placeholder">← добавить аккорды</span></div>
+  <div class="part-label">Припев</div>
+  <div class="chord-block"><span class="placeholder">← добавить аккорды</span></div>
+</section>
+
+<!-- =============================================== -->
+<!-- 6. The Thrill Is Gone -->
+<!-- =============================================== -->
+<section class="song-section" id="song-6">
+  <h2>6. The Thrill Is Gone</h2>
+  <div class="song-meta">
+    <span class="meta-key">Тональность: B min</span>
+    <span class="meta-tempo">B.B. King</span>
+    <span class="meta-note">Блюз</span>
+  </div>
+  <div class="part-label">Куплет</div>
+  <div class="chord-block">Bm            Bm
+G7            G7
+F#7           F#7       Bm</div>
+  <div class="part-label">Припев</div>
+  <div class="chord-block">Bm            G7        F#7       Bm</div>
+</section>
+
+<!-- =============================================== -->
+<!-- 7. Layla -->
+<!-- =============================================== -->
+<section class="song-section" id="song-7">
+  <h2>7. Layla</h2>
+  <div class="song-meta">
+    <span class="meta-key">Тональность: D min</span>
+    <span class="meta-tempo">Eric Clapton</span>
+    <span class="meta-note">Рок / Блюз-рок</span>
+  </div>
+  <div class="part-label">Куплет</div>
+  <div class="chord-block">Dm   Bb   C    Dm   (рифф)
+E    A    B    E</div>
+  <div class="part-label">Припев</div>
+  <div class="chord-block">C#m  A    B    E</div>
+</section>
+
+<!-- =============================================== -->
+<!-- 8. Moon River -->
+<!-- =============================================== -->
+<section class="song-section" id="song-8">
+  <h2>8. Moon River</h2>
+  <div class="song-meta">
+    <span class="meta-key">Тональность: C maj</span>
+    <span class="meta-tempo">Henry Mancini</span>
+    <span class="meta-note">Джаз / Баллада</span>
+  </div>
+  <div class="part-label">Куплет</div>
+  <div class="chord-block">C    Am   F    C
+F    C    Dm   G7   C</div>
+  <div class="part-label">Припев</div>
+  <div class="chord-block">Am   E7   Am   C    F    C    Dm   G7   C</div>
+</section>
+
+<!-- =============================================== -->
+<!-- 9. Fly Me to the Moon -->
+<!-- =============================================== -->
+<section class="song-section" id="song-9">
+  <h2>9. Fly Me to the Moon</h2>
+  <div class="song-meta">
+    <span class="meta-key">Тональность: E min</span>
+    <span class="meta-tempo">Frank Sinatra</span>
+    <span class="meta-note">Джаз</span>
+  </div>
+  <div class="part-label">Куплет</div>
+  <div class="chord-block">Em   Am7  D7   Gmaj7  Cmaj7  F#m7b5  B7  Em</div>
+  <div class="part-label">Припев</div>
+  <div class="chord-block">Em   Am7  D7   Gmaj7  Cmaj7  F#m7b5  B7  Em</div>
+</section>
+
+<!-- =============================================== -->
+<!-- 10. Casablanca -->
+<!-- =============================================== -->
+<section class="song-section" id="song-10">
+  <h2>10. Casablanca</h2>
+  <div class="song-meta">
+    <span class="meta-key">Тональность: G maj</span>
+    <span class="meta-tempo">Bertie Higgins</span>
+    <span class="meta-note">Поп / Баллада</span>
+  </div>
+  <div class="part-label">Куплет</div>
+  <div class="chord-block">G    Em   C    D</div>
+  <div class="part-label">Припев</div>
+  <div class="chord-block">G    Em   C    D    G</div>
+</section>
+
+<!-- =============================================== -->
+<!-- 11. Hero -->
+<!-- =============================================== -->
+<section class="song-section" id="song-11">
+  <h2>11. Hero</h2>
+  <div class="song-meta">
+    <span class="meta-key">Тональность: F maj</span>
+    <span class="meta-tempo">Mariah Carey</span>
+    <span class="meta-note">Поп / Баллада</span>
+  </div>
+  <div class="part-label">Куплет</div>
+  <div class="chord-block">F    C    Am   Gm</div>
+  <div class="part-label">Припев</div>
+  <div class="chord-block">Bb   C    F</div>
+</section>
+
+<!-- =============================================== -->
+<!-- 12. Nosa -->
+<!-- =============================================== -->
+<section class="song-section" id="song-12">
+  <h2>12. Nosa</h2>
+  <div class="song-meta">
+    <span class="meta-key">Тональность: C maj</span>
+    <span class="meta-tempo">Ayo</span>
+    <span class="meta-note">Этно / Акустика</span>
+  </div>
+  <div class="part-label">Куплет</div>
+  <div class="chord-block">Am   F    C    G</div>
+  <div class="part-label">Припев</div>
+  <div class="chord-block">Am   F    C    G</div>
+</section>
+
+<!-- =============================================== -->
+<!-- 13. Bonita -->
+<!-- =============================================== -->
+<section class="song-section" id="song-13">
+  <h2>13. Bonita</h2>
+  <div class="song-meta">
+    <span class="meta-key">Тональность: ?</span>
+    <span class="meta-tempo">?</span>
+    <span class="meta-note">уточни</span>
+  </div>
+  <div class="part-label">Куплет</div>
+  <div class="chord-block"><span class="placeholder">← добавить аккорды</span></div>
+  <div class="part-label">Припев</div>
+  <div class="chord-block"><span class="placeholder">← добавить аккорды</span></div>
+</section>
+
+<!-- =============================================== -->
+<!-- 14. Вавилон -->
+<!-- =============================================== -->
+<section class="song-section" id="song-14">
+  <h2>14. Вавилон</h2>
+  <div class="song-meta">
+    <span class="meta-key">Тональность: E min</span>
+    <span class="meta-tempo">Серьга</span>
+    <span class="meta-note">Рок</span>
+  </div>
+  <div class="part-label">Куплет</div>
+  <div class="chord-block">Em   D    C    B7   (рифф)</div>
+  <div class="part-label">Припев</div>
+  <div class="chord-block">Em   D    C    B7</div>
+</section>
+
+<!-- =============================================== -->
+<!-- 15. Подмосковные вечера -->
+<!-- =============================================== -->
+<section class="song-section" id="song-15">
+  <h2>15. Подмосковные вечера</h2>
+  <div class="song-meta">
+    <span class="meta-key">Тональность: C maj</span>
+    <span class="meta-tempo">Трошин</span>
+    <span class="meta-note">Советская классика</span>
+  </div>
+  <div class="part-label">Куплет</div>
+  <div class="chord-block">C    Am   Dm   G7   C
+E7   Am   D7   Dm   G7   C</div>
+  <div class="part-label">Припев</div>
+  <div class="chord-block">C    Am   Dm   G7   C
+E7   Am   D7   Dm   G7   C</div>
+</section>
+
+<!-- =============================================== -->
+<!-- 16. Enjoy the Silence -->
+<!-- =============================================== -->
+<section class="song-section" id="song-16">
+  <h2>16. Enjoy the Silence</h2>
+  <div class="song-meta">
+    <span class="meta-key">Тональность: A min</span>
+    <span class="meta-tempo">Depeche Mode</span>
+    <span class="meta-note">Синти-поп</span>
+  </div>
+  <div class="part-label">Куплет</div>
+  <div class="chord-block">Am   F    Am   F</div>
+  <div class="part-label">Припев</div>
+  <div class="chord-block">C    G    Am   F</div>
+</section>
+
+<!-- =============================================== -->
+<!-- 17. Stand by Me -->
+<!-- =============================================== -->
+<section class="song-section" id="song-17">
+  <h2>17. Stand by Me</h2>
+  <div class="song-meta">
+    <span class="meta-key">Тональность: A maj</span>
+    <span class="meta-tempo">Ben E. King</span>
+    <span class="meta-note">Соул / Ритм-н-блюз</span>
+  </div>
+  <div class="part-label">Куплет</div>
+  <div class="chord-block">A    F#m  D    E    (×4)</div>
+  <div class="part-label">Припев</div>
+  <div class="chord-block">A    F#m  D    E</div>
+</section>
+
+<!-- =============================================== -->
+<!-- 18. Seven Nation Army -->
+<!-- =============================================== -->
+<section class="song-section" id="song-18">
+  <h2>18. Seven Nation Army</h2>
+  <div class="song-meta">
+    <span class="meta-key">Тональность: A min</span>
+    <span class="meta-tempo">The White Stripes</span>
+    <span class="meta-note">Гараж-рок</span>
+  </div>
+  <div class="part-label">Куплет</div>
+  <div class="chord-block">E-E-G-E-D-C-B  (рифф)
+Am   C    G    Am</div>
+  <div class="part-label">Припев</div>
+  <div class="chord-block">Am   C    G    Am</div>
+</section>
+
+<!-- =============================================== -->
+<!-- 19. Wonderful Tonight -->
+<!-- =============================================== -->
+<section class="song-section" id="song-19">
+  <h2>19. Wonderful Tonight</h2>
+  <div class="song-meta">
+    <span class="meta-key">Тональность: G maj</span>
+    <span class="meta-tempo">Eric Clapton</span>
+    <span class="meta-note">Поп-рок / Блюз-рок</span>
+  </div>
+  <div class="part-label">Куплет</div>
+  <div class="chord-block">G    D    C    D</div>
+  <div class="part-label">Припев</div>
+  <div class="chord-block">G    D    C    D    G</div>
+</section>
+
+<!-- =============================================== -->
+<!-- 20. Get Lucky -->
+<!-- =============================================== -->
+<section class="song-section" id="song-20">
+  <h2>20. Get Lucky</h2>
+  <div class="song-meta">
+    <span class="meta-key">Тональность: F maj</span>
+    <span class="meta-tempo">Daft Punk</span>
+    <span class="meta-note">Диско / Фанк</span>
+  </div>
+  <div class="part-label">Куплет</div>
+  <div class="chord-block">Bm   D    F#m  E    (×4)</div>
+  <div class="part-label">Припев</div>
+  <div class="chord-block">Bm   D    F#m  E</div>
+</section>
+
+<!-- =============================================== -->
+<!-- 21. Flowers -->
+<!-- =============================================== -->
+<section class="song-section" id="song-21">
+  <h2>21. Flowers</h2>
+  <div class="song-meta">
+    <span class="meta-key">Тональность: F maj</span>
+    <span class="meta-tempo">Miley Cyrus</span>
+    <span class="meta-note">Поп</span>
+  </div>
+  <div class="part-label">Куплет</div>
+  <div class="chord-block">F    C    Am   G</div>
+  <div class="part-label">Припев</div>
+  <div class="chord-block">F    C    Am   G</div>
+</section>
+
+<!-- =============================================== -->
+<!-- 22. I Feel So Close -->
+<!-- =============================================== -->
+<section class="song-section" id="song-22">
+  <h2>22. I Feel So Close</h2>
+  <div class="song-meta">
+    <span class="meta-key">Тональность: A min</span>
+    <span class="meta-tempo">Calvin Harris</span>
+    <span class="meta-note">Электронный поп</span>
+  </div>
+  <div class="part-label">Куплет</div>
+  <div class="chord-block">Am   F    C    G</div>
+  <div class="part-label">Припев</div>
+  <div class="chord-block">Am   F    C    G</div>
+</section>
+
+<!-- =============================================== -->
+<!-- 23. Summertime -->
+<!-- =============================================== -->
+<section class="song-section" id="song-23">
+  <h2>23. Summertime</h2>
+  <div class="song-meta">
+    <span class="meta-key">Тональность: A min</span>
+    <span class="meta-tempo">Ella Fitzgerald</span>
+    <span class="meta-note">Джаз / Блюз</span>
+  </div>
+  <div class="part-label">Куплет</div>
+  <div class="chord-block">Am   E7   Am   E7
+Am   C    E    Am</div>
+  <div class="part-label">Припев</div>
+  <div class="chord-block">Am   E7   Am   E7</div>
+</section>
+
+<!-- =============================================== -->
+<!-- 24. After Dark -->
+<!-- =============================================== -->
+<section class="song-section" id="song-24">
+  <h2>24. After Dark</h2>
+  <div class="song-meta">
+    <span class="meta-key">Тональность: C min</span>
+    <span class="meta-tempo">Mr. Kitty</span>
+    <span class="meta-note">Синти-поп / Дарквейв</span>
+  </div>
+  <div class="part-label">Куплет</div>
+  <div class="chord-block">Cm   Ab   Bb   Fm</div>
+  <div class="part-label">Припев</div>
+  <div class="chord-block">Cm   Ab   Bb   Fm</div>
+</section>
+
+<!-- =============================================== -->
+<!-- 25. Singin' in the Rain -->
+<!-- =============================================== -->
+<section class="song-section" id="song-25">
+  <h2>25. Singin' in the Rain</h2>
+  <div class="song-meta">
+    <span class="meta-key">Тональность: G maj</span>
+    <span class="meta-tempo">Gene Kelly</span>
+    <span class="meta-note">Джаз / Мюзикл</span>
+  </div>
+  <div class="part-label">Куплет</div>
+  <div class="chord-block">G    D7   G    E7   Am   D7   G</div>
+  <div class="part-label">Припев</div>
+  <div class="chord-block">G    D7   G    E7   Am   D7   G</div>
+</section>
+
+<!-- =============================================== -->
+<!-- 26. Oh Pretty Woman -->
+<!-- =============================================== -->
+<section class="song-section" id="song-26">
+  <h2>26. Oh Pretty Woman</h2>
+  <div class="song-meta">
+    <span class="meta-key">Тональность: A maj</span>
+    <span class="meta-tempo">Roy Orbison</span>
+    <span class="meta-note">Рок-н-ролл / Поп</span>
+  </div>
+  <div class="part-label">Куплет</div>
+  <div class="chord-block">A    A7   D    Dm   A</div>
+  <div class="part-label">Припев</div>
+  <div class="chord-block">C    G    C    G    A</div>
+</section>
+
+<!-- =============================================== -->
+<!-- 27. Midnight City -->
+<!-- =============================================== -->
+<section class="song-section" id="song-27">
+  <h2>27. Midnight City</h2>
+  <div class="song-meta">
+    <span class="meta-key">Тональность: C min</span>
+    <span class="meta-tempo">M83</span>
+    <span class="meta-note">Инди / Синти-поп</span>
+  </div>
+  <div class="part-label">Куплет</div>
+  <div class="chord-block">Eb   Bb   Cm   Ab</div>
+  <div class="part-label">Припев</div>
+  <div class="chord-block">Eb   Bb   Cm   Ab</div>
+</section>
+
+<!-- =============================================== -->
+<!-- 28. Diamonds -->
+<!-- =============================================== -->
+<section class="song-section" id="song-28">
+  <h2>28. Diamonds</h2>
+  <div class="song-meta">
+    <span class="meta-key">Тональность: Db maj</span>
+    <span class="meta-tempo">Rihanna</span>
+    <span class="meta-note">Поп / R&amp;B</span>
+  </div>
+  <div class="part-label">Куплет</div>
+  <div class="chord-block">Db   Ab   Bbm  Gb   (×4)</div>
+  <div class="part-label">Припев</div>
+  <div class="chord-block">Db   Ab   Bbm  Gb</div>
+</section>
+
+<!-- =============================================== -->
+<!-- 29. Tell Me Why -->
+<!-- =============================================== -->
+<section class="song-section" id="song-29">
+  <h2>29. Tell Me Why</h2>
+  <div class="song-meta">
+    <span class="meta-key">Тональность: ?</span>
+    <span class="meta-tempo">Neil Young / ABBA</span>
+    <span class="meta-note">уточни версию</span>
+  </div>
+  <div class="part-label">Куплет</div>
+  <div class="chord-block"><span class="placeholder">← уточнить версию и добавить аккорды</span></div>
+  <div class="part-label">Припев</div>
+  <div class="chord-block"><span class="placeholder">← добавить аккорды</span></div>
+</section>
+
+<!-- =============================================== -->
+<!-- 30. Despacito -->
+<!-- =============================================== -->
+<section class="song-section" id="song-30">
+  <h2>30. Despacito</h2>
+  <div class="song-meta">
+    <span class="meta-key">Тональность: B min</span>
+    <span class="meta-tempo">Luis Fonsi</span>
+    <span class="meta-note">Латина / Реггетон</span>
+  </div>
+  <div class="part-label">Куплет</div>
+  <div class="chord-block">Bm   G    D    A    (×4)</div>
+  <div class="part-label">Припев</div>
+  <div class="chord-block">Bm   G    D    A</div>
+</section>
+
+<!-- =============================================== -->
+<!-- 31. Can't Help Falling in Love -->
+<!-- =============================================== -->
+<section class="song-section" id="song-31">
+  <h2>31. Can't Help Falling in Love</h2>
+  <div class="song-meta">
+    <span class="meta-key">Тональность: D maj</span>
+    <span class="meta-tempo">Elvis Presley</span>
+    <span class="meta-note">Поп / Баллада</span>
+  </div>
+  <div class="part-label">Куплет</div>
+  <div class="chord-block">D    F#m  Bm   G    A</div>
+  <div class="part-label">Припев</div>
+  <div class="chord-block">D    A    Bm   G    D</div>
+</section>
+
+<!-- =============================================== -->
+<!-- 32. Dschinghis Khan -->
+<!-- =============================================== -->
+<section class="song-section" id="song-32">
+  <h2>32. Dschinghis Khan</h2>
+  <div class="song-meta">
+    <span class="meta-key">Тональность: A maj</span>
+    <span class="meta-tempo">Dschinghis Khan</span>
+    <span class="meta-note">Диско / Поп</span>
+  </div>
+  <div class="part-label">Куплет</div>
+  <div class="chord-block">Am   F    G    Am</div>
+  <div class="part-label">Припев</div>
+  <div class="chord-block">Am   F    G    Am</div>
+</section>
+
+<!-- =============================================== -->
+<!-- 33. Sorry Seems to Be the Hardest Word -->
+<!-- =============================================== -->
+<section class="song-section" id="song-33">
+  <h2>33. Sorry Seems to Be the Hardest Word</h2>
+  <div class="song-meta">
+    <span class="meta-key">Тональность: Eb maj</span>
+    <span class="meta-tempo">Elton John</span>
+    <span class="meta-note">Поп / Баллада</span>
+  </div>
+  <div class="part-label">Куплет</div>
+  <div class="chord-block">Ebm  Bbm  Ab   Bb</div>
+  <div class="part-label">Припев</div>
+  <div class="chord-block">Ebm  Bbm  Ab   Bb   Eb</div>
+</section>
+
+<!-- =============================================== -->
+<!-- 34. Ain't Nobody -->
+<!-- =============================================== -->
+<section class="song-section" id="song-34">
+  <h2>34. Ain't Nobody</h2>
+  <div class="song-meta">
+    <span class="meta-key">Тональность: C min</span>
+    <span class="meta-tempo">Chaka Khan</span>
+    <span class="meta-note">Фанк / R&amp;B</span>
+  </div>
+  <div class="part-label">Куплет</div>
+  <div class="chord-block">Cm7  Fm7  Bb7  Eb   (×4)</div>
+  <div class="part-label">Припев</div>
+  <div class="chord-block">Cm7  Fm7  Bb7  Eb</div>
+</section>
+
+<!-- =============================================== -->
+<!-- 35. Summertime Sadness -->
+<!-- =============================================== -->
+<section class="song-section" id="song-35">
+  <h2>35. Summertime Sadness</h2>
+  <div class="song-meta">
+    <span class="meta-key">Тональность: G min</span>
+    <span class="meta-tempo">Lana Del Rey</span>
+    <span class="meta-note">Инди-поп / Баллада</span>
+  </div>
+  <div class="part-label">Куплет</div>
+  <div class="chord-block">Gm   Eb   Bb   F</div>
+  <div class="part-label">Припев</div>
+  <div class="chord-block">Gm   Eb   Bb   F</div>
+</section>
+
+<!-- =============================================== -->
+<!-- 36. Невеста -->
+<!-- =============================================== -->
+<section class="song-section" id="song-36">
+  <h2>36. Невеста</h2>
+  <div class="song-meta">
+    <span class="meta-key">Тональность: ?</span>
+    <span class="meta-tempo">?</span>
+    <span class="meta-note">уточни</span>
+  </div>
+  <div class="part-label">Куплет</div>
+  <div class="chord-block"><span class="placeholder">← добавить аккорды</span></div>
+  <div class="part-label">Припев</div>
+  <div class="chord-block"><span class="placeholder">← добавить аккорды</span></div>
+</section>
+
+<!-- =============================================== -->
+<!-- 37. Www -->
+<!-- =============================================== -->
+<section class="song-section" id="song-37">
+  <h2>37. Www</h2>
+  <div class="song-meta">
+    <span class="meta-key">Тональность: ?</span>
+    <span class="meta-tempo">?</span>
+    <span class="meta-note">уточни</span>
+  </div>
+  <div class="part-label">Куплет</div>
+  <div class="chord-block"><span class="placeholder">← добавить аккорды</span></div>
+  <div class="part-label">Припев</div>
+  <div class="chord-block"><span class="placeholder">← добавить аккорды</span></div>
+</section>
+
+<!-- =============================================== -->
+<!-- 38. Lambada -->
+<!-- =============================================== -->
+<section class="song-section" id="song-38">
+  <h2>38. Lambada</h2>
+  <div class="song-meta">
+    <span class="meta-key">Тональность: D min</span>
+    <span class="meta-tempo">Kaoma</span>
+    <span class="meta-note">Латина / Самба</span>
+  </div>
+  <div class="part-label">Куплет</div>
+  <div class="chord-block">Dm   A7   Dm
+Gm   Dm   A7   Dm</div>
+  <div class="part-label">Припев</div>
+  <div class="chord-block">Dm   A7   Dm</div>
+</section>
+
+<!-- =============================================== -->
+<!-- 39. Like a Rolling Stone -->
+<!-- =============================================== -->
+<section class="song-section" id="song-39">
+  <h2>39. Like a Rolling Stone</h2>
+  <div class="song-meta">
+    <span class="meta-key">Тональность: C maj</span>
+    <span class="meta-tempo">Bob Dylan</span>
+    <span class="meta-note">Рок / Фолк-рок</span>
+  </div>
+  <div class="part-label">Куплет</div>
+  <div class="chord-block">C    Dm   F    G</div>
+  <div class="part-label">Припев</div>
+  <div class="chord-block">C    Dm   F    G</div>
+</section>
+
+<!-- =============================================== -->
+<!-- 40. Knockin' on Heaven's Door -->
+<!-- =============================================== -->
+<section class="song-section" id="song-40">
+  <h2>40. Knockin' on Heaven's Door</h2>
+  <div class="song-meta">
+    <span class="meta-key">Тональность: G maj</span>
+    <span class="meta-tempo">Bob Dylan</span>
+    <span class="meta-note">Фолк-рок / Рок</span>
+  </div>
+  <div class="part-label">Куплет</div>
+  <div class="chord-block">G    D    Am7  (×2)
+G    D    C</div>
+  <div class="part-label">Припев</div>
+  <div class="chord-block">G    D    Am7
+G    D    C</div>
+</section>
+
+<!-- =============================================== -->
+<!-- 41. Рок-н-ролл -->
+<!-- =============================================== -->
+<section class="song-section" id="song-41">
+  <h2>41. Рок-н-ролл</h2>
+  <div class="song-meta">
+    <span class="meta-key">Тональность: E min</span>
+    <span class="meta-tempo">Би-2</span>
+    <span class="meta-note">Рок</span>
+  </div>
+  <div class="part-label">Куплет</div>
+  <div class="chord-block">Em   D    C    B7</div>
+  <div class="part-label">Припев</div>
+  <div class="chord-block">Em   D    C    B7</div>
+</section>
+
+<!-- =============================================== -->
+<!-- 42. Cocaine -->
+<!-- =============================================== -->
+<section class="song-section" id="song-42">
+  <h2>42. Cocaine</h2>
+  <div class="song-meta">
+    <span class="meta-key">Тональность: E maj</span>
+    <span class="meta-tempo">Eric Clapton</span>
+    <span class="meta-note">Блюз-рок</span>
+  </div>
+  <div class="part-label">Куплет</div>
+  <div class="chord-block">E    D    A    E    (12-бар блюз)</div>
+  <div class="part-label">Припев</div>
+  <div class="chord-block">E    D    A    E</div>
+</section>
+
+<!-- =============================================== -->
+<!-- 43. Луна -->
+<!-- =============================================== -->
+<section class="song-section" id="song-43">
+  <h2>43. Луна</h2>
+  <div class="song-meta">
+    <span class="meta-key">Тональность: D min</span>
+    <span class="meta-tempo">Агата Кристи</span>
+    <span class="meta-note">Русский рок</span>
+  </div>
+  <div class="part-label">Куплет</div>
+  <div class="chord-block">Dm   Bb   C    A7</div>
+  <div class="part-label">Припев</div>
+  <div class="chord-block">Dm   Bb   C    A7</div>
+</section>
+
+<!-- =============================================== -->
+<!-- 44. Cheap Thrills -->
+<!-- =============================================== -->
+<section class="song-section" id="song-44">
+  <h2>44. Cheap Thrills</h2>
+  <div class="song-meta">
+    <span class="meta-key">Тональность: F maj</span>
+    <span class="meta-tempo">Sia</span>
+    <span class="meta-note">Поп</span>
+  </div>
+  <div class="part-label">Куплет</div>
+  <div class="chord-block">F    C    Dm   Bb</div>
+  <div class="part-label">Припев</div>
+  <div class="chord-block">F    C    Dm   Bb</div>
+</section>
+
+<!-- =============================================== -->
+<!-- 45. Don't Be So Shy -->
+<!-- =============================================== -->
+<section class="song-section" id="song-45">
+  <h2>45. Don't Be So Shy</h2>
+  <div class="song-meta">
+    <span class="meta-key">Тональность: C min</span>
+    <span class="meta-tempo">Imany</span>
+    <span class="meta-note">Поп / Этно</span>
+  </div>
+  <div class="part-label">Куплет</div>
+  <div class="chord-block">Cm   Ab   Bb   Cm</div>
+  <div class="part-label">Припев</div>
+  <div class="chord-block">Cm   Ab   Bb   Cm</div>
+</section>
+
+<!-- =============================================== -->
+<!-- 46. Утекай -->
+<!-- =============================================== -->
+<section class="song-section" id="song-46">
+  <h2>46. Утекай</h2>
+  <div class="song-meta">
+    <span class="meta-key">Тональность: ?</span>
+    <span class="meta-tempo">?</span>
+    <span class="meta-note">уточни</span>
+  </div>
+  <div class="part-label">Куплет</div>
+  <div class="chord-block"><span class="placeholder">← добавить аккорды</span></div>
+  <div class="part-label">Припев</div>
+  <div class="chord-block"><span class="placeholder">← добавить аккорды</span></div>
+</section>
+
+<!-- =============================================== -->
+<!-- 47. Let It Be -->
+<!-- =============================================== -->
+<section class="song-section" id="song-47">
+  <h2>47. Let It Be</h2>
+  <div class="song-meta">
+    <span class="meta-key">Тональность: C maj</span>
+    <span class="meta-tempo">The Beatles</span>
+    <span class="meta-note">Рок / Баллада</span>
+  </div>
+  <div class="part-label">Куплет</div>
+  <div class="chord-block">C    G    Am   F</div>
+  <div class="part-label">Припев</div>
+  <div class="chord-block">F    C    Am   F</div>
+</section>
+
+<!-- =============================================== -->
+<!-- 48. Hit the Road Jack -->
+<!-- =============================================== -->
+<section class="song-section" id="song-48">
+  <h2>48. Hit the Road Jack</h2>
+  <div class="song-meta">
+    <span class="meta-key">Тональность: G maj</span>
+    <span class="meta-tempo">Ray Charles</span>
+    <span class="meta-note">Ритм-н-блюз / Джаз</span>
+  </div>
+  <div class="part-label">Куплет</div>
+  <div class="chord-block">Am   G    F    E7   (×4)</div>
+  <div class="part-label">Припев</div>
+  <div class="chord-block">Am   G    F    E7</div>
+</section>
+
+<!-- =============================================== -->
+<!-- 49. I'm You -->
+<!-- =============================================== -->
+<section class="song-section" id="song-49">
+  <h2>49. I'm You</h2>
+  <div class="song-meta">
+    <span class="meta-key">Тональность: ?</span>
+    <span class="meta-tempo">?</span>
+    <span class="meta-note">уточни</span>
+  </div>
+  <div class="part-label">Куплет</div>
+  <div class="chord-block"><span class="placeholder">← добавить аккорды</span></div>
+  <div class="part-label">Припев</div>
+  <div class="chord-block"><span class="placeholder">← добавить аккорды</span></div>
+</section>
+
+<!-- =============================================== -->
+<!-- 50. Eight Days a Week -->
+<!-- =============================================== -->
+<section class="song-section" id="song-50">
+  <h2>50. Eight Days a Week</h2>
+  <div class="song-meta">
+    <span class="meta-key">Тональность: D maj</span>
+    <span class="meta-tempo">The Beatles</span>
+    <span class="meta-note">Поп-рок / Битлз</span>
+  </div>
+  <div class="part-label">Куплет</div>
+  <div class="chord-block">D    E7   G    D</div>
+  <div class="part-label">Припев</div>
+  <div class="chord-block">Bm   G    Bm   E7</div>
+</section>
+
+<!-- =============================================== -->
+<!-- 51. Dua Lipa (трек?) -->
+<!-- =============================================== -->
+<section class="song-section" id="song-51">
+  <h2>51. Dua Lipa (трек?)</h2>
+  <div class="song-meta">
+    <span class="meta-key">Тональность: ?</span>
+    <span class="meta-tempo">Dua Lipa</span>
+    <span class="meta-note">Поп / Дэнс</span>
+  </div>
+  <div class="part-label">Куплет</div>
+  <div class="chord-block"><span class="placeholder">← уточнить трек и добавить аккорды</span></div>
+  <div class="part-label">Припев</div>
+  <div class="chord-block"><span class="placeholder">← добавить аккорды</span></div>
+</section>
+
+<!-- =============================================== -->
+<!-- 52. Every Breath You Take -->
+<!-- =============================================== -->
+<section class="song-section" id="song-52">
+  <h2>52. Every Breath You Take</h2>
+  <div class="song-meta">
+    <span class="meta-key">Тональность: A maj</span>
+    <span class="meta-tempo">The Police</span>
+    <span class="meta-note">Поп-рок / Нью-вейв</span>
+  </div>
+  <div class="part-label">Куплет</div>
+  <div class="chord-block">A    F#m  D    E    A   (×2)</div>
+  <div class="part-label">Припев</div>
+  <div class="chord-block">A    F#m  D    E</div>
+</section>
+
+<!-- =============================================== -->
+<!-- 53. Sunny -->
+<!-- =============================================== -->
+<section class="song-section" id="song-53">
+  <h2>53. Sunny</h2>
+  <div class="song-meta">
+    <span class="meta-key">Тональность: F maj</span>
+    <span class="meta-tempo">Bobby Hebb</span>
+    <span class="meta-note">Соул / Поп</span>
+  </div>
+  <div class="part-label">Куплет</div>
+  <div class="chord-block">Dm   Dm/C  Bbmaj7  A7
+Gm7  C     F       A7</div>
+  <div class="part-label">Припев</div>
+  <div class="chord-block">Dm   Dm/C  Bbmaj7  A7
+Gm7  C     F</div>
+</section>
+
+<!-- =============================================== -->
+<!-- 54. Lady -->
+<!-- =============================================== -->
+<section class="song-section" id="song-54">
+  <h2>54. Lady</h2>
+  <div class="song-meta">
+    <span class="meta-key">Тональность: ?</span>
+    <span class="meta-tempo">уточни версию</span>
+    <span class="meta-note">уточни</span>
+  </div>
+  <div class="part-label">Куплет</div>
+  <div class="chord-block"><span class="placeholder">← уточнить версию и добавить аккорды</span></div>
+  <div class="part-label">Припев</div>
+  <div class="chord-block"><span class="placeholder">← добавить аккорды</span></div>
+</section>
+
+<!-- =============================================== -->
+<!-- 55. One More Time -->
+<!-- =============================================== -->
+<section class="song-section" id="song-55">
+  <h2>55. One More Time</h2>
+  <div class="song-meta">
+    <span class="meta-key">Тональность: F maj</span>
+    <span class="meta-tempo">Daft Punk</span>
+    <span class="meta-note">Диско / Электронный поп</span>
+  </div>
+  <div class="part-label">Куплет</div>
+  <div class="chord-block">F    C    Dm   Am   Bb</div>
+  <div class="part-label">Припев</div>
+  <div class="chord-block">F    C    Dm   Am   Bb</div>
+</section>
+
+<!-- =============================================== -->
+<!-- 56. Astik -->
+<!-- =============================================== -->
+<section class="song-section" id="song-56">
+  <h2>56. Astik</h2>
+  <div class="song-meta">
+    <span class="meta-key">Тональность: ?</span>
+    <span class="meta-tempo">?</span>
+    <span class="meta-note">уточни</span>
+  </div>
+  <div class="part-label">Куплет</div>
+  <div class="chord-block"><span class="placeholder">← добавить аккорды</span></div>
+  <div class="part-label">Припев</div>
+  <div class="chord-block"><span class="placeholder">← добавить аккорды</span></div>
+</section>
+
+<!-- =============================================== -->
+<!-- 57. Price Tag -->
+<!-- =============================================== -->
+<section class="song-section" id="song-57">
+  <h2>57. Price Tag</h2>
+  <div class="song-meta">
+    <span class="meta-key">Тональность: C maj</span>
+    <span class="meta-tempo">Jessie J</span>
+    <span class="meta-note">Поп / R&amp;B</span>
+  </div>
+  <div class="part-label">Куплет</div>
+  <div class="chord-block">Am   F    C    G</div>
+  <div class="part-label">Припев</div>
+  <div class="chord-block">Am   F    C    G</div>
+</section>
+
+<!-- =============================================== -->
+<!-- 58. Калина -->
+<!-- =============================================== -->
+<section class="song-section" id="song-58">
+  <h2>58. Калина</h2>
+  <div class="song-meta">
+    <span class="meta-key">Тональность: ?</span>
+    <span class="meta-tempo">?</span>
+    <span class="meta-note">уточни</span>
+  </div>
+  <div class="part-label">Куплет</div>
+  <div class="chord-block"><span class="placeholder">← добавить аккорды</span></div>
+  <div class="part-label">Припев</div>
+  <div class="chord-block"><span class="placeholder">← добавить аккорды</span></div>
+</section>
+
+<!-- =============================================== -->
+<!-- 59. La Bamba -->
+<!-- =============================================== -->
+<section class="song-section" id="song-59">
+  <h2>59. La Bamba</h2>
+  <div class="song-meta">
+    <span class="meta-key">Тональность: C maj</span>
+    <span class="meta-tempo">Ritchie Valens</span>
+    <span class="meta-note">Латина / Рок-н-ролл</span>
+  </div>
+  <div class="part-label">Куплет</div>
+  <div class="chord-block">C    F    G    (×∞)</div>
+  <div class="part-label">Припев</div>
+  <div class="chord-block">C    F    G</div>
+</section>
+
+<!-- =============================================== -->
+<!-- 60. You Will Never Know -->
+<!-- =============================================== -->
+<section class="song-section" id="song-60">
+  <h2>60. You Will Never Know</h2>
+  <div class="song-meta">
+    <span class="meta-key">Тональность: D min</span>
+    <span class="meta-tempo">Imany</span>
+    <span class="meta-note">Соул / Поп</span>
+  </div>
+  <div class="part-label">Куплет</div>
+  <div class="chord-block">Dm   Bb   C    A</div>
+  <div class="part-label">Припев</div>
+  <div class="chord-block">Dm   Bb   C    A</div>
+</section>
+
+<!-- =============================================== -->
+<!-- 61. Твои глаза -->
+<!-- =============================================== -->
+<section class="song-section" id="song-61">
+  <h2>61. Твои глаза</h2>
+  <div class="song-meta">
+    <span class="meta-key">Тональность: ?</span>
+    <span class="meta-tempo">?</span>
+    <span class="meta-note">уточни</span>
+  </div>
+  <div class="part-label">Куплет</div>
+  <div class="chord-block"><span class="placeholder">← добавить аккорды</span></div>
+  <div class="part-label">Припев</div>
+  <div class="chord-block"><span class="placeholder">← добавить аккорды</span></div>
+</section>
+
+<!-- =============================================== -->
+<!-- 62. Human -->
+<!-- =============================================== -->
+<section class="song-section" id="song-62">
+  <h2>62. Human</h2>
+  <div class="song-meta">
+    <span class="meta-key">Тональность: Eb maj</span>
+    <span class="meta-tempo">The Killers</span>
+    <span class="meta-note">Инди-рок / Синти-поп</span>
+  </div>
+  <div class="part-label">Куплет</div>
+  <div class="chord-block">Eb   Bb/D  Cm   Ab</div>
+  <div class="part-label">Припев</div>
+  <div class="chord-block">Eb   Bb/D  Cm   Ab</div>
+</section>
+
+<!-- =============================================== -->
+<!-- 63. Alejandro -->
+<!-- =============================================== -->
+<section class="song-section" id="song-63">
+  <h2>63. Alejandro</h2>
+  <div class="song-meta">
+    <span class="meta-key">Тональность: A min</span>
+    <span class="meta-tempo">Lady Gaga</span>
+    <span class="meta-note">Поп / Дэнс</span>
+  </div>
+  <div class="part-label">Куплет</div>
+  <div class="chord-block">Am   F    G    Am</div>
+  <div class="part-label">Припев</div>
+  <div class="chord-block">F    C    G    Am</div>
+</section>
+
+<!-- =============================================== -->
+<!-- 64. Havana -->
+<!-- =============================================== -->
+<section class="song-section" id="song-64">
+  <h2>64. Havana</h2>
+  <div class="song-meta">
+    <span class="meta-key">Тональность: G min</span>
+    <span class="meta-tempo">Camila Cabello</span>
+    <span class="meta-note">Латина / Поп</span>
+  </div>
+  <div class="part-label">Куплет</div>
+  <div class="chord-block">Gm   Eb   Bb   F</div>
+  <div class="part-label">Припев</div>
+  <div class="chord-block">Gm   Eb   Bb   F</div>
+</section>
+
+<!-- =============================================== -->
+<!-- 65. Bésame Mucho -->
+<!-- =============================================== -->
+<section class="song-section" id="song-65">
+  <h2>65. Bésame Mucho</h2>
+  <div class="song-meta">
+    <span class="meta-key">Тональность: D min</span>
+    <span class="meta-tempo">Consuelo Velázquez</span>
+    <span class="meta-note">Болеро / Латина</span>
+  </div>
+  <div class="part-label">Куплет</div>
+  <div class="chord-block">Dm   Bb7  A7   Dm</div>
+  <div class="part-label">Припев</div>
+  <div class="chord-block">Dm   Bb7  A7   Dm</div>
+</section>
+
+<!-- =============================================== -->
+<!-- 66. You're My Heart You're My Soul -->
+<!-- =============================================== -->
+<section class="song-section" id="song-66">
+  <h2>66. You're My Heart You're My Soul</h2>
+  <div class="song-meta">
+    <span class="meta-key">Тональность: D maj</span>
+    <span class="meta-tempo">Modern Talking</span>
+    <span class="meta-note">Диско / Евродэнс</span>
+  </div>
+  <div class="part-label">Куплет</div>
+  <div class="chord-block">D    A    Bm   G</div>
+  <div class="part-label">Припев</div>
+  <div class="chord-block">D    A    G    D</div>
+</section>
+
+<!-- =============================================== -->
+<!-- 67. Monster -->
+<!-- =============================================== -->
+<section class="song-section" id="song-67">
+  <h2>67. Monster</h2>
+  <div class="song-meta">
+    <span class="meta-key">Тональность: ?</span>
+    <span class="meta-tempo">?</span>
+    <span class="meta-note">уточни</span>
+  </div>
+  <div class="part-label">Куплет</div>
+  <div class="chord-block"><span class="placeholder">← добавить аккорды</span></div>
+  <div class="part-label">Припев</div>
+  <div class="chord-block"><span class="placeholder">← добавить аккорды</span></div>
+</section>
+
+<!-- =============================================== -->
+<!-- 68. Don't You Forget About Me -->
+<!-- =============================================== -->
+<section class="song-section" id="song-68">
+  <h2>68. Don't You Forget About Me</h2>
+  <div class="song-meta">
+    <span class="meta-key">Тональность: F maj</span>
+    <span class="meta-tempo">Simple Minds</span>
+    <span class="meta-note">Нью-вейв / Поп-рок</span>
+  </div>
+  <div class="part-label">Куплет</div>
+  <div class="chord-block">F    Am   Bb   C</div>
+  <div class="part-label">Припев</div>
+  <div class="chord-block">F    Am   Bb   C</div>
+</section>
+
+<!-- =============================================== -->
+<!-- 69. Sway -->
+<!-- =============================================== -->
+<section class="song-section" id="song-69">
+  <h2>69. Sway</h2>
+  <div class="song-meta">
+    <span class="meta-key">Тональность: B maj</span>
+    <span class="meta-tempo">Dean Martin</span>
+    <span class="meta-note">Латина / Джаз</span>
+  </div>
+  <div class="part-label">Куплет</div>
+  <div class="chord-block">Bm   F#7  Bm   (танго-паттерн)</div>
+  <div class="part-label">Припев</div>
+  <div class="chord-block">Bm   F#7  Bm</div>
+</section>
+
+<!-- =============================================== -->
+<!-- 70. Try -->
+<!-- =============================================== -->
+<section class="song-section" id="song-70">
+  <h2>70. Try</h2>
+  <div class="song-meta">
+    <span class="meta-key">Тональность: ?</span>
+    <span class="meta-tempo">?</span>
+    <span class="meta-note">уточни</span>
+  </div>
+  <div class="part-label">Куплет</div>
+  <div class="chord-block"><span class="placeholder">← добавить аккорды</span></div>
+  <div class="part-label">Припев</div>
+  <div class="chord-block"><span class="placeholder">← добавить аккорды</span></div>
+</section>
+
+<!-- =============================================== -->
+<!-- 71. К чёрту любовь -->
+<!-- =============================================== -->
+<section class="song-section" id="song-71">
+  <h2>71. К чёрту любовь</h2>
+  <div class="song-meta">
+    <span class="meta-key">Тональность: A min</span>
+    <span class="meta-tempo">Лобода</span>
+    <span class="meta-note">Русский поп</span>
+  </div>
+  <div class="part-label">Куплет</div>
+  <div class="chord-block">Am   F    C    G</div>
+  <div class="part-label">Припев</div>
+  <div class="chord-block">Am   F    C    G</div>
+</section>
+
+<!-- =============================================== -->
+<!-- 72. Friends -->
+<!-- =============================================== -->
+<section class="song-section" id="song-72">
+  <h2>72. Friends</h2>
+  <div class="song-meta">
+    <span class="meta-key">Тональность: ?</span>
+    <span class="meta-tempo">?</span>
+    <span class="meta-note">уточни</span>
+  </div>
+  <div class="part-label">Куплет</div>
+  <div class="chord-block"><span class="placeholder">← добавить аккорды</span></div>
+  <div class="part-label">Припев</div>
+  <div class="chord-block"><span class="placeholder">← добавить аккорды</span></div>
+</section>
+
+<!-- =============================================== -->
+<!-- 73. Dance Monkey -->
+<!-- =============================================== -->
+<section class="song-section" id="song-73">
+  <h2>73. Dance Monkey</h2>
+  <div class="song-meta">
+    <span class="meta-key">Тональность: C min</span>
+    <span class="meta-tempo">Tones and I</span>
+    <span class="meta-note">Инди-поп</span>
+  </div>
+  <div class="part-label">Куплет</div>
+  <div class="chord-block">Cm   Ab   Bb   Gm</div>
+  <div class="part-label">Припев</div>
+  <div class="chord-block">Cm   Ab   Bb   Gm</div>
+</section>
+
+<!-- =============================================== -->
+<!-- 74. Simply the Best -->
+<!-- =============================================== -->
+<section class="song-section" id="song-74">
+  <h2>74. Simply the Best</h2>
+  <div class="song-meta">
+    <span class="meta-key">Тональность: D maj</span>
+    <span class="meta-tempo">Tina Turner</span>
+    <span class="meta-note">Поп-рок / R&amp;B</span>
+  </div>
+  <div class="part-label">Куплет</div>
+  <div class="chord-block">D    G    A    D</div>
+  <div class="part-label">Припев</div>
+  <div class="chord-block">D    G    A    D</div>
+</section>
+
+<!-- =============================================== -->
+<!-- 75. Walk Away -->
+<!-- =============================================== -->
+<section class="song-section" id="song-75">
+  <h2>75. Walk Away</h2>
+  <div class="song-meta">
+    <span class="meta-key">Тональность: ?</span>
+    <span class="meta-tempo">?</span>
+    <span class="meta-note">уточни</span>
+  </div>
+  <div class="part-label">Куплет</div>
+  <div class="chord-block"><span class="placeholder">← добавить аккорды</span></div>
+  <div class="part-label">Припев</div>
+  <div class="chord-block"><span class="placeholder">← добавить аккорды</span></div>
+</section>
+
+<!-- =============================================== -->
+<!-- 76. Случайная -->
+<!-- =============================================== -->
+<section class="song-section" id="song-76">
+  <h2>76. Случайная</h2>
+  <div class="song-meta">
+    <span class="meta-key">Тональность: A min</span>
+    <span class="meta-tempo">Лобода</span>
+    <span class="meta-note">Русский поп</span>
+  </div>
+  <div class="part-label">Куплет</div>
+  <div class="chord-block">Am   F    C    G</div>
+  <div class="part-label">Припев</div>
+  <div class="chord-block">Am   F    C    G</div>
+</section>
+
+<!-- =============================================== -->
+<!-- 77. Stay With Me -->
+<!-- =============================================== -->
+<section class="song-section" id="song-77">
+  <h2>77. Stay With Me</h2>
+  <div class="song-meta">
+    <span class="meta-key">Тональность: C maj</span>
+    <span class="meta-tempo">Sam Smith</span>
+    <span class="meta-note">Поп / Соул</span>
+  </div>
+  <div class="part-label">Куплет</div>
+  <div class="chord-block">Am   F    C    G</div>
+  <div class="part-label">Припев</div>
+  <div class="chord-block">Am   F    C    G</div>
+</section>
+
+<!-- =============================================== -->
+<!-- 78. Venus -->
+<!-- =============================================== -->
+<section class="song-section" id="song-78">
+  <h2>78. Venus</h2>
+  <div class="song-meta">
+    <span class="meta-key">Тональность: A min</span>
+    <span class="meta-tempo">Shocking Blue</span>
+    <span class="meta-note">Рок / Поп</span>
+  </div>
+  <div class="part-label">Куплет</div>
+  <div class="chord-block">Am   Am   Am   E7  (рифф)
+Am   F    C    E7</div>
+  <div class="part-label">Припев</div>
+  <div class="chord-block">Am   F    C    E7</div>
+</section>
+
+<!-- =============================================== -->
+<!-- 79. Billie Jean -->
+<!-- =============================================== -->
+<section class="song-section" id="song-79">
+  <h2>79. Billie Jean</h2>
+  <div class="song-meta">
+    <span class="meta-key">Тональность: F# min</span>
+    <span class="meta-tempo">Michael Jackson</span>
+    <span class="meta-note">Поп / Фанк</span>
+  </div>
+  <div class="part-label">Куплет</div>
+  <div class="chord-block">F#m  A    B    E   (рифф × 4)</div>
+  <div class="part-label">Припев</div>
+  <div class="chord-block">F#m  A    B    E</div>
+</section>
+
+<!-- =============================================== -->
+<!-- 80. Give It to Me -->
+<!-- =============================================== -->
+<section class="song-section" id="song-80">
+  <h2>80. Give It to Me</h2>
+  <div class="song-meta">
+    <span class="meta-key">Тональность: Bb maj</span>
+    <span class="meta-tempo">Michael Jackson</span>
+    <span class="meta-note">Поп / R&amp;B</span>
+  </div>
+  <div class="part-label">Куплет</div>
+  <div class="chord-block">Bb   Eb   F    Bb</div>
+  <div class="part-label">Припев</div>
+  <div class="chord-block">Bb   Eb   F    Bb</div>
+</section>
+
+<!-- =============================================== -->
+<!-- 81. Smooth Criminal -->
+<!-- =============================================== -->
+<section class="song-section" id="song-81">
+  <h2>81. Smooth Criminal</h2>
+  <div class="song-meta">
+    <span class="meta-key">Тональность: E min</span>
+    <span class="meta-tempo">Michael Jackson</span>
+    <span class="meta-note">Поп / Фанк</span>
+  </div>
+  <div class="part-label">Куплет</div>
+  <div class="chord-block">Em   Am   Em   B7</div>
+  <div class="part-label">Припев</div>
+  <div class="chord-block">Em   Am   Em   B7</div>
+</section>
+
+<!-- =============================================== -->
+<!-- 82. Хали Гали -->
+<!-- =============================================== -->
+<section class="song-section" id="song-82">
+  <h2>82. Хали Гали</h2>
+  <div class="song-meta">
+    <span class="meta-key">Тональность: ?</span>
+    <span class="meta-tempo">Леприконсы</span>
+    <span class="meta-note">Русский поп / Юмор</span>
+  </div>
+  <div class="part-label">Куплет</div>
+  <div class="chord-block"><span class="placeholder">← добавить аккорды</span></div>
+  <div class="part-label">Припев</div>
+  <div class="chord-block"><span class="placeholder">← добавить аккорды</span></div>
+</section>
+
+<!-- =============================================== -->
+<!-- 83. Москвич -->
+<!-- =============================================== -->
+<section class="song-section" id="song-83">
+  <h2>83. Москвич</h2>
+  <div class="song-meta">
+    <span class="meta-key">Тональность: ?</span>
+    <span class="meta-tempo">Леприконсы</span>
+    <span class="meta-note">Русский поп / Юмор</span>
+  </div>
+  <div class="part-label">Куплет</div>
+  <div class="chord-block"><span class="placeholder">← добавить аккорды</span></div>
+  <div class="part-label">Припев</div>
+  <div class="chord-block"><span class="placeholder">← добавить аккорды</span></div>
+</section>
+
+<!-- =============================================== -->
+<!-- 84. Как мне сегодня хочется -->
+<!-- =============================================== -->
+<section class="song-section" id="song-84">
+  <h2>84. Как мне сегодня хочется</h2>
+  <div class="song-meta">
+    <span class="meta-key">Тональность: C maj</span>
+    <span class="meta-tempo">Руки Вверх</span>
+    <span class="meta-note">Русский поп / Еврохаус</span>
+  </div>
+  <div class="part-label">Куплет</div>
+  <div class="chord-block">C    Am   F    G</div>
+  <div class="part-label">Припев</div>
+  <div class="chord-block">C    Am   F    G</div>
+</section>
+
+<!-- =============================================== -->
+<!-- 85. Любите девушки -->
+<!-- =============================================== -->
+<section class="song-section" id="song-85">
+  <h2>85. Любите девушки</h2>
+  <div class="song-meta">
+    <span class="meta-key">Тональность: G maj</span>
+    <span class="meta-tempo">Браво</span>
+    <span class="meta-note">Русский поп-рок / Ретро</span>
+  </div>
+  <div class="part-label">Куплет</div>
+  <div class="chord-block">G    C    D    G</div>
+  <div class="part-label">Припев</div>
+  <div class="chord-block">G    C    D    G</div>
+</section>
+
+<!-- =============================================== -->
+<!-- 86. Замок из песка -->
+<!-- =============================================== -->
+<section class="song-section" id="song-86">
+  <h2>86. Замок из песка</h2>
+  <div class="song-meta">
+    <span class="meta-key">Тональность: D maj</span>
+    <span class="meta-tempo">Браво</span>
+    <span class="meta-note">Русский поп-рок / Баллада</span>
+  </div>
+  <div class="part-label">Куплет</div>
+  <div class="chord-block">D    Bm   G    A</div>
+  <div class="part-label">Припев</div>
+  <div class="chord-block">D    Bm   G    A    D</div>
+</section>
+
+<!-- =============================================== -->
+<!-- 87. Дорога в облака -->
+<!-- =============================================== -->
+<section class="song-section" id="song-87">
+  <h2>87. Дорога в облака</h2>
+  <div class="song-meta">
+    <span class="meta-key">Тональность: Bb maj</span>
+    <span class="meta-tempo">Сюткин</span>
+    <span class="meta-note">Русский поп / Джаз</span>
+  </div>
+  <div class="part-label">Куплет</div>
+  <div class="chord-block">Bb   Gm   Eb   F</div>
+  <div class="part-label">Припев</div>
+  <div class="chord-block">Bb   Gm   Eb   F    Bb</div>
+</section>
+
+<!-- =============================================== -->
+<!-- 88. Музыка нас связала -->
+<!-- =============================================== -->
+<section class="song-section" id="song-88">
+  <h2>88. Музыка нас связала</h2>
+  <div class="song-meta">
+    <span class="meta-key">Тональность: A min</span>
+    <span class="meta-tempo">Мираж</span>
+    <span class="meta-note">Синти-поп / Диско</span>
+  </div>
+  <div class="part-label">Куплет</div>
+  <div class="chord-block">Am   Dm   Am   E7</div>
+  <div class="part-label">Припев</div>
+  <div class="chord-block">Am   Dm   Am   E7</div>
+</section>
+
+<!-- =============================================== -->
+<!-- 89. Не дано -->
+<!-- =============================================== -->
+<section class="song-section" id="song-89">
+  <h2>89. Не дано</h2>
+  <div class="song-meta">
+    <span class="meta-key">Тональность: C maj</span>
+    <span class="meta-tempo">Hi-Fi</span>
+    <span class="meta-note">Русский поп / R&amp;B</span>
+  </div>
+  <div class="part-label">Куплет</div>
+  <div class="chord-block">Am   F    C    G</div>
+  <div class="part-label">Припев</div>
+  <div class="chord-block">Am   F    C    G</div>
+</section>
+
+<!-- =============================================== -->
+<!-- 90. А мы любили -->
+<!-- =============================================== -->
+<section class="song-section" id="song-90">
+  <h2>90. А мы любили</h2>
+  <div class="song-meta">
+    <span class="meta-key">Тональность: F maj</span>
+    <span class="meta-tempo">Hi-Fi</span>
+    <span class="meta-note">Русский поп / R&amp;B</span>
+  </div>
+  <div class="part-label">Куплет</div>
+  <div class="chord-block">F    Dm   Bb   C</div>
+  <div class="part-label">Припев</div>
+  <div class="chord-block">F    Dm   Bb   C    F</div>
+</section>
+
+<!-- =============================================== -->
+<!-- 91. В городе лето -->
+<!-- =============================================== -->
+<section class="song-section" id="song-91">
+  <h2>91. В городе лето</h2>
+  <div class="song-meta">
+    <span class="meta-key">Тональность: E min</span>
+    <span class="meta-tempo">Уматурман</span>
+    <span class="meta-note">Русский рок-поп</span>
+  </div>
+  <div class="part-label">Куплет</div>
+  <div class="chord-block">Em   D    C    B7</div>
+  <div class="part-label">Припев</div>
+  <div class="chord-block">Em   D    C    B7</div>
+</section>
+
+<!-- =============================================== -->
+<!-- 92. Девушка Прасковья -->
+<!-- =============================================== -->
+<section class="song-section" id="song-92">
+  <h2>92. Девушка Прасковья</h2>
+  <div class="song-meta">
+    <span class="meta-key">Тональность: G maj</span>
+    <span class="meta-tempo">Уматурман</span>
+    <span class="meta-note">Русский рок-поп</span>
+  </div>
+  <div class="part-label">Куплет</div>
+  <div class="chord-block">G    D    Em   C</div>
+  <div class="part-label">Припев</div>
+  <div class="chord-block">G    D    Em   C</div>
+</section>
+
+<!-- =============================================== -->
+<!-- 93. Лайки -->
+<!-- =============================================== -->
+<section class="song-section" id="song-93">
+  <h2>93. Лайки</h2>
+  <div class="song-meta">
+    <span class="meta-key">Тональность: D min</span>
+    <span class="meta-tempo">Би-2</span>
+    <span class="meta-note">Русский рок</span>
+  </div>
+  <div class="part-label">Куплет</div>
+  <div class="chord-block">Dm   Bb   C    A</div>
+  <div class="part-label">Припев</div>
+  <div class="chord-block">Dm   Bb   C    A</div>
+</section>
+
+<!-- =============================================== -->
+<!-- 94. Компромисс -->
+<!-- =============================================== -->
+<section class="song-section" id="song-94">
+  <h2>94. Компромисс</h2>
+  <div class="song-meta">
+    <span class="meta-key">Тональность: G min</span>
+    <span class="meta-tempo">Би-2</span>
+    <span class="meta-note">Русский рок</span>
+  </div>
+  <div class="part-label">Куплет</div>
+  <div class="chord-block">Gm   Dm   Bb   F</div>
+  <div class="part-label">Припев</div>
+  <div class="chord-block">Gm   Dm   Bb   F</div>
+</section>
+
+<!-- =============================================== -->
+<!-- 95. Полковник -->
+<!-- =============================================== -->
+<section class="song-section" id="song-95">
+  <h2>95. Полковник</h2>
+  <div class="song-meta">
+    <span class="meta-key">Тональность: E min</span>
+    <span class="meta-tempo">Би-2</span>
+    <span class="meta-note">Русский рок</span>
+  </div>
+  <div class="part-label">Куплет</div>
+  <div class="chord-block">Em   D    C    B7</div>
+  <div class="part-label">Припев</div>
+  <div class="chord-block">Em   D    C    B7</div>
+</section>
+
+<!-- =============================================== -->
+<!-- 96. Скользкие улицы -->
+<!-- =============================================== -->
+<section class="song-section" id="song-96">
+  <h2>96. Скользкие улицы</h2>
+  <div class="song-meta">
+    <span class="meta-key">Тональность: C maj</span>
+    <span class="meta-tempo">Брэйнстом</span>
+    <span class="meta-note">Поп-рок / Баллада</span>
+  </div>
+  <div class="part-label">Куплет</div>
+  <div class="chord-block">C    Am   F    G</div>
+  <div class="part-label">Припев</div>
+  <div class="chord-block">C    Am   F    G</div>
+</section>
+
+<!-- =============================================== -->
+<!-- 97. Ветер -->
+<!-- =============================================== -->
+<section class="song-section" id="song-97">
+  <h2>97. Ветер</h2>
+  <div class="song-meta">
+    <span class="meta-key">Тональность: G maj</span>
+    <span class="meta-tempo">Брэйнстом</span>
+    <span class="meta-note">Поп-рок</span>
+  </div>
+  <div class="part-label">Куплет</div>
+  <div class="chord-block">G    D    Em   C</div>
+  <div class="part-label">Припев</div>
+  <div class="chord-block">G    D    Em   C</div>
+</section>
+
+<!-- =============================================== -->
+<!-- 98. На сиреневой луне -->
+<!-- =============================================== -->
+<section class="song-section" id="song-98">
+  <h2>98. На сиреневой луне</h2>
+  <div class="song-meta">
+    <span class="meta-key">Тональность: F maj</span>
+    <span class="meta-tempo">Агутин</span>
+    <span class="meta-note">Русский поп / Латина</span>
+  </div>
+  <div class="part-label">Куплет</div>
+  <div class="chord-block">F    Am   Bb   F    C</div>
+  <div class="part-label">Припев</div>
+  <div class="chord-block">F    Am   Bb   F    C</div>
+</section>
+
+<!-- =============================================== -->
+<!-- 99. Самая любимая музыка -->
+<!-- =============================================== -->
+<section class="song-section" id="song-99">
+  <h2>99. Самая любимая музыка</h2>
+  <div class="song-meta">
+    <span class="meta-key">Тональность: G maj</span>
+    <span class="meta-tempo">Братья Грим</span>
+    <span class="meta-note">Русский рок-поп</span>
+  </div>
+  <div class="part-label">Куплет</div>
+  <div class="chord-block">G    D    Em   C</div>
+  <div class="part-label">Припев</div>
+  <div class="chord-block">G    D    Em   C</div>
+</section>
+
+<!-- =============================================== -->
+<!-- 100. Fairytale Gone Bad -->
+<!-- =============================================== -->
+<section class="song-section" id="song-100">
+  <h2>100. Fairytale Gone Bad</h2>
+  <div class="song-meta">
+    <span class="meta-key">Тональность: G min</span>
+    <span class="meta-tempo">Sunrise Avenue</span>
+    <span class="meta-note">Поп-рок</span>
+  </div>
+  <div class="part-label">Куплет</div>
+  <div class="chord-block">Gm   Eb   Bb   F</div>
+  <div class="part-label">Припев</div>
+  <div class="chord-block">Gm   Eb   Bb   F</div>
+</section>
+
+<!-- =============================================== -->
+<!-- 101. Johnny B. Goode -->
+<!-- =============================================== -->
+<section class="song-section" id="song-101">
+  <h2>101. Johnny B. Goode</h2>
+  <div class="song-meta">
+    <span class="meta-key">Тональность: Bb maj</span>
+    <span class="meta-tempo">Chuck Berry</span>
+    <span class="meta-note">Рок-н-ролл</span>
+  </div>
+  <div class="part-label">Куплет</div>
+  <div class="chord-block">Bb   Eb   Bb   F    Eb   Bb  (12-бар блюз)</div>
+  <div class="part-label">Припев</div>
+  <div class="chord-block">Bb   Eb   Bb   F    Eb   Bb</div>
+</section>
+
+<!-- =============================================== -->
+<!-- 102. I'm Alive -->
+<!-- =============================================== -->
+<section class="song-section" id="song-102">
+  <h2>102. I'm Alive</h2>
+  <div class="song-meta">
+    <span class="meta-key">Тональность: C maj</span>
+    <span class="meta-tempo">Céline Dion</span>
+    <span class="meta-note">Поп / Баллада</span>
+  </div>
+  <div class="part-label">Куплет</div>
+  <div class="chord-block">C    G    Am   F</div>
+  <div class="part-label">Припев</div>
+  <div class="chord-block">C    G    Am   F    C</div>
+</section>
+
+
+</main>
+
+<script>
+var sections = document.querySelectorAll('.song-section');
+var navLinks  = document.querySelectorAll('#songs-nav a:not(.back-link)');
+
+function onScroll() {
+  var scrollY = window.scrollY + 60;
+  sections.forEach(function(sec) {
+    if (sec.offsetTop <= scrollY && sec.offsetTop + sec.offsetHeight > scrollY) {
+      navLinks.forEach(function(l) { l.classList.remove('active'); });
+      var active = document.querySelector('#songs-nav a[href="#' + sec.id + '"]');
+      if (active) {
+        active.classList.add('active');
+        active.scrollIntoView({ inline: 'nearest', block: 'nearest' });
+      }
+    }
+  });
+}
+
+window.addEventListener('scroll', onScroll, { passive: true });
+onScroll();
+</script>
+</body>
+</html>

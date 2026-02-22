@@ -4,35 +4,119 @@
 <meta charset="UTF-8">
 <title>Сетлист 2026</title>
 <style>
-  body { font-family: Arial, sans-serif; font-size: 13px; background: #1a1a2e; color: #eee; margin: 0; padding: 20px; }
-  h1 { color: #e94560; text-align: center; margin-bottom: 20px; }
-  .filters { text-align: center; margin-bottom: 15px; }
-  .filters button { margin: 3px; padding: 5px 12px; border: none; border-radius: 4px; cursor: pointer; background: #16213e; color: #eee; }
-  .filters button.active, .filters button:hover { background: #e94560; color: #fff; }
-  table { width: 100%; border-collapse: collapse; }
-  th { background: #16213e; color: #e94560; padding: 8px 6px; text-align: left; position: sticky; top: 0; z-index: 10; }
-  tr:nth-child(even) { background: #16213e55; }
-  tr:hover { background: #e9456022; }
-  td { padding: 6px 6px; border-bottom: 1px solid #ffffff11; vertical-align: middle; }
-  .badge { display: inline-block; padding: 2px 8px; border-radius: 10px; font-weight: bold; font-size: 12px; }
-  .check { color: #2ecc71; font-size: 16px; }
-  .links a { display: inline-block; padding: 3px 8px; border-radius: 4px; text-decoration: none; font-size: 11px; font-weight: bold; margin-right: 4px; }
-  .yt { background: #ff0000; color: #fff; }
-  .sp { background: #1db954; color: #fff; }
-  .num { color: #888; width: 30px; }
-  .key { font-family: monospace; color: #f39c12; }
-  #search { width: 300px; padding: 7px 12px; border-radius: 6px; border: 1px solid #e94560; background: #16213e; color: #eee; font-size: 13px; display: block; margin: 0 auto 15px; }
+* { box-sizing: border-box; margin: 0; padding: 0; }
+body {
+  font-family: 'Segoe UI', Arial, sans-serif;
+  font-size: 13px;
+  background: #111;
+  color: #e0e0e0;
+}
+header {
+  background: #1a1a1a;
+  border-bottom: 2px solid #fe0178;
+  padding: 14px 20px;
+  text-align: center;
+}
+.brand { color: #fe0178; font-size: 20px; font-weight: 700; letter-spacing: 2px; }
+.sub { color: #555; font-size: 12px; margin-top: 3px; }
+.controls {
+  background: #161616;
+  padding: 10px 16px;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  align-items: center;
+  justify-content: center;
+  border-bottom: 1px solid #222;
+  position: sticky;
+  top: 0;
+  z-index: 50;
+}
+#search {
+  padding: 7px 12px;
+  border-radius: 6px;
+  border: 1px solid #333;
+  background: #222;
+  color: #e0e0e0;
+  font-size: 13px;
+  width: 260px;
+  outline: none;
+}
+#search:focus { border-color: #fe0178; }
+.filters { display: flex; gap: 5px; flex-wrap: wrap; justify-content: center; }
+.filters button {
+  padding: 5px 12px;
+  border: 1px solid #333;
+  border-radius: 20px;
+  cursor: pointer;
+  background: #1a1a1a;
+  color: #888;
+  font-size: 12px;
+  transition: all 0.15s;
+}
+.filters button.active,
+.filters button:hover { background: #fe0178; color: #fff; border-color: #fe0178; }
+.table-wrap { overflow-x: auto; }
+table { width: 100%; border-collapse: collapse; min-width: 680px; }
+thead th {
+  background: #1a1a1a;
+  color: #fe0178;
+  padding: 9px 8px;
+  text-align: left;
+  font-size: 11px;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  position: sticky;
+  top: 52px;
+  z-index: 10;
+  white-space: nowrap;
+  border-bottom: 1px solid #2a2a2a;
+}
+tbody tr {
+  border-bottom: 1px solid #1c1c1c;
+  cursor: pointer;
+  transition: background 0.12s;
+}
+tbody tr:nth-child(even) { background: #141414; }
+tbody tr:hover { background: #200a14; }
+td { padding: 8px 8px; vertical-align: middle; }
+.num { color: #444; width: 28px; text-align: right; font-family: monospace; font-size: 12px; }
+.song-name { font-weight: 600; color: #e0e0e0; }
+td:nth-child(3) { color: #777; font-size: 12px; }
+.check { color: #2ecc71; font-size: 15px; }
+.badge { display: inline-block; padding: 2px 7px; border-radius: 10px; font-weight: 700; font-size: 11px; }
+.style-cell { color: #555; font-size: 11px; white-space: nowrap; }
+.key { font-family: 'Courier New', monospace; color: #f39c12; font-size: 12px; }
+.links a {
+  display: inline-block;
+  padding: 3px 7px;
+  border-radius: 4px;
+  text-decoration: none;
+  font-size: 10px;
+  font-weight: 700;
+  margin-right: 3px;
+  opacity: 0.8;
+}
+.links a:hover { opacity: 1; }
+.yt { background: #ff0000; color: #fff; }
+.sp { background: #1db954; color: #fff; }
 </style>
 </head>
 <body>
-<h1>🎸 Сетлист 2026</h1>
-<input id="search" type="text" placeholder="Поиск по названию или исполнителю...">
-<div class="filters">
-  <button class="active" onclick="filterPriority('all',this)">Все</button>
-  <button onclick="filterPriority('A',this)">🟢 Приоритет A</button>
-  <button onclick="filterPriority('B',this)">🟡 Приоритет B</button>
-  <button onclick="filterPriority('C',this)">⚪ Приоритет C</button>
+<header>
+  <div class="brand">ПРО•ХИТ</div>
+  <div class="sub">Сетлист 2026 — кликни на песню, чтобы открыть аккорды</div>
+</header>
+<div class="controls">
+  <input id="search" type="text" placeholder="Поиск по названию или исполнителю...">
+  <div class="filters">
+    <button class="active" onclick="filterPriority('all',this)">Все</button>
+    <button onclick="filterPriority('A',this)">Приоритет A</button>
+    <button onclick="filterPriority('B',this)">Приоритет B</button>
+    <button onclick="filterPriority('C',this)">Приоритет C</button>
+  </div>
 </div>
+<div class="table-wrap">
 <table id="tbl">
 <thead>
 <tr>
@@ -1205,44 +1289,8 @@
   <td class="key">G maj</td>
   <td class="links"><a class="yt" href="https://www.youtube.com/results?search_query=%D0%91%D1%80%D1%8D%D0%B9%D0%BD%D1%81%D1%82%D0%BE%D0%BC%20%D0%92%D0%B5%D1%82%D0%B5%D1%80" target="_blank">▶ YT</a><a class="sp" href="https://open.spotify.com/search/%D0%91%D1%80%D1%8D%D0%B9%D0%BD%D1%81%D1%82%D0%BE%D0%BC%20%D0%92%D0%B5%D1%82%D0%B5%D1%80" target="_blank">♫ SP</a></td>
 </tr>
-<tr data-priority="C" data-search="своя 1 дима к.">
-  <td class="num">98</td>
-  <td><b>Своя 1</b></td>
-  <td>Дима К.</td>
-  <td style="text-align:center"></td>
-  <td style="text-align:center"><span class="check">✅</span></td>
-  <td style="text-align:center"></td>
-  <td><span class="badge" style="background:#95a5a6;color:#111">C</span></td>
-  <td style="color:#aaa;font-size:12px">Авторская</td>
-  <td class="key">?</td>
-  <td class="links"><a class="yt" href="https://www.youtube.com/results?search_query=%D0%94%D0%B8%D0%BC%D0%B0%20%D0%9A.%20%D0%A1%D0%B2%D0%BE%D1%8F%201" target="_blank">▶ YT</a><a class="sp" href="https://open.spotify.com/search/%D0%94%D0%B8%D0%BC%D0%B0%20%D0%9A.%20%D0%A1%D0%B2%D0%BE%D1%8F%201" target="_blank">♫ SP</a></td>
-</tr>
-<tr data-priority="C" data-search="своя 2 дима к.">
-  <td class="num">99</td>
-  <td><b>Своя 2</b></td>
-  <td>Дима К.</td>
-  <td style="text-align:center"></td>
-  <td style="text-align:center"><span class="check">✅</span></td>
-  <td style="text-align:center"></td>
-  <td><span class="badge" style="background:#95a5a6;color:#111">C</span></td>
-  <td style="color:#aaa;font-size:12px">Авторская</td>
-  <td class="key">?</td>
-  <td class="links"><a class="yt" href="https://www.youtube.com/results?search_query=%D0%94%D0%B8%D0%BC%D0%B0%20%D0%9A.%20%D0%A1%D0%B2%D0%BE%D1%8F%202" target="_blank">▶ YT</a><a class="sp" href="https://open.spotify.com/search/%D0%94%D0%B8%D0%BC%D0%B0%20%D0%9A.%20%D0%A1%D0%B2%D0%BE%D1%8F%202" target="_blank">♫ SP</a></td>
-</tr>
-<tr data-priority="C" data-search="своя 3 дима к.">
-  <td class="num">100</td>
-  <td><b>Своя 3</b></td>
-  <td>Дима К.</td>
-  <td style="text-align:center"></td>
-  <td style="text-align:center"><span class="check">✅</span></td>
-  <td style="text-align:center"></td>
-  <td><span class="badge" style="background:#95a5a6;color:#111">C</span></td>
-  <td style="color:#aaa;font-size:12px">Авторская</td>
-  <td class="key">?</td>
-  <td class="links"><a class="yt" href="https://www.youtube.com/results?search_query=%D0%94%D0%B8%D0%BC%D0%B0%20%D0%9A.%20%D0%A1%D0%B2%D0%BE%D1%8F%203" target="_blank">▶ YT</a><a class="sp" href="https://open.spotify.com/search/%D0%94%D0%B8%D0%BC%D0%B0%20%D0%9A.%20%D0%A1%D0%B2%D0%BE%D1%8F%203" target="_blank">♫ SP</a></td>
-</tr>
 <tr data-priority="C" data-search="на сиреневой луне агутин">
-  <td class="num">101</td>
+  <td class="num">98</td>
   <td><b>На сиреневой луне</b></td>
   <td>Агутин</td>
   <td style="text-align:center"></td>
@@ -1254,7 +1302,7 @@
   <td class="links"><a class="yt" href="https://www.youtube.com/results?search_query=%D0%90%D0%B3%D1%83%D1%82%D0%B8%D0%BD%20%D0%9D%D0%B0%20%D1%81%D0%B8%D1%80%D0%B5%D0%BD%D0%B5%D0%B2%D0%BE%D0%B9%20%D0%BB%D1%83%D0%BD%D0%B5" target="_blank">▶ YT</a><a class="sp" href="https://open.spotify.com/search/%D0%90%D0%B3%D1%83%D1%82%D0%B8%D0%BD%20%D0%9D%D0%B0%20%D1%81%D0%B8%D1%80%D0%B5%D0%BD%D0%B5%D0%B2%D0%BE%D0%B9%20%D0%BB%D1%83%D0%BD%D0%B5" target="_blank">♫ SP</a></td>
 </tr>
 <tr data-priority="A" data-search="самая любимая музыка братья грим">
-  <td class="num">102</td>
+  <td class="num">99</td>
   <td><b>Самая любимая музыка</b></td>
   <td>Братья Грим</td>
   <td style="text-align:center"></td>
@@ -1266,7 +1314,7 @@
   <td class="links"><a class="yt" href="https://www.youtube.com/results?search_query=%D0%91%D1%80%D0%B0%D1%82%D1%8C%D1%8F%20%D0%93%D1%80%D0%B8%D0%BC%20%D0%A1%D0%B0%D0%BC%D0%B0%D1%8F%20%D0%BB%D1%8E%D0%B1%D0%B8%D0%BC%D0%B0%D1%8F%20%D0%BC%D1%83%D0%B7%D1%8B%D0%BA%D0%B0" target="_blank">▶ YT</a><a class="sp" href="https://open.spotify.com/search/%D0%91%D1%80%D0%B0%D1%82%D1%8C%D1%8F%20%D0%93%D1%80%D0%B8%D0%BC%20%D0%A1%D0%B0%D0%BC%D0%B0%D1%8F%20%D0%BB%D1%8E%D0%B1%D0%B8%D0%BC%D0%B0%D1%8F%20%D0%BC%D1%83%D0%B7%D1%8B%D0%BA%D0%B0" target="_blank">♫ SP</a></td>
 </tr>
 <tr data-priority="A" data-search="fairytale gone bad sunrise avenue">
-  <td class="num">103</td>
+  <td class="num">100</td>
   <td><b>Fairytale Gone Bad</b></td>
   <td>Sunrise Avenue</td>
   <td style="text-align:center"></td>
@@ -1278,7 +1326,7 @@
   <td class="links"><a class="yt" href="https://www.youtube.com/results?search_query=Sunrise%20Avenue%20Fairytale%20Gone%20Bad" target="_blank">▶ YT</a><a class="sp" href="https://open.spotify.com/search/Sunrise%20Avenue%20Fairytale%20Gone%20Bad" target="_blank">♫ SP</a></td>
 </tr>
 <tr data-priority="B" data-search="johnny b. goode chuck berry">
-  <td class="num">104</td>
+  <td class="num">98</td>
   <td><b>Johnny B. Goode</b></td>
   <td>Chuck Berry</td>
   <td style="text-align:center"></td>
@@ -1290,7 +1338,7 @@
   <td class="links"><a class="yt" href="https://www.youtube.com/results?search_query=Chuck%20Berry%20Johnny%20B.%20Goode" target="_blank">▶ YT</a><a class="sp" href="https://open.spotify.com/search/Chuck%20Berry%20Johnny%20B.%20Goode" target="_blank">♫ SP</a></td>
 </tr>
 <tr data-priority="C" data-search="i'm alive céline dion">
-  <td class="num">105</td>
+  <td class="num">99</td>
   <td><b>I'm Alive</b></td>
   <td>Céline Dion</td>
   <td style="text-align:center"></td>
@@ -1303,6 +1351,7 @@
 </tr>
 </tbody>
 </table>
+</div>
 <script>
 let currentPriority = 'all';
 document.getElementById('search').addEventListener('input', filterRows);
@@ -1320,6 +1369,15 @@ function filterRows() {
     tr.style.display = (matchP && matchQ) ? '' : 'none';
   });
 }
+
+// Клик по строке → открыть страницу с аккордами на нужной песне
+document.querySelectorAll('#tbl tbody tr').forEach(function(tr) {
+  tr.addEventListener('click', function(e) {
+    if (e.target.closest('a')) return; // не перехватывать YT/SP ссылки
+    var num = tr.querySelector('.num').textContent.trim();
+    window.location.href = 'chords_cover.html#song-' + num;
+  });
+});
 </script>
 </body>
 </html>
