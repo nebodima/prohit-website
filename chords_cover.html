@@ -8,6 +8,7 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Poiret+One&display=swap" rel="stylesheet">
+<link rel="icon" type="image/svg+xml" href="./favicon.svg">
 <style>
 * { box-sizing: border-box; margin: 0; padding: 0; }
 
@@ -181,22 +182,27 @@ main {
 
 /* ── Строки аккорды + текст ── */
 .cl {
-  line-height: 1;
-  padding: 3px 0;
-  /* не делаем white-space:pre чтобы работал перенос на мобиле */
+  padding-top: 1.5em;
+  line-height: 1.5;
+  margin-bottom: 2px;
+  position: relative;
 }
 
 .ch {
   display: inline-block;
+  position: relative;
+  top: -1.5em;
+  margin-bottom: -1.5em;
+  width: 0;
+  overflow: visible;
+  white-space: nowrap;
   color: #fe0178;
   font-weight: 700;
   font-family: 'Courier New', monospace;
   font-size: 13px;
-  background: rgba(254,1,120,0.08);
+  background: rgba(254,1,120,0.12);
   border-radius: 3px;
   padding: 1px 4px;
-  margin: 0 2px 2px 0;
-  vertical-align: baseline;
   cursor: default;
   user-select: none;
 }
@@ -216,7 +222,9 @@ main {
 @media (max-width: 480px) {
   .song-section h2 { font-size: 15px; }
   .chord-block { font-size: 13px; padding: 8px 10px; }
-  .ch { font-size: 12px; padding: 1px 3px; }
+  .ch { font-size: 11px; padding: 1px 3px; }
+  .cl { padding-top: 1.3em; }
+  .ch { top: -1.3em; margin-bottom: -1.3em; }
   .lyric { font-size: 13px; }
   .t-btn { width: 30px; height: 30px; font-size: 14px; }
 }
@@ -2629,7 +2637,7 @@ main {
     <div class="song-hdr-left">
       <h2>82. Хали Гали</h2>
       <div class="song-meta">
-        <span class="meta-key">♪ ?</span>
+        <span class="meta-key">♪ Bm</span>
         <span class="meta-artist">Леприконсы</span>
         <span class="meta-style">Русский поп / Юмор</span>
       </div>
@@ -2640,14 +2648,26 @@ main {
       <button class="t-btn" onclick="tp(82,+1)" title="Выше на полтона">♯</button>
     </div>
   </div>
-  
+
     <div class="part-label">Куплет</div>
     <div class="chord-block">
-      <div class="cl"><span class="placeholder">← добавить текст и аккорды</span></div>
+      <div class="cl"><span class="ch" data-n="82" data-o="Bm">Bm</span><span class="lyric">Помню, было мне десять </span><span class="ch" data-n="82" data-o="A">A</span><span class="lyric">лет,</span></div>
+      <div class="cl"><span class="ch" data-n="82" data-o="E">E</span><span class="lyric">Я копил на новый </span><span class="ch" data-n="82" data-o="G">G</span><span class="lyric">велоси</span><span class="ch" data-n="82" data-o="F#">F#</span><span class="lyric">пед </span><span class="ch" data-n="82" data-o="Bm">Bm</span></div>
+      <div class="cl"><span class="ch" data-n="82" data-o="Bm">Bm</span><span class="lyric">Я жил лишь этою </span><span class="ch" data-n="82" data-o="A">A</span><span class="lyric">мечтой,</span></div>
+      <div class="cl"><span class="ch" data-n="82" data-o="E">E</span><span class="lyric">Пока как-то раз не </span><span class="ch" data-n="82" data-o="G">G</span><span class="lyric">встретился с </span><span class="ch" data-n="82" data-o="F#">F#</span><span class="lyric">то</span><span class="ch" data-n="82" data-o="Bm">Bm</span><span class="lyric">бой</span></div>
+      <div class="cl"><span class="ch" data-n="82" data-o="Bm">Bm</span><span class="lyric">Ты меня обворо</span><span class="ch" data-n="82" data-o="A">A</span><span class="lyric">жила</span></div>
+      <div class="cl"><span class="ch" data-n="82" data-o="E">E</span><span class="lyric">Погулять с собою </span><span class="ch" data-n="82" data-o="G">G</span><span class="lyric">предло</span><span class="ch" data-n="82" data-o="F#">F#</span><span class="lyric">жи</span><span class="ch" data-n="82" data-o="Bm">Bm</span><span class="lyric">ла</span></div>
+      <div class="cl"><span class="ch" data-n="82" data-o="Bm">Bm</span><span class="lyric">Я взял копилку и раз</span><span class="ch" data-n="82" data-o="A">A</span><span class="lyric">бил</span></div>
+      <div class="cl"><span class="ch" data-n="82" data-o="E">E</span><span class="lyric">И тебя в парк </span><span class="ch" data-n="82" data-o="G">G</span><span class="lyric">отдыха </span><span class="ch" data-n="82" data-o="F#">F#</span><span class="lyric">сво</span><span class="ch" data-n="82" data-o="Bm">Bm</span><span class="lyric">дил</span></div>
     </div>
-    <div class="part-label">Припев</div>
+    <div class="part-label">Припев (2 раза)</div>
     <div class="chord-block">
-      <div class="cl"><span class="placeholder">← добавить текст и аккорды</span></div>
+      <div class="cl"><span class="ch" data-n="82" data-o="Bm">Bm</span><span class="lyric">Хали-гали,</span></div>
+      <div class="cl"><span class="ch" data-n="82" data-o="A">A</span><span class="lyric">Паратрупер</span></div>
+      <div class="cl"><span class="ch" data-n="82" data-o="E">E</span><span class="lyric">Нам с тобою было </span><span class="ch" data-n="82" data-o="G">G</span><span class="lyric">су</span><span class="ch" data-n="82" data-o="F#">F#</span><span class="lyric">пер</span></div>
+      <div class="cl"><span class="ch" data-n="82" data-o="Bm">Bm</span><span class="lyric">Супер-восемь,</span></div>
+      <div class="cl"><span class="ch" data-n="82" data-o="A">A</span><span class="lyric">Хали-гали</span></div>
+      <div class="cl"><span class="ch" data-n="82" data-o="E">E</span><span class="lyric">Мы с тобой весь день </span><span class="ch" data-n="82" data-o="G">G</span><span class="lyric">ле</span><span class="ch" data-n="82" data-o="F#">F#</span><span class="lyric">тали</span></div>
     </div>
 </section>
 
