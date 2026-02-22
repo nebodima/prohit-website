@@ -21,53 +21,25 @@
 	<link rel="preconnect" href="https://cdnjs.cloudflare.com">
 	<link rel="preload" href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&family=Raleway:wght@300;400;500;600;700&family=Lobster+Two:ital@0;1&family=Teko:wght@400;500&display=swap" as="style" onload="this.onload=null;this.rel='stylesheet'">
 	<noscript><link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&family=Raleway:wght@300;400;500;600;700&family=Lobster+Two:ital@0;1&family=Teko:wght@400;500&display=swap" rel="stylesheet"></noscript>
-	<link rel="preload" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
-	<noscript><link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css" rel="stylesheet"></noscript>
+	<link href="./fa-inline.css" rel="stylesheet">
 	<link rel="preload" href="./PoiretOne-Regular.woff2" as="font" type="font/woff2" crossorigin>
-	<style>@font-face{font-family:'Poiret One';font-style:normal;font-weight:400;font-display:block;src:url('./PoiretOne-Regular.woff2') format('woff2'),url('./PoiretOne-Regular.ttf') format('truetype')}</style>
-	<!-- FA 4.7 removed: FA 6.4.2 all.min.css includes v4 compatibility shim -->
+	<style>@font-face{font-family:'Poiret One';font-style:normal;font-weight:400;font-display:block;src:url('./PoiretOne-Regular.woff2') format('woff2')}</style>
 	<link href="./site.css" rel="stylesheet">
 	<link href="./button.min.css" rel="stylesheet">
 	<!-- font-awesome(1).min.css removed: duplicate of font-awesome.min.css, now loaded via CDN -->
 	<link href="./style.css" rel="stylesheet">
 	<link href="./mod_jttabs_style.css" rel="stylesheet">
-	<link href="./style(1).css" rel="stylesheet">
-	<link href="./owl2.carousel.css" rel="stylesheet">
-	<!-- font-awesome.css removed: duplicate of font-awesome.min.css, now loaded via CDN -->
 	<link href="./style(2).css" rel="stylesheet">
 	<link href="./lightbox.css" rel="stylesheet">
-	<link href="./style(3).css" rel="stylesheet">
-	<link href="./magnific-popup.css" rel="stylesheet">
-	<link href="./site(1).css" rel="stylesheet">
-
-	<link href="./module.min.css" rel="stylesheet">
-	<link href="./style(4).css" rel="stylesheet">
 	<link href="./style(5).css" rel="stylesheet">
 	<link href="./template.css" rel="stylesheet">
-	<link href="./12.css" rel="stylesheet">
 	<link href="./custom.css?v=20260218l" rel="stylesheet">
 <script src="./jquery.min.js"></script>
-	<script src="./jquery-noconflict.min.js"></script>
-	<script src="./jquery-migrate.min.js"></script>
-	<script type="application/json" class="joomla-script-options loaded">{"bootstrap.modal":{"#modal":{"keyboard":true,"focus":true}},"joomla.jtext":{"MOD_FINDER_SEARCH_VALUE":"поиск по сайту...","JLIB_JS_AJAX_ERROR_OTHER":"An error has occurred while fetching the JSON data: HTTP %s status code.","JLIB_JS_AJAX_ERROR_PARSE":"A parse error has occurred while processing the following JSON data:<br><code style=\"color:inherit;white-space:pre-wrap;padding:0;margin:0;border:0;background:inherit;\">%s<\/code>","PLG_SYSTEM_WEBAUTHN_ERR_CANNOT_FIND_USERNAME":"Cannot find the username field in the login module. Sorry, Passwordless authentication will not work on this site unless you use a different login module.","PLG_SYSTEM_WEBAUTHN_ERR_EMPTY_USERNAME":"You need to enter your username (but NOT your password) before selecting the Web Authentication login button.","PLG_SYSTEM_WEBAUTHN_ERR_INVALID_USERNAME":"The specified username does not correspond to a user account that has enabled passwordless login on this site.","JSHOW":"Show","JHIDE":"Hide","ERROR":"Error","MESSAGE":"Message","NOTICE":"Notice","WARNING":"Warning","JCLOSE":"Close","JOK":"OK","JOPEN":"Open"},"finder-search":{"url":"\/component\/finder\/?task=suggestions.suggest&format=json&tmpl=component&Itemid=101"},"system.paths":{"root":"","rootFull":"","base":"","baseFull":""},"csrf.token":"26a0c16a6caf310323f45116ee0d86b4","system.keepalive":{"interval":840000,"uri":"\/component\/ajax\/?format=json"}}</script>
-	<script src="./core.min.js"></script>
-	<script src="./bootstrap-es5.min.js" defer=""></script>
-	<script src="./base(1).js"></script>
-		<script src="./jquery.jtcarousel.js"></script>
 	<script src="./lightbox.js"></script>
 	<script src="./jquery.owl2.carousel.js"></script>
-	<script src="./theme.js"></script>
-	<script src="./lightbox-plus-jquery.js"></script>
 	<script src="./owl.carousel.js"></script>
-	<!-- jquery(1).jtcarousel.js removed: duplicate of jquery.jtcarousel.js (both are Tiny Slider) -->
-	<script src="./jquery.magnific-popup.js"></script>
-	<script src="./site.js"></script>
-	<script src="./modal.js"></script>
-	<script src="./module.min.js" defer=""></script>
-
-
+	<script src="./theme.js"></script>
 	<script src="./megamenu.js"></script>
-	<!-- AcyMailing removed -->
 
 
   <!-- IE9 html5shiv removed -->
@@ -78,8 +50,14 @@
   <meta name="HandheldFriendly" content="true">
   <meta name="mobile-web-app-capable" content="yes">
   <!-- //META FOR IOS & HANDHELD -->
-  <script src="./moduletitle.js"></script>
-<script src="./scrollprogresbar.js"></script>
+<script>
+window.addEventListener('scroll', function() {
+  var bar = document.querySelector('.scroll-progress-bar');
+  if (!bar) return;
+  var s = window.scrollY, d = document.documentElement.scrollHeight, c = window.innerHeight;
+  bar.style.width = (s / (d - c)) * 100 + '%';
+});
+</script>
 
 
 <link rel="stylesheet" type="text/css" href="./smartslider.min.css" media="all">
@@ -1821,108 +1799,6 @@ jQuery(document).ready(function() {
   carousel = el.owlCarousel(carouselOptions);
 });
 </script>
-</div></div></div><div class="t4-module module " id="Mod124"><div class="module-inner"><h3 class="module-title bicolor equalizer"><span class="titlespan"><span class="first-word-nonda">ИЗБРАННЫЕ</span> ВИДЕО</span></h3><div class="module-ct"><style type="text/css" media="screen">
-.jt-carousel-yendif124.tns-horizontal.tns-subpixel .carousel-inner.tns-item {padding:10px 10px 10px 10px;}
-.jt-carousel-yendif124.tns-horizontal.tns-subpixel .carousel-inner.tns-item .carousel-title.titleonimg{position:absolute;top:0;left:0;width:100%;height:100%;display:flex; justify-content:; align-items:;}
-#jt-carousel-wrap124 .tns-controls,#jt-carousel-wrap124 .playButton{display:flex; justify-content:flex-end; }
-.jt-carousel-yendif-outer124 .tns-nav{display:flex;justify-content:flex-end; }
-</style>
-<div id="jt-carousel-wrap124" class="jt-carousel-yendif-outer nonda">
-<div class="tns-outer" id="tns1-ow"><div class="tns-controls" aria-label="Carousel Navigation" tabindex="0"><button data-controls="prev" tabindex="-1" aria-controls="tns1"><i class="fas fa-chevron-left" aria-hidden="true"></i></button><button data-controls="next" tabindex="-1" aria-controls="tns1"><i class="fas fa-chevron-right" aria-hidden="true"></i></button></div><div class="tns-liveregion tns-visually-hidden" aria-live="polite" aria-atomic="true">slide <span class="current">1</span>  of 4</div><div id="tns1-mw" class="tns-ovh"><div class="tns-inner" id="tns1-iw"><div class="jt-carousel-yendif124  tns-slider tns-carousel tns-subpixel tns-calc tns-horizontal" style="padding: 10px; transition-duration: 0s; transform: translate3d(0%, 0px, 0px);" id="tns1">
-					<div class="carousel-inner tns-item tns-slide-active" id="tns1-item0"><div class="yendif-video-share mod-yendifvideoshare-videos">
-					<div class="yendif-video-share-grid yendif-video-share-popup" data-player_ratio="56.25">
-					<div class="yendif-video-share-grid-item yendif-video-share-video-1 " data-mfp-src="#">
-							<a href="javascript:void(0)" class="yendif-video-share-responsive-item" style="padding-bottom: 56.25%">
-								<div class="yendif-video-share-image" style="background-image: url(./1.jpg);">&nbsp;</div></a>
-<svg class="yendif-video-share-svg-icon yendif-video-share-svg-icon-play" version="1.0" xmlns="http://www.w3.org/2000/svg" width="53.000000pt" height="53.000000pt" viewBox="0 0 53.000000 53.000000" preserveAspectRatio="xMidYMid meet">
-<g transform="translate(0.000000,53.000000) scale(0.100000,-0.100000)" fill="#ffffff" stroke="none">
-<path d="M171 513 c-26 -9 -65 -36 -91 -62 -106 -106 -106 -266 0 -371 105
--106 265 -106 370 0 200 199 -12 527 -279 433z m121 -180 c54 -36 88 -65 88
--75 0 -20 -154 -128 -181 -128 -25 0 -29 21 -29 134 0 92 8 126 29 126 3 0 44
--26 93 -57z"></path>
-</g>
-</svg>
-<figure class="play-btn-animation"></figure>
-<div class="title-desc-wrap">
-								 
-							
-								<div class="yendif-video-share-title">
-									<a href="javascript:void(0)" class="card-link">Фанк-вечер в Bebo Chito</a>
-								</div>
-																	<div class="yendif-video-share-excerpt mt-2">
-										Смотреть видео									</div>
-																 
-																	<div class="yendif-video-share-views-count mt-1 small">
-										7 просмотров									</div>
-								</div>
-					</div><!--//yendif-video-share-grid-item-->
-					</div><!--yendif grid-->
-					</div>
-					</div><!--carousel-inner-->
-									</div></div></div></div></div><script type="module">
-  var slider = tns({
-    container: '.jt-carousel-yendif124',
-    items: 1,
-    mode: 'carousel',
-    axis: 'horizontal',
-    gutter: 0,
-    edgePadding: 0,
-    fixedWidth: false,
-    autoWidth: false,
-    viewportMax: false,
-    slideBy:1,
-    center: false,
-    controls: true,
-    controlsPosition: 'top',
-    controlsText: ['<i class="fas fa-chevron-left" aria-hidden="true"></i>', '<i class="fas fa-chevron-right" aria-hidden="true"></i>'],
-    controlsContainer: false,
-    prevButton: false,
-    nextButton: false,
-    nav: false,
-    navPosition: 'bottom',
-    navContainer: false,
-    navAsThumbnails: false,
-    arrowKeys: false,
-    speed:1000,
-    autoplay: false,
-    autoplayPosition: 'top',
-    autoplayTimeout: 1500,
-    autoplayDirection: 'forward',
-    autoplayText: ['start', 'stop'],
-    autoplayHoverPause: true,
-    autoplayButton: false,
-    autoplayButtonOutput: false,
-    autoplayResetOnVisibility: true,
-    animateIn: 'tns-fadeIn',
-    animateOut: 'tns-fadeOut',
-    animateNormal: 'tns-normal',
-    animateDelay: false,
-    loop: false,
-    rewind: true,
-    autoHeight: false,
-    responsive: {
-    "220": {
-      "items": 1    },
-    "480": {
-      "items": 1    },
-	"768": {
-      "items": 1    }
-  },
-    lazyload: false,
-    lazyloadSelector: '.tns-lazy-img',
-    touch: true,
-    mouseDrag: false,
-    swipeAngle: 15,
-    nested: false,
-    preventActionWhenRunning: false,
-    preventScrollOnTouch: false,
-    freezable: true,
-    onInit: false,
-    useLocalStorage: true,
-    nonce: false
-  });
-  </script>
-  
 </div></div></div>
 </div>
 </div></div>
@@ -1974,149 +1850,6 @@ jQuery(document).ready(function() {
 
 <div id="t4-bottomspot-1" class="t4-section  t4-bottomspot-1">
 <div class="t4-section-inner container"><div class="t4-col bottomspot-1"><div class="moduletable ">
-            <h3 class="equalizer bicolor"><span class="titlespan"><span class="first-word-nonda">ЕЖЕНЕДЕЛЬНОЕ</span> РАСПИСАНИЕ</span></h3>        <style type="text/css">
-.fade {-webkit-transition: opacity .15s linear;-o-transition: opacity .15s linear;transition: opacity .15s linear;}
-</style><div class="jttabs-wrapper layout-default nonda" id="jttabs_141">
-    <ul id="JtTabList" class="nav nav-tabs" role="tablist">
-          <li class="nav-item" role="presentation">
-	  <button id="jttab-mon" class="nav-link active" role="tab" type="button" data-bs-toggle="tab" data-bs-target="#jttab0" aria-controls="jttab0" aria-selected="true">ПОНЕДЕЛЬНИК</button>
-	  </li>
-          <li class="nav-item" role="presentation">
-	  <button id="jttab-tue" class="nav-link " role="tab" type="button" data-bs-toggle="tab" data-bs-target="#jttab1" aria-controls="jttab1" aria-selected="false" tabindex="-1">ВТОРНИК</button>
-	  </li>
-          <li class="nav-item" role="presentation">
-	  <button id="jttab-wed" class="nav-link " role="tab" type="button" data-bs-toggle="tab" data-bs-target="#jttab2" aria-controls="jttab2" aria-selected="false" tabindex="-1">СРЕДА</button>
-	  </li>
-          <li class="nav-item" role="presentation">
-	  <button id="jttab-thu" class="nav-link " role="tab" type="button" data-bs-toggle="tab" data-bs-target="#jttab3" aria-controls="jttab3" aria-selected="false" tabindex="-1">ЧЕТВЕРГ</button>
-	  </li>
-          <li class="nav-item" role="presentation">
-	  <button id="jttab-fri" class="nav-link " role="tab" type="button" data-bs-toggle="tab" data-bs-target="#jttab4" aria-controls="jttab4" aria-selected="false" tabindex="-1">ПЯТНИЦА</button>
-	  </li>
-          <li class="nav-item" role="presentation">
-	  <button id="jttab-sat" class="nav-link " role="tab" type="button" data-bs-toggle="tab" data-bs-target="#jttab5" aria-controls="jttab5" aria-selected="false" tabindex="-1">СУББОТА</button>
-	  </li>
-          <li class="nav-item" role="presentation">
-	  <button id="jttab-sun" class="nav-link " role="tab" type="button" data-bs-toggle="tab" data-bs-target="#jttab6" aria-controls="jttab6" aria-selected="false" tabindex="-1">ВОСКРЕСЕНЬЕ</button>
-	  </li>
-        </ul>
-    <div id="JtTabContent" class="tab-content">	
-	       	  <div id="jttab0" class="tab-pane fade active show" style="width:100%;height:auto" role="tabpanel" aria-labelledby="jttab">
-       <h2>ПОНЕДЕЛЬНИК</h2><div class="row nonda-schedule">
-<div class="schedule-left col-lg-6">
-<div class="show-outer"><span class="showtime">06:00 <br>- <br>08:00</span><span class="showimg-text"> <span class="showimg"><img loading="lazy" src="./1(2).jpg" alt=""></span><span class="showtext"><span class="showtitle">Рок-вечер в GosGusPub</span><br><span class="nonda-rj">Площадка: GosGusPub</span><br>Живой рок — от AC/DC до Nirvana. Приходи с компанией.</span></span></div>
-<div class="show-outer"><span class="showtime">08:00 <br>- <br>10:00</span><span class="showimg-text"> <span class="showimg"><img loading="lazy" src="./2(1).jpg" alt=""></span><span class="showtext"><span class="showtitle">Диско-пятница ABBA Night</span><br><span class="nonda-rj">Площадка: La Vida Loca</span><br>ABBA, Donna Summer, Bee Gees. Танцуем вместе.</span></span></div>
-<div class="show-outer"><span class="showtime">10:00 <br>- <br>12:00</span><span class="showimg-text"> <span class="showimg"><img loading="lazy" src="./3(1).jpg" alt=""></span><span class="showtext"><span class="showtitle">Акустика в La Vida Loca</span><br><span class="nonda-rj">Площадка: La Vida Loca</span><br>Тихий вечер, живой звук, камерный формат.</span></span></div>
-<div class="show-outer"><span class="showtime">12:00 <br>- <br>14:00</span><span class="showimg-text"> <span class="showimg"><img loading="lazy" src="./4(1).jpg" alt=""></span><span class="showtext"><span class="showtitle">Утренний джем в Bebo Chito</span><br><span class="nonda-rj">Площадка: Bebo Chito</span><br>Лёгкий джем, кофе, атмосфера воскресного утра.</span></span></div>
-</div>
-<div class="schedule-right col-lg-6">
-<div class="show-outer"><span class="showtime">14:00 <br>- <br>16:00</span><span class="showimg-text"> <span class="showimg"><img loading="lazy" src="./5(1).jpg" alt=""></span><span class="showtext"><span class="showtitle">Фанк-суббота в Птицы и Пчёлы</span><br><span class="nonda-rj">Площадка: Птицы и Пчёлы</span><br>Фанк и грув — тело само начинает двигаться.</span></span></div>
-<div class="show-outer"><span class="showtime">16:00 <br>- <br>18:00</span><span class="showimg-text"> <span class="showimg"><img loading="lazy" src="./6.jpg" alt=""></span><span class="showtext"><span class="showtitle">Рок-вечер в GosGusPub</span><br><span class="nonda-rj">Площадка: GosGusPub</span><br>Живой рок — от AC/DC до Nirvana. Приходи с компанией.</span></span></div>
-<div class="show-outer"><span class="showtime">18:00 <br>- <br>20:00</span><span class="showimg-text"> <span class="showimg"><img loading="lazy" src="./5(1).jpg" alt=""></span><span class="showtext"><span class="showtitle">Поп-рок вечеринка Звери &amp; Coldplay</span><br><span class="nonda-rj">Площадка: GosGusPub</span><span></span><br>Хиты 2000-х и 2010-х, которые поёт весь зал.</span></span></div>
-<div class="show-outer"><span class="showtime">20:00 <br>- <br>22:00</span><span class="showimg-text"> <span class="showimg"><img loading="lazy" src="./8.jpg" alt=""></span><span class="showtext"><span class="showtitle">Полуночный джем</span><br><span class="nonda-rj">Площадка: GosGusPub</span><br>Поздний джем для тех, кто не торопится домой.</span></span></div>
-</div>
-</div>        </div>
-  
-          	  <div id="jttab1" class="tab-pane fade" style="width:100%;height:auto" role="tabpanel" aria-labelledby="jttab">
-       <h2>ВТОРНИК</h2><div class="row nonda-schedule">
-<div class="schedule-left col-lg-6">
-<div class="show-outer"><span class="showtime">08:00 <br>- <br>10:00</span><span class="showimg-text"> <span class="showimg"><img loading="lazy" src="./5(1).jpg" alt=""></span><span class="showtext"><span class="showtitle">Фанк-суббота в Птицы и Пчёлы</span><br><span class="nonda-rj">Площадка: Птицы и Пчёлы</span><br>Фанк и грув — тело само начинает двигаться.</span></span></div>
-<div class="show-outer"><span class="showtime">10:00 <br>- <br>12:00</span><span class="showimg-text"> <span class="showimg"><img loading="lazy" src="./6.jpg" alt=""></span><span class="showtext"><span class="showtitle">Рок-вечер в GosGusPub</span><br><span class="nonda-rj">Площадка: GosGusPub</span><br>Живой рок — от AC/DC до Nirvana. Приходи с компанией.</span></span></div>
-<div class="show-outer"><span class="showtime">12:00 <br>- <br>14:00</span><span class="showimg-text"> <span class="showimg"><img loading="lazy" src="./5(1).jpg" alt=""></span><span class="showtext"><span class="showtitle">Поп-рок вечеринка Звери &amp; Coldplay</span><br><span class="nonda-rj">Площадка: GosGusPub</span><span></span><br>Хиты 2000-х и 2010-х, которые поёт весь зал.</span></span></div>
-<div class="show-outer"><span class="showtime">14:00 <br>- <br>16:00</span><span class="showimg-text"> <span class="showimg"><img loading="lazy" src="./8.jpg" alt=""></span><span class="showtext"><span class="showtitle">Полуночный джем</span><br><span class="nonda-rj">Площадка: GosGusPub</span><br>Поздний джем для тех, кто не торопится домой.</span></span></div>
-</div>
-<div class="schedule-right col-lg-6">
-<div class="show-outer"><span class="showtime">16:00 <br>- <br>18:00</span><span class="showimg-text"> <span class="showimg"><img loading="lazy" src="./1(2).jpg" alt=""></span><span class="showtext"><span class="showtitle">Рок-вечер в GosGusPub</span><br><span class="nonda-rj">Площадка: GosGusPub</span><br>Живой рок — от AC/DC до Nirvana. Приходи с компанией.</span></span></div>
-<div class="show-outer"><span class="showtime">18:00 <br>- <br>20:00</span><span class="showimg-text"> <span class="showimg"><img loading="lazy" src="./2(1).jpg" alt=""></span><span class="showtext"><span class="showtitle">Диско-пятница ABBA Night</span><br><span class="nonda-rj">Площадка: La Vida Loca</span><br>ABBA, Donna Summer, Bee Gees. Танцуем вместе.</span></span></div>
-<div class="show-outer"><span class="showtime">20:00 <br>- <br>22:00</span><span class="showimg-text"> <span class="showimg"><img loading="lazy" src="./3(1).jpg" alt=""></span><span class="showtext"><span class="showtitle">Акустика в La Vida Loca</span><br><span class="nonda-rj">Площадка: La Vida Loca</span><br>Тихий вечер, живой звук, камерный формат.</span></span></div>
-<div class="show-outer"><span class="showtime">22:00 <br>- <br>24:00</span><span class="showimg-text"> <span class="showimg"><img loading="lazy" src="./4(1).jpg" alt=""></span><span class="showtext"><span class="showtitle">Утренний джем в Bebo Chito</span><br><span class="nonda-rj">Площадка: Bebo Chito</span><br>Лёгкий джем, кофе, атмосфера воскресного утра.</span></span></div>
-</div>
-</div>        </div>
-  
-          	  <div id="jttab2" class="tab-pane fade" style="width:100%;height:auto" role="tabpanel" aria-labelledby="jttab">
-       <h2>СРЕДА</h2><div class="row nonda-schedule">
-<div class="schedule-left col-lg-6">
-<div class="show-outer"><span class="showtime">06:00 <br>- <br>08:00</span><span class="showimg-text"> <span class="showimg"><img loading="lazy" src="./1(2).jpg" alt=""></span><span class="showtext"><span class="showtitle">Рок-вечер в GosGusPub</span><br><span class="nonda-rj">Площадка: GosGusPub</span><br>Живой рок — от AC/DC до Nirvana. Приходи с компанией.</span></span></div>
-<div class="show-outer"><span class="showtime">08:00 <br>- <br>10:00</span><span class="showimg-text"> <span class="showimg"><img loading="lazy" src="./2(1).jpg" alt=""></span><span class="showtext"><span class="showtitle">Диско-пятница ABBA Night</span><br><span class="nonda-rj">Площадка: La Vida Loca</span><br>ABBA, Donna Summer, Bee Gees. Танцуем вместе.</span></span></div>
-<div class="show-outer"><span class="showtime">10:00 <br>- <br>12:00</span><span class="showimg-text"> <span class="showimg"><img loading="lazy" src="./3(1).jpg" alt=""></span><span class="showtext"><span class="showtitle">Акустика в La Vida Loca</span><br><span class="nonda-rj">Площадка: La Vida Loca</span><br>Тихий вечер, живой звук, камерный формат.</span></span></div>
-<div class="show-outer"><span class="showtime">12:00 <br>- <br>14:00</span><span class="showimg-text"> <span class="showimg"><img loading="lazy" src="./4(1).jpg" alt=""></span><span class="showtext"><span class="showtitle">Утренний джем в Bebo Chito</span><br><span class="nonda-rj">Площадка: Bebo Chito</span><br>Лёгкий джем, кофе, атмосфера воскресного утра.</span></span></div>
-</div>
-<div class="schedule-right col-lg-6">
-<div class="show-outer"><span class="showtime">14:00 <br>- <br>16:00</span><span class="showimg-text"> <span class="showimg"><img loading="lazy" src="./5(1).jpg" alt=""></span><span class="showtext"><span class="showtitle">Фанк-суббота в Птицы и Пчёлы</span><br><span class="nonda-rj">Площадка: Птицы и Пчёлы</span><br>Фанк и грув — тело само начинает двигаться.</span></span></div>
-<div class="show-outer"><span class="showtime">16:00 <br>- <br>18:00</span><span class="showimg-text"> <span class="showimg"><img loading="lazy" src="./6.jpg" alt=""></span><span class="showtext"><span class="showtitle">Рок-вечер в GosGusPub</span><br><span class="nonda-rj">Площадка: GosGusPub</span><br>Живой рок — от AC/DC до Nirvana. Приходи с компанией.</span></span></div>
-<div class="show-outer"><span class="showtime">18:00 <br>- <br>20:00</span><span class="showimg-text"> <span class="showimg"><img loading="lazy" src="./5(1).jpg" alt=""></span><span class="showtext"><span class="showtitle">Поп-рок вечеринка Звери &amp; Coldplay</span><br><span class="nonda-rj">Площадка: GosGusPub</span><span></span><br>Хиты 2000-х и 2010-х, которые поёт весь зал.</span></span></div>
-<div class="show-outer"><span class="showtime">20:00 <br>- <br>22:00</span><span class="showimg-text"> <span class="showimg"><img loading="lazy" src="./8.jpg" alt=""></span><span class="showtext"><span class="showtitle">Полуночный джем</span><br><span class="nonda-rj">Площадка: GosGusPub</span><br>Поздний джем для тех, кто не торопится домой.</span></span></div>
-</div>
-</div>        </div>
-  
-          	  <div id="jttab3" class="tab-pane fade" style="width:100%;height:auto" role="tabpanel" aria-labelledby="jttab">
-       <h2>ЧЕТВЕРГ</h2><div class="row nonda-schedule">
-<div class="schedule-left col-lg-6">
-<div class="show-outer"><span class="showtime">08:00 <br>- <br>10:00</span><span class="showimg-text"> <span class="showimg"><img loading="lazy" src="./5(1).jpg" alt=""></span><span class="showtext"><span class="showtitle">Фанк-суббота в Птицы и Пчёлы</span><br><span class="nonda-rj">Площадка: Птицы и Пчёлы</span><br>Фанк и грув — тело само начинает двигаться.</span></span></div>
-<div class="show-outer"><span class="showtime">10:00 <br>- <br>12:00</span><span class="showimg-text"> <span class="showimg"><img loading="lazy" src="./6.jpg" alt=""></span><span class="showtext"><span class="showtitle">Рок-вечер в GosGusPub</span><br><span class="nonda-rj">Площадка: GosGusPub</span><br>Живой рок — от AC/DC до Nirvana. Приходи с компанией.</span></span></div>
-<div class="show-outer"><span class="showtime">12:00 <br>- <br>14:00</span><span class="showimg-text"> <span class="showimg"><img loading="lazy" src="./5(1).jpg" alt=""></span><span class="showtext"><span class="showtitle">Поп-рок вечеринка Звери &amp; Coldplay</span><br><span class="nonda-rj">Площадка: GosGusPub</span><span></span><br>Хиты 2000-х и 2010-х, которые поёт весь зал.</span></span></div>
-<div class="show-outer"><span class="showtime">14:00 <br>- <br>16:00</span><span class="showimg-text"> <span class="showimg"><img loading="lazy" src="./8.jpg" alt=""></span><span class="showtext"><span class="showtitle">Полуночный джем</span><br><span class="nonda-rj">Площадка: GosGusPub</span><br>Поздний джем для тех, кто не торопится домой.</span></span></div>
-</div>
-<div class="schedule-right col-lg-6">
-<div class="show-outer"><span class="showtime">16:00 <br>- <br>18:00</span><span class="showimg-text"> <span class="showimg"><img loading="lazy" src="./1(2).jpg" alt=""></span><span class="showtext"><span class="showtitle">Рок-вечер в GosGusPub</span><br><span class="nonda-rj">Площадка: GosGusPub</span><br>Живой рок — от AC/DC до Nirvana. Приходи с компанией.</span></span></div>
-<div class="show-outer"><span class="showtime">18:00 <br>- <br>20:00</span><span class="showimg-text"> <span class="showimg"><img loading="lazy" src="./2(1).jpg" alt=""></span><span class="showtext"><span class="showtitle">Диско-пятница ABBA Night</span><br><span class="nonda-rj">Площадка: La Vida Loca</span><br>ABBA, Donna Summer, Bee Gees. Танцуем вместе.</span></span></div>
-<div class="show-outer"><span class="showtime">20:00 <br>- <br>22:00</span><span class="showimg-text"> <span class="showimg"><img loading="lazy" src="./3(1).jpg" alt=""></span><span class="showtext"><span class="showtitle">Акустика в La Vida Loca</span><br><span class="nonda-rj">Площадка: La Vida Loca</span><br>Тихий вечер, живой звук, камерный формат.</span></span></div>
-<div class="show-outer"><span class="showtime">22:00 <br>- <br>24:00</span><span class="showimg-text"> <span class="showimg"><img loading="lazy" src="./4(1).jpg" alt=""></span><span class="showtext"><span class="showtitle">Утренний джем в Bebo Chito</span><br><span class="nonda-rj">Площадка: Bebo Chito</span><br>Лёгкий джем, кофе, атмосфера воскресного утра.</span></span></div>
-</div>
-</div>        </div>
-  
-          	  <div id="jttab4" class="tab-pane fade" style="width:100%;height:auto" role="tabpanel" aria-labelledby="jttab">
-       <h2>ПЯТНИЦА</h2><div class="row nonda-schedule">
-<div class="schedule-left col-lg-6">
-<div class="show-outer"><span class="showtime">06:00 <br>- <br>08:00</span><span class="showimg-text"> <span class="showimg"><img loading="lazy" src="./1(2).jpg" alt=""></span><span class="showtext"><span class="showtitle">Рок-вечер в GosGusPub</span><br><span class="nonda-rj">Площадка: GosGusPub</span><br>Живой рок — от AC/DC до Nirvana. Приходи с компанией.</span></span></div>
-<div class="show-outer"><span class="showtime">08:00 <br>- <br>10:00</span><span class="showimg-text"> <span class="showimg"><img loading="lazy" src="./2(1).jpg" alt=""></span><span class="showtext"><span class="showtitle">Диско-пятница ABBA Night</span><br><span class="nonda-rj">Площадка: La Vida Loca</span><br>ABBA, Donna Summer, Bee Gees. Танцуем вместе.</span></span></div>
-<div class="show-outer"><span class="showtime">10:00 <br>- <br>12:00</span><span class="showimg-text"> <span class="showimg"><img loading="lazy" src="./3(1).jpg" alt=""></span><span class="showtext"><span class="showtitle">Акустика в La Vida Loca</span><br><span class="nonda-rj">Площадка: La Vida Loca</span><br>Тихий вечер, живой звук, камерный формат.</span></span></div>
-<div class="show-outer"><span class="showtime">12:00 <br>- <br>14:00</span><span class="showimg-text"> <span class="showimg"><img loading="lazy" src="./4(1).jpg" alt=""></span><span class="showtext"><span class="showtitle">Утренний джем в Bebo Chito</span><br><span class="nonda-rj">Площадка: Bebo Chito</span><br>Лёгкий джем, кофе, атмосфера воскресного утра.</span></span></div>
-</div>
-<div class="schedule-right col-lg-6">
-<div class="show-outer"><span class="showtime">14:00 <br>- <br>16:00</span><span class="showimg-text"> <span class="showimg"><img loading="lazy" src="./5(1).jpg" alt=""></span><span class="showtext"><span class="showtitle">Фанк-суббота в Птицы и Пчёлы</span><br><span class="nonda-rj">Площадка: Птицы и Пчёлы</span><br>Фанк и грув — тело само начинает двигаться.</span></span></div>
-<div class="show-outer"><span class="showtime">16:00 <br>- <br>18:00</span><span class="showimg-text"> <span class="showimg"><img loading="lazy" src="./6.jpg" alt=""></span><span class="showtext"><span class="showtitle">Рок-вечер в GosGusPub</span><br><span class="nonda-rj">Площадка: GosGusPub</span><br>Живой рок — от AC/DC до Nirvana. Приходи с компанией.</span></span></div>
-<div class="show-outer"><span class="showtime">18:00 <br>- <br>20:00</span><span class="showimg-text"> <span class="showimg"><img loading="lazy" src="./5(1).jpg" alt=""></span><span class="showtext"><span class="showtitle">Поп-рок вечеринка Звери &amp; Coldplay</span><br><span class="nonda-rj">Площадка: GosGusPub</span><span></span><br>Хиты 2000-х и 2010-х, которые поёт весь зал.</span></span></div>
-<div class="show-outer"><span class="showtime">20:00 <br>- <br>22:00</span><span class="showimg-text"> <span class="showimg"><img loading="lazy" src="./8.jpg" alt=""></span><span class="showtext"><span class="showtitle">Полуночный джем</span><br><span class="nonda-rj">Площадка: GosGusPub</span><br>Поздний джем для тех, кто не торопится домой.</span></span></div>
-</div>
-</div>        </div>
-  
-          	  <div id="jttab5" class="tab-pane fade" style="width:100%;height:auto" role="tabpanel" aria-labelledby="jttab">
-       <h2>СУББОТА</h2><div class="row nonda-schedule">
-<div class="schedule-left col-lg-6">
-<div class="show-outer"><span class="showtime">08:00 <br>- <br>10:00</span><span class="showimg-text"> <span class="showimg"><img loading="lazy" src="./5(1).jpg" alt=""></span><span class="showtext"><span class="showtitle">Фанк-суббота в Птицы и Пчёлы</span><br><span class="nonda-rj">Площадка: Птицы и Пчёлы</span><br>Фанк и грув — тело само начинает двигаться.</span></span></div>
-<div class="show-outer"><span class="showtime">10:00 <br>- <br>12:00</span><span class="showimg-text"> <span class="showimg"><img loading="lazy" src="./6.jpg" alt=""></span><span class="showtext"><span class="showtitle">Рок-вечер в GosGusPub</span><br><span class="nonda-rj">Площадка: GosGusPub</span><br>Живой рок — от AC/DC до Nirvana. Приходи с компанией.</span></span></div>
-<div class="show-outer"><span class="showtime">12:00 <br>- <br>14:00</span><span class="showimg-text"> <span class="showimg"><img loading="lazy" src="./5(1).jpg" alt=""></span><span class="showtext"><span class="showtitle">Поп-рок вечеринка Звери &amp; Coldplay</span><br><span class="nonda-rj">Площадка: GosGusPub</span><span></span><br>Хиты 2000-х и 2010-х, которые поёт весь зал.</span></span></div>
-<div class="show-outer"><span class="showtime">14:00 <br>- <br>16:00</span><span class="showimg-text"> <span class="showimg"><img loading="lazy" src="./8.jpg" alt=""></span><span class="showtext"><span class="showtitle">Полуночный джем</span><br><span class="nonda-rj">Площадка: GosGusPub</span><br>Поздний джем для тех, кто не торопится домой.</span></span></div>
-</div>
-<div class="schedule-right col-lg-6">
-<div class="show-outer"><span class="showtime">16:00 <br>- <br>18:00</span><span class="showimg-text"> <span class="showimg"><img loading="lazy" src="./1(2).jpg" alt=""></span><span class="showtext"><span class="showtitle">Рок-вечер в GosGusPub</span><br><span class="nonda-rj">Площадка: GosGusPub</span><br>Живой рок — от AC/DC до Nirvana. Приходи с компанией.</span></span></div>
-<div class="show-outer"><span class="showtime">18:00 <br>- <br>20:00</span><span class="showimg-text"> <span class="showimg"><img loading="lazy" src="./2(1).jpg" alt=""></span><span class="showtext"><span class="showtitle">Диско-пятница ABBA Night</span><br><span class="nonda-rj">Площадка: La Vida Loca</span><br>ABBA, Donna Summer, Bee Gees. Танцуем вместе.</span></span></div>
-<div class="show-outer"><span class="showtime">20:00 <br>- <br>22:00</span><span class="showimg-text"> <span class="showimg"><img loading="lazy" src="./3(1).jpg" alt=""></span><span class="showtext"><span class="showtitle">Акустика в La Vida Loca</span><br><span class="nonda-rj">Площадка: La Vida Loca</span><br>Тихий вечер, живой звук, камерный формат.</span></span></div>
-<div class="show-outer"><span class="showtime">22:00 <br>- <br>24:00</span><span class="showimg-text"> <span class="showimg"><img loading="lazy" src="./4(1).jpg" alt=""></span><span class="showtext"><span class="showtitle">Утренний джем в Bebo Chito</span><br><span class="nonda-rj">Площадка: Bebo Chito</span><br>Лёгкий джем, кофе, атмосфера воскресного утра.</span></span></div>
-</div>
-</div>        </div>
-  
-          	  <div id="jttab6" class="tab-pane fade" style="width:100%;height:auto" role="tabpanel" aria-labelledby="jttab">
-       <h2>ВОСКРЕСЕНЬЕ</h2><div class="row nonda-schedule">
-<div class="schedule-left col-lg-6">
-<div class="show-outer"><span class="showtime">06:00 <br>- <br>08:00</span><span class="showimg-text"> <span class="showimg"><img loading="lazy" src="./1(2).jpg" alt=""></span><span class="showtext"><span class="showtitle">Рок-вечер в GosGusPub</span><br><span class="nonda-rj">Площадка: GosGusPub</span><br>Живой рок — от AC/DC до Nirvana. Приходи с компанией.</span></span></div>
-<div class="show-outer"><span class="showtime">08:00 <br>- <br>10:00</span><span class="showimg-text"> <span class="showimg"><img loading="lazy" src="./2(1).jpg" alt=""></span><span class="showtext"><span class="showtitle">Диско-пятница ABBA Night</span><br><span class="nonda-rj">Площадка: La Vida Loca</span><br>ABBA, Donna Summer, Bee Gees. Танцуем вместе.</span></span></div>
-<div class="show-outer"><span class="showtime">10:00 <br>- <br>12:00</span><span class="showimg-text"> <span class="showimg"><img loading="lazy" src="./3(1).jpg" alt=""></span><span class="showtext"><span class="showtitle">Акустика в La Vida Loca</span><br><span class="nonda-rj">Площадка: La Vida Loca</span><br>Тихий вечер, живой звук, камерный формат.</span></span></div>
-<div class="show-outer"><span class="showtime">12:00 <br>- <br>14:00</span><span class="showimg-text"> <span class="showimg"><img loading="lazy" src="./4(1).jpg" alt=""></span><span class="showtext"><span class="showtitle">Утренний джем в Bebo Chito</span><br><span class="nonda-rj">Площадка: Bebo Chito</span><br>Лёгкий джем, кофе, атмосфера воскресного утра.</span></span></div>
-</div>
-<div class="schedule-right col-lg-6">
-<div class="show-outer"><span class="showtime">14:00 <br>- <br>16:00</span><span class="showimg-text"> <span class="showimg"><img loading="lazy" src="./5(1).jpg" alt=""></span><span class="showtext"><span class="showtitle">Фанк-суббота в Птицы и Пчёлы</span><br><span class="nonda-rj">Площадка: Птицы и Пчёлы</span><br>Фанк и грув — тело само начинает двигаться.</span></span></div>
-<div class="show-outer"><span class="showtime">16:00 <br>- <br>18:00</span><span class="showimg-text"> <span class="showimg"><img loading="lazy" src="./6.jpg" alt=""></span><span class="showtext"><span class="showtitle">Рок-вечер в GosGusPub</span><br><span class="nonda-rj">Площадка: GosGusPub</span><br>Живой рок — от AC/DC до Nirvana. Приходи с компанией.</span></span></div>
-<div class="show-outer"><span class="showtime">18:00 <br>- <br>20:00</span><span class="showimg-text"> <span class="showimg"><img loading="lazy" src="./5(1).jpg" alt=""></span><span class="showtext"><span class="showtitle">Поп-рок вечеринка Звери &amp; Coldplay</span><br><span class="nonda-rj">Площадка: GosGusPub</span><span></span><br>Хиты 2000-х и 2010-х, которые поёт весь зал.</span></span></div>
-<div class="show-outer"><span class="showtime">20:00 <br>- <br>22:00</span><span class="showimg-text"> <span class="showimg"><img loading="lazy" src="./8.jpg" alt=""></span><span class="showtext"><span class="showtitle">Полуночный джем</span><br><span class="nonda-rj">Площадка: GosGusPub</span><br>Поздний джем для тех, кто не торопится домой.</span></span></div>
-</div>
-</div>        </div>
-  
-       </div><!--tab-content-->
-</div>
-  <!-- phpdebugbar/pagenavigation hide script removed --></div>
-<div class="moduletable ">
             <h3 class="equalizer bicolor"><span class="titlespan"><span class="first-word-nonda">НАШИ</span> МУЗЫКАНТЫ</span></h3>        <style type="text/css">.jt_testimonial130.owl2-carousel2.nav-outside-top .owl2-nav {top:-35px;right: 20px;}
 .jt_testimonial130.nav-bottom-right .owl2-nav {bottom:0px;right: 20px;}
 .jt_testimonial130 .testimonial_block-image{max-width:100%;min-width:auto;width:auto;height:228;border-radius:100%;margin-bottom:20;border:3px solid rgba(255,255,255,0.1);}
