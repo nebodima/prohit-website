@@ -1,0 +1,389 @@
+/**
+ * @version     2.0.0
+ * @package     com_yendifvideoshare
+ * @copyright   Copyright (c) 2012 - 2022 PluginsWare Interactive Pvt. Ltd. All Rights Reserved.
+ * @license     GNU General Public License version 2 or later; see LICENSE.txt
+ * @author      PluginsWare Interactive Pvt. Ltd <admin@yendifplayer.com>
+ */
+
+/*----------------------------------------------------------------------------------------------
+ *
+ *	Global
+ *
+ *--------------------------------------------------------------------------------------------*/
+.yendif-video-share-responsive-item {
+	position: relative;
+	display: block;
+	width: 100%;
+	min-width: 75px;
+	height: 0;
+	padding-bottom: 56.25%;
+	overflow: hidden;
+}
+
+.yendif-video-share-responsive-item .yendif-video-share-image {
+	position: absolute;
+	width: 100%;
+	height: 100%;
+	background-repeat: no-repeat;
+	background-position: 50% 50%;
+	background-size: cover;
+	z-index: 1;
+}
+
+.yendif-video-share-responsive-item .yendif-video-share-duration {
+	position: absolute;	
+	right: 0;
+	bottom: 0;
+	margin: 0;
+	padding: 2px 5px;
+	background-color: #666;
+	color: #FFF;
+	line-height: 1;
+	z-index: 1;
+}
+
+.yendif-video-share-spinner {
+	display: inline-block;
+	background :url(data:,) no-repeat center center;
+	width: 16px;
+	height: 16px;
+	margin: 0;
+	padding: 0;
+}
+
+/*----------------------------------------------------------------------------------------------
+ *
+ *	Popup
+ *
+ *--------------------------------------------------------------------------------------------*/
+.mfp-iframe-scaler iframe {
+	background: #000 url(data:,) center center no-repeat;
+}
+
+/*----------------------------------------------------------------------------------------------
+ *
+ *	Player
+ *
+ *--------------------------------------------------------------------------------------------*/
+.yendifplayer {
+	position: relative;
+	width: 100%;
+	height: 0;
+	padding-bottom: 56.25%;
+} 
+
+.yendifplayer iframe {
+	position: absolute;
+    width: 100%;
+	height: 100%;
+	margin: 0;
+	padding: 0;
+	top: 0;
+	right: 0;
+	bottom: 0;
+	left: 0;	
+}
+
+/*----------------------------------------------------------------------------------------------
+ *
+ *	Playlist
+ *
+ *--------------------------------------------------------------------------------------------*/
+.yendif-video-share-playlist {
+	position: relative;
+	display: -webkit-flex; /* Safari */
+    -webkit-flex-wrap: wrap; /* Safari 6.1+ */
+    display: flex;
+    flex-wrap: wrap;
+	width: 100%;
+	background-color: #444;
+}
+
+.yendif-video-share-playlist-player,
+.yendif-video-share-playlist-videos {
+	flex: 0 0 auto;
+	width: 100%;
+}
+
+.yendif-video-share-playlist-videos.right {
+	position: absolute;
+	top: 0;
+	right: 0;
+	bottom: 0;
+	overflow-y: auto;
+}
+
+.yendif-video-share-playlist-item {
+	border-bottom: 1px solid #333;
+	color: #fff;
+	cursor: pointer;
+}
+
+.yendif-video-share-playlist-item:hover {
+	background-color: #333;
+}
+
+.yendif-video-share-playlist-item.active {
+	background-color: #333;
+	pointer-events: none;
+}
+
+.yendif-video-share-playlist-item .yendif-video-share-title,
+.yendif-video-share-playlist-item .yendif-video-share-excerpt {
+	word-break: break-word;
+}
+
+@media only screen and (max-width: 768px) {
+	.yendif-video-share-playlist-videos.right {
+		position: relative;
+	}
+}
+
+/*----------------------------------------------------------------------------------------------
+ *
+ *	Icons
+ *
+ *--------------------------------------------------------------------------------------------*/
+.yendif-video-share .yendif-video-share-svg-icon {
+	display: inline-block;
+	width: 16px;
+	fill: #666;
+	stroke: none;
+	stroke-width: 0;
+	vertical-align: middle;
+}
+
+.yendif-video-share .yendif-video-share-svg-icon-play {
+	position: absolute;
+	width: 32px;
+	top: 50%;
+	left: 50%;
+	margin-top: -16px;
+	margin-left: -16px;
+	fill: #fff;
+	pointer-events: none;
+	z-index: 3;	
+}
+
+/*----------------------------------------------------------------------------------------------
+ *
+ *	Ratings
+ *
+ *--------------------------------------------------------------------------------------------*/
+.yendif-video-share-ratings,
+.yendif-video-share-ratings-small {
+	margin: 0;
+	padding: 0;	
+}
+
+.yendif-video-share-ratings-stars {
+	position: relative;
+	display: inline-block;
+	width: 110px;
+    margin: 0;
+    padding: 0;  
+	font-size: 1em;      
+    vertical-align: middle;
+	overflow: hidden;
+}
+
+.yendif-video-share-ratings-info {
+	position: relative;
+    margin: 0;
+    padding: 0 0 0 10px;  
+	font-size: .9em; 
+	color: #666;
+    vertical-align: middle;	
+}
+
+.yendif-video-share-ratings-stars,
+.yendif-video-share-ratings-stars .yendif-video-share-ratings-current,
+.yendif-video-share-ratings-star a,
+.yendif-video-share-ratings-info {
+    height: 22px;
+    line-height: 22px;
+}
+
+.yendif-video-share-ratings-small .yendif-video-share-ratings-stars,
+.yendif-video-share-ratings-small .yendif-video-share-ratings-current,
+.yendif-video-share-ratings-small .yendif-video-share-ratings-star a,
+.yendif-video-share-ratings-small .yendif-video-share-ratings-info {
+    height: 17px;
+    line-height: 17px;
+}
+
+.yendif-video-share-ratings-small .yendif-video-share-ratings-stars {
+    width: 85px;
+}
+
+.yendif-video-share-ratings-star {
+	display: inline;
+    background-position: 0;
+    background-image: none;    
+    margin: 0;
+    padding: 0;
+}
+
+.yendif-video-share-ratings-stars,
+.yendif-video-share-ratings-star a:hover,
+.yendif-video-share-ratings-stars .yendif-video-share-ratings-current {
+    background-image: url(data:,);
+    background-color: transparent;
+    background-repeat: repeat-x;
+}
+
+.yendif-video-share-ratings-stars .yendif-video-share-ratings-current,
+.yendif-video-share-ratings-star a:hover {
+    background-position: left -1000px;
+}
+
+.yendif-video-share-ratings-small .yendif-video-share-ratings-stars,
+.yendif-video-share-ratings-small .yendif-video-share-ratings-current,
+.yendif-video-share-ratings-small .yendif-video-share-ratings-star a:hover {
+    background-image: url(data:,);
+}
+
+.yendif-video-share-ratings-stars .yendif-video-share-ratings-current,
+.yendif-video-share-ratings-star a {
+	position: absolute;    
+    top: 0;
+    left: 0;    
+	border: medium none;
+    text-indent: -1000em;
+    outline: none;
+    overflow: hidden;
+	cursor: pointer;
+}
+
+.yendif-video-share-ratings-stars .yendif-video-share-ratings-current {
+    background-position: left center;
+    z-index: 1;
+}
+
+.yendif-video-share-ratings-star a {
+    margin: 0;
+    padding: 0;
+}
+
+.yendif-video-share-ratings-star a:hover {
+    background-position: left bottom;
+}
+
+.yendif-video-share-ratings-star a:focus,
+.yendif-video-share-ratings-star a:active {
+    background: none;
+}
+
+.yendif-video-share-ratings-star a.yendif-video-share-ratings-star-5 {
+    width: 10%;
+    z-index: 12;
+}
+
+.yendif-video-share-ratings-star a.yendif-video-share-ratings-star-10 {
+    width: 20%;
+    z-index: 11;
+}
+
+.yendif-video-share-ratings-star a.yendif-video-share-ratings-star-15 {
+    width: 30%;
+    z-index: 10;
+}
+
+.yendif-video-share-ratings-star a.yendif-video-share-ratings-star-20 {
+    width: 40%;
+    z-index: 9;
+}
+
+.yendif-video-share-ratings-star a.yendif-video-share-ratings-star-25 {
+    width: 50%;
+    z-index: 8;
+}
+
+.yendif-video-share-ratings-star a.yendif-video-share-ratings-star-30 {
+    width: 60%;
+    z-index: 7;
+}
+
+.yendif-video-share-ratings-star a.yendif-video-share-ratings-star-35 {
+    width: 70%;
+    z-index: 6;
+}
+
+.yendif-video-share-ratings-star a.yendif-video-share-ratings-star-40 {
+    width: 80%;
+    z-index: 5;
+}
+
+.yendif-video-share-ratings-star a.yendif-video-share-ratings-star-45 {
+    width: 90%;
+    z-index: 4;
+}
+
+.yendif-video-share-ratings-star a.yendif-video-share-ratings-star-50 {
+    width: 100%;
+    z-index: 3;
+}
+
+/*----------------------------------------------------------------------------------------------
+ *
+ *	Likes / Dislikes
+ *
+ *--------------------------------------------------------------------------------------------*/
+.yendif-video-share-likes-dislikes,
+.yendif-video-share-likes-dislikes span {
+	display: inline-block;
+	line-height: 14px;
+	vertical-align: middle;
+}
+
+.yendif-video-share-like-btn,
+.yendif-video-share-dislike-btn {
+	display: inline-block;
+	margin-right: 3px;
+	padding: 3px 6px;
+	background-color: #787869;
+	color: #F2F2F2;
+	-webkit-border-radius: 2px;
+	-moz-border-radius: 2px;
+	border-radius: 2px;	
+	cursor: pointer;
+}
+
+.yendif-video-share-like-icon {
+	display: inline-block;
+	width: 16px;
+	height: 16px;
+	background-image: url(data:,);
+}
+
+.yendif-video-share-like-icon.active {
+	background-image: url(data:,);
+}
+
+.yendif-video-share-dislike-icon {
+	display: inline-block;
+	width: 16px;
+	height: 16px;
+	background-image: url(data:,);
+}
+
+.yendif-video-share-dislike-icon.active {
+	background-image: url(data:,);
+}
+
+.yendif-video-share-like-dislike-seperator {
+	display: inline-block;
+	width: 1px;
+	height: 16px;
+	margin: 0 5px;
+	background-color: darkgray;
+}
+
+.yendif-video-share-like-count,
+.yendif-video-share-dislike-count {
+	display: inline-block;	
+	font-family: Verdana, Arial, Helvetica, sans-serif;
+	font-size: 12px;
+	color: #F2F2F2;
+}
