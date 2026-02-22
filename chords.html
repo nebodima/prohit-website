@@ -1,0 +1,431 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>ПРО•ХИТ — Аккорды и текст</title>
+<link rel="icon" href="favicon.svg" type="image/svg+xml">
+<style>
+* { box-sizing: border-box; margin: 0; padding: 0; }
+
+body {
+  background: #111;
+  color: #e0e0e0;
+  font-family: 'Segoe UI', Arial, sans-serif;
+  font-size: 15px;
+  line-height: 1.6;
+}
+
+/* ── Фиксированная навигация по песням ── */
+#songs-nav {
+  position: fixed;
+  top: 0; left: 0; right: 0;
+  background: #1a1a1a;
+  border-bottom: 2px solid #fe0178;
+  z-index: 100;
+  display: flex;
+  align-items: center;
+  overflow-x: auto;
+  white-space: nowrap;
+  scrollbar-width: thin;
+  scrollbar-color: #fe0178 #1a1a1a;
+}
+
+#songs-nav::-webkit-scrollbar { height: 3px; }
+#songs-nav::-webkit-scrollbar-track { background: #1a1a1a; }
+#songs-nav::-webkit-scrollbar-thumb { background: #fe0178; border-radius: 2px; }
+
+#songs-nav .brand {
+  display: inline-block;
+  padding: 10px 14px;
+  color: #fe0178;
+  font-weight: 700;
+  font-size: 13px;
+  letter-spacing: 1.5px;
+  flex-shrink: 0;
+  border-right: 1px solid #333;
+}
+
+#songs-nav a {
+  display: inline-block;
+  padding: 10px 11px;
+  color: #999;
+  text-decoration: none;
+  font-size: 12px;
+  transition: color 0.2s;
+  border-right: 1px solid #222;
+  flex-shrink: 0;
+}
+
+#songs-nav a:hover { color: #fe0178; }
+#songs-nav a.active { color: #fff; background: #222; }
+
+/* ── Основной контент ── */
+main {
+  padding-top: 46px;
+  max-width: 820px;
+  margin: 0 auto;
+  padding-bottom: 80px;
+}
+
+/* ── Секция песни ── */
+.song-section {
+  padding: 28px 20px 24px;
+  border-bottom: 1px solid #222;
+  scroll-margin-top: 46px;
+}
+
+.song-section h2 {
+  font-size: 20px;
+  color: #fff;
+  font-weight: 700;
+  margin-bottom: 6px;
+}
+
+.song-meta {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 14px;
+  margin-bottom: 16px;
+  font-size: 13px;
+  color: #777;
+}
+
+.song-meta .meta-key   { color: #fe0178; font-weight: 600; }
+.song-meta .meta-tempo { color: #aaa; }
+.song-meta .meta-note  { color: #666; font-style: italic; }
+
+/* ── Аккорды + текст ── */
+.part-label {
+  font-size: 11px;
+  text-transform: uppercase;
+  letter-spacing: 1.5px;
+  color: #555;
+  margin: 14px 0 4px;
+}
+
+.chord-block {
+  background: #161616;
+  border-left: 3px solid #fe0178;
+  border-radius: 0 4px 4px 0;
+  padding: 12px 14px;
+  font-family: 'Courier New', Courier, monospace;
+  font-size: 13.5px;
+  line-height: 1.9;
+  white-space: pre;
+  overflow-x: auto;
+  color: #bbb;
+}
+
+.chord-block .ch {
+  color: #fe0178;
+  font-weight: 700;
+}
+
+.placeholder {
+  color: #444;
+  font-style: italic;
+}
+
+/* ── Инструкция (видна пока блок пустой) ── */
+.tip {
+  margin-top: 8px;
+  font-size: 12px;
+  color: #444;
+}
+
+@media (max-width: 600px) {
+  .song-section { padding: 20px 14px 18px; }
+  .chord-block  { font-size: 12px; }
+  .song-section h2 { font-size: 17px; }
+}
+</style>
+</head>
+<body>
+
+<!-- ── Навигация по песням ── -->
+<nav id="songs-nav">
+  <span class="brand">ПРО•ХИТ</span>
+  <a href="#song-1">1. Get Down</a>
+  <a href="#song-2">2. Привет</a>
+  <a href="#song-3">3. Наша высота</a>
+  <a href="#song-4">4. С неба</a>
+  <a href="#song-5">5. Amazing Girl</a>
+  <a href="#song-6">6. Два белых паруса</a>
+  <a href="#song-7">7. Радио Иркутск</a>
+  <a href="#song-8">8. Светлая ночь</a>
+  <a href="#song-9">9. Синица</a>
+  <a href="#song-10">10. Пляжная</a>
+  <a href="#song-11">11. Let's Dance</a>
+  <a href="#song-12">12. Розовые очки</a>
+</nav>
+
+<main>
+
+<!-- ═══════════════════════════════════════════ -->
+<!-- 1. Get Down -->
+<!-- ═══════════════════════════════════════════ -->
+<section class="song-section" id="song-1">
+  <h2>1. Get Down</h2>
+  <div class="song-meta">
+    <span class="meta-key">Тональность: —</span>
+    <span class="meta-tempo">Темп: — BPM</span>
+    <span class="meta-note">ПРО•ХИТ Band</span>
+  </div>
+
+  <div class="part-label">Куплет 1</div>
+  <div class="chord-block"><span class="placeholder">← вставьте аккорды и текст</span></div>
+
+  <div class="part-label">Припев</div>
+  <div class="chord-block"><span class="placeholder">← вставьте аккорды и текст</span></div>
+
+  <p class="tip">Длительность: 2:15</p>
+</section>
+
+<!-- ═══════════════════════════════════════════ -->
+<!-- 2. Привет -->
+<!-- ═══════════════════════════════════════════ -->
+<section class="song-section" id="song-2">
+  <h2>2. Привет</h2>
+  <div class="song-meta">
+    <span class="meta-key">Тональность: —</span>
+    <span class="meta-tempo">Темп: — BPM</span>
+    <span class="meta-note">ПРО•ХИТ Band</span>
+  </div>
+
+  <div class="part-label">Куплет 1</div>
+  <div class="chord-block"><span class="placeholder">← вставьте аккорды и текст</span></div>
+
+  <div class="part-label">Припев</div>
+  <div class="chord-block"><span class="placeholder">← вставьте аккорды и текст</span></div>
+
+  <p class="tip">Длительность: 3:13</p>
+</section>
+
+<!-- ═══════════════════════════════════════════ -->
+<!-- 3. Наша высота -->
+<!-- ═══════════════════════════════════════════ -->
+<section class="song-section" id="song-3">
+  <h2>3. Наша высота</h2>
+  <div class="song-meta">
+    <span class="meta-key">Тональность: —</span>
+    <span class="meta-tempo">Темп: — BPM</span>
+    <span class="meta-note">ПРО•ХИТ Band</span>
+  </div>
+
+  <div class="part-label">Куплет 1</div>
+  <div class="chord-block"><span class="placeholder">← вставьте аккорды и текст</span></div>
+
+  <div class="part-label">Припев</div>
+  <div class="chord-block"><span class="placeholder">← вставьте аккорды и текст</span></div>
+
+  <p class="tip">Длительность: 4:24</p>
+</section>
+
+<!-- ═══════════════════════════════════════════ -->
+<!-- 4. С неба -->
+<!-- ═══════════════════════════════════════════ -->
+<section class="song-section" id="song-4">
+  <h2>4. С неба</h2>
+  <div class="song-meta">
+    <span class="meta-key">Тональность: —</span>
+    <span class="meta-tempo">Темп: — BPM</span>
+    <span class="meta-note">ПРО•ХИТ Band</span>
+  </div>
+
+  <div class="part-label">Куплет 1</div>
+  <div class="chord-block"><span class="placeholder">← вставьте аккорды и текст</span></div>
+
+  <div class="part-label">Припев</div>
+  <div class="chord-block"><span class="placeholder">← вставьте аккорды и текст</span></div>
+
+  <p class="tip">Длительность: 4:06</p>
+</section>
+
+<!-- ═══════════════════════════════════════════ -->
+<!-- 5. Amazing Girl -->
+<!-- ═══════════════════════════════════════════ -->
+<section class="song-section" id="song-5">
+  <h2>5. Amazing Girl</h2>
+  <div class="song-meta">
+    <span class="meta-key">Тональность: —</span>
+    <span class="meta-tempo">Темп: — BPM</span>
+    <span class="meta-note">ПРО•ХИТ Band</span>
+  </div>
+
+  <div class="part-label">Verse 1</div>
+  <div class="chord-block"><span class="placeholder">← вставьте аккорды и текст</span></div>
+
+  <div class="part-label">Chorus</div>
+  <div class="chord-block"><span class="placeholder">← вставьте аккорды и текст</span></div>
+
+  <p class="tip">Длительность: 3:58</p>
+</section>
+
+<!-- ═══════════════════════════════════════════ -->
+<!-- 6. Два белых паруса -->
+<!-- ═══════════════════════════════════════════ -->
+<section class="song-section" id="song-6">
+  <h2>6. Два белых паруса</h2>
+  <div class="song-meta">
+    <span class="meta-key">Тональность: —</span>
+    <span class="meta-tempo">Темп: — BPM</span>
+    <span class="meta-note">ПРО•ХИТ Band</span>
+  </div>
+
+  <div class="part-label">Куплет 1</div>
+  <div class="chord-block"><span class="placeholder">← вставьте аккорды и текст</span></div>
+
+  <div class="part-label">Припев</div>
+  <div class="chord-block"><span class="placeholder">← вставьте аккорды и текст</span></div>
+
+  <p class="tip">Длительность: 3:30</p>
+</section>
+
+<!-- ═══════════════════════════════════════════ -->
+<!-- 7. Радио Иркутск -->
+<!-- ═══════════════════════════════════════════ -->
+<section class="song-section" id="song-7">
+  <h2>7. Радио Иркутск</h2>
+  <div class="song-meta">
+    <span class="meta-key">Тональность: —</span>
+    <span class="meta-tempo">Темп: — BPM</span>
+    <span class="meta-note">ПРО•ХИТ Band</span>
+  </div>
+
+  <div class="part-label">Куплет 1</div>
+  <div class="chord-block"><span class="placeholder">← вставьте аккорды и текст</span></div>
+
+  <div class="part-label">Припев</div>
+  <div class="chord-block"><span class="placeholder">← вставьте аккорды и текст</span></div>
+
+  <p class="tip">Длительность: 2:57</p>
+</section>
+
+<!-- ═══════════════════════════════════════════ -->
+<!-- 8. Светлая ночь -->
+<!-- ═══════════════════════════════════════════ -->
+<section class="song-section" id="song-8">
+  <h2>8. Светлая ночь</h2>
+  <div class="song-meta">
+    <span class="meta-key">Тональность: —</span>
+    <span class="meta-tempo">Темп: — BPM</span>
+    <span class="meta-note">ПРО•ХИТ Band</span>
+  </div>
+
+  <div class="part-label">Куплет 1</div>
+  <div class="chord-block"><span class="placeholder">← вставьте аккорды и текст</span></div>
+
+  <div class="part-label">Припев</div>
+  <div class="chord-block"><span class="placeholder">← вставьте аккорды и текст</span></div>
+
+  <p class="tip">Длительность: 3:14</p>
+</section>
+
+<!-- ═══════════════════════════════════════════ -->
+<!-- 9. Синица -->
+<!-- ═══════════════════════════════════════════ -->
+<section class="song-section" id="song-9">
+  <h2>9. Синица</h2>
+  <div class="song-meta">
+    <span class="meta-key">Тональность: —</span>
+    <span class="meta-tempo">Темп: — BPM</span>
+    <span class="meta-note">ПРО•ХИТ Band</span>
+  </div>
+
+  <div class="part-label">Куплет 1</div>
+  <div class="chord-block"><span class="placeholder">← вставьте аккорды и текст</span></div>
+
+  <div class="part-label">Припев</div>
+  <div class="chord-block"><span class="placeholder">← вставьте аккорды и текст</span></div>
+
+  <p class="tip">Длительность: 3:59</p>
+</section>
+
+<!-- ═══════════════════════════════════════════ -->
+<!-- 10. Пляжная -->
+<!-- ═══════════════════════════════════════════ -->
+<section class="song-section" id="song-10">
+  <h2>10. Пляжная</h2>
+  <div class="song-meta">
+    <span class="meta-key">Тональность: —</span>
+    <span class="meta-tempo">Темп: — BPM</span>
+    <span class="meta-note">ПРО•ХИТ Band</span>
+  </div>
+
+  <div class="part-label">Куплет 1</div>
+  <div class="chord-block"><span class="placeholder">← вставьте аккорды и текст</span></div>
+
+  <div class="part-label">Припев</div>
+  <div class="chord-block"><span class="placeholder">← вставьте аккорды и текст</span></div>
+
+  <p class="tip">Длительность: 3:36</p>
+</section>
+
+<!-- ═══════════════════════════════════════════ -->
+<!-- 11. Let's Dance -->
+<!-- ═══════════════════════════════════════════ -->
+<section class="song-section" id="song-11">
+  <h2>11. Let's Dance</h2>
+  <div class="song-meta">
+    <span class="meta-key">Тональность: —</span>
+    <span class="meta-tempo">Темп: — BPM</span>
+    <span class="meta-note">ПРО•ХИТ Band</span>
+  </div>
+
+  <div class="part-label">Verse 1</div>
+  <div class="chord-block"><span class="placeholder">← вставьте аккорды и текст</span></div>
+
+  <div class="part-label">Chorus</div>
+  <div class="chord-block"><span class="placeholder">← вставьте аккорды и текст</span></div>
+
+  <p class="tip">Длительность: 4:13</p>
+</section>
+
+<!-- ═══════════════════════════════════════════ -->
+<!-- 12. Розовые очки -->
+<!-- ═══════════════════════════════════════════ -->
+<section class="song-section" id="song-12">
+  <h2>12. Розовые очки</h2>
+  <div class="song-meta">
+    <span class="meta-key">Тональность: —</span>
+    <span class="meta-tempo">Темп: — BPM</span>
+    <span class="meta-note">ПРО•ХИТ Band</span>
+  </div>
+
+  <div class="part-label">Куплет 1</div>
+  <div class="chord-block"><span class="placeholder">← вставьте аккорды и текст</span></div>
+
+  <div class="part-label">Припев</div>
+  <div class="chord-block"><span class="placeholder">← вставьте аккорды и текст</span></div>
+
+  <p class="tip">Длительность: 2:34</p>
+</section>
+
+</main>
+
+<script>
+// Подсвечиваем активную песню в навигации при скролле
+var sections = document.querySelectorAll('.song-section');
+var navLinks  = document.querySelectorAll('#songs-nav a');
+
+function onScroll() {
+  var scrollY = window.scrollY + 60;
+  sections.forEach(function(sec) {
+    if (sec.offsetTop <= scrollY && sec.offsetTop + sec.offsetHeight > scrollY) {
+      navLinks.forEach(function(l) { l.classList.remove('active'); });
+      var active = document.querySelector('#songs-nav a[href="#' + sec.id + '"]');
+      if (active) {
+        active.classList.add('active');
+        // прокручиваем навигацию к активной ссылке
+        active.scrollIntoView({ inline: 'nearest', block: 'nearest' });
+      }
+    }
+  });
+}
+
+window.addEventListener('scroll', onScroll, { passive: true });
+onScroll();
+</script>
+</body>
+</html>

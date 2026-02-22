@@ -1,0 +1,1993 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>ПРО•ХИТ — Сетлист 2026</title>
+<link rel="icon" href="favicon.svg" type="image/svg+xml">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Poiret+One&display=swap" rel="stylesheet">
+<style>
+* { box-sizing: border-box; margin: 0; padding: 0; }
+
+body {
+  font-family: 'Segoe UI', Arial, sans-serif;
+  font-size: 14px;
+  background: #111;
+  color: #e0e0e0;
+  -webkit-tap-highlight-color: transparent;
+}
+
+/* ── Шапка ── */
+header {
+  background: #1a1a1a;
+  border-bottom: 2px solid #fe0178;
+  padding: 12px 16px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 6px;
+}
+.brand-logo {
+  display: flex;
+  align-items: center;
+  font-family: 'Poiret One', cursive;
+  font-size: 22px;
+  letter-spacing: 3px;
+  color: #fe0178;
+  text-decoration: none;
+  white-space: nowrap;
+}
+.brand-logo span { color: #fff; }
+.sub {
+  font-size: 11px;
+  color: #555;
+  text-align: right;
+  line-height: 1.3;
+}
+
+/* ── Поиск и фильтры ── */
+.controls {
+  background: #161616;
+  padding: 8px 12px;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
+  align-items: center;
+  justify-content: center;
+  border-bottom: 1px solid #222;
+  position: sticky;
+  top: 0;
+  z-index: 50;
+}
+#search {
+  padding: 8px 12px;
+  border-radius: 8px;
+  border: 1px solid #333;
+  background: #222;
+  color: #e0e0e0;
+  font-size: 15px;
+  flex: 1;
+  min-width: 160px;
+  max-width: 320px;
+  outline: none;
+}
+#search:focus { border-color: #fe0178; }
+.filters { display: flex; gap: 5px; flex-wrap: wrap; justify-content: center; }
+.filters button {
+  padding: 6px 14px;
+  border: 1px solid #333;
+  border-radius: 20px;
+  cursor: pointer;
+  background: #1a1a1a;
+  color: #777;
+  font-size: 12px;
+  transition: all 0.15s;
+  touch-action: manipulation;
+}
+.filters button.active,
+.filters button:hover { background: #fe0178; color: #fff; border-color: #fe0178; }
+
+/* ── Список песен ── */
+#song-list {
+  padding: 6px 0 80px;
+}
+
+/* ── Карточка песни ── */
+.song-card {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 11px 14px;
+  border-bottom: 1px solid #1c1c1c;
+  cursor: pointer;
+  transition: background 0.12s;
+  -webkit-tap-highlight-color: transparent;
+}
+.song-card:nth-child(even) { background: #141414; }
+.song-card:hover, .song-card:active { background: #1e0810; }
+
+.card-num {
+  color: #444;
+  font-family: monospace;
+  font-size: 12px;
+  min-width: 24px;
+  text-align: right;
+  flex-shrink: 0;
+}
+
+.card-body {
+  flex: 1;
+  min-width: 0;
+}
+.card-title {
+  font-weight: 600;
+  font-size: 15px;
+  color: #eee;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+.card-artist {
+  font-size: 12px;
+  color: #666;
+  margin-top: 1px;
+}
+.card-tags {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 5px;
+  margin-top: 4px;
+}
+.badge {
+  display: inline-block;
+  padding: 1px 6px;
+  border-radius: 8px;
+  font-weight: 700;
+  font-size: 10px;
+}
+.card-key {
+  font-family: 'Courier New', monospace;
+  font-size: 11px;
+  color: #f39c12;
+}
+.card-style {
+  font-size: 11px;
+  color: #444;
+}
+.chk {
+  font-size: 10px;
+  color: #2ecc71;
+  background: rgba(46,204,113,0.12);
+  border-radius: 4px;
+  padding: 1px 4px;
+}
+
+/* ── Ссылки YT/SP ── */
+.card-links {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  flex-shrink: 0;
+}
+.card-links a {
+  display: inline-block;
+  padding: 4px 8px;
+  border-radius: 5px;
+  text-decoration: none;
+  font-size: 11px;
+  font-weight: 700;
+  opacity: 0.85;
+  text-align: center;
+  min-width: 32px;
+}
+.card-links a:hover { opacity: 1; }
+.yt { background: #ff0000; color: #fff; }
+.sp { background: #1db954; color: #fff; }
+
+/* ── Пустое состояние ── */
+#empty {
+  text-align: center;
+  padding: 40px 20px;
+  color: #444;
+  display: none;
+}
+
+/* ── Адаптация ── */
+@media (max-width: 400px) {
+  .card-title { font-size: 14px; }
+  .card-style { display: none; }
+  .brand-logo { font-size: 18px; }
+}
+</style>
+</head>
+<body>
+
+<header>
+  <a class="brand-logo" href="index.html"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32" width="30" height="30" style="vertical-align:middle;margin-right:6px;margin-top:-3px"><path d="M16 4C9.4 4 4 9.4 4 16v6c0 1.1.9 2 2 2h2c1.1 0 2-.9 2-2v-4c0-1.1-.9-2-2-2H6.1C6.5 10.2 10.8 6 16 6s9.5 4.2 9.9 9.6H24c-1.1 0-2 .9-2 2v4c0 1.1.9 2 2 2h2c1.1 0 2-.9 2-2v-6c0-6.6-5.4-12-12-12z" fill="#fe0178"/><rect x="5" y="16" width="4" height="8" rx="1.5" fill="#fe0178"/><rect x="23" y="16" width="4" height="8" rx="1.5" fill="#fe0178"/></svg>ПРО•<span>ХИТ</span></a>
+  <div class="sub">Сетлист 2026<br>нажми на песню → аккорды</div>
+</header>
+
+<div class="controls">
+  <input id="search" type="text" placeholder="Поиск..." autocomplete="off">
+  <div class="filters">
+    <button class="active" onclick="filterP('all',this)">Все</button>
+    <button onclick="filterP('A',this)">Приоритет A</button>
+    <button onclick="filterP('B',this)">Приоритет B</button>
+    <button onclick="filterP('C',this)">Приоритет C</button>
+  </div>
+</div>
+
+<div id="song-list">
+<div class="song-card" data-priority="C" data-search="just the two of us bill withers" onclick="openChords(1)" role="button" tabindex="0">
+  <span class="card-num">1</span>
+  <div class="card-body">
+    <div class="card-title">Just the Two of Us</div>
+    <div class="card-artist">Bill Withers</div>
+    <div class="card-tags">
+      <span class="badge" style="background:#95a5a6;color:#111">C</span>
+      <span class="card-key">G maj</span>
+      <span class="card-style">Соул / Фанк</span>
+      <span class="chk" title="Илья">И</span>
+    </div>
+  </div>
+  <div class="card-links" onclick="event.stopPropagation()">
+    <a class="yt" href="https://www.youtube.com/results?search_query=Bill%20Withers%20Just%20the%20Two%20of%20Us" target="_blank">▶</a>
+    <a class="sp" href="https://open.spotify.com/search/Bill%20Withers%20Just%20the%20Two%20of%20Us" target="_blank">♫</a>
+  </div>
+</div>
+<div class="song-card" data-priority="C" data-search="i love you baby (slow) frankie valli" onclick="openChords(2)" role="button" tabindex="0">
+  <span class="card-num">2</span>
+  <div class="card-body">
+    <div class="card-title">I Love You Baby (slow)</div>
+    <div class="card-artist">Frankie Valli</div>
+    <div class="card-tags">
+      <span class="badge" style="background:#95a5a6;color:#111">C</span>
+      <span class="card-key">F maj</span>
+      <span class="card-style">Поп / Баллада</span>
+      <span class="chk" title="Илья">И</span>
+    </div>
+  </div>
+  <div class="card-links" onclick="event.stopPropagation()">
+    <a class="yt" href="https://www.youtube.com/results?search_query=Frankie%20Valli%20I%20Love%20You%20Baby%20%28slow%29" target="_blank">▶</a>
+    <a class="sp" href="https://open.spotify.com/search/Frankie%20Valli%20I%20Love%20You%20Baby%20%28slow%29" target="_blank">♫</a>
+  </div>
+</div>
+<div class="song-card" data-priority="C" data-search="what a wonderful world louis armstrong" onclick="openChords(3)" role="button" tabindex="0">
+  <span class="card-num">3</span>
+  <div class="card-body">
+    <div class="card-title">What a Wonderful World</div>
+    <div class="card-artist">Louis Armstrong</div>
+    <div class="card-tags">
+      <span class="badge" style="background:#95a5a6;color:#111">C</span>
+      <span class="card-key">F maj</span>
+      <span class="card-style">Джаз</span>
+      <span class="chk" title="Илья">И</span>
+    </div>
+  </div>
+  <div class="card-links" onclick="event.stopPropagation()">
+    <a class="yt" href="https://www.youtube.com/results?search_query=Louis%20Armstrong%20What%20a%20Wonderful%20World" target="_blank">▶</a>
+    <a class="sp" href="https://open.spotify.com/search/Louis%20Armstrong%20What%20a%20Wonderful%20World" target="_blank">♫</a>
+  </div>
+</div>
+<div class="song-card" data-priority="C" data-search="california dreamin&#x27; the mamas &amp; the papas" onclick="openChords(4)" role="button" tabindex="0">
+  <span class="card-num">4</span>
+  <div class="card-body">
+    <div class="card-title">California Dreamin&#x27;</div>
+    <div class="card-artist">The Mamas &amp; The Papas</div>
+    <div class="card-tags">
+      <span class="badge" style="background:#95a5a6;color:#111">C</span>
+      <span class="card-key">C maj</span>
+      <span class="card-style">Фолк-рок</span>
+      <span class="chk" title="Илья">И</span>
+    </div>
+  </div>
+  <div class="card-links" onclick="event.stopPropagation()">
+    <a class="yt" href="https://www.youtube.com/results?search_query=The%20Mamas%20%26%20The%20Papas%20California%20Dreamin%27" target="_blank">▶</a>
+    <a class="sp" href="https://open.spotify.com/search/The%20Mamas%20%26%20The%20Papas%20California%20Dreamin%27" target="_blank">♫</a>
+  </div>
+</div>
+<div class="song-card" data-priority="C" data-search="monro ?" onclick="openChords(5)" role="button" tabindex="0">
+  <span class="card-num">5</span>
+  <div class="card-body">
+    <div class="card-title">Monro</div>
+    <div class="card-artist">?</div>
+    <div class="card-tags">
+      <span class="badge" style="background:#95a5a6;color:#111">C</span>
+      <span class="card-key">?</span>
+      <span class="card-style">уточни</span>
+      <span class="chk" title="Илья">И</span>
+    </div>
+  </div>
+  <div class="card-links" onclick="event.stopPropagation()">
+    <a class="yt" href="https://www.youtube.com/results?search_query=%3F%20Monro" target="_blank">▶</a>
+    <a class="sp" href="https://open.spotify.com/search/%3F%20Monro" target="_blank">♫</a>
+  </div>
+</div>
+<div class="song-card" data-priority="C" data-search="the thrill is gone b.b. king" onclick="openChords(6)" role="button" tabindex="0">
+  <span class="card-num">6</span>
+  <div class="card-body">
+    <div class="card-title">The Thrill Is Gone</div>
+    <div class="card-artist">B.B. King</div>
+    <div class="card-tags">
+      <span class="badge" style="background:#95a5a6;color:#111">C</span>
+      <span class="card-key">B min</span>
+      <span class="card-style">Блюз</span>
+      <span class="chk" title="Илья">И</span>
+    </div>
+  </div>
+  <div class="card-links" onclick="event.stopPropagation()">
+    <a class="yt" href="https://www.youtube.com/results?search_query=B.B.%20King%20The%20Thrill%20Is%20Gone" target="_blank">▶</a>
+    <a class="sp" href="https://open.spotify.com/search/B.B.%20King%20The%20Thrill%20Is%20Gone" target="_blank">♫</a>
+  </div>
+</div>
+<div class="song-card" data-priority="C" data-search="layla eric clapton" onclick="openChords(7)" role="button" tabindex="0">
+  <span class="card-num">7</span>
+  <div class="card-body">
+    <div class="card-title">Layla</div>
+    <div class="card-artist">Eric Clapton</div>
+    <div class="card-tags">
+      <span class="badge" style="background:#95a5a6;color:#111">C</span>
+      <span class="card-key">D min</span>
+      <span class="card-style">Рок / Блюз-рок</span>
+      <span class="chk" title="Илья">И</span>
+    </div>
+  </div>
+  <div class="card-links" onclick="event.stopPropagation()">
+    <a class="yt" href="https://www.youtube.com/results?search_query=Eric%20Clapton%20Layla" target="_blank">▶</a>
+    <a class="sp" href="https://open.spotify.com/search/Eric%20Clapton%20Layla" target="_blank">♫</a>
+  </div>
+</div>
+<div class="song-card" data-priority="C" data-search="moon river henry mancini" onclick="openChords(8)" role="button" tabindex="0">
+  <span class="card-num">8</span>
+  <div class="card-body">
+    <div class="card-title">Moon River</div>
+    <div class="card-artist">Henry Mancini</div>
+    <div class="card-tags">
+      <span class="badge" style="background:#95a5a6;color:#111">C</span>
+      <span class="card-key">C maj</span>
+      <span class="card-style">Джаз / Баллада</span>
+      <span class="chk" title="Илья">И</span>
+    </div>
+  </div>
+  <div class="card-links" onclick="event.stopPropagation()">
+    <a class="yt" href="https://www.youtube.com/results?search_query=Henry%20Mancini%20Moon%20River" target="_blank">▶</a>
+    <a class="sp" href="https://open.spotify.com/search/Henry%20Mancini%20Moon%20River" target="_blank">♫</a>
+  </div>
+</div>
+<div class="song-card" data-priority="C" data-search="fly me to the moon frank sinatra" onclick="openChords(9)" role="button" tabindex="0">
+  <span class="card-num">9</span>
+  <div class="card-body">
+    <div class="card-title">Fly Me to the Moon</div>
+    <div class="card-artist">Frank Sinatra</div>
+    <div class="card-tags">
+      <span class="badge" style="background:#95a5a6;color:#111">C</span>
+      <span class="card-key">E min</span>
+      <span class="card-style">Джаз</span>
+      <span class="chk" title="Илья">И</span>
+    </div>
+  </div>
+  <div class="card-links" onclick="event.stopPropagation()">
+    <a class="yt" href="https://www.youtube.com/results?search_query=Frank%20Sinatra%20Fly%20Me%20to%20the%20Moon" target="_blank">▶</a>
+    <a class="sp" href="https://open.spotify.com/search/Frank%20Sinatra%20Fly%20Me%20to%20the%20Moon" target="_blank">♫</a>
+  </div>
+</div>
+<div class="song-card" data-priority="C" data-search="casablanca bertie higgins" onclick="openChords(10)" role="button" tabindex="0">
+  <span class="card-num">10</span>
+  <div class="card-body">
+    <div class="card-title">Casablanca</div>
+    <div class="card-artist">Bertie Higgins</div>
+    <div class="card-tags">
+      <span class="badge" style="background:#95a5a6;color:#111">C</span>
+      <span class="card-key">G maj</span>
+      <span class="card-style">Поп / Баллада</span>
+      <span class="chk" title="Илья">И</span>
+    </div>
+  </div>
+  <div class="card-links" onclick="event.stopPropagation()">
+    <a class="yt" href="https://www.youtube.com/results?search_query=Bertie%20Higgins%20Casablanca" target="_blank">▶</a>
+    <a class="sp" href="https://open.spotify.com/search/Bertie%20Higgins%20Casablanca" target="_blank">♫</a>
+  </div>
+</div>
+<div class="song-card" data-priority="C" data-search="hero mariah carey" onclick="openChords(11)" role="button" tabindex="0">
+  <span class="card-num">11</span>
+  <div class="card-body">
+    <div class="card-title">Hero</div>
+    <div class="card-artist">Mariah Carey</div>
+    <div class="card-tags">
+      <span class="badge" style="background:#95a5a6;color:#111">C</span>
+      <span class="card-key">F maj</span>
+      <span class="card-style">Поп / Баллада</span>
+      <span class="chk" title="Илья">И</span>
+    </div>
+  </div>
+  <div class="card-links" onclick="event.stopPropagation()">
+    <a class="yt" href="https://www.youtube.com/results?search_query=Mariah%20Carey%20Hero" target="_blank">▶</a>
+    <a class="sp" href="https://open.spotify.com/search/Mariah%20Carey%20Hero" target="_blank">♫</a>
+  </div>
+</div>
+<div class="song-card" data-priority="C" data-search="nosa ayo" onclick="openChords(12)" role="button" tabindex="0">
+  <span class="card-num">12</span>
+  <div class="card-body">
+    <div class="card-title">Nosa</div>
+    <div class="card-artist">Ayo</div>
+    <div class="card-tags">
+      <span class="badge" style="background:#95a5a6;color:#111">C</span>
+      <span class="card-key">C maj</span>
+      <span class="card-style">Этно / Акустика</span>
+      <span class="chk" title="Илья">И</span>
+    </div>
+  </div>
+  <div class="card-links" onclick="event.stopPropagation()">
+    <a class="yt" href="https://www.youtube.com/results?search_query=Ayo%20Nosa" target="_blank">▶</a>
+    <a class="sp" href="https://open.spotify.com/search/Ayo%20Nosa" target="_blank">♫</a>
+  </div>
+</div>
+<div class="song-card" data-priority="C" data-search="bonita ?" onclick="openChords(13)" role="button" tabindex="0">
+  <span class="card-num">13</span>
+  <div class="card-body">
+    <div class="card-title">Bonita</div>
+    <div class="card-artist">?</div>
+    <div class="card-tags">
+      <span class="badge" style="background:#95a5a6;color:#111">C</span>
+      <span class="card-key">?</span>
+      <span class="card-style">уточни</span>
+      <span class="chk" title="Илья">И</span>
+    </div>
+  </div>
+  <div class="card-links" onclick="event.stopPropagation()">
+    <a class="yt" href="https://www.youtube.com/results?search_query=%3F%20Bonita" target="_blank">▶</a>
+    <a class="sp" href="https://open.spotify.com/search/%3F%20Bonita" target="_blank">♫</a>
+  </div>
+</div>
+<div class="song-card" data-priority="C" data-search="вавилон серьга" onclick="openChords(14)" role="button" tabindex="0">
+  <span class="card-num">14</span>
+  <div class="card-body">
+    <div class="card-title">Вавилон</div>
+    <div class="card-artist">Серьга</div>
+    <div class="card-tags">
+      <span class="badge" style="background:#95a5a6;color:#111">C</span>
+      <span class="card-key">E min</span>
+      <span class="card-style">Рок</span>
+      <span class="chk" title="Илья">И</span>
+    </div>
+  </div>
+  <div class="card-links" onclick="event.stopPropagation()">
+    <a class="yt" href="https://www.youtube.com/results?search_query=%D0%A1%D0%B5%D1%80%D1%8C%D0%B3%D0%B0%20%D0%92%D0%B0%D0%B2%D0%B8%D0%BB%D0%BE%D0%BD" target="_blank">▶</a>
+    <a class="sp" href="https://open.spotify.com/search/%D0%A1%D0%B5%D1%80%D1%8C%D0%B3%D0%B0%20%D0%92%D0%B0%D0%B2%D0%B8%D0%BB%D0%BE%D0%BD" target="_blank">♫</a>
+  </div>
+</div>
+<div class="song-card" data-priority="C" data-search="подмосковные вечера трошин" onclick="openChords(15)" role="button" tabindex="0">
+  <span class="card-num">15</span>
+  <div class="card-body">
+    <div class="card-title">Подмосковные вечера</div>
+    <div class="card-artist">Трошин</div>
+    <div class="card-tags">
+      <span class="badge" style="background:#95a5a6;color:#111">C</span>
+      <span class="card-key">C maj</span>
+      <span class="card-style">Советская классика</span>
+      <span class="chk" title="Илья">И</span>
+    </div>
+  </div>
+  <div class="card-links" onclick="event.stopPropagation()">
+    <a class="yt" href="https://www.youtube.com/results?search_query=%D0%A2%D1%80%D0%BE%D1%88%D0%B8%D0%BD%20%D0%9F%D0%BE%D0%B4%D0%BC%D0%BE%D1%81%D0%BA%D0%BE%D0%B2%D0%BD%D1%8B%D0%B5%20%D0%B2%D0%B5%D1%87%D0%B5%D1%80%D0%B0" target="_blank">▶</a>
+    <a class="sp" href="https://open.spotify.com/search/%D0%A2%D1%80%D0%BE%D1%88%D0%B8%D0%BD%20%D0%9F%D0%BE%D0%B4%D0%BC%D0%BE%D1%81%D0%BA%D0%BE%D0%B2%D0%BD%D1%8B%D0%B5%20%D0%B2%D0%B5%D1%87%D0%B5%D1%80%D0%B0" target="_blank">♫</a>
+  </div>
+</div>
+<div class="song-card" data-priority="C" data-search="enjoy the silence depeche mode" onclick="openChords(16)" role="button" tabindex="0">
+  <span class="card-num">16</span>
+  <div class="card-body">
+    <div class="card-title">Enjoy the Silence</div>
+    <div class="card-artist">Depeche Mode</div>
+    <div class="card-tags">
+      <span class="badge" style="background:#95a5a6;color:#111">C</span>
+      <span class="card-key">A min</span>
+      <span class="card-style">Синти-поп / Электронный рок</span>
+      <span class="chk" title="Илья">И</span>
+    </div>
+  </div>
+  <div class="card-links" onclick="event.stopPropagation()">
+    <a class="yt" href="https://www.youtube.com/results?search_query=Depeche%20Mode%20Enjoy%20the%20Silence" target="_blank">▶</a>
+    <a class="sp" href="https://open.spotify.com/search/Depeche%20Mode%20Enjoy%20the%20Silence" target="_blank">♫</a>
+  </div>
+</div>
+<div class="song-card" data-priority="B" data-search="stand by me ben e. king" onclick="openChords(17)" role="button" tabindex="0">
+  <span class="card-num">17</span>
+  <div class="card-body">
+    <div class="card-title">Stand by Me</div>
+    <div class="card-artist">Ben E. King</div>
+    <div class="card-tags">
+      <span class="badge" style="background:#f39c12;color:#111">B</span>
+      <span class="card-key">A maj</span>
+      <span class="card-style">Соул / Ритм-н-блюз</span>
+      <span class="chk" title="Илья">И</span>
+    </div>
+  </div>
+  <div class="card-links" onclick="event.stopPropagation()">
+    <a class="yt" href="https://www.youtube.com/results?search_query=Ben%20E.%20King%20Stand%20by%20Me" target="_blank">▶</a>
+    <a class="sp" href="https://open.spotify.com/search/Ben%20E.%20King%20Stand%20by%20Me" target="_blank">♫</a>
+  </div>
+</div>
+<div class="song-card" data-priority="C" data-search="seven nation army the white stripes" onclick="openChords(18)" role="button" tabindex="0">
+  <span class="card-num">18</span>
+  <div class="card-body">
+    <div class="card-title">Seven Nation Army</div>
+    <div class="card-artist">The White Stripes</div>
+    <div class="card-tags">
+      <span class="badge" style="background:#95a5a6;color:#111">C</span>
+      <span class="card-key">A min</span>
+      <span class="card-style">Гараж-рок</span>
+      <span class="chk" title="Илья">И</span>
+    </div>
+  </div>
+  <div class="card-links" onclick="event.stopPropagation()">
+    <a class="yt" href="https://www.youtube.com/results?search_query=The%20White%20Stripes%20Seven%20Nation%20Army" target="_blank">▶</a>
+    <a class="sp" href="https://open.spotify.com/search/The%20White%20Stripes%20Seven%20Nation%20Army" target="_blank">♫</a>
+  </div>
+</div>
+<div class="song-card" data-priority="B" data-search="wonderful tonight eric clapton" onclick="openChords(19)" role="button" tabindex="0">
+  <span class="card-num">19</span>
+  <div class="card-body">
+    <div class="card-title">Wonderful Tonight</div>
+    <div class="card-artist">Eric Clapton</div>
+    <div class="card-tags">
+      <span class="badge" style="background:#f39c12;color:#111">B</span>
+      <span class="card-key">G maj</span>
+      <span class="card-style">Поп-рок / Блюз-рок</span>
+      <span class="chk" title="Илья">И</span>
+    </div>
+  </div>
+  <div class="card-links" onclick="event.stopPropagation()">
+    <a class="yt" href="https://www.youtube.com/results?search_query=Eric%20Clapton%20Wonderful%20Tonight" target="_blank">▶</a>
+    <a class="sp" href="https://open.spotify.com/search/Eric%20Clapton%20Wonderful%20Tonight" target="_blank">♫</a>
+  </div>
+</div>
+<div class="song-card" data-priority="B" data-search="get lucky daft punk" onclick="openChords(20)" role="button" tabindex="0">
+  <span class="card-num">20</span>
+  <div class="card-body">
+    <div class="card-title">Get Lucky</div>
+    <div class="card-artist">Daft Punk</div>
+    <div class="card-tags">
+      <span class="badge" style="background:#f39c12;color:#111">B</span>
+      <span class="card-key">F maj</span>
+      <span class="card-style">Диско / Фанк</span>
+      <span class="chk" title="Илья">И</span>
+    </div>
+  </div>
+  <div class="card-links" onclick="event.stopPropagation()">
+    <a class="yt" href="https://www.youtube.com/results?search_query=Daft%20Punk%20Get%20Lucky" target="_blank">▶</a>
+    <a class="sp" href="https://open.spotify.com/search/Daft%20Punk%20Get%20Lucky" target="_blank">♫</a>
+  </div>
+</div>
+<div class="song-card" data-priority="C" data-search="flowers miley cyrus" onclick="openChords(21)" role="button" tabindex="0">
+  <span class="card-num">21</span>
+  <div class="card-body">
+    <div class="card-title">Flowers</div>
+    <div class="card-artist">Miley Cyrus</div>
+    <div class="card-tags">
+      <span class="badge" style="background:#95a5a6;color:#111">C</span>
+      <span class="card-key">F maj</span>
+      <span class="card-style">Поп</span>
+      <span class="chk" title="Илья">И</span>
+    </div>
+  </div>
+  <div class="card-links" onclick="event.stopPropagation()">
+    <a class="yt" href="https://www.youtube.com/results?search_query=Miley%20Cyrus%20Flowers" target="_blank">▶</a>
+    <a class="sp" href="https://open.spotify.com/search/Miley%20Cyrus%20Flowers" target="_blank">♫</a>
+  </div>
+</div>
+<div class="song-card" data-priority="C" data-search="i feel so close calvin harris" onclick="openChords(22)" role="button" tabindex="0">
+  <span class="card-num">22</span>
+  <div class="card-body">
+    <div class="card-title">I Feel So Close</div>
+    <div class="card-artist">Calvin Harris</div>
+    <div class="card-tags">
+      <span class="badge" style="background:#95a5a6;color:#111">C</span>
+      <span class="card-key">A min</span>
+      <span class="card-style">Электронный поп / Дэнс</span>
+      <span class="chk" title="Илья">И</span>
+    </div>
+  </div>
+  <div class="card-links" onclick="event.stopPropagation()">
+    <a class="yt" href="https://www.youtube.com/results?search_query=Calvin%20Harris%20I%20Feel%20So%20Close" target="_blank">▶</a>
+    <a class="sp" href="https://open.spotify.com/search/Calvin%20Harris%20I%20Feel%20So%20Close" target="_blank">♫</a>
+  </div>
+</div>
+<div class="song-card" data-priority="C" data-search="summertime ella fitzgerald" onclick="openChords(23)" role="button" tabindex="0">
+  <span class="card-num">23</span>
+  <div class="card-body">
+    <div class="card-title">Summertime</div>
+    <div class="card-artist">Ella Fitzgerald</div>
+    <div class="card-tags">
+      <span class="badge" style="background:#95a5a6;color:#111">C</span>
+      <span class="card-key">A min</span>
+      <span class="card-style">Джаз / Блюз</span>
+      <span class="chk" title="Илья">И</span>
+    </div>
+  </div>
+  <div class="card-links" onclick="event.stopPropagation()">
+    <a class="yt" href="https://www.youtube.com/results?search_query=Ella%20Fitzgerald%20Summertime" target="_blank">▶</a>
+    <a class="sp" href="https://open.spotify.com/search/Ella%20Fitzgerald%20Summertime" target="_blank">♫</a>
+  </div>
+</div>
+<div class="song-card" data-priority="C" data-search="after dark mr. kitty" onclick="openChords(24)" role="button" tabindex="0">
+  <span class="card-num">24</span>
+  <div class="card-body">
+    <div class="card-title">After Dark</div>
+    <div class="card-artist">Mr. Kitty</div>
+    <div class="card-tags">
+      <span class="badge" style="background:#95a5a6;color:#111">C</span>
+      <span class="card-key">C min</span>
+      <span class="card-style">Синти-поп / Дарквейв</span>
+      <span class="chk" title="Илья">И</span>
+    </div>
+  </div>
+  <div class="card-links" onclick="event.stopPropagation()">
+    <a class="yt" href="https://www.youtube.com/results?search_query=Mr.%20Kitty%20After%20Dark" target="_blank">▶</a>
+    <a class="sp" href="https://open.spotify.com/search/Mr.%20Kitty%20After%20Dark" target="_blank">♫</a>
+  </div>
+</div>
+<div class="song-card" data-priority="C" data-search="singin&#x27; in the rain gene kelly" onclick="openChords(25)" role="button" tabindex="0">
+  <span class="card-num">25</span>
+  <div class="card-body">
+    <div class="card-title">Singin&#x27; in the Rain</div>
+    <div class="card-artist">Gene Kelly</div>
+    <div class="card-tags">
+      <span class="badge" style="background:#95a5a6;color:#111">C</span>
+      <span class="card-key">G maj</span>
+      <span class="card-style">Джаз / Мюзикл</span>
+      <span class="chk" title="Илья">И</span>
+    </div>
+  </div>
+  <div class="card-links" onclick="event.stopPropagation()">
+    <a class="yt" href="https://www.youtube.com/results?search_query=Gene%20Kelly%20Singin%27%20in%20the%20Rain" target="_blank">▶</a>
+    <a class="sp" href="https://open.spotify.com/search/Gene%20Kelly%20Singin%27%20in%20the%20Rain" target="_blank">♫</a>
+  </div>
+</div>
+<div class="song-card" data-priority="C" data-search="oh pretty woman roy orbison" onclick="openChords(26)" role="button" tabindex="0">
+  <span class="card-num">26</span>
+  <div class="card-body">
+    <div class="card-title">Oh Pretty Woman</div>
+    <div class="card-artist">Roy Orbison</div>
+    <div class="card-tags">
+      <span class="badge" style="background:#95a5a6;color:#111">C</span>
+      <span class="card-key">A maj</span>
+      <span class="card-style">Рок-н-ролл / Поп</span>
+      <span class="chk" title="Илья">И</span>
+    </div>
+  </div>
+  <div class="card-links" onclick="event.stopPropagation()">
+    <a class="yt" href="https://www.youtube.com/results?search_query=Roy%20Orbison%20Oh%20Pretty%20Woman" target="_blank">▶</a>
+    <a class="sp" href="https://open.spotify.com/search/Roy%20Orbison%20Oh%20Pretty%20Woman" target="_blank">♫</a>
+  </div>
+</div>
+<div class="song-card" data-priority="C" data-search="midnight city m83" onclick="openChords(27)" role="button" tabindex="0">
+  <span class="card-num">27</span>
+  <div class="card-body">
+    <div class="card-title">Midnight City</div>
+    <div class="card-artist">M83</div>
+    <div class="card-tags">
+      <span class="badge" style="background:#95a5a6;color:#111">C</span>
+      <span class="card-key">C min</span>
+      <span class="card-style">Инди / Синти-поп</span>
+      <span class="chk" title="Илья">И</span>
+    </div>
+  </div>
+  <div class="card-links" onclick="event.stopPropagation()">
+    <a class="yt" href="https://www.youtube.com/results?search_query=M83%20Midnight%20City" target="_blank">▶</a>
+    <a class="sp" href="https://open.spotify.com/search/M83%20Midnight%20City" target="_blank">♫</a>
+  </div>
+</div>
+<div class="song-card" data-priority="C" data-search="diamonds rihanna" onclick="openChords(28)" role="button" tabindex="0">
+  <span class="card-num">28</span>
+  <div class="card-body">
+    <div class="card-title">Diamonds</div>
+    <div class="card-artist">Rihanna</div>
+    <div class="card-tags">
+      <span class="badge" style="background:#95a5a6;color:#111">C</span>
+      <span class="card-key">Db maj</span>
+      <span class="card-style">Поп / R&amp;B</span>
+      <span class="chk" title="Илья">И</span>
+    </div>
+  </div>
+  <div class="card-links" onclick="event.stopPropagation()">
+    <a class="yt" href="https://www.youtube.com/results?search_query=Rihanna%20Diamonds" target="_blank">▶</a>
+    <a class="sp" href="https://open.spotify.com/search/Rihanna%20Diamonds" target="_blank">♫</a>
+  </div>
+</div>
+<div class="song-card" data-priority="C" data-search="tell me why neil young / abba" onclick="openChords(29)" role="button" tabindex="0">
+  <span class="card-num">29</span>
+  <div class="card-body">
+    <div class="card-title">Tell Me Why</div>
+    <div class="card-artist">Neil Young / ABBA</div>
+    <div class="card-tags">
+      <span class="badge" style="background:#95a5a6;color:#111">C</span>
+      <span class="card-key">?</span>
+      <span class="card-style">уточни</span>
+      <span class="chk" title="Илья">И</span>
+    </div>
+  </div>
+  <div class="card-links" onclick="event.stopPropagation()">
+    <a class="yt" href="https://www.youtube.com/results?search_query=Neil%20Young%20/%20ABBA%20Tell%20Me%20Why" target="_blank">▶</a>
+    <a class="sp" href="https://open.spotify.com/search/Neil%20Young%20/%20ABBA%20Tell%20Me%20Why" target="_blank">♫</a>
+  </div>
+</div>
+<div class="song-card" data-priority="C" data-search="despacito luis fonsi" onclick="openChords(30)" role="button" tabindex="0">
+  <span class="card-num">30</span>
+  <div class="card-body">
+    <div class="card-title">Despacito</div>
+    <div class="card-artist">Luis Fonsi</div>
+    <div class="card-tags">
+      <span class="badge" style="background:#95a5a6;color:#111">C</span>
+      <span class="card-key">B min</span>
+      <span class="card-style">Латина / Реггетон</span>
+      <span class="chk" title="Илья">И</span>
+    </div>
+  </div>
+  <div class="card-links" onclick="event.stopPropagation()">
+    <a class="yt" href="https://www.youtube.com/results?search_query=Luis%20Fonsi%20Despacito" target="_blank">▶</a>
+    <a class="sp" href="https://open.spotify.com/search/Luis%20Fonsi%20Despacito" target="_blank">♫</a>
+  </div>
+</div>
+<div class="song-card" data-priority="C" data-search="can&#x27;t help falling in love elvis presley" onclick="openChords(31)" role="button" tabindex="0">
+  <span class="card-num">31</span>
+  <div class="card-body">
+    <div class="card-title">Can&#x27;t Help Falling in Love</div>
+    <div class="card-artist">Elvis Presley</div>
+    <div class="card-tags">
+      <span class="badge" style="background:#95a5a6;color:#111">C</span>
+      <span class="card-key">D maj</span>
+      <span class="card-style">Поп / Баллада</span>
+      <span class="chk" title="Илья">И</span>
+    </div>
+  </div>
+  <div class="card-links" onclick="event.stopPropagation()">
+    <a class="yt" href="https://www.youtube.com/results?search_query=Elvis%20Presley%20Can%27t%20Help%20Falling%20in%20Love" target="_blank">▶</a>
+    <a class="sp" href="https://open.spotify.com/search/Elvis%20Presley%20Can%27t%20Help%20Falling%20in%20Love" target="_blank">♫</a>
+  </div>
+</div>
+<div class="song-card" data-priority="C" data-search="dschinghis khan dschinghis khan" onclick="openChords(32)" role="button" tabindex="0">
+  <span class="card-num">32</span>
+  <div class="card-body">
+    <div class="card-title">Dschinghis Khan</div>
+    <div class="card-artist">Dschinghis Khan</div>
+    <div class="card-tags">
+      <span class="badge" style="background:#95a5a6;color:#111">C</span>
+      <span class="card-key">A maj</span>
+      <span class="card-style">Диско / Поп</span>
+      <span class="chk" title="Илья">И</span>
+    </div>
+  </div>
+  <div class="card-links" onclick="event.stopPropagation()">
+    <a class="yt" href="https://www.youtube.com/results?search_query=Dschinghis%20Khan%20Dschinghis%20Khan" target="_blank">▶</a>
+    <a class="sp" href="https://open.spotify.com/search/Dschinghis%20Khan%20Dschinghis%20Khan" target="_blank">♫</a>
+  </div>
+</div>
+<div class="song-card" data-priority="C" data-search="sorry seems to be the hardest word elton john" onclick="openChords(33)" role="button" tabindex="0">
+  <span class="card-num">33</span>
+  <div class="card-body">
+    <div class="card-title">Sorry Seems to Be the Hardest Word</div>
+    <div class="card-artist">Elton John</div>
+    <div class="card-tags">
+      <span class="badge" style="background:#95a5a6;color:#111">C</span>
+      <span class="card-key">Eb maj</span>
+      <span class="card-style">Поп / Баллада</span>
+      <span class="chk" title="Илья">И</span>
+    </div>
+  </div>
+  <div class="card-links" onclick="event.stopPropagation()">
+    <a class="yt" href="https://www.youtube.com/results?search_query=Elton%20John%20Sorry%20Seems%20to%20Be%20the%20Hardest%20Word" target="_blank">▶</a>
+    <a class="sp" href="https://open.spotify.com/search/Elton%20John%20Sorry%20Seems%20to%20Be%20the%20Hardest%20Word" target="_blank">♫</a>
+  </div>
+</div>
+<div class="song-card" data-priority="C" data-search="ain&#x27;t nobody chaka khan" onclick="openChords(34)" role="button" tabindex="0">
+  <span class="card-num">34</span>
+  <div class="card-body">
+    <div class="card-title">Ain&#x27;t Nobody</div>
+    <div class="card-artist">Chaka Khan</div>
+    <div class="card-tags">
+      <span class="badge" style="background:#95a5a6;color:#111">C</span>
+      <span class="card-key">C min</span>
+      <span class="card-style">Фанк / R&amp;B</span>
+      <span class="chk" title="Илья">И</span>
+    </div>
+  </div>
+  <div class="card-links" onclick="event.stopPropagation()">
+    <a class="yt" href="https://www.youtube.com/results?search_query=Chaka%20Khan%20Ain%27t%20Nobody" target="_blank">▶</a>
+    <a class="sp" href="https://open.spotify.com/search/Chaka%20Khan%20Ain%27t%20Nobody" target="_blank">♫</a>
+  </div>
+</div>
+<div class="song-card" data-priority="C" data-search="summertime sadness lana del rey" onclick="openChords(35)" role="button" tabindex="0">
+  <span class="card-num">35</span>
+  <div class="card-body">
+    <div class="card-title">Summertime Sadness</div>
+    <div class="card-artist">Lana Del Rey</div>
+    <div class="card-tags">
+      <span class="badge" style="background:#95a5a6;color:#111">C</span>
+      <span class="card-key">G min</span>
+      <span class="card-style">Инди-поп / Баллада</span>
+      <span class="chk" title="Илья">И</span>
+    </div>
+  </div>
+  <div class="card-links" onclick="event.stopPropagation()">
+    <a class="yt" href="https://www.youtube.com/results?search_query=Lana%20Del%20Rey%20Summertime%20Sadness" target="_blank">▶</a>
+    <a class="sp" href="https://open.spotify.com/search/Lana%20Del%20Rey%20Summertime%20Sadness" target="_blank">♫</a>
+  </div>
+</div>
+<div class="song-card" data-priority="C" data-search="невеста ?" onclick="openChords(36)" role="button" tabindex="0">
+  <span class="card-num">36</span>
+  <div class="card-body">
+    <div class="card-title">Невеста</div>
+    <div class="card-artist">?</div>
+    <div class="card-tags">
+      <span class="badge" style="background:#95a5a6;color:#111">C</span>
+      <span class="card-key">?</span>
+      <span class="card-style">уточни</span>
+      <span class="chk" title="Илья">И</span>
+    </div>
+  </div>
+  <div class="card-links" onclick="event.stopPropagation()">
+    <a class="yt" href="https://www.youtube.com/results?search_query=%3F%20%D0%9D%D0%B5%D0%B2%D0%B5%D1%81%D1%82%D0%B0" target="_blank">▶</a>
+    <a class="sp" href="https://open.spotify.com/search/%3F%20%D0%9D%D0%B5%D0%B2%D0%B5%D1%81%D1%82%D0%B0" target="_blank">♫</a>
+  </div>
+</div>
+<div class="song-card" data-priority="C" data-search="www ?" onclick="openChords(37)" role="button" tabindex="0">
+  <span class="card-num">37</span>
+  <div class="card-body">
+    <div class="card-title">Www</div>
+    <div class="card-artist">?</div>
+    <div class="card-tags">
+      <span class="badge" style="background:#95a5a6;color:#111">C</span>
+      <span class="card-key">?</span>
+      <span class="card-style">уточни</span>
+      <span class="chk" title="Илья">И</span>
+    </div>
+  </div>
+  <div class="card-links" onclick="event.stopPropagation()">
+    <a class="yt" href="https://www.youtube.com/results?search_query=%3F%20Www" target="_blank">▶</a>
+    <a class="sp" href="https://open.spotify.com/search/%3F%20Www" target="_blank">♫</a>
+  </div>
+</div>
+<div class="song-card" data-priority="B" data-search="lambada kaoma" onclick="openChords(38)" role="button" tabindex="0">
+  <span class="card-num">38</span>
+  <div class="card-body">
+    <div class="card-title">Lambada</div>
+    <div class="card-artist">Kaoma</div>
+    <div class="card-tags">
+      <span class="badge" style="background:#f39c12;color:#111">B</span>
+      <span class="card-key">D min</span>
+      <span class="card-style">Латина / Самба</span>
+      <span class="chk" title="Илья">И</span>
+    </div>
+  </div>
+  <div class="card-links" onclick="event.stopPropagation()">
+    <a class="yt" href="https://www.youtube.com/results?search_query=Kaoma%20Lambada" target="_blank">▶</a>
+    <a class="sp" href="https://open.spotify.com/search/Kaoma%20Lambada" target="_blank">♫</a>
+  </div>
+</div>
+<div class="song-card" data-priority="C" data-search="like a rolling stone bob dylan" onclick="openChords(39)" role="button" tabindex="0">
+  <span class="card-num">39</span>
+  <div class="card-body">
+    <div class="card-title">Like a Rolling Stone</div>
+    <div class="card-artist">Bob Dylan</div>
+    <div class="card-tags">
+      <span class="badge" style="background:#95a5a6;color:#111">C</span>
+      <span class="card-key">C maj</span>
+      <span class="card-style">Рок / Фолк-рок</span>
+      <span class="chk" title="Илья">И</span>
+    </div>
+  </div>
+  <div class="card-links" onclick="event.stopPropagation()">
+    <a class="yt" href="https://www.youtube.com/results?search_query=Bob%20Dylan%20Like%20a%20Rolling%20Stone" target="_blank">▶</a>
+    <a class="sp" href="https://open.spotify.com/search/Bob%20Dylan%20Like%20a%20Rolling%20Stone" target="_blank">♫</a>
+  </div>
+</div>
+<div class="song-card" data-priority="B" data-search="knockin&#x27; on heaven&#x27;s door bob dylan" onclick="openChords(40)" role="button" tabindex="0">
+  <span class="card-num">40</span>
+  <div class="card-body">
+    <div class="card-title">Knockin&#x27; on Heaven&#x27;s Door</div>
+    <div class="card-artist">Bob Dylan</div>
+    <div class="card-tags">
+      <span class="badge" style="background:#f39c12;color:#111">B</span>
+      <span class="card-key">G maj</span>
+      <span class="card-style">Фолк-рок / Рок</span>
+      <span class="chk" title="Илья">И</span>
+    </div>
+  </div>
+  <div class="card-links" onclick="event.stopPropagation()">
+    <a class="yt" href="https://www.youtube.com/results?search_query=Bob%20Dylan%20Knockin%27%20on%20Heaven%27s%20Door" target="_blank">▶</a>
+    <a class="sp" href="https://open.spotify.com/search/Bob%20Dylan%20Knockin%27%20on%20Heaven%27s%20Door" target="_blank">♫</a>
+  </div>
+</div>
+<div class="song-card" data-priority="B" data-search="рок-н-ролл би-2" onclick="openChords(41)" role="button" tabindex="0">
+  <span class="card-num">41</span>
+  <div class="card-body">
+    <div class="card-title">Рок-н-ролл</div>
+    <div class="card-artist">Би-2</div>
+    <div class="card-tags">
+      <span class="badge" style="background:#f39c12;color:#111">B</span>
+      <span class="card-key">E min</span>
+      <span class="card-style">Рок</span>
+      <span class="chk" title="Илья">И</span><span class="chk" title="Дима">Д</span>
+    </div>
+  </div>
+  <div class="card-links" onclick="event.stopPropagation()">
+    <a class="yt" href="https://www.youtube.com/results?search_query=%D0%91%D0%B8-2%20%D0%A0%D0%BE%D0%BA-%D0%BD-%D1%80%D0%BE%D0%BB%D0%BB" target="_blank">▶</a>
+    <a class="sp" href="https://open.spotify.com/search/%D0%91%D0%B8-2%20%D0%A0%D0%BE%D0%BA-%D0%BD-%D1%80%D0%BE%D0%BB%D0%BB" target="_blank">♫</a>
+  </div>
+</div>
+<div class="song-card" data-priority="C" data-search="cocaine eric clapton" onclick="openChords(42)" role="button" tabindex="0">
+  <span class="card-num">42</span>
+  <div class="card-body">
+    <div class="card-title">Cocaine</div>
+    <div class="card-artist">Eric Clapton</div>
+    <div class="card-tags">
+      <span class="badge" style="background:#95a5a6;color:#111">C</span>
+      <span class="card-key">E maj</span>
+      <span class="card-style">Блюз-рок</span>
+      <span class="chk" title="Илья">И</span>
+    </div>
+  </div>
+  <div class="card-links" onclick="event.stopPropagation()">
+    <a class="yt" href="https://www.youtube.com/results?search_query=Eric%20Clapton%20Cocaine" target="_blank">▶</a>
+    <a class="sp" href="https://open.spotify.com/search/Eric%20Clapton%20Cocaine" target="_blank">♫</a>
+  </div>
+</div>
+<div class="song-card" data-priority="C" data-search="луна агата кристи" onclick="openChords(43)" role="button" tabindex="0">
+  <span class="card-num">43</span>
+  <div class="card-body">
+    <div class="card-title">Луна</div>
+    <div class="card-artist">Агата Кристи</div>
+    <div class="card-tags">
+      <span class="badge" style="background:#95a5a6;color:#111">C</span>
+      <span class="card-key">D min</span>
+      <span class="card-style">Русский рок</span>
+      <span class="chk" title="Илья">И</span>
+    </div>
+  </div>
+  <div class="card-links" onclick="event.stopPropagation()">
+    <a class="yt" href="https://www.youtube.com/results?search_query=%D0%90%D0%B3%D0%B0%D1%82%D0%B0%20%D0%9A%D1%80%D0%B8%D1%81%D1%82%D0%B8%20%D0%9B%D1%83%D0%BD%D0%B0" target="_blank">▶</a>
+    <a class="sp" href="https://open.spotify.com/search/%D0%90%D0%B3%D0%B0%D1%82%D0%B0%20%D0%9A%D1%80%D0%B8%D1%81%D1%82%D0%B8%20%D0%9B%D1%83%D0%BD%D0%B0" target="_blank">♫</a>
+  </div>
+</div>
+<div class="song-card" data-priority="C" data-search="cheap thrills sia" onclick="openChords(44)" role="button" tabindex="0">
+  <span class="card-num">44</span>
+  <div class="card-body">
+    <div class="card-title">Cheap Thrills</div>
+    <div class="card-artist">Sia</div>
+    <div class="card-tags">
+      <span class="badge" style="background:#95a5a6;color:#111">C</span>
+      <span class="card-key">F maj</span>
+      <span class="card-style">Поп</span>
+      <span class="chk" title="Илья">И</span>
+    </div>
+  </div>
+  <div class="card-links" onclick="event.stopPropagation()">
+    <a class="yt" href="https://www.youtube.com/results?search_query=Sia%20Cheap%20Thrills" target="_blank">▶</a>
+    <a class="sp" href="https://open.spotify.com/search/Sia%20Cheap%20Thrills" target="_blank">♫</a>
+  </div>
+</div>
+<div class="song-card" data-priority="C" data-search="don&#x27;t be so shy imany" onclick="openChords(45)" role="button" tabindex="0">
+  <span class="card-num">45</span>
+  <div class="card-body">
+    <div class="card-title">Don&#x27;t Be So Shy</div>
+    <div class="card-artist">Imany</div>
+    <div class="card-tags">
+      <span class="badge" style="background:#95a5a6;color:#111">C</span>
+      <span class="card-key">C min</span>
+      <span class="card-style">Поп / Этно</span>
+      <span class="chk" title="Илья">И</span>
+    </div>
+  </div>
+  <div class="card-links" onclick="event.stopPropagation()">
+    <a class="yt" href="https://www.youtube.com/results?search_query=Imany%20Don%27t%20Be%20So%20Shy" target="_blank">▶</a>
+    <a class="sp" href="https://open.spotify.com/search/Imany%20Don%27t%20Be%20So%20Shy" target="_blank">♫</a>
+  </div>
+</div>
+<div class="song-card" data-priority="C" data-search="утекай ?" onclick="openChords(46)" role="button" tabindex="0">
+  <span class="card-num">46</span>
+  <div class="card-body">
+    <div class="card-title">Утекай</div>
+    <div class="card-artist">?</div>
+    <div class="card-tags">
+      <span class="badge" style="background:#95a5a6;color:#111">C</span>
+      <span class="card-key">?</span>
+      <span class="card-style">уточни</span>
+      <span class="chk" title="Илья">И</span>
+    </div>
+  </div>
+  <div class="card-links" onclick="event.stopPropagation()">
+    <a class="yt" href="https://www.youtube.com/results?search_query=%3F%20%D0%A3%D1%82%D0%B5%D0%BA%D0%B0%D0%B9" target="_blank">▶</a>
+    <a class="sp" href="https://open.spotify.com/search/%3F%20%D0%A3%D1%82%D0%B5%D0%BA%D0%B0%D0%B9" target="_blank">♫</a>
+  </div>
+</div>
+<div class="song-card" data-priority="C" data-search="let it be the beatles" onclick="openChords(47)" role="button" tabindex="0">
+  <span class="card-num">47</span>
+  <div class="card-body">
+    <div class="card-title">Let It Be</div>
+    <div class="card-artist">The Beatles</div>
+    <div class="card-tags">
+      <span class="badge" style="background:#95a5a6;color:#111">C</span>
+      <span class="card-key">C maj</span>
+      <span class="card-style">Рок / Баллада</span>
+      <span class="chk" title="Илья">И</span>
+    </div>
+  </div>
+  <div class="card-links" onclick="event.stopPropagation()">
+    <a class="yt" href="https://www.youtube.com/results?search_query=The%20Beatles%20Let%20It%20Be" target="_blank">▶</a>
+    <a class="sp" href="https://open.spotify.com/search/The%20Beatles%20Let%20It%20Be" target="_blank">♫</a>
+  </div>
+</div>
+<div class="song-card" data-priority="C" data-search="hit the road jack ray charles" onclick="openChords(48)" role="button" tabindex="0">
+  <span class="card-num">48</span>
+  <div class="card-body">
+    <div class="card-title">Hit the Road Jack</div>
+    <div class="card-artist">Ray Charles</div>
+    <div class="card-tags">
+      <span class="badge" style="background:#95a5a6;color:#111">C</span>
+      <span class="card-key">G maj</span>
+      <span class="card-style">Ритм-н-блюз / Джаз</span>
+      <span class="chk" title="Илья">И</span>
+    </div>
+  </div>
+  <div class="card-links" onclick="event.stopPropagation()">
+    <a class="yt" href="https://www.youtube.com/results?search_query=Ray%20Charles%20Hit%20the%20Road%20Jack" target="_blank">▶</a>
+    <a class="sp" href="https://open.spotify.com/search/Ray%20Charles%20Hit%20the%20Road%20Jack" target="_blank">♫</a>
+  </div>
+</div>
+<div class="song-card" data-priority="C" data-search="i&#x27;m you ?" onclick="openChords(49)" role="button" tabindex="0">
+  <span class="card-num">49</span>
+  <div class="card-body">
+    <div class="card-title">I&#x27;m You</div>
+    <div class="card-artist">?</div>
+    <div class="card-tags">
+      <span class="badge" style="background:#95a5a6;color:#111">C</span>
+      <span class="card-key">?</span>
+      <span class="card-style">уточни</span>
+      <span class="chk" title="Илья">И</span>
+    </div>
+  </div>
+  <div class="card-links" onclick="event.stopPropagation()">
+    <a class="yt" href="https://www.youtube.com/results?search_query=%3F%20I%27m%20You" target="_blank">▶</a>
+    <a class="sp" href="https://open.spotify.com/search/%3F%20I%27m%20You" target="_blank">♫</a>
+  </div>
+</div>
+<div class="song-card" data-priority="C" data-search="eight days a week the beatles" onclick="openChords(50)" role="button" tabindex="0">
+  <span class="card-num">50</span>
+  <div class="card-body">
+    <div class="card-title">Eight Days a Week</div>
+    <div class="card-artist">The Beatles</div>
+    <div class="card-tags">
+      <span class="badge" style="background:#95a5a6;color:#111">C</span>
+      <span class="card-key">D maj</span>
+      <span class="card-style">Поп-рок / Битл</span>
+      <span class="chk" title="Илья">И</span>
+    </div>
+  </div>
+  <div class="card-links" onclick="event.stopPropagation()">
+    <a class="yt" href="https://www.youtube.com/results?search_query=The%20Beatles%20Eight%20Days%20a%20Week" target="_blank">▶</a>
+    <a class="sp" href="https://open.spotify.com/search/The%20Beatles%20Eight%20Days%20a%20Week" target="_blank">♫</a>
+  </div>
+</div>
+<div class="song-card" data-priority="C" data-search="dua lipa (трек?) dua lipa" onclick="openChords(51)" role="button" tabindex="0">
+  <span class="card-num">51</span>
+  <div class="card-body">
+    <div class="card-title">Dua Lipa (трек?)</div>
+    <div class="card-artist">Dua Lipa</div>
+    <div class="card-tags">
+      <span class="badge" style="background:#95a5a6;color:#111">C</span>
+      <span class="card-key">?</span>
+      <span class="card-style">Поп / Дэнс</span>
+      <span class="chk" title="Илья">И</span>
+    </div>
+  </div>
+  <div class="card-links" onclick="event.stopPropagation()">
+    <a class="yt" href="https://www.youtube.com/results?search_query=Dua%20Lipa%20Dua%20Lipa%20%28%D1%82%D1%80%D0%B5%D0%BA%3F%29" target="_blank">▶</a>
+    <a class="sp" href="https://open.spotify.com/search/Dua%20Lipa%20Dua%20Lipa%20%28%D1%82%D1%80%D0%B5%D0%BA%3F%29" target="_blank">♫</a>
+  </div>
+</div>
+<div class="song-card" data-priority="B" data-search="every breath you take the police" onclick="openChords(52)" role="button" tabindex="0">
+  <span class="card-num">52</span>
+  <div class="card-body">
+    <div class="card-title">Every Breath You Take</div>
+    <div class="card-artist">The Police</div>
+    <div class="card-tags">
+      <span class="badge" style="background:#f39c12;color:#111">B</span>
+      <span class="card-key">A maj</span>
+      <span class="card-style">Поп-рок / Нью-вейв</span>
+      <span class="chk" title="Илья">И</span>
+    </div>
+  </div>
+  <div class="card-links" onclick="event.stopPropagation()">
+    <a class="yt" href="https://www.youtube.com/results?search_query=The%20Police%20Every%20Breath%20You%20Take" target="_blank">▶</a>
+    <a class="sp" href="https://open.spotify.com/search/The%20Police%20Every%20Breath%20You%20Take" target="_blank">♫</a>
+  </div>
+</div>
+<div class="song-card" data-priority="B" data-search="sunny bobby hebb" onclick="openChords(53)" role="button" tabindex="0">
+  <span class="card-num">53</span>
+  <div class="card-body">
+    <div class="card-title">Sunny</div>
+    <div class="card-artist">Bobby Hebb</div>
+    <div class="card-tags">
+      <span class="badge" style="background:#f39c12;color:#111">B</span>
+      <span class="card-key">F maj</span>
+      <span class="card-style">Соул / Поп</span>
+      <span class="chk" title="Илья">И</span>
+    </div>
+  </div>
+  <div class="card-links" onclick="event.stopPropagation()">
+    <a class="yt" href="https://www.youtube.com/results?search_query=Bobby%20Hebb%20Sunny" target="_blank">▶</a>
+    <a class="sp" href="https://open.spotify.com/search/Bobby%20Hebb%20Sunny" target="_blank">♫</a>
+  </div>
+</div>
+<div class="song-card" data-priority="C" data-search="lady уточни версию" onclick="openChords(54)" role="button" tabindex="0">
+  <span class="card-num">54</span>
+  <div class="card-body">
+    <div class="card-title">Lady</div>
+    <div class="card-artist">уточни версию</div>
+    <div class="card-tags">
+      <span class="badge" style="background:#95a5a6;color:#111">C</span>
+      <span class="card-key">?</span>
+      <span class="card-style">уточни</span>
+      <span class="chk" title="Илья">И</span>
+    </div>
+  </div>
+  <div class="card-links" onclick="event.stopPropagation()">
+    <a class="yt" href="https://www.youtube.com/results?search_query=%D1%83%D1%82%D0%BE%D1%87%D0%BD%D0%B8%20%D0%B2%D0%B5%D1%80%D1%81%D0%B8%D1%8E%20Lady" target="_blank">▶</a>
+    <a class="sp" href="https://open.spotify.com/search/%D1%83%D1%82%D0%BE%D1%87%D0%BD%D0%B8%20%D0%B2%D0%B5%D1%80%D1%81%D0%B8%D1%8E%20Lady" target="_blank">♫</a>
+  </div>
+</div>
+<div class="song-card" data-priority="C" data-search="one more time daft punk" onclick="openChords(55)" role="button" tabindex="0">
+  <span class="card-num">55</span>
+  <div class="card-body">
+    <div class="card-title">One More Time</div>
+    <div class="card-artist">Daft Punk</div>
+    <div class="card-tags">
+      <span class="badge" style="background:#95a5a6;color:#111">C</span>
+      <span class="card-key">F maj</span>
+      <span class="card-style">Диско / Электронный поп</span>
+      <span class="chk" title="Илья">И</span>
+    </div>
+  </div>
+  <div class="card-links" onclick="event.stopPropagation()">
+    <a class="yt" href="https://www.youtube.com/results?search_query=Daft%20Punk%20One%20More%20Time" target="_blank">▶</a>
+    <a class="sp" href="https://open.spotify.com/search/Daft%20Punk%20One%20More%20Time" target="_blank">♫</a>
+  </div>
+</div>
+<div class="song-card" data-priority="C" data-search="astik ?" onclick="openChords(56)" role="button" tabindex="0">
+  <span class="card-num">56</span>
+  <div class="card-body">
+    <div class="card-title">Astik</div>
+    <div class="card-artist">?</div>
+    <div class="card-tags">
+      <span class="badge" style="background:#95a5a6;color:#111">C</span>
+      <span class="card-key">?</span>
+      <span class="card-style">уточни</span>
+      <span class="chk" title="Илья">И</span>
+    </div>
+  </div>
+  <div class="card-links" onclick="event.stopPropagation()">
+    <a class="yt" href="https://www.youtube.com/results?search_query=%3F%20Astik" target="_blank">▶</a>
+    <a class="sp" href="https://open.spotify.com/search/%3F%20Astik" target="_blank">♫</a>
+  </div>
+</div>
+<div class="song-card" data-priority="C" data-search="price tag jessie j" onclick="openChords(57)" role="button" tabindex="0">
+  <span class="card-num">57</span>
+  <div class="card-body">
+    <div class="card-title">Price Tag</div>
+    <div class="card-artist">Jessie J</div>
+    <div class="card-tags">
+      <span class="badge" style="background:#95a5a6;color:#111">C</span>
+      <span class="card-key">C maj</span>
+      <span class="card-style">Поп / R&amp;B</span>
+      <span class="chk" title="Илья">И</span>
+    </div>
+  </div>
+  <div class="card-links" onclick="event.stopPropagation()">
+    <a class="yt" href="https://www.youtube.com/results?search_query=Jessie%20J%20Price%20Tag" target="_blank">▶</a>
+    <a class="sp" href="https://open.spotify.com/search/Jessie%20J%20Price%20Tag" target="_blank">♫</a>
+  </div>
+</div>
+<div class="song-card" data-priority="C" data-search="калина ?" onclick="openChords(58)" role="button" tabindex="0">
+  <span class="card-num">58</span>
+  <div class="card-body">
+    <div class="card-title">Калина</div>
+    <div class="card-artist">?</div>
+    <div class="card-tags">
+      <span class="badge" style="background:#95a5a6;color:#111">C</span>
+      <span class="card-key">?</span>
+      <span class="card-style">уточни</span>
+      <span class="chk" title="Илья">И</span>
+    </div>
+  </div>
+  <div class="card-links" onclick="event.stopPropagation()">
+    <a class="yt" href="https://www.youtube.com/results?search_query=%3F%20%D0%9A%D0%B0%D0%BB%D0%B8%D0%BD%D0%B0" target="_blank">▶</a>
+    <a class="sp" href="https://open.spotify.com/search/%3F%20%D0%9A%D0%B0%D0%BB%D0%B8%D0%BD%D0%B0" target="_blank">♫</a>
+  </div>
+</div>
+<div class="song-card" data-priority="B" data-search="la bamba ritchie valens" onclick="openChords(59)" role="button" tabindex="0">
+  <span class="card-num">59</span>
+  <div class="card-body">
+    <div class="card-title">La Bamba</div>
+    <div class="card-artist">Ritchie Valens</div>
+    <div class="card-tags">
+      <span class="badge" style="background:#f39c12;color:#111">B</span>
+      <span class="card-key">C maj</span>
+      <span class="card-style">Латина / Рок-н-ролл</span>
+      <span class="chk" title="Илья">И</span>
+    </div>
+  </div>
+  <div class="card-links" onclick="event.stopPropagation()">
+    <a class="yt" href="https://www.youtube.com/results?search_query=Ritchie%20Valens%20La%20Bamba" target="_blank">▶</a>
+    <a class="sp" href="https://open.spotify.com/search/Ritchie%20Valens%20La%20Bamba" target="_blank">♫</a>
+  </div>
+</div>
+<div class="song-card" data-priority="C" data-search="you will never know imany" onclick="openChords(60)" role="button" tabindex="0">
+  <span class="card-num">60</span>
+  <div class="card-body">
+    <div class="card-title">You Will Never Know</div>
+    <div class="card-artist">Imany</div>
+    <div class="card-tags">
+      <span class="badge" style="background:#95a5a6;color:#111">C</span>
+      <span class="card-key">D min</span>
+      <span class="card-style">Соул / Поп</span>
+      <span class="chk" title="Илья">И</span>
+    </div>
+  </div>
+  <div class="card-links" onclick="event.stopPropagation()">
+    <a class="yt" href="https://www.youtube.com/results?search_query=Imany%20You%20Will%20Never%20Know" target="_blank">▶</a>
+    <a class="sp" href="https://open.spotify.com/search/Imany%20You%20Will%20Never%20Know" target="_blank">♫</a>
+  </div>
+</div>
+<div class="song-card" data-priority="C" data-search="твои глаза ?" onclick="openChords(61)" role="button" tabindex="0">
+  <span class="card-num">61</span>
+  <div class="card-body">
+    <div class="card-title">Твои глаза</div>
+    <div class="card-artist">?</div>
+    <div class="card-tags">
+      <span class="badge" style="background:#95a5a6;color:#111">C</span>
+      <span class="card-key">?</span>
+      <span class="card-style">уточни</span>
+      <span class="chk" title="Илья">И</span>
+    </div>
+  </div>
+  <div class="card-links" onclick="event.stopPropagation()">
+    <a class="yt" href="https://www.youtube.com/results?search_query=%3F%20%D0%A2%D0%B2%D0%BE%D0%B8%20%D0%B3%D0%BB%D0%B0%D0%B7%D0%B0" target="_blank">▶</a>
+    <a class="sp" href="https://open.spotify.com/search/%3F%20%D0%A2%D0%B2%D0%BE%D0%B8%20%D0%B3%D0%BB%D0%B0%D0%B7%D0%B0" target="_blank">♫</a>
+  </div>
+</div>
+<div class="song-card" data-priority="C" data-search="human the killers" onclick="openChords(62)" role="button" tabindex="0">
+  <span class="card-num">62</span>
+  <div class="card-body">
+    <div class="card-title">Human</div>
+    <div class="card-artist">The Killers</div>
+    <div class="card-tags">
+      <span class="badge" style="background:#95a5a6;color:#111">C</span>
+      <span class="card-key">Eb maj</span>
+      <span class="card-style">Инди-рок / Синти-поп</span>
+      <span class="chk" title="Илья">И</span>
+    </div>
+  </div>
+  <div class="card-links" onclick="event.stopPropagation()">
+    <a class="yt" href="https://www.youtube.com/results?search_query=The%20Killers%20Human" target="_blank">▶</a>
+    <a class="sp" href="https://open.spotify.com/search/The%20Killers%20Human" target="_blank">♫</a>
+  </div>
+</div>
+<div class="song-card" data-priority="C" data-search="alejandro lady gaga" onclick="openChords(63)" role="button" tabindex="0">
+  <span class="card-num">63</span>
+  <div class="card-body">
+    <div class="card-title">Alejandro</div>
+    <div class="card-artist">Lady Gaga</div>
+    <div class="card-tags">
+      <span class="badge" style="background:#95a5a6;color:#111">C</span>
+      <span class="card-key">A min</span>
+      <span class="card-style">Поп / Дэнс</span>
+      <span class="chk" title="Илья">И</span>
+    </div>
+  </div>
+  <div class="card-links" onclick="event.stopPropagation()">
+    <a class="yt" href="https://www.youtube.com/results?search_query=Lady%20Gaga%20Alejandro" target="_blank">▶</a>
+    <a class="sp" href="https://open.spotify.com/search/Lady%20Gaga%20Alejandro" target="_blank">♫</a>
+  </div>
+</div>
+<div class="song-card" data-priority="C" data-search="havana camila cabello" onclick="openChords(64)" role="button" tabindex="0">
+  <span class="card-num">64</span>
+  <div class="card-body">
+    <div class="card-title">Havana</div>
+    <div class="card-artist">Camila Cabello</div>
+    <div class="card-tags">
+      <span class="badge" style="background:#95a5a6;color:#111">C</span>
+      <span class="card-key">G min</span>
+      <span class="card-style">Латина / Поп</span>
+      <span class="chk" title="Илья">И</span>
+    </div>
+  </div>
+  <div class="card-links" onclick="event.stopPropagation()">
+    <a class="yt" href="https://www.youtube.com/results?search_query=Camila%20Cabello%20Havana" target="_blank">▶</a>
+    <a class="sp" href="https://open.spotify.com/search/Camila%20Cabello%20Havana" target="_blank">♫</a>
+  </div>
+</div>
+<div class="song-card" data-priority="C" data-search="bésame mucho consuelo velázquez" onclick="openChords(65)" role="button" tabindex="0">
+  <span class="card-num">65</span>
+  <div class="card-body">
+    <div class="card-title">Bésame Mucho</div>
+    <div class="card-artist">Consuelo Velázquez</div>
+    <div class="card-tags">
+      <span class="badge" style="background:#95a5a6;color:#111">C</span>
+      <span class="card-key">D min</span>
+      <span class="card-style">Болеро / Латина</span>
+      <span class="chk" title="Илья">И</span>
+    </div>
+  </div>
+  <div class="card-links" onclick="event.stopPropagation()">
+    <a class="yt" href="https://www.youtube.com/results?search_query=Consuelo%20Vel%C3%A1zquez%20B%C3%A9same%20Mucho" target="_blank">▶</a>
+    <a class="sp" href="https://open.spotify.com/search/Consuelo%20Vel%C3%A1zquez%20B%C3%A9same%20Mucho" target="_blank">♫</a>
+  </div>
+</div>
+<div class="song-card" data-priority="C" data-search="you&#x27;re my heart you&#x27;re my soul modern talking" onclick="openChords(66)" role="button" tabindex="0">
+  <span class="card-num">66</span>
+  <div class="card-body">
+    <div class="card-title">You&#x27;re My Heart You&#x27;re My Soul</div>
+    <div class="card-artist">Modern Talking</div>
+    <div class="card-tags">
+      <span class="badge" style="background:#95a5a6;color:#111">C</span>
+      <span class="card-key">D maj</span>
+      <span class="card-style">Диско / Евродэнс</span>
+      <span class="chk" title="Илья">И</span>
+    </div>
+  </div>
+  <div class="card-links" onclick="event.stopPropagation()">
+    <a class="yt" href="https://www.youtube.com/results?search_query=Modern%20Talking%20You%27re%20My%20Heart%20You%27re%20My%20Soul" target="_blank">▶</a>
+    <a class="sp" href="https://open.spotify.com/search/Modern%20Talking%20You%27re%20My%20Heart%20You%27re%20My%20Soul" target="_blank">♫</a>
+  </div>
+</div>
+<div class="song-card" data-priority="C" data-search="monster ?" onclick="openChords(67)" role="button" tabindex="0">
+  <span class="card-num">67</span>
+  <div class="card-body">
+    <div class="card-title">Monster</div>
+    <div class="card-artist">?</div>
+    <div class="card-tags">
+      <span class="badge" style="background:#95a5a6;color:#111">C</span>
+      <span class="card-key">?</span>
+      <span class="card-style">уточни</span>
+      <span class="chk" title="Илья">И</span>
+    </div>
+  </div>
+  <div class="card-links" onclick="event.stopPropagation()">
+    <a class="yt" href="https://www.youtube.com/results?search_query=%3F%20Monster" target="_blank">▶</a>
+    <a class="sp" href="https://open.spotify.com/search/%3F%20Monster" target="_blank">♫</a>
+  </div>
+</div>
+<div class="song-card" data-priority="C" data-search="don&#x27;t you forget about me simple minds" onclick="openChords(68)" role="button" tabindex="0">
+  <span class="card-num">68</span>
+  <div class="card-body">
+    <div class="card-title">Don&#x27;t You Forget About Me</div>
+    <div class="card-artist">Simple Minds</div>
+    <div class="card-tags">
+      <span class="badge" style="background:#95a5a6;color:#111">C</span>
+      <span class="card-key">F maj</span>
+      <span class="card-style">Нью-вейв / Поп-рок</span>
+      <span class="chk" title="Илья">И</span>
+    </div>
+  </div>
+  <div class="card-links" onclick="event.stopPropagation()">
+    <a class="yt" href="https://www.youtube.com/results?search_query=Simple%20Minds%20Don%27t%20You%20Forget%20About%20Me" target="_blank">▶</a>
+    <a class="sp" href="https://open.spotify.com/search/Simple%20Minds%20Don%27t%20You%20Forget%20About%20Me" target="_blank">♫</a>
+  </div>
+</div>
+<div class="song-card" data-priority="C" data-search="sway dean martin" onclick="openChords(69)" role="button" tabindex="0">
+  <span class="card-num">69</span>
+  <div class="card-body">
+    <div class="card-title">Sway</div>
+    <div class="card-artist">Dean Martin</div>
+    <div class="card-tags">
+      <span class="badge" style="background:#95a5a6;color:#111">C</span>
+      <span class="card-key">B maj</span>
+      <span class="card-style">Латина / Джаз</span>
+      <span class="chk" title="Илья">И</span>
+    </div>
+  </div>
+  <div class="card-links" onclick="event.stopPropagation()">
+    <a class="yt" href="https://www.youtube.com/results?search_query=Dean%20Martin%20Sway" target="_blank">▶</a>
+    <a class="sp" href="https://open.spotify.com/search/Dean%20Martin%20Sway" target="_blank">♫</a>
+  </div>
+</div>
+<div class="song-card" data-priority="C" data-search="try ?" onclick="openChords(70)" role="button" tabindex="0">
+  <span class="card-num">70</span>
+  <div class="card-body">
+    <div class="card-title">Try</div>
+    <div class="card-artist">?</div>
+    <div class="card-tags">
+      <span class="badge" style="background:#95a5a6;color:#111">C</span>
+      <span class="card-key">?</span>
+      <span class="card-style">уточни</span>
+      <span class="chk" title="Илья">И</span>
+    </div>
+  </div>
+  <div class="card-links" onclick="event.stopPropagation()">
+    <a class="yt" href="https://www.youtube.com/results?search_query=%3F%20Try" target="_blank">▶</a>
+    <a class="sp" href="https://open.spotify.com/search/%3F%20Try" target="_blank">♫</a>
+  </div>
+</div>
+<div class="song-card" data-priority="C" data-search="к чёрту любовь лобода" onclick="openChords(71)" role="button" tabindex="0">
+  <span class="card-num">71</span>
+  <div class="card-body">
+    <div class="card-title">К чёрту любовь</div>
+    <div class="card-artist">Лобода</div>
+    <div class="card-tags">
+      <span class="badge" style="background:#95a5a6;color:#111">C</span>
+      <span class="card-key">A min</span>
+      <span class="card-style">Русский поп</span>
+      <span class="chk" title="Илья">И</span>
+    </div>
+  </div>
+  <div class="card-links" onclick="event.stopPropagation()">
+    <a class="yt" href="https://www.youtube.com/results?search_query=%D0%9B%D0%BE%D0%B1%D0%BE%D0%B4%D0%B0%20%D0%9A%20%D1%87%D1%91%D1%80%D1%82%D1%83%20%D0%BB%D1%8E%D0%B1%D0%BE%D0%B2%D1%8C" target="_blank">▶</a>
+    <a class="sp" href="https://open.spotify.com/search/%D0%9B%D0%BE%D0%B1%D0%BE%D0%B4%D0%B0%20%D0%9A%20%D1%87%D1%91%D1%80%D1%82%D1%83%20%D0%BB%D1%8E%D0%B1%D0%BE%D0%B2%D1%8C" target="_blank">♫</a>
+  </div>
+</div>
+<div class="song-card" data-priority="C" data-search="friends ?" onclick="openChords(72)" role="button" tabindex="0">
+  <span class="card-num">72</span>
+  <div class="card-body">
+    <div class="card-title">Friends</div>
+    <div class="card-artist">?</div>
+    <div class="card-tags">
+      <span class="badge" style="background:#95a5a6;color:#111">C</span>
+      <span class="card-key">?</span>
+      <span class="card-style">уточни</span>
+      <span class="chk" title="Илья">И</span>
+    </div>
+  </div>
+  <div class="card-links" onclick="event.stopPropagation()">
+    <a class="yt" href="https://www.youtube.com/results?search_query=%3F%20Friends" target="_blank">▶</a>
+    <a class="sp" href="https://open.spotify.com/search/%3F%20Friends" target="_blank">♫</a>
+  </div>
+</div>
+<div class="song-card" data-priority="C" data-search="dance monkey tones and i" onclick="openChords(73)" role="button" tabindex="0">
+  <span class="card-num">73</span>
+  <div class="card-body">
+    <div class="card-title">Dance Monkey</div>
+    <div class="card-artist">Tones and I</div>
+    <div class="card-tags">
+      <span class="badge" style="background:#95a5a6;color:#111">C</span>
+      <span class="card-key">C min</span>
+      <span class="card-style">Инди-поп</span>
+      <span class="chk" title="Илья">И</span>
+    </div>
+  </div>
+  <div class="card-links" onclick="event.stopPropagation()">
+    <a class="yt" href="https://www.youtube.com/results?search_query=Tones%20and%20I%20Dance%20Monkey" target="_blank">▶</a>
+    <a class="sp" href="https://open.spotify.com/search/Tones%20and%20I%20Dance%20Monkey" target="_blank">♫</a>
+  </div>
+</div>
+<div class="song-card" data-priority="C" data-search="simply the best tina turner" onclick="openChords(74)" role="button" tabindex="0">
+  <span class="card-num">74</span>
+  <div class="card-body">
+    <div class="card-title">Simply the Best</div>
+    <div class="card-artist">Tina Turner</div>
+    <div class="card-tags">
+      <span class="badge" style="background:#95a5a6;color:#111">C</span>
+      <span class="card-key">D maj</span>
+      <span class="card-style">Поп-рок / R&amp;B</span>
+      <span class="chk" title="Илья">И</span>
+    </div>
+  </div>
+  <div class="card-links" onclick="event.stopPropagation()">
+    <a class="yt" href="https://www.youtube.com/results?search_query=Tina%20Turner%20Simply%20the%20Best" target="_blank">▶</a>
+    <a class="sp" href="https://open.spotify.com/search/Tina%20Turner%20Simply%20the%20Best" target="_blank">♫</a>
+  </div>
+</div>
+<div class="song-card" data-priority="C" data-search="walk away ?" onclick="openChords(75)" role="button" tabindex="0">
+  <span class="card-num">75</span>
+  <div class="card-body">
+    <div class="card-title">Walk Away</div>
+    <div class="card-artist">?</div>
+    <div class="card-tags">
+      <span class="badge" style="background:#95a5a6;color:#111">C</span>
+      <span class="card-key">?</span>
+      <span class="card-style">уточни</span>
+      <span class="chk" title="Илья">И</span>
+    </div>
+  </div>
+  <div class="card-links" onclick="event.stopPropagation()">
+    <a class="yt" href="https://www.youtube.com/results?search_query=%3F%20Walk%20Away" target="_blank">▶</a>
+    <a class="sp" href="https://open.spotify.com/search/%3F%20Walk%20Away" target="_blank">♫</a>
+  </div>
+</div>
+<div class="song-card" data-priority="C" data-search="случайная лобода" onclick="openChords(76)" role="button" tabindex="0">
+  <span class="card-num">76</span>
+  <div class="card-body">
+    <div class="card-title">Случайная</div>
+    <div class="card-artist">Лобода</div>
+    <div class="card-tags">
+      <span class="badge" style="background:#95a5a6;color:#111">C</span>
+      <span class="card-key">A min</span>
+      <span class="card-style">Русский поп</span>
+      <span class="chk" title="Илья">И</span>
+    </div>
+  </div>
+  <div class="card-links" onclick="event.stopPropagation()">
+    <a class="yt" href="https://www.youtube.com/results?search_query=%D0%9B%D0%BE%D0%B1%D0%BE%D0%B4%D0%B0%20%D0%A1%D0%BB%D1%83%D1%87%D0%B0%D0%B9%D0%BD%D0%B0%D1%8F" target="_blank">▶</a>
+    <a class="sp" href="https://open.spotify.com/search/%D0%9B%D0%BE%D0%B1%D0%BE%D0%B4%D0%B0%20%D0%A1%D0%BB%D1%83%D1%87%D0%B0%D0%B9%D0%BD%D0%B0%D1%8F" target="_blank">♫</a>
+  </div>
+</div>
+<div class="song-card" data-priority="C" data-search="stay with me sam smith" onclick="openChords(77)" role="button" tabindex="0">
+  <span class="card-num">77</span>
+  <div class="card-body">
+    <div class="card-title">Stay With Me</div>
+    <div class="card-artist">Sam Smith</div>
+    <div class="card-tags">
+      <span class="badge" style="background:#95a5a6;color:#111">C</span>
+      <span class="card-key">C maj</span>
+      <span class="card-style">Поп / Соул</span>
+      <span class="chk" title="Илья">И</span>
+    </div>
+  </div>
+  <div class="card-links" onclick="event.stopPropagation()">
+    <a class="yt" href="https://www.youtube.com/results?search_query=Sam%20Smith%20Stay%20With%20Me" target="_blank">▶</a>
+    <a class="sp" href="https://open.spotify.com/search/Sam%20Smith%20Stay%20With%20Me" target="_blank">♫</a>
+  </div>
+</div>
+<div class="song-card" data-priority="C" data-search="venus shocking blue" onclick="openChords(78)" role="button" tabindex="0">
+  <span class="card-num">78</span>
+  <div class="card-body">
+    <div class="card-title">Venus</div>
+    <div class="card-artist">Shocking Blue</div>
+    <div class="card-tags">
+      <span class="badge" style="background:#95a5a6;color:#111">C</span>
+      <span class="card-key">A min</span>
+      <span class="card-style">Рок / Поп</span>
+      <span class="chk" title="Илья">И</span>
+    </div>
+  </div>
+  <div class="card-links" onclick="event.stopPropagation()">
+    <a class="yt" href="https://www.youtube.com/results?search_query=Shocking%20Blue%20Venus" target="_blank">▶</a>
+    <a class="sp" href="https://open.spotify.com/search/Shocking%20Blue%20Venus" target="_blank">♫</a>
+  </div>
+</div>
+<div class="song-card" data-priority="B" data-search="billie jean michael jackson" onclick="openChords(79)" role="button" tabindex="0">
+  <span class="card-num">79</span>
+  <div class="card-body">
+    <div class="card-title">Billie Jean</div>
+    <div class="card-artist">Michael Jackson</div>
+    <div class="card-tags">
+      <span class="badge" style="background:#f39c12;color:#111">B</span>
+      <span class="card-key">F# min</span>
+      <span class="card-style">Поп / Фанк</span>
+      <span class="chk" title="Дима">Д</span>
+    </div>
+  </div>
+  <div class="card-links" onclick="event.stopPropagation()">
+    <a class="yt" href="https://www.youtube.com/results?search_query=Michael%20Jackson%20Billie%20Jean" target="_blank">▶</a>
+    <a class="sp" href="https://open.spotify.com/search/Michael%20Jackson%20Billie%20Jean" target="_blank">♫</a>
+  </div>
+</div>
+<div class="song-card" data-priority="C" data-search="give it to me michael jackson" onclick="openChords(80)" role="button" tabindex="0">
+  <span class="card-num">80</span>
+  <div class="card-body">
+    <div class="card-title">Give It to Me</div>
+    <div class="card-artist">Michael Jackson</div>
+    <div class="card-tags">
+      <span class="badge" style="background:#95a5a6;color:#111">C</span>
+      <span class="card-key">Bb maj</span>
+      <span class="card-style">Поп / R&amp;B</span>
+      <span class="chk" title="Дима">Д</span>
+    </div>
+  </div>
+  <div class="card-links" onclick="event.stopPropagation()">
+    <a class="yt" href="https://www.youtube.com/results?search_query=Michael%20Jackson%20Give%20It%20to%20Me" target="_blank">▶</a>
+    <a class="sp" href="https://open.spotify.com/search/Michael%20Jackson%20Give%20It%20to%20Me" target="_blank">♫</a>
+  </div>
+</div>
+<div class="song-card" data-priority="B" data-search="smooth criminal michael jackson" onclick="openChords(81)" role="button" tabindex="0">
+  <span class="card-num">81</span>
+  <div class="card-body">
+    <div class="card-title">Smooth Criminal</div>
+    <div class="card-artist">Michael Jackson</div>
+    <div class="card-tags">
+      <span class="badge" style="background:#f39c12;color:#111">B</span>
+      <span class="card-key">E min</span>
+      <span class="card-style">Поп / Фанк</span>
+      <span class="chk" title="Дима">Д</span>
+    </div>
+  </div>
+  <div class="card-links" onclick="event.stopPropagation()">
+    <a class="yt" href="https://www.youtube.com/results?search_query=Michael%20Jackson%20Smooth%20Criminal" target="_blank">▶</a>
+    <a class="sp" href="https://open.spotify.com/search/Michael%20Jackson%20Smooth%20Criminal" target="_blank">♫</a>
+  </div>
+</div>
+<div class="song-card" data-priority="C" data-search="хали гали леприконсы" onclick="openChords(82)" role="button" tabindex="0">
+  <span class="card-num">82</span>
+  <div class="card-body">
+    <div class="card-title">Хали Гали</div>
+    <div class="card-artist">Леприконсы</div>
+    <div class="card-tags">
+      <span class="badge" style="background:#95a5a6;color:#111">C</span>
+      <span class="card-key">?</span>
+      <span class="card-style">Русский поп / Юмор</span>
+      <span class="chk" title="Саша">С</span>
+    </div>
+  </div>
+  <div class="card-links" onclick="event.stopPropagation()">
+    <a class="yt" href="https://www.youtube.com/results?search_query=%D0%9B%D0%B5%D0%BF%D1%80%D0%B8%D0%BA%D0%BE%D0%BD%D1%81%D1%8B%20%D0%A5%D0%B0%D0%BB%D0%B8%20%D0%93%D0%B0%D0%BB%D0%B8" target="_blank">▶</a>
+    <a class="sp" href="https://open.spotify.com/search/%D0%9B%D0%B5%D0%BF%D1%80%D0%B8%D0%BA%D0%BE%D0%BD%D1%81%D1%8B%20%D0%A5%D0%B0%D0%BB%D0%B8%20%D0%93%D0%B0%D0%BB%D0%B8" target="_blank">♫</a>
+  </div>
+</div>
+<div class="song-card" data-priority="C" data-search="москвич леприконсы" onclick="openChords(83)" role="button" tabindex="0">
+  <span class="card-num">83</span>
+  <div class="card-body">
+    <div class="card-title">Москвич</div>
+    <div class="card-artist">Леприконсы</div>
+    <div class="card-tags">
+      <span class="badge" style="background:#95a5a6;color:#111">C</span>
+      <span class="card-key">?</span>
+      <span class="card-style">Русский поп / Юмор</span>
+      <span class="chk" title="Саша">С</span>
+    </div>
+  </div>
+  <div class="card-links" onclick="event.stopPropagation()">
+    <a class="yt" href="https://www.youtube.com/results?search_query=%D0%9B%D0%B5%D0%BF%D1%80%D0%B8%D0%BA%D0%BE%D0%BD%D1%81%D1%8B%20%D0%9C%D0%BE%D1%81%D0%BA%D0%B2%D0%B8%D1%87" target="_blank">▶</a>
+    <a class="sp" href="https://open.spotify.com/search/%D0%9B%D0%B5%D0%BF%D1%80%D0%B8%D0%BA%D0%BE%D0%BD%D1%81%D1%8B%20%D0%9C%D0%BE%D1%81%D0%BA%D0%B2%D0%B8%D1%87" target="_blank">♫</a>
+  </div>
+</div>
+<div class="song-card" data-priority="C" data-search="как мне сегодня хочется руки вверх" onclick="openChords(84)" role="button" tabindex="0">
+  <span class="card-num">84</span>
+  <div class="card-body">
+    <div class="card-title">Как мне сегодня хочется</div>
+    <div class="card-artist">Руки Вверх</div>
+    <div class="card-tags">
+      <span class="badge" style="background:#95a5a6;color:#111">C</span>
+      <span class="card-key">C maj</span>
+      <span class="card-style">Русский поп / Еврохаус</span>
+      <span class="chk" title="Дима">Д</span>
+    </div>
+  </div>
+  <div class="card-links" onclick="event.stopPropagation()">
+    <a class="yt" href="https://www.youtube.com/results?search_query=%D0%A0%D1%83%D0%BA%D0%B8%20%D0%92%D0%B2%D0%B5%D1%80%D1%85%20%D0%9A%D0%B0%D0%BA%20%D0%BC%D0%BD%D0%B5%20%D1%81%D0%B5%D0%B3%D0%BE%D0%B4%D0%BD%D1%8F%20%D1%85%D0%BE%D1%87%D0%B5%D1%82%D1%81%D1%8F" target="_blank">▶</a>
+    <a class="sp" href="https://open.spotify.com/search/%D0%A0%D1%83%D0%BA%D0%B8%20%D0%92%D0%B2%D0%B5%D1%80%D1%85%20%D0%9A%D0%B0%D0%BA%20%D0%BC%D0%BD%D0%B5%20%D1%81%D0%B5%D0%B3%D0%BE%D0%B4%D0%BD%D1%8F%20%D1%85%D0%BE%D1%87%D0%B5%D1%82%D1%81%D1%8F" target="_blank">♫</a>
+  </div>
+</div>
+<div class="song-card" data-priority="B" data-search="любите девушки браво" onclick="openChords(85)" role="button" tabindex="0">
+  <span class="card-num">85</span>
+  <div class="card-body">
+    <div class="card-title">Любите девушки</div>
+    <div class="card-artist">Браво</div>
+    <div class="card-tags">
+      <span class="badge" style="background:#f39c12;color:#111">B</span>
+      <span class="card-key">G maj</span>
+      <span class="card-style">Русский поп-рок / Ретро</span>
+      <span class="chk" title="Дима">Д</span>
+    </div>
+  </div>
+  <div class="card-links" onclick="event.stopPropagation()">
+    <a class="yt" href="https://www.youtube.com/results?search_query=%D0%91%D1%80%D0%B0%D0%B2%D0%BE%20%D0%9B%D1%8E%D0%B1%D0%B8%D1%82%D0%B5%20%D0%B4%D0%B5%D0%B2%D1%83%D1%88%D0%BA%D0%B8" target="_blank">▶</a>
+    <a class="sp" href="https://open.spotify.com/search/%D0%91%D1%80%D0%B0%D0%B2%D0%BE%20%D0%9B%D1%8E%D0%B1%D0%B8%D1%82%D0%B5%20%D0%B4%D0%B5%D0%B2%D1%83%D1%88%D0%BA%D0%B8" target="_blank">♫</a>
+  </div>
+</div>
+<div class="song-card" data-priority="B" data-search="замок из песка браво" onclick="openChords(86)" role="button" tabindex="0">
+  <span class="card-num">86</span>
+  <div class="card-body">
+    <div class="card-title">Замок из песка</div>
+    <div class="card-artist">Браво</div>
+    <div class="card-tags">
+      <span class="badge" style="background:#f39c12;color:#111">B</span>
+      <span class="card-key">D maj</span>
+      <span class="card-style">Русский поп-рок / Баллада</span>
+      <span class="chk" title="Дима">Д</span>
+    </div>
+  </div>
+  <div class="card-links" onclick="event.stopPropagation()">
+    <a class="yt" href="https://www.youtube.com/results?search_query=%D0%91%D1%80%D0%B0%D0%B2%D0%BE%20%D0%97%D0%B0%D0%BC%D0%BE%D0%BA%20%D0%B8%D0%B7%20%D0%BF%D0%B5%D1%81%D0%BA%D0%B0" target="_blank">▶</a>
+    <a class="sp" href="https://open.spotify.com/search/%D0%91%D1%80%D0%B0%D0%B2%D0%BE%20%D0%97%D0%B0%D0%BC%D0%BE%D0%BA%20%D0%B8%D0%B7%20%D0%BF%D0%B5%D1%81%D0%BA%D0%B0" target="_blank">♫</a>
+  </div>
+</div>
+<div class="song-card" data-priority="C" data-search="дорога в облака сюткин" onclick="openChords(87)" role="button" tabindex="0">
+  <span class="card-num">87</span>
+  <div class="card-body">
+    <div class="card-title">Дорога в облака</div>
+    <div class="card-artist">Сюткин</div>
+    <div class="card-tags">
+      <span class="badge" style="background:#95a5a6;color:#111">C</span>
+      <span class="card-key">Bb maj</span>
+      <span class="card-style">Русский поп / Джаз</span>
+      <span class="chk" title="Дима">Д</span>
+    </div>
+  </div>
+  <div class="card-links" onclick="event.stopPropagation()">
+    <a class="yt" href="https://www.youtube.com/results?search_query=%D0%A1%D1%8E%D1%82%D0%BA%D0%B8%D0%BD%20%D0%94%D0%BE%D1%80%D0%BE%D0%B3%D0%B0%20%D0%B2%20%D0%BE%D0%B1%D0%BB%D0%B0%D0%BA%D0%B0" target="_blank">▶</a>
+    <a class="sp" href="https://open.spotify.com/search/%D0%A1%D1%8E%D1%82%D0%BA%D0%B8%D0%BD%20%D0%94%D0%BE%D1%80%D0%BE%D0%B3%D0%B0%20%D0%B2%20%D0%BE%D0%B1%D0%BB%D0%B0%D0%BA%D0%B0" target="_blank">♫</a>
+  </div>
+</div>
+<div class="song-card" data-priority="B" data-search="музыка нас связала мираж" onclick="openChords(88)" role="button" tabindex="0">
+  <span class="card-num">88</span>
+  <div class="card-body">
+    <div class="card-title">Музыка нас связала</div>
+    <div class="card-artist">Мираж</div>
+    <div class="card-tags">
+      <span class="badge" style="background:#f39c12;color:#111">B</span>
+      <span class="card-key">A min</span>
+      <span class="card-style">Синти-поп / Диско</span>
+      <span class="chk" title="Дима">Д</span>
+    </div>
+  </div>
+  <div class="card-links" onclick="event.stopPropagation()">
+    <a class="yt" href="https://www.youtube.com/results?search_query=%D0%9C%D0%B8%D1%80%D0%B0%D0%B6%20%D0%9C%D1%83%D0%B7%D1%8B%D0%BA%D0%B0%20%D0%BD%D0%B0%D1%81%20%D1%81%D0%B2%D1%8F%D0%B7%D0%B0%D0%BB%D0%B0" target="_blank">▶</a>
+    <a class="sp" href="https://open.spotify.com/search/%D0%9C%D0%B8%D1%80%D0%B0%D0%B6%20%D0%9C%D1%83%D0%B7%D1%8B%D0%BA%D0%B0%20%D0%BD%D0%B0%D1%81%20%D1%81%D0%B2%D1%8F%D0%B7%D0%B0%D0%BB%D0%B0" target="_blank">♫</a>
+  </div>
+</div>
+<div class="song-card" data-priority="C" data-search="не дано hi-fi" onclick="openChords(89)" role="button" tabindex="0">
+  <span class="card-num">89</span>
+  <div class="card-body">
+    <div class="card-title">Не дано</div>
+    <div class="card-artist">Hi-Fi</div>
+    <div class="card-tags">
+      <span class="badge" style="background:#95a5a6;color:#111">C</span>
+      <span class="card-key">C maj</span>
+      <span class="card-style">Русский поп / R&amp;B</span>
+      <span class="chk" title="Саша">С</span>
+    </div>
+  </div>
+  <div class="card-links" onclick="event.stopPropagation()">
+    <a class="yt" href="https://www.youtube.com/results?search_query=Hi-Fi%20%D0%9D%D0%B5%20%D0%B4%D0%B0%D0%BD%D0%BE" target="_blank">▶</a>
+    <a class="sp" href="https://open.spotify.com/search/Hi-Fi%20%D0%9D%D0%B5%20%D0%B4%D0%B0%D0%BD%D0%BE" target="_blank">♫</a>
+  </div>
+</div>
+<div class="song-card" data-priority="C" data-search="а мы любили hi-fi" onclick="openChords(90)" role="button" tabindex="0">
+  <span class="card-num">90</span>
+  <div class="card-body">
+    <div class="card-title">А мы любили</div>
+    <div class="card-artist">Hi-Fi</div>
+    <div class="card-tags">
+      <span class="badge" style="background:#95a5a6;color:#111">C</span>
+      <span class="card-key">F maj</span>
+      <span class="card-style">Русский поп / R&amp;B</span>
+      <span class="chk" title="Саша">С</span>
+    </div>
+  </div>
+  <div class="card-links" onclick="event.stopPropagation()">
+    <a class="yt" href="https://www.youtube.com/results?search_query=Hi-Fi%20%D0%90%20%D0%BC%D1%8B%20%D0%BB%D1%8E%D0%B1%D0%B8%D0%BB%D0%B8" target="_blank">▶</a>
+    <a class="sp" href="https://open.spotify.com/search/Hi-Fi%20%D0%90%20%D0%BC%D1%8B%20%D0%BB%D1%8E%D0%B1%D0%B8%D0%BB%D0%B8" target="_blank">♫</a>
+  </div>
+</div>
+<div class="song-card" data-priority="A" data-search="в городе лето уматурман" onclick="openChords(91)" role="button" tabindex="0">
+  <span class="card-num">91</span>
+  <div class="card-body">
+    <div class="card-title">В городе лето</div>
+    <div class="card-artist">Уматурман</div>
+    <div class="card-tags">
+      <span class="badge" style="background:#2ecc71;color:#111">A</span>
+      <span class="card-key">E min</span>
+      <span class="card-style">Русский рок-поп</span>
+      <span class="chk" title="Саша">С</span>
+    </div>
+  </div>
+  <div class="card-links" onclick="event.stopPropagation()">
+    <a class="yt" href="https://www.youtube.com/results?search_query=%D0%A3%D0%BC%D0%B0%D1%82%D1%83%D1%80%D0%BC%D0%B0%D0%BD%20%D0%92%20%D0%B3%D0%BE%D1%80%D0%BE%D0%B4%D0%B5%20%D0%BB%D0%B5%D1%82%D0%BE" target="_blank">▶</a>
+    <a class="sp" href="https://open.spotify.com/search/%D0%A3%D0%BC%D0%B0%D1%82%D1%83%D1%80%D0%BC%D0%B0%D0%BD%20%D0%92%20%D0%B3%D0%BE%D1%80%D0%BE%D0%B4%D0%B5%20%D0%BB%D0%B5%D1%82%D0%BE" target="_blank">♫</a>
+  </div>
+</div>
+<div class="song-card" data-priority="C" data-search="девушка прасковья уматурман" onclick="openChords(92)" role="button" tabindex="0">
+  <span class="card-num">92</span>
+  <div class="card-body">
+    <div class="card-title">Девушка Прасковья</div>
+    <div class="card-artist">Уматурман</div>
+    <div class="card-tags">
+      <span class="badge" style="background:#95a5a6;color:#111">C</span>
+      <span class="card-key">G maj</span>
+      <span class="card-style">Русский рок-поп</span>
+      <span class="chk" title="Саша">С</span>
+    </div>
+  </div>
+  <div class="card-links" onclick="event.stopPropagation()">
+    <a class="yt" href="https://www.youtube.com/results?search_query=%D0%A3%D0%BC%D0%B0%D1%82%D1%83%D1%80%D0%BC%D0%B0%D0%BD%20%D0%94%D0%B5%D0%B2%D1%83%D1%88%D0%BA%D0%B0%20%D0%9F%D1%80%D0%B0%D1%81%D0%BA%D0%BE%D0%B2%D1%8C%D1%8F" target="_blank">▶</a>
+    <a class="sp" href="https://open.spotify.com/search/%D0%A3%D0%BC%D0%B0%D1%82%D1%83%D1%80%D0%BC%D0%B0%D0%BD%20%D0%94%D0%B5%D0%B2%D1%83%D1%88%D0%BA%D0%B0%20%D0%9F%D1%80%D0%B0%D1%81%D0%BA%D0%BE%D0%B2%D1%8C%D1%8F" target="_blank">♫</a>
+  </div>
+</div>
+<div class="song-card" data-priority="C" data-search="лайки би-2" onclick="openChords(93)" role="button" tabindex="0">
+  <span class="card-num">93</span>
+  <div class="card-body">
+    <div class="card-title">Лайки</div>
+    <div class="card-artist">Би-2</div>
+    <div class="card-tags">
+      <span class="badge" style="background:#95a5a6;color:#111">C</span>
+      <span class="card-key">D min</span>
+      <span class="card-style">Русский рок</span>
+      <span class="chk" title="Дима">Д</span>
+    </div>
+  </div>
+  <div class="card-links" onclick="event.stopPropagation()">
+    <a class="yt" href="https://www.youtube.com/results?search_query=%D0%91%D0%B8-2%20%D0%9B%D0%B0%D0%B9%D0%BA%D0%B8" target="_blank">▶</a>
+    <a class="sp" href="https://open.spotify.com/search/%D0%91%D0%B8-2%20%D0%9B%D0%B0%D0%B9%D0%BA%D0%B8" target="_blank">♫</a>
+  </div>
+</div>
+<div class="song-card" data-priority="B" data-search="компромисс би-2" onclick="openChords(94)" role="button" tabindex="0">
+  <span class="card-num">94</span>
+  <div class="card-body">
+    <div class="card-title">Компромисс</div>
+    <div class="card-artist">Би-2</div>
+    <div class="card-tags">
+      <span class="badge" style="background:#f39c12;color:#111">B</span>
+      <span class="card-key">G min</span>
+      <span class="card-style">Русский рок</span>
+      <span class="chk" title="Дима">Д</span>
+    </div>
+  </div>
+  <div class="card-links" onclick="event.stopPropagation()">
+    <a class="yt" href="https://www.youtube.com/results?search_query=%D0%91%D0%B8-2%20%D0%9A%D0%BE%D0%BC%D0%BF%D1%80%D0%BE%D0%BC%D0%B8%D1%81%D1%81" target="_blank">▶</a>
+    <a class="sp" href="https://open.spotify.com/search/%D0%91%D0%B8-2%20%D0%9A%D0%BE%D0%BC%D0%BF%D1%80%D0%BE%D0%BC%D0%B8%D1%81%D1%81" target="_blank">♫</a>
+  </div>
+</div>
+<div class="song-card" data-priority="C" data-search="полковник би-2" onclick="openChords(95)" role="button" tabindex="0">
+  <span class="card-num">95</span>
+  <div class="card-body">
+    <div class="card-title">Полковник</div>
+    <div class="card-artist">Би-2</div>
+    <div class="card-tags">
+      <span class="badge" style="background:#95a5a6;color:#111">C</span>
+      <span class="card-key">E min</span>
+      <span class="card-style">Русский рок</span>
+      <span class="chk" title="Дима">Д</span>
+    </div>
+  </div>
+  <div class="card-links" onclick="event.stopPropagation()">
+    <a class="yt" href="https://www.youtube.com/results?search_query=%D0%91%D0%B8-2%20%D0%9F%D0%BE%D0%BB%D0%BA%D0%BE%D0%B2%D0%BD%D0%B8%D0%BA" target="_blank">▶</a>
+    <a class="sp" href="https://open.spotify.com/search/%D0%91%D0%B8-2%20%D0%9F%D0%BE%D0%BB%D0%BA%D0%BE%D0%B2%D0%BD%D0%B8%D0%BA" target="_blank">♫</a>
+  </div>
+</div>
+<div class="song-card" data-priority="A" data-search="скользкие улицы брэйнстом" onclick="openChords(96)" role="button" tabindex="0">
+  <span class="card-num">96</span>
+  <div class="card-body">
+    <div class="card-title">Скользкие улицы</div>
+    <div class="card-artist">Брэйнстом</div>
+    <div class="card-tags">
+      <span class="badge" style="background:#2ecc71;color:#111">A</span>
+      <span class="card-key">C maj</span>
+      <span class="card-style">Поп-рок / Баллада</span>
+      <span class="chk" title="Дима">Д</span><span class="chk" title="Саша">С</span>
+    </div>
+  </div>
+  <div class="card-links" onclick="event.stopPropagation()">
+    <a class="yt" href="https://www.youtube.com/results?search_query=%D0%91%D1%80%D1%8D%D0%B9%D0%BD%D1%81%D1%82%D0%BE%D0%BC%20%D0%A1%D0%BA%D0%BE%D0%BB%D1%8C%D0%B7%D0%BA%D0%B8%D0%B5%20%D1%83%D0%BB%D0%B8%D1%86%D1%8B" target="_blank">▶</a>
+    <a class="sp" href="https://open.spotify.com/search/%D0%91%D1%80%D1%8D%D0%B9%D0%BD%D1%81%D1%82%D0%BE%D0%BC%20%D0%A1%D0%BA%D0%BE%D0%BB%D1%8C%D0%B7%D0%BA%D0%B8%D0%B5%20%D1%83%D0%BB%D0%B8%D1%86%D1%8B" target="_blank">♫</a>
+  </div>
+</div>
+<div class="song-card" data-priority="A" data-search="ветер брэйнстом" onclick="openChords(97)" role="button" tabindex="0">
+  <span class="card-num">97</span>
+  <div class="card-body">
+    <div class="card-title">Ветер</div>
+    <div class="card-artist">Брэйнстом</div>
+    <div class="card-tags">
+      <span class="badge" style="background:#2ecc71;color:#111">A</span>
+      <span class="card-key">G maj</span>
+      <span class="card-style">Поп-рок</span>
+      <span class="chk" title="Дима">Д</span><span class="chk" title="Саша">С</span>
+    </div>
+  </div>
+  <div class="card-links" onclick="event.stopPropagation()">
+    <a class="yt" href="https://www.youtube.com/results?search_query=%D0%91%D1%80%D1%8D%D0%B9%D0%BD%D1%81%D1%82%D0%BE%D0%BC%20%D0%92%D0%B5%D1%82%D0%B5%D1%80" target="_blank">▶</a>
+    <a class="sp" href="https://open.spotify.com/search/%D0%91%D1%80%D1%8D%D0%B9%D0%BD%D1%81%D1%82%D0%BE%D0%BC%20%D0%92%D0%B5%D1%82%D0%B5%D1%80" target="_blank">♫</a>
+  </div>
+</div>
+<div class="song-card" data-priority="C" data-search="на сиреневой луне агутин" onclick="openChords(98)" role="button" tabindex="0">
+  <span class="card-num">98</span>
+  <div class="card-body">
+    <div class="card-title">На сиреневой луне</div>
+    <div class="card-artist">Агутин</div>
+    <div class="card-tags">
+      <span class="badge" style="background:#95a5a6;color:#111">C</span>
+      <span class="card-key">F maj</span>
+      <span class="card-style">Русский поп / Латина</span>
+      <span class="chk" title="Дима">Д</span>
+    </div>
+  </div>
+  <div class="card-links" onclick="event.stopPropagation()">
+    <a class="yt" href="https://www.youtube.com/results?search_query=%D0%90%D0%B3%D1%83%D1%82%D0%B8%D0%BD%20%D0%9D%D0%B0%20%D1%81%D0%B8%D1%80%D0%B5%D0%BD%D0%B5%D0%B2%D0%BE%D0%B9%20%D0%BB%D1%83%D0%BD%D0%B5" target="_blank">▶</a>
+    <a class="sp" href="https://open.spotify.com/search/%D0%90%D0%B3%D1%83%D1%82%D0%B8%D0%BD%20%D0%9D%D0%B0%20%D1%81%D0%B8%D1%80%D0%B5%D0%BD%D0%B5%D0%B2%D0%BE%D0%B9%20%D0%BB%D1%83%D0%BD%D0%B5" target="_blank">♫</a>
+  </div>
+</div>
+<div class="song-card" data-priority="A" data-search="самая любимая музыка братья грим" onclick="openChords(99)" role="button" tabindex="0">
+  <span class="card-num">99</span>
+  <div class="card-body">
+    <div class="card-title">Самая любимая музыка</div>
+    <div class="card-artist">Братья Грим</div>
+    <div class="card-tags">
+      <span class="badge" style="background:#2ecc71;color:#111">A</span>
+      <span class="card-key">G maj</span>
+      <span class="card-style">Русский рок-поп</span>
+      <span class="chk" title="Саша">С</span>
+    </div>
+  </div>
+  <div class="card-links" onclick="event.stopPropagation()">
+    <a class="yt" href="https://www.youtube.com/results?search_query=%D0%91%D1%80%D0%B0%D1%82%D1%8C%D1%8F%20%D0%93%D1%80%D0%B8%D0%BC%20%D0%A1%D0%B0%D0%BC%D0%B0%D1%8F%20%D0%BB%D1%8E%D0%B1%D0%B8%D0%BC%D0%B0%D1%8F%20%D0%BC%D1%83%D0%B7%D1%8B%D0%BA%D0%B0" target="_blank">▶</a>
+    <a class="sp" href="https://open.spotify.com/search/%D0%91%D1%80%D0%B0%D1%82%D1%8C%D1%8F%20%D0%93%D1%80%D0%B8%D0%BC%20%D0%A1%D0%B0%D0%BC%D0%B0%D1%8F%20%D0%BB%D1%8E%D0%B1%D0%B8%D0%BC%D0%B0%D1%8F%20%D0%BC%D1%83%D0%B7%D1%8B%D0%BA%D0%B0" target="_blank">♫</a>
+  </div>
+</div>
+<div class="song-card" data-priority="A" data-search="fairytale gone bad sunrise avenue" onclick="openChords(100)" role="button" tabindex="0">
+  <span class="card-num">100</span>
+  <div class="card-body">
+    <div class="card-title">Fairytale Gone Bad</div>
+    <div class="card-artist">Sunrise Avenue</div>
+    <div class="card-tags">
+      <span class="badge" style="background:#2ecc71;color:#111">A</span>
+      <span class="card-key">G min</span>
+      <span class="card-style">Поп-рок</span>
+      <span class="chk" title="Дима">Д</span><span class="chk" title="Саша">С</span>
+    </div>
+  </div>
+  <div class="card-links" onclick="event.stopPropagation()">
+    <a class="yt" href="https://www.youtube.com/results?search_query=Sunrise%20Avenue%20Fairytale%20Gone%20Bad" target="_blank">▶</a>
+    <a class="sp" href="https://open.spotify.com/search/Sunrise%20Avenue%20Fairytale%20Gone%20Bad" target="_blank">♫</a>
+  </div>
+</div>
+<div class="song-card" data-priority="B" data-search="johnny b. goode chuck berry" onclick="openChords(98)" role="button" tabindex="0">
+  <span class="card-num">98</span>
+  <div class="card-body">
+    <div class="card-title">Johnny B. Goode</div>
+    <div class="card-artist">Chuck Berry</div>
+    <div class="card-tags">
+      <span class="badge" style="background:#f39c12;color:#111">B</span>
+      <span class="card-key">Bb maj</span>
+      <span class="card-style">Рок-н-ролл</span>
+      <span class="chk" title="Дима">Д</span>
+    </div>
+  </div>
+  <div class="card-links" onclick="event.stopPropagation()">
+    <a class="yt" href="https://www.youtube.com/results?search_query=Chuck%20Berry%20Johnny%20B.%20Goode" target="_blank">▶</a>
+    <a class="sp" href="https://open.spotify.com/search/Chuck%20Berry%20Johnny%20B.%20Goode" target="_blank">♫</a>
+  </div>
+</div>
+<div class="song-card" data-priority="C" data-search="i&#x27;m alive céline dion" onclick="openChords(99)" role="button" tabindex="0">
+  <span class="card-num">99</span>
+  <div class="card-body">
+    <div class="card-title">I&#x27;m Alive</div>
+    <div class="card-artist">Céline Dion</div>
+    <div class="card-tags">
+      <span class="badge" style="background:#95a5a6;color:#111">C</span>
+      <span class="card-key">C maj</span>
+      <span class="card-style">Поп / Баллада</span>
+      <span class="chk" title="Дима">Д</span>
+    </div>
+  </div>
+  <div class="card-links" onclick="event.stopPropagation()">
+    <a class="yt" href="https://www.youtube.com/results?search_query=C%C3%A9line%20Dion%20I%27m%20Alive" target="_blank">▶</a>
+    <a class="sp" href="https://open.spotify.com/search/C%C3%A9line%20Dion%20I%27m%20Alive" target="_blank">♫</a>
+  </div>
+</div>
+</div>
+<div id="empty">Ничего не найдено</div>
+
+<script>
+var cards = Array.from(document.querySelectorAll('.song-card'));
+var currentPriority = 'all';
+
+function openChords(n) {
+  window.location.href = 'chords_cover.html#song-' + n;
+}
+
+function filterP(p, btn) {
+  currentPriority = p;
+  document.querySelectorAll('.filters button').forEach(function(b) { b.classList.remove('active'); });
+  btn.classList.add('active');
+  applyFilter();
+}
+
+document.getElementById('search').addEventListener('input', applyFilter);
+
+function applyFilter() {
+  var q = document.getElementById('search').value.toLowerCase().trim();
+  var shown = 0;
+  cards.forEach(function(c) {
+    var matchP = currentPriority === 'all' || c.dataset.priority === currentPriority;
+    var matchQ = !q || c.dataset.search.includes(q);
+    var vis = matchP && matchQ;
+    c.style.display = vis ? '' : 'none';
+    if (vis) shown++;
+  });
+  document.getElementById('empty').style.display = shown === 0 ? 'block' : 'none';
+}
+</script>
+</body>
+</html>
