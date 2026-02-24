@@ -47,7 +47,7 @@ header{
 .brand-logo .hit{color:#e0e0e0}
 .header-sub{
   font-size:11px;
-  color:#555;
+  color:#888;
   text-align:right;
   line-height:1.5;
   font-weight:500;
@@ -105,7 +105,7 @@ header{
 .filters button:hover{background:#fe0178;color:#fff;border-color:#fe0178}
 
 /* ── Список ── */
-#song-list{padding:4px 0 80px}
+#song-list{padding:4px 0 48px;max-width:860px;margin:0 auto}
 
 /* ── Карточка ── */
 .song-card{
@@ -163,12 +163,12 @@ header{
 }
 .card-key{
   font-size:11px;
-  color:#555;
+  color:#777;
   font-weight:600;
 }
 .card-style{
   font-size:11px;
-  color:#444;
+  color:#666;
 }
 .chk{
   font-size:11px;
@@ -217,14 +217,35 @@ header{
   text-align:center;
   padding:6px;
   font-size:11px;
-  color:#333;
+  color:#555;
   border-bottom:1px solid #1a1a1a;
   font-weight:600;
   letter-spacing:.05em;
   text-transform:uppercase;
+  max-width:860px;
+  margin:0 auto;
 }
 #count-num{color:#fe0178}
 
+/* ── Desktop ── */
+@media(min-width:800px){
+  header{padding:16px 32px 14px}
+  .brand-logo{font-size:26px;letter-spacing:4px;gap:10px}
+  .header-sub{font-size:12px}
+  .controls{padding:10px 32px;gap:8px}
+  #search{font-size:15px;max-width:360px;padding:9px 16px}
+  .filters button{padding:7px 18px;font-size:13px}
+  .song-card{padding:13px 18px;gap:14px}
+  .card-num{font-size:12px;min-width:28px}
+  .card-title{font-size:16px}
+  .card-artist{font-size:13px;margin-top:2px}
+  .card-tags{margin-top:6px;gap:5px}
+  .badge{font-size:11px;padding:2px 8px}
+  .card-key{font-size:12px}
+  .card-style{font-size:12px}
+  .card-links a{width:36px;height:36px;font-size:15px;border-radius:9px}
+  .count-bar{padding:8px;font-size:12px}
+}
 /* ── Mobile ── */
 @media(max-width:480px){
   header{padding:10px 12px 8px}
