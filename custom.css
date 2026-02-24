@@ -2438,8 +2438,11 @@ h1,h2,h3,h4,h5,h6{margin-bottom:20px;}
 
 /* Мобильное меню: absolute позиционирование bypass overflow:hidden */
 @media (max-width:991.98px){
+  /* nav.navbar имеет height:0 и position:relative (Bootstrap) — убираем его из containing block chain */
+  nav.navbar{position:static !important;}
+  /* #t4-header.t4-sticky становится containing block → top:100% = под хедером */
   .t4-content-inner{overflow:visible !important;}
-  #t4-header.t4-sticky,header.header-block,.header-wrap,.t4-navbar,nav.navbar{overflow:visible !important;}
+  #t4-header.t4-sticky,header.header-block,.header-wrap,.t4-navbar{overflow:visible !important;}
   #t4-megamenu-mainmenu.navbar-collapse.show,
   #t4-megamenu-mainmenu.navbar-collapse.collapsing{
     position:absolute !important;
