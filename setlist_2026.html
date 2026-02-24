@@ -9,6 +9,11 @@
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Poiret+One&family=Raleway:wght@300;400;500;600;700&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="./fa/all.min.css">
+<link rel="preload" href="./PoiretOne-Regular.woff2" as="font" type="font/woff2" crossorigin>
+<style>@font-face{font-family:'Poiret One';font-style:normal;font-weight:400;font-display:block;src:url('./PoiretOne-Regular.woff2') format('woff2')}</style>
+<link href="./site.css" rel="stylesheet">
+<link href="./template.css" rel="stylesheet">
+<link href="./custom.css?v=20260222d" rel="stylesheet">
 <style>
 *{box-sizing:border-box;margin:0;padding:0}
 
@@ -21,105 +26,7 @@ body{
   min-height:100vh;
 }
 
-/* ── Шапка / навигация ── */
-header{
-  background:#111;
-  border-bottom:2px solid #fe0178;
-  position:sticky;
-  top:0;
-  z-index:100;
-  box-shadow:0 2px 16px rgba(0,0,0,.6);
-}
-.header-inner{
-  display:flex;
-  align-items:center;
-  justify-content:space-between;
-  padding:0 16px;
-  height:56px;
-  max-width:860px;
-  margin:0 auto;
-}
-.brand-logo{
-  display:flex;
-  align-items:center;
-  gap:8px;
-  font-family:'Poiret One',cursive;
-  font-size:22px;
-  letter-spacing:3px;
-  color:#fe0178;
-  text-decoration:none;
-  white-space:nowrap;
-  flex-shrink:0;
-}
-.brand-logo .dot{color:#e0e0e0}
-.brand-logo .hit{color:#e0e0e0}
-/* десктопная навигация */
-.site-nav{
-  display:flex;
-  align-items:center;
-  gap:2px;
-  list-style:none;
-}
-.site-nav a{
-  display:block;
-  padding:6px 12px;
-  color:#888;
-  text-decoration:none;
-  font-size:13px;
-  font-weight:600;
-  letter-spacing:.04em;
-  border-radius:6px;
-  transition:color .15s,background .15s;
-  white-space:nowrap;
-}
-.site-nav a:hover{color:#fff;background:rgba(254,1,120,.15)}
-.site-nav a.current{color:#fe0178}
-/* бургер */
-.nav-toggle{
-  display:none;
-  background:none;
-  border:1px solid #333;
-  border-radius:6px;
-  color:#aaa;
-  width:38px;height:38px;
-  font-size:18px;
-  cursor:pointer;
-  align-items:center;
-  justify-content:center;
-  flex-shrink:0;
-}
-/* мобильное меню */
-.mobile-nav{
-  display:none;
-  flex-direction:column;
-  background:rgba(0,0,0,.97);
-  border-top:1px solid #222;
-  padding:8px 0;
-}
-.mobile-nav.open{display:flex}
-.mobile-nav a{
-  display:block;
-  padding:12px 20px;
-  color:#aaa;
-  text-decoration:none;
-  font-size:15px;
-  font-weight:600;
-  border-bottom:1px solid #1a1a1a;
-  transition:color .15s,background .15s;
-}
-.mobile-nav a:last-child{border-bottom:none}
-.mobile-nav a:hover,.mobile-nav a.current{color:#fe0178;background:#1a0810}
-@media(max-width:700px){
-  .site-nav{display:none}
-  .nav-toggle{display:flex}
-  .header-inner{padding:0 12px}
-  .brand-logo{font-size:19px;letter-spacing:2px}
-}
-@media(min-width:800px){
-  .header-inner{height:64px}
-  .brand-logo{font-size:26px;letter-spacing:4px;gap:10px}
-  .site-nav a{font-size:14px;padding:7px 14px}
-}
+
 
 /* ── Поиск ── */
 
@@ -248,9 +155,6 @@ header{
 
 /* ── Desktop ── */
 @media(min-width:800px){
-  header{padding:16px 32px 14px}
-  .brand-logo{font-size:26px;letter-spacing:4px;gap:10px}
-  .header-sub{font-size:12px}
   .controls{padding:10px 32px;gap:8px}
   #search{font-size:15px;max-width:360px;padding:9px 16px}
   .filters button{padding:7px 18px;font-size:13px}
@@ -267,8 +171,6 @@ header{
 }
 /* ── Mobile ── */
 @media(max-width:480px){
-  header{padding:10px 12px 8px}
-  .brand-logo{font-size:19px;letter-spacing:2px}
   .controls{padding:6px 8px;gap:5px}
   #search{font-size:16px;max-width:100%}
   .filters button{padding:5px 11px;font-size:11px}
@@ -281,29 +183,43 @@ header{
 </head>
 <body>
 
-<header>
-  <div class="header-inner">
-    <a class="brand-logo" href="./">
-      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32" width="26" height="26" style="flex-shrink:0"><path d="M16 4C9.4 4 4 9.4 4 16v6c0 1.1.9 2 2 2h2c1.1 0 2-.9 2-2v-4c0-1.1-.9-2-2-2H6.1C6.5 10.2 10.8 6 16 6s9.5 4.2 9.9 9.6H24c-1.1 0-2 .9-2 2v4c0 1.1.9 2 2 2h2c1.1 0 2-.9 2-2v-6c0-6.6-5.4-12-12-12z" fill="#fe0178"/><rect x="5" y="16" width="4" height="8" rx="1.5" fill="#fe0178"/><rect x="23" y="16" width="4" height="8" rx="1.5" fill="#fe0178"/></svg>
-      ПРО<span class="dot">•</span><span class="hit">ХИТ</span>
+<div id="t4-header" class="t4-section  t4-header  t4-sticky"><!-- HEADER BLOCK -->
+<header class="header-block header-block-2">
+  <div class="container-xxl">
+    <div class="header-wrap d-flex align-items-center justify-content-between collapse-static">
+      <div class="navbar-brand logo-image">
+    <a href="./" title="ПРО•ХИТ — Музыка нашего района | про-хит.рф">
+          <span class="logo-img" style="font-family:'Poiret One',cursive;font-size:42px;color:#fe0178;letter-spacing:5px;white-space:nowrap"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32" width="52" height="52" style="vertical-align:middle;margin-right:8px;margin-top:-6px"><path d="M16 4C9.4 4 4 9.4 4 16v6c0 1.1.9 2 2 2h2c1.1 0 2-.9 2-2v-4c0-1.1-.9-2-2-2H6.1C6.5 10.2 10.8 6 16 6s9.5 4.2 9.9 9.6H24c-1.1 0-2 .9-2 2v4c0 1.1.9 2 2 2h2c1.1 0 2-.9 2-2v-6c0-6.6-5.4-12-12-12z" fill="#fe0178"/><rect x="5" y="16" width="4" height="8" rx="1.5" fill="#fe0178"/><rect x="23" y="16" width="4" height="8" rx="1.5" fill="#fe0178"/></svg>ПРО•<span style="color:#fff">ХИТ</span></span>
     </a>
-    <ul class="site-nav">
-      <li><a href="./">Главная</a></li>
-      <li><a href="./about.html">О нас</a></li>
-      <li><a href="./setlist_2026.html" class="current">Репертуар</a></li>
-      <li><a href="./flyer.html">Набор</a></li>
-      <li><a href="https://t.me/PROKSHINOHIT" target="_blank">Контакты</a></li>
-    </ul>
-    <button class="nav-toggle" onclick="this.nextElementSibling.classList.toggle('open')" aria-label="Меню">☰</button>
   </div>
-  <nav class="mobile-nav">
-    <a href="./">Главная</a>
-    <a href="./about.html">О нас</a>
-    <a href="./setlist_2026.html" class="current">Репертуар</a>
-    <a href="./flyer.html">Набор</a>
-    <a href="https://t.me/PROKSHINOHIT" target="_blank">Контакты</a>
-  </nav>
+      <div class="t4-navbar collapse-static">
+        <nav class="navbar navbar-expand-lg">
+<button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#t4-megamenu-mainmenu" aria-controls="t4-megamenu-mainmenu" aria-expanded="false" aria-label="Toggle navigation">
+    <i class="fas fa-bars toggle-bars"></i>
+</button>
+	<div id="t4-megamenu-mainmenu" class="t4-megamenu collapse navbar-collapse slide animate" data-duration="400">
+<ul class="nav navbar-nav level0" itemscope="itemscope" itemtype="http://www.schema.org/SiteNavigationElement">
+<li class="nav-item has-icon has-caption" data-level="1"><a href="./" itemprop="url" class="nav-link"><span itemprop="name"><i class="icon-n-earphone" aria-hidden="true"></i><span class="menu-item-title">Главная</span><span class="menu-item-caption"><small class="mega-caption">главная</small></span></span></a></li>
+<li class="nav-item has-icon has-caption" data-level="1"><a href="./about.html" itemprop="url" class="nav-link"><span itemprop="name"><i class="icon-n-earphone" aria-hidden="true"></i><span class="menu-item-title">О нас</span><span class="menu-item-caption"><small class="mega-caption">группа</small></span></span></a></li>
+<li class="nav-item current active has-icon has-caption" data-level="1"><a href="./setlist_2026.html" itemprop="url" class="nav-link"><span itemprop="name"><i class="icon-n-earphone" aria-hidden="true"></i><span class="menu-item-title">Репертуар</span><span class="menu-item-caption"><small class="mega-caption">музыка</small></span></span></a></li>
+<li class="nav-item dropdown parent has-icon has-caption" data-level="1"><a href="#venues" itemprop="url" class="nav-link dropdown-toggle" role="button" aria-haspopup="true" aria-expanded="false"><span itemprop="name"><i class="icon-n-earphone" aria-hidden="true"></i><span class="menu-item-title">Сцены</span><span class="menu-item-caption"><small class="mega-caption">площадки</small></span></span><i class="item-caret"></i></a>
+<div class="dropdown-menu level1" data-bs-popper="static"><div class="dropdown-menu-inner"><ul></ul></div></div></li>
+<li class="nav-item has-icon has-caption" data-level="1"><a href="./flyer.html" itemprop="url" class="nav-link"><span itemprop="name"><i class="icon-n-earphone" aria-hidden="true"></i><span class="menu-item-title">Набор</span><span class="menu-item-caption"><small class="mega-caption">музыканты</small></span></span></a></li>
+<li class="nav-item has-icon has-caption" data-level="1"><a href="https://t.me/PROKSHINOHIT" target="_blank" itemprop="url" class="nav-link"><span itemprop="name"><i class="icon-n-earphone" aria-hidden="true"></i><span class="menu-item-title">Контакты</span><span class="menu-item-caption"><small class="mega-caption">telegram</small></span></span></a></li>
+</ul></div>
+</nav>
+      </div>
+      <div class="t4-header-r d-flex align-items-center">
+        <nav class="navbar-expand-lg">
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#t4-megamenu-mainmenu" aria-controls="t4-megamenu-mainmenu" aria-expanded="false" aria-label="Toggle navigation">
+        <i class="fas fa-bars toggle-bars"></i>
+    </button>
+</nav>
+      </div>
+    </div>
+  </div>
 </header>
+<!-- // HEADER BLOCK --></div>
 
 <div class="controls">
   <input type="search" id="search" placeholder="🔍 Поиск..." autocomplete="off">
@@ -776,5 +692,8 @@ function applyFilter() {
   document.getElementById('empty').style.display = shown === 0 ? 'block' : 'none';
 }
 </script>
+<script src="./jquery.min.js"></script>
+<script src="./bootstrap-es5.min.js" defer></script>
+<script src="./megamenu.js"></script>
 </body>
 </html>
