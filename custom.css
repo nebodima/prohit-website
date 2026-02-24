@@ -2435,3 +2435,9 @@ h1,h2,h3,h4,h5,h6{margin-bottom:20px;}
 @media only screen and (max-width:990px) and (min-width:768px){
 .header-block.fastfood .header-m{padding-right:70px;}
 }
+
+/* Мобильное меню: убираем overflow:hidden чтобы раскрытый navbar не обрезался */
+@media (max-width:991.98px){
+  .t4-content-inner{overflow:visible;}
+  .t4-megamenu.navbar-collapse{background-color:rgba(0,0,0,0.95)!important;z-index:200;position:relative;}
+}

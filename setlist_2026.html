@@ -21,16 +21,23 @@ body{
   min-height:100vh;
 }
 
-/* ── Шапка ── */
+/* ── Шапка / навигация ── */
 header{
   background:#111;
   border-bottom:2px solid #fe0178;
-  padding:12px 16px 10px;
+  position:sticky;
+  top:0;
+  z-index:100;
+  box-shadow:0 2px 16px rgba(0,0,0,.6);
+}
+.header-inner{
   display:flex;
   align-items:center;
   justify-content:space-between;
-  gap:8px;
-  flex-wrap:wrap;
+  padding:0 16px;
+  height:56px;
+  max-width:860px;
+  margin:0 auto;
 }
 .brand-logo{
   display:flex;
@@ -42,67 +49,79 @@ header{
   color:#fe0178;
   text-decoration:none;
   white-space:nowrap;
+  flex-shrink:0;
 }
 .brand-logo .dot{color:#e0e0e0}
 .brand-logo .hit{color:#e0e0e0}
-.header-sub{
-  font-size:11px;
-  color:#888;
-  text-align:right;
-  line-height:1.5;
-  font-weight:500;
-  letter-spacing:.05em;
-  text-transform:uppercase;
-}
-
-/* ── Поиск и фильтры ── */
-.controls{
-  background:#111;
-  padding:8px 12px;
+/* десктопная навигация */
+.site-nav{
   display:flex;
-  flex-wrap:wrap;
-  gap:6px;
   align-items:center;
-  justify-content:center;
-  border-bottom:1px solid #1e1e1e;
-  position:sticky;
-  top:0;
-  z-index:50;
-  box-shadow:0 2px 12px rgba(0,0,0,.5);
+  gap:2px;
+  list-style:none;
 }
-#search{
-  padding:8px 14px;
-  border-radius:20px;
-  border:1px solid #2a2a2a;
-  background:#1a1a1a;
-  color:#e0e0e0;
-  font-family:'Raleway',sans-serif;
-  font-size:14px;
-  flex:1;
-  min-width:160px;
-  max-width:300px;
-  outline:none;
-  transition:border-color .2s;
-}
-#search:focus{border-color:#fe0178;box-shadow:0 0 0 2px rgba(254,1,120,.15)}
-#search::placeholder{color:#444}
-.filters{display:flex;gap:5px;flex-wrap:wrap;justify-content:center}
-.filters button{
-  padding:6px 14px;
-  border:1px solid #2a2a2a;
-  border-radius:20px;
-  cursor:pointer;
-  background:#1a1a1a;
-  color:#666;
-  font-family:'Raleway',sans-serif;
-  font-size:12px;
+.site-nav a{
+  display:block;
+  padding:6px 12px;
+  color:#888;
+  text-decoration:none;
+  font-size:13px;
   font-weight:600;
   letter-spacing:.04em;
-  transition:all .15s;
-  touch-action:manipulation;
+  border-radius:6px;
+  transition:color .15s,background .15s;
+  white-space:nowrap;
 }
-.filters button.active,
-.filters button:hover{background:#fe0178;color:#fff;border-color:#fe0178}
+.site-nav a:hover{color:#fff;background:rgba(254,1,120,.15)}
+.site-nav a.current{color:#fe0178}
+/* бургер */
+.nav-toggle{
+  display:none;
+  background:none;
+  border:1px solid #333;
+  border-radius:6px;
+  color:#aaa;
+  width:38px;height:38px;
+  font-size:18px;
+  cursor:pointer;
+  align-items:center;
+  justify-content:center;
+  flex-shrink:0;
+}
+/* мобильное меню */
+.mobile-nav{
+  display:none;
+  flex-direction:column;
+  background:rgba(0,0,0,.97);
+  border-top:1px solid #222;
+  padding:8px 0;
+}
+.mobile-nav.open{display:flex}
+.mobile-nav a{
+  display:block;
+  padding:12px 20px;
+  color:#aaa;
+  text-decoration:none;
+  font-size:15px;
+  font-weight:600;
+  border-bottom:1px solid #1a1a1a;
+  transition:color .15s,background .15s;
+}
+.mobile-nav a:last-child{border-bottom:none}
+.mobile-nav a:hover,.mobile-nav a.current{color:#fe0178;background:#1a0810}
+@media(max-width:700px){
+  .site-nav{display:none}
+  .nav-toggle{display:flex}
+  .header-inner{padding:0 12px}
+  .brand-logo{font-size:19px;letter-spacing:2px}
+}
+@media(min-width:800px){
+  .header-inner{height:64px}
+  .brand-logo{font-size:26px;letter-spacing:4px;gap:10px}
+  .site-nav a{font-size:14px;padding:7px 14px}
+}
+
+/* ── Поиск ── */
 
 /* ── Список ── */
 #song-list{padding:4px 0 48px;max-width:860px;margin:0 auto}
@@ -263,36 +282,45 @@ header{
 <body>
 
 <header>
-  <a class="brand-logo" href="./">
-    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32" width="26" height="26" style="flex-shrink:0"><path d="M16 4C9.4 4 4 9.4 4 16v6c0 1.1.9 2 2 2h2c1.1 0 2-.9 2-2v-4c0-1.1-.9-2-2-2H6.1C6.5 10.2 10.8 6 16 6s9.5 4.2 9.9 9.6H24c-1.1 0-2 .9-2 2v4c0 1.1.9 2 2 2h2c1.1 0 2-.9 2-2v-6c0-6.6-5.4-12-12-12z" fill="#fe0178"/><rect x="5" y="16" width="4" height="8" rx="1.5" fill="#fe0178"/><rect x="23" y="16" width="4" height="8" rx="1.5" fill="#fe0178"/></svg>
-    ПРО<span class="dot">•</span><span class="hit">ХИТ</span>
-  </a>
-  <div class="header-sub">Репертуар<br>2026</div>
+  <div class="header-inner">
+    <a class="brand-logo" href="./">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32" width="26" height="26" style="flex-shrink:0"><path d="M16 4C9.4 4 4 9.4 4 16v6c0 1.1.9 2 2 2h2c1.1 0 2-.9 2-2v-4c0-1.1-.9-2-2-2H6.1C6.5 10.2 10.8 6 16 6s9.5 4.2 9.9 9.6H24c-1.1 0-2 .9-2 2v4c0 1.1.9 2 2 2h2c1.1 0 2-.9 2-2v-6c0-6.6-5.4-12-12-12z" fill="#fe0178"/><rect x="5" y="16" width="4" height="8" rx="1.5" fill="#fe0178"/><rect x="23" y="16" width="4" height="8" rx="1.5" fill="#fe0178"/></svg>
+      ПРО<span class="dot">•</span><span class="hit">ХИТ</span>
+    </a>
+    <ul class="site-nav">
+      <li><a href="./">Главная</a></li>
+      <li><a href="./about.html">О нас</a></li>
+      <li><a href="./setlist_2026.html" class="current">Репертуар</a></li>
+      <li><a href="./flyer.html">Набор</a></li>
+      <li><a href="https://t.me/PROKSHINOHIT" target="_blank">Контакты</a></li>
+    </ul>
+    <button class="nav-toggle" onclick="this.nextElementSibling.classList.toggle('open')" aria-label="Меню">☰</button>
+  </div>
+  <nav class="mobile-nav">
+    <a href="./">Главная</a>
+    <a href="./about.html">О нас</a>
+    <a href="./setlist_2026.html" class="current">Репертуар</a>
+    <a href="./flyer.html">Набор</a>
+    <a href="https://t.me/PROKSHINOHIT" target="_blank">Контакты</a>
+  </nav>
 </header>
 
 <div class="controls">
   <input type="search" id="search" placeholder="🔍 Поиск..." autocomplete="off">
-  <div class="filters">
-    <button class="active" onclick="filterP('all',this)">Все</button>
-    <button onclick="filterP('A',this)">A — Хиты</button>
-    <button onclick="filterP('B',this)">B</button>
-    <button onclick="filterP('C',this)">C</button>
-  </div>
+  
 </div>
 
 <div class="count-bar">Показано: <span id="count-num">29</span> из 29</div>
 
 <div id="song-list">
-<div class="song-card" data-priority="B" data-search="мечта сбывается антонов" onclick="openChords(103)" role="button" tabindex="0">
+<div class="song-card" data-search="мечта сбывается антонов" onclick="openChords(103)" role="button" tabindex="0">
   <span class="card-num">1</span>
   <div class="card-body">
     <div class="card-title">Мечта сбывается</div>
     <div class="card-artist">Антонов</div>
     <div class="card-tags">
-      <span class="badge" style="background:#f39c12;color:#111">B</span>
       <span class="card-key">C maj</span>
       <span class="card-style">Русский поп</span>
-      <span class="chk" title="Дима">Д</span>
     </div>
   </div>
   <div class="card-links" onclick="event.stopPropagation()">
@@ -300,16 +328,14 @@ header{
     <a class="sp" href="https://open.spotify.com/search/%D0%90%D0%BD%D1%82%D0%BE%D0%BD%D0%BE%D0%B2%20%D0%9C%D0%B5%D1%87%D1%82%D0%B0%20%D1%81%D0%B1%D1%8B%D0%B2%D0%B0%D0%B5%D1%82%D1%81%D1%8F" target="_blank">♫</a>
   </div>
 </div>
-<div class="song-card" data-priority="B" data-search="поезда женя трофимов" onclick="openChords(104)" role="button" tabindex="0">
+<div class="song-card" data-search="поезда женя трофимов" onclick="openChords(104)" role="button" tabindex="0">
   <span class="card-num">2</span>
   <div class="card-body">
     <div class="card-title">Поезда</div>
     <div class="card-artist">Женя Трофимов</div>
     <div class="card-tags">
-      <span class="badge" style="background:#f39c12;color:#111">B</span>
       <span class="card-key">A min</span>
       <span class="card-style">Русский поп</span>
-      <span class="chk" title="Дима">Д</span>
     </div>
   </div>
   <div class="card-links" onclick="event.stopPropagation()">
@@ -317,16 +343,14 @@ header{
     <a class="sp" href="https://open.spotify.com/search/%D0%96%D0%B5%D0%BD%D1%8F%20%D0%A2%D1%80%D0%BE%D1%84%D0%B8%D0%BC%D0%BE%D0%B2%20%D0%9F%D0%BE%D0%B5%D0%B7%D0%B4%D0%B0" target="_blank">♫</a>
   </div>
 </div>
-<div class="song-card" data-priority="C" data-search="невеста мумий троль" onclick="openChords(36)" role="button" tabindex="0">
+<div class="song-card" data-search="невеста мумий троль" onclick="openChords(36)" role="button" tabindex="0">
   <span class="card-num">3</span>
   <div class="card-body">
     <div class="card-title">Невеста</div>
     <div class="card-artist">Мумий Троль</div>
     <div class="card-tags">
-      <span class="badge" style="background:#95a5a6;color:#111">C</span>
       <span class="card-key">?</span>
       <span class="card-style">уточни</span>
-      <span class="chk" title="Илья">И</span>
     </div>
   </div>
   <div class="card-links" onclick="event.stopPropagation()">
@@ -334,16 +358,14 @@ header{
     <a class="sp" href="https://open.spotify.com/search/%D0%9C%D1%83%D0%BC%D0%B8%D0%B9%20%D0%A2%D1%80%D0%BE%D0%BB%D1%8C%20%D0%9D%D0%B5%D0%B2%D0%B5%D1%81%D1%82%D0%B0" target="_blank">♫</a>
   </div>
 </div>
-<div class="song-card" data-priority="C" data-search="layla eric clapton" onclick="openChords(7)" role="button" tabindex="0">
+<div class="song-card" data-search="layla eric clapton" onclick="openChords(7)" role="button" tabindex="0">
   <span class="card-num">4</span>
   <div class="card-body">
     <div class="card-title">Layla</div>
     <div class="card-artist">Eric Clapton</div>
     <div class="card-tags">
-      <span class="badge" style="background:#95a5a6;color:#111">C</span>
       <span class="card-key">D min</span>
       <span class="card-style">Рок / Блюз-рок</span>
-      <span class="chk" title="Илья">И</span>
     </div>
   </div>
   <div class="card-links" onclick="event.stopPropagation()">
@@ -351,16 +373,14 @@ header{
     <a class="sp" href="https://open.spotify.com/search/Eric%20Clapton%20Layla" target="_blank">♫</a>
   </div>
 </div>
-<div class="song-card" data-priority="B" data-search="get lucky daft punk" onclick="openChords(20)" role="button" tabindex="0">
+<div class="song-card" data-search="get lucky daft punk" onclick="openChords(20)" role="button" tabindex="0">
   <span class="card-num">5</span>
   <div class="card-body">
     <div class="card-title">Get Lucky</div>
     <div class="card-artist">Daft Punk</div>
     <div class="card-tags">
-      <span class="badge" style="background:#f39c12;color:#111">B</span>
       <span class="card-key">F maj</span>
       <span class="card-style">Диско / Фанк</span>
-      <span class="chk" title="Илья">И</span>
     </div>
   </div>
   <div class="card-links" onclick="event.stopPropagation()">
@@ -368,16 +388,14 @@ header{
     <a class="sp" href="https://open.spotify.com/search/Daft%20Punk%20Get%20Lucky" target="_blank">♫</a>
   </div>
 </div>
-<div class="song-card" data-priority="C" data-search="flowers miley cyrus" onclick="openChords(21)" role="button" tabindex="0">
+<div class="song-card" data-search="flowers miley cyrus" onclick="openChords(21)" role="button" tabindex="0">
   <span class="card-num">6</span>
   <div class="card-body">
     <div class="card-title">Flowers</div>
     <div class="card-artist">Miley Cyrus</div>
     <div class="card-tags">
-      <span class="badge" style="background:#95a5a6;color:#111">C</span>
       <span class="card-key">F maj</span>
       <span class="card-style">Поп</span>
-      <span class="chk" title="Илья">И</span>
     </div>
   </div>
   <div class="card-links" onclick="event.stopPropagation()">
@@ -385,16 +403,14 @@ header{
     <a class="sp" href="https://open.spotify.com/search/Miley%20Cyrus%20Flowers" target="_blank">♫</a>
   </div>
 </div>
-<div class="song-card" data-priority="C" data-search="oh pretty woman roy orbison" onclick="openChords(26)" role="button" tabindex="0">
+<div class="song-card" data-search="oh pretty woman roy orbison" onclick="openChords(26)" role="button" tabindex="0">
   <span class="card-num">7</span>
   <div class="card-body">
     <div class="card-title">Oh Pretty Woman</div>
     <div class="card-artist">Roy Orbison</div>
     <div class="card-tags">
-      <span class="badge" style="background:#95a5a6;color:#111">C</span>
       <span class="card-key">A maj</span>
       <span class="card-style">Рок-н-ролл / Поп</span>
-      <span class="chk" title="Илья">И</span>
     </div>
   </div>
   <div class="card-links" onclick="event.stopPropagation()">
@@ -402,16 +418,14 @@ header{
     <a class="sp" href="https://open.spotify.com/search/Roy%20Orbison%20Oh%20Pretty%20Woman" target="_blank">♫</a>
   </div>
 </div>
-<div class="song-card" data-priority="B" data-search="every breath you take sting" onclick="openChords(52)" role="button" tabindex="0">
+<div class="song-card" data-search="every breath you take sting" onclick="openChords(52)" role="button" tabindex="0">
   <span class="card-num">8</span>
   <div class="card-body">
     <div class="card-title">Every Breath You Take</div>
     <div class="card-artist">Sting</div>
     <div class="card-tags">
-      <span class="badge" style="background:#f39c12;color:#111">B</span>
       <span class="card-key">A maj</span>
       <span class="card-style">Поп-рок / Нью-вейв</span>
-      <span class="chk" title="Илья">И</span>
     </div>
   </div>
   <div class="card-links" onclick="event.stopPropagation()">
@@ -419,16 +433,14 @@ header{
     <a class="sp" href="https://open.spotify.com/search/Sting%20Every%20Breath%20You%20Take" target="_blank">♫</a>
   </div>
 </div>
-<div class="song-card" data-priority="C" data-search="lady mojo" onclick="openChords(54)" role="button" tabindex="0">
+<div class="song-card" data-search="lady mojo" onclick="openChords(54)" role="button" tabindex="0">
   <span class="card-num">9</span>
   <div class="card-body">
     <div class="card-title">Lady</div>
     <div class="card-artist">Mojo</div>
     <div class="card-tags">
-      <span class="badge" style="background:#95a5a6;color:#111">C</span>
       <span class="card-key">?</span>
       <span class="card-style">уточни</span>
-      <span class="chk" title="Илья">И</span>
     </div>
   </div>
   <div class="card-links" onclick="event.stopPropagation()">
@@ -436,16 +448,14 @@ header{
     <a class="sp" href="https://open.spotify.com/search/Mojo%20Lady" target="_blank">♫</a>
   </div>
 </div>
-<div class="song-card" data-priority="C" data-search="venus shocking blue" onclick="openChords(78)" role="button" tabindex="0">
+<div class="song-card" data-search="venus shocking blue" onclick="openChords(78)" role="button" tabindex="0">
   <span class="card-num">10</span>
   <div class="card-body">
     <div class="card-title">Venus</div>
     <div class="card-artist">Shocking Blue</div>
     <div class="card-tags">
-      <span class="badge" style="background:#95a5a6;color:#111">C</span>
       <span class="card-key">A min</span>
       <span class="card-style">Рок / Поп</span>
-      <span class="chk" title="Илья">И</span>
     </div>
   </div>
   <div class="card-links" onclick="event.stopPropagation()">
@@ -453,16 +463,14 @@ header{
     <a class="sp" href="https://open.spotify.com/search/Shocking%20Blue%20Venus" target="_blank">♫</a>
   </div>
 </div>
-<div class="song-card" data-priority="B" data-search="любите девушки браво" onclick="openChords(85)" role="button" tabindex="0">
+<div class="song-card" data-search="любите девушки браво" onclick="openChords(85)" role="button" tabindex="0">
   <span class="card-num">11</span>
   <div class="card-body">
     <div class="card-title">Любите девушки</div>
     <div class="card-artist">Браво</div>
     <div class="card-tags">
-      <span class="badge" style="background:#f39c12;color:#111">B</span>
       <span class="card-key">G maj</span>
       <span class="card-style">Русский поп-рок / Ретро</span>
-      <span class="chk" title="Дима">Д</span>
     </div>
   </div>
   <div class="card-links" onclick="event.stopPropagation()">
@@ -470,16 +478,14 @@ header{
     <a class="sp" href="https://open.spotify.com/search/%D0%91%D1%80%D0%B0%D0%B2%D0%BE%20%D0%9B%D1%8E%D0%B1%D0%B8%D1%82%D0%B5%20%D0%B4%D0%B5%D0%B2%D1%83%D1%88%D0%BA%D0%B8" target="_blank">♫</a>
   </div>
 </div>
-<div class="song-card" data-priority="A" data-search="в городе лето уматурман" onclick="openChords(91)" role="button" tabindex="0">
+<div class="song-card" data-search="в городе лето уматурман" onclick="openChords(91)" role="button" tabindex="0">
   <span class="card-num">12</span>
   <div class="card-body">
     <div class="card-title">В городе лето</div>
     <div class="card-artist">Уматурман</div>
     <div class="card-tags">
-      <span class="badge" style="background:#2ecc71;color:#111">A</span>
       <span class="card-key">E min</span>
       <span class="card-style">Русский рок-поп</span>
-      <span class="chk" title="Саша">С</span>
     </div>
   </div>
   <div class="card-links" onclick="event.stopPropagation()">
@@ -487,16 +493,14 @@ header{
     <a class="sp" href="https://open.spotify.com/search/%D0%A3%D0%BC%D0%B0%D1%82%D1%83%D1%80%D0%BC%D0%B0%D0%BD%20%D0%92%20%D0%B3%D0%BE%D1%80%D0%BE%D0%B4%D0%B5%20%D0%BB%D0%B5%D1%82%D0%BE" target="_blank">♫</a>
   </div>
 </div>
-<div class="song-card" data-priority="C" data-search="лайки би-2" onclick="openChords(93)" role="button" tabindex="0">
+<div class="song-card" data-search="лайки би-2" onclick="openChords(93)" role="button" tabindex="0">
   <span class="card-num">13</span>
   <div class="card-body">
     <div class="card-title">Лайки</div>
     <div class="card-artist">Би-2</div>
     <div class="card-tags">
-      <span class="badge" style="background:#95a5a6;color:#111">C</span>
       <span class="card-key">D min</span>
       <span class="card-style">Русский рок</span>
-      <span class="chk" title="Дима">Д</span>
     </div>
   </div>
   <div class="card-links" onclick="event.stopPropagation()">
@@ -504,16 +508,14 @@ header{
     <a class="sp" href="https://open.spotify.com/search/%D0%91%D0%B8-2%20%D0%9B%D0%B0%D0%B9%D0%BA%D0%B8" target="_blank">♫</a>
   </div>
 </div>
-<div class="song-card" data-priority="A" data-search="скользкие улицы брэйнстом" onclick="openChords(96)" role="button" tabindex="0">
+<div class="song-card" data-search="скользкие улицы брэйнстом" onclick="openChords(96)" role="button" tabindex="0">
   <span class="card-num">14</span>
   <div class="card-body">
     <div class="card-title">Скользкие улицы</div>
     <div class="card-artist">Брэйнстом</div>
     <div class="card-tags">
-      <span class="badge" style="background:#2ecc71;color:#111">A</span>
       <span class="card-key">C maj</span>
       <span class="card-style">Поп-рок / Баллада</span>
-      <span class="chk" title="Дима">Д</span><span class="chk" title="Саша">С</span>
     </div>
   </div>
   <div class="card-links" onclick="event.stopPropagation()">
@@ -521,16 +523,14 @@ header{
     <a class="sp" href="https://open.spotify.com/search/%D0%91%D1%80%D1%8D%D0%B9%D0%BD%D1%81%D1%82%D0%BE%D0%BC%20%D0%A1%D0%BA%D0%BE%D0%BB%D1%8C%D0%B7%D0%BA%D0%B8%D0%B5%20%D1%83%D0%BB%D0%B8%D1%86%D1%8B" target="_blank">♫</a>
   </div>
 </div>
-<div class="song-card" data-priority="A" data-search="ветер брэйнстом" onclick="openChords(97)" role="button" tabindex="0">
+<div class="song-card" data-search="ветер брэйнстом" onclick="openChords(97)" role="button" tabindex="0">
   <span class="card-num">15</span>
   <div class="card-body">
     <div class="card-title">Ветер</div>
     <div class="card-artist">Брэйнстом</div>
     <div class="card-tags">
-      <span class="badge" style="background:#2ecc71;color:#111">A</span>
       <span class="card-key">G maj</span>
       <span class="card-style">Поп-рок</span>
-      <span class="chk" title="Дима">Д</span><span class="chk" title="Саша">С</span>
     </div>
   </div>
   <div class="card-links" onclick="event.stopPropagation()">
@@ -538,16 +538,14 @@ header{
     <a class="sp" href="https://open.spotify.com/search/%D0%91%D1%80%D1%8D%D0%B9%D0%BD%D1%81%D1%82%D0%BE%D0%BC%20%D0%92%D0%B5%D1%82%D0%B5%D1%80" target="_blank">♫</a>
   </div>
 </div>
-<div class="song-card" data-priority="C" data-search="на сиреневой луне агутин" onclick="openChords(98)" role="button" tabindex="0">
+<div class="song-card" data-search="на сиреневой луне агутин" onclick="openChords(98)" role="button" tabindex="0">
   <span class="card-num">16</span>
   <div class="card-body">
     <div class="card-title">На сиреневой луне</div>
     <div class="card-artist">Агутин</div>
     <div class="card-tags">
-      <span class="badge" style="background:#95a5a6;color:#111">C</span>
       <span class="card-key">F maj</span>
       <span class="card-style">Русский поп / Латина</span>
-      <span class="chk" title="Дима">Д</span>
     </div>
   </div>
   <div class="card-links" onclick="event.stopPropagation()">
@@ -555,16 +553,14 @@ header{
     <a class="sp" href="https://open.spotify.com/search/%D0%90%D0%B3%D1%83%D1%82%D0%B8%D0%BD%20%D0%9D%D0%B0%20%D1%81%D0%B8%D1%80%D0%B5%D0%BD%D0%B5%D0%B2%D0%BE%D0%B9%20%D0%BB%D1%83%D0%BD%D0%B5" target="_blank">♫</a>
   </div>
 </div>
-<div class="song-card" data-priority="A" data-search="самая любимая музыка братья грим" onclick="openChords(99)" role="button" tabindex="0">
+<div class="song-card" data-search="самая любимая музыка братья грим" onclick="openChords(99)" role="button" tabindex="0">
   <span class="card-num">17</span>
   <div class="card-body">
     <div class="card-title">Самая любимая музыка</div>
     <div class="card-artist">Братья Грим</div>
     <div class="card-tags">
-      <span class="badge" style="background:#2ecc71;color:#111">A</span>
       <span class="card-key">G maj</span>
       <span class="card-style">Русский рок-поп</span>
-      <span class="chk" title="Саша">С</span>
     </div>
   </div>
   <div class="card-links" onclick="event.stopPropagation()">
@@ -572,16 +568,14 @@ header{
     <a class="sp" href="https://open.spotify.com/search/%D0%91%D1%80%D0%B0%D1%82%D1%8C%D1%8F%20%D0%93%D1%80%D0%B8%D0%BC%20%D0%A1%D0%B0%D0%BC%D0%B0%D1%8F%20%D0%BB%D1%8E%D0%B1%D0%B8%D0%BC%D0%B0%D1%8F%20%D0%BC%D1%83%D0%B7%D1%8B%D0%BA%D0%B0" target="_blank">♫</a>
   </div>
 </div>
-<div class="song-card" data-priority="A" data-search="fairytale gone bad sunrise avenue" onclick="openChords(100)" role="button" tabindex="0">
+<div class="song-card" data-search="fairytale gone bad sunrise avenue" onclick="openChords(100)" role="button" tabindex="0">
   <span class="card-num">18</span>
   <div class="card-body">
     <div class="card-title">Fairytale Gone Bad</div>
     <div class="card-artist">Sunrise Avenue</div>
     <div class="card-tags">
-      <span class="badge" style="background:#2ecc71;color:#111">A</span>
       <span class="card-key">G min</span>
       <span class="card-style">Поп-рок</span>
-      <span class="chk" title="Дима">Д</span><span class="chk" title="Саша">С</span>
     </div>
   </div>
   <div class="card-links" onclick="event.stopPropagation()">
@@ -589,16 +583,14 @@ header{
     <a class="sp" href="https://open.spotify.com/search/Sunrise%20Avenue%20Fairytale%20Gone%20Bad" target="_blank">♫</a>
   </div>
 </div>
-<div class="song-card" data-priority="B" data-search="johnny b. goode chuck berry" onclick="openChords(101)" role="button" tabindex="0">
+<div class="song-card" data-search="johnny b. goode chuck berry" onclick="openChords(101)" role="button" tabindex="0">
   <span class="card-num">19</span>
   <div class="card-body">
     <div class="card-title">Johnny B. Goode</div>
     <div class="card-artist">Chuck Berry</div>
     <div class="card-tags">
-      <span class="badge" style="background:#f39c12;color:#111">B</span>
       <span class="card-key">Bb maj</span>
       <span class="card-style">Рок-н-ролл</span>
-      <span class="chk" title="Дима">Д</span>
     </div>
   </div>
   <div class="card-links" onclick="event.stopPropagation()">
@@ -606,16 +598,14 @@ header{
     <a class="sp" href="https://open.spotify.com/search/Chuck%20Berry%20Johnny%20B.%20Goode" target="_blank">♫</a>
   </div>
 </div>
-<div class="song-card" data-priority="C" data-search="i&#x27;m alive céline dion" onclick="openChords(102)" role="button" tabindex="0">
+<div class="song-card" data-search="i&#x27;m alive céline dion" onclick="openChords(102)" role="button" tabindex="0">
   <span class="card-num">20</span>
   <div class="card-body">
     <div class="card-title">I&#x27;m Alive</div>
     <div class="card-artist">Céline Dion</div>
     <div class="card-tags">
-      <span class="badge" style="background:#95a5a6;color:#111">C</span>
       <span class="card-key">C maj</span>
       <span class="card-style">Поп / Баллада</span>
-      <span class="chk" title="Дима">Д</span>
     </div>
   </div>
   <div class="card-links" onclick="event.stopPropagation()">
@@ -623,16 +613,14 @@ header{
     <a class="sp" href="https://open.spotify.com/search/C%C3%A9line%20Dion%20I%26%23x27%3Bm%20Alive" target="_blank">♫</a>
   </div>
 </div>
-<div class="song-card" data-priority="A" data-search="хали гали паратрупер народная" onclick="openChords(105)" role="button" tabindex="0">
+<div class="song-card" data-search="хали гали паратрупер народная" onclick="openChords(105)" role="button" tabindex="0">
   <span class="card-num">21</span>
   <div class="card-body">
     <div class="card-title">Хали Гали Паратрупер</div>
     <div class="card-artist">Народная</div>
     <div class="card-tags">
-      <span class="badge" style="background:#2ecc71;color:#111">A</span>
       <span class="card-key">A maj</span>
       <span class="card-style">Застольная</span>
-      <span class="chk" title="Дима">Д</span><span class="chk" title="Саша">С</span>
     </div>
   </div>
   <div class="card-links" onclick="event.stopPropagation()">
@@ -640,33 +628,29 @@ header{
     <a class="sp" href="https://open.spotify.com/search/%D0%9D%D0%B0%D1%80%D0%BE%D0%B4%D0%BD%D0%B0%D1%8F%20%D0%A5%D0%B0%D0%BB%D0%B8%20%D0%93%D0%B0%D0%BB%D0%B8%20%D0%9F%D0%B0%D1%80%D0%B0%D1%82%D1%80%D1%83%D0%BF%D0%B5%D1%80" target="_blank">♫</a>
   </div>
 </div>
-<div class="song-card" data-priority="B" data-search="седьмой лепесток hi-fi" onclick="openChords(106)" role="button" tabindex="0">
+<div class="song-card" data-search="седьмой лепесток hi-fi" onclick="openChords(106)" role="button" tabindex="0">
   <span class="card-num">22</span>
   <div class="card-body">
     <div class="card-title">Седьмой Лепесток</div>
     <div class="card-artist">Hi-Fi</div>
     <div class="card-tags">
-      <span class="badge" style="background:#f39c12;color:#111">B</span>
       <span class="card-key">G maj</span>
       <span class="card-style">Русский поп / R&B</span>
-      <span class="chk" title="Саша">С</span>
     </div>
   </div>
   <div class="card-links" onclick="event.stopPropagation()">
     <a class="yt" href="https://www.youtube.com/results?search_query=Hi-Fi%20%D0%A1%D0%B5%D0%B4%D1%8C%D0%BC%D0%BE%D0%B9%20%D0%9B%D0%B5%D0%BF%D0%B5%D1%81%D1%82%D0%BE%D0%BA" target="_blank">▶</a>
     <a class="sp" href="https://open.spotify.com/search/Hi-Fi%20%D0%A1%D0%B5%D0%B4%D1%8C%D0%BC%D0%BE%D0%B9%20%D0%9B%D0%B5%D0%BF%D0%B5%D1%81%D1%82%D0%BE%D0%BA" target="_blank">♫</a>
   </div>
-
-<div class="song-card" data-priority="A" data-search="ничего на свете лучше нету бременские музыканты" onclick="openChords(107)" role="button" tabindex="0">
+</div>
+<div class="song-card" data-search="ничего на свете лучше нету бременские музыканты" onclick="openChords(107)" role="button" tabindex="0">
   <span class="card-num">23</span>
   <div class="card-body">
     <div class="card-title">Ничего на свете лучше нету</div>
     <div class="card-artist">Бременские музыканты</div>
     <div class="card-tags">
-      <span class="badge" style="background:#2ecc71;color:#111">A</span>
       <span class="card-key">C maj</span>
       <span class="card-style">Советский мультфильм</span>
-      <span class="chk" title="Дима">Д</span><span class="chk" title="Саша">С</span>
     </div>
   </div>
   <div class="card-links" onclick="event.stopPropagation()">
@@ -674,16 +658,14 @@ header{
     <a class="sp" href="https://open.spotify.com/search/%D0%91%D1%80%D0%B5%D0%BC%D0%B5%D0%BD%D1%81%D0%BA%D0%B8%D0%B5+%D0%BC%D1%83%D0%B7%D1%8B%D0%BA%D0%B0%D0%BD%D1%82%D1%8B+%D0%BD%D0%B8%D1%87%D0%B5%D0%B3%D0%BE+%D0%BD%D0%B0+%D1%81%D0%B2%D0%B5%D1%82%D0%B5" target="_blank">♫</a>
   </div>
 </div>
-<div class="song-card" data-priority="B" data-search="все что тебя касается звери" onclick="openChords(108)" role="button" tabindex="0">
+<div class="song-card" data-search="все что тебя касается звери" onclick="openChords(108)" role="button" tabindex="0">
   <span class="card-num">24</span>
   <div class="card-body">
     <div class="card-title">Всё, что тебя касается</div>
     <div class="card-artist">Звери</div>
     <div class="card-tags">
-      <span class="badge" style="background:#f39c12;color:#111">B</span>
       <span class="card-key">E min</span>
       <span class="card-style">Русский рок</span>
-      <span class="chk" title="Дима">Д</span>
     </div>
   </div>
   <div class="card-links" onclick="event.stopPropagation()">
@@ -691,16 +673,14 @@ header{
     <a class="sp" href="https://open.spotify.com/search/%D0%97%D0%B2%D0%B5%D1%80%D0%B8+%D0%B2%D1%81%D1%91+%D1%87%D1%82%D0%BE+%D1%82%D0%B5%D0%B1%D1%8F+%D0%BA%D0%B0%D1%81%D0%B0%D0%B5%D1%82%D1%81%D1%8F" target="_blank">♫</a>
   </div>
 </div>
-<div class="song-card" data-priority="A" data-search="i'm still standing elton john" onclick="openChords(109)" role="button" tabindex="0">
+<div class="song-card" data-search="i'm still standing elton john" onclick="openChords(109)" role="button" tabindex="0">
   <span class="card-num">25</span>
   <div class="card-body">
     <div class="card-title">I&#x27;m Still Standing</div>
     <div class="card-artist">Elton John</div>
     <div class="card-tags">
-      <span class="badge" style="background:#2ecc71;color:#111">A</span>
       <span class="card-key">D maj</span>
       <span class="card-style">Поп-рок</span>
-      <span class="chk" title="Дима">Д</span>
     </div>
   </div>
   <div class="card-links" onclick="event.stopPropagation()">
@@ -708,16 +688,14 @@ header{
     <a class="sp" href="https://open.spotify.com/search/Elton+John+I%27m+Still+Standing" target="_blank">♫</a>
   </div>
 </div>
-<div class="song-card" data-priority="A" data-search="beggin maneskin" onclick="openChords(110)" role="button" tabindex="0">
+<div class="song-card" data-search="beggin maneskin" onclick="openChords(110)" role="button" tabindex="0">
   <span class="card-num">26</span>
   <div class="card-body">
     <div class="card-title">Beggin&#x27;</div>
     <div class="card-artist">Måneskin</div>
     <div class="card-tags">
-      <span class="badge" style="background:#2ecc71;color:#111">A</span>
       <span class="card-key">A min</span>
       <span class="card-style">Рок</span>
-      <span class="chk" title="Дима">Д</span><span class="chk" title="Саша">С</span>
     </div>
   </div>
   <div class="card-links" onclick="event.stopPropagation()">
@@ -725,16 +703,14 @@ header{
     <a class="sp" href="https://open.spotify.com/search/M%C3%A5neskin+Beggin" target="_blank">♫</a>
   </div>
 </div>
-<div class="song-card" data-priority="B" data-search="ночь губин андрей губин" onclick="openChords(111)" role="button" tabindex="0">
+<div class="song-card" data-search="ночь губин андрей губин" onclick="openChords(111)" role="button" tabindex="0">
   <span class="card-num">27</span>
   <div class="card-body">
     <div class="card-title">Ночь</div>
     <div class="card-artist">Андрей Губин</div>
     <div class="card-tags">
-      <span class="badge" style="background:#f39c12;color:#111">B</span>
       <span class="card-key">G min</span>
       <span class="card-style">Русский поп</span>
-      <span class="chk" title="Дима">Д</span>
     </div>
   </div>
   <div class="card-links" onclick="event.stopPropagation()">
@@ -742,16 +718,14 @@ header{
     <a class="sp" href="https://open.spotify.com/search/%D0%90%D0%BD%D0%B4%D1%80%D0%B5%D0%B9+%D0%93%D1%83%D0%B1%D0%B8%D0%BD+%D0%9D%D0%BE%D1%87%D1%8C" target="_blank">♫</a>
   </div>
 </div>
-<div class="song-card" data-priority="A" data-search="он тебя целует руки вверх" onclick="openChords(112)" role="button" tabindex="0">
+<div class="song-card" data-search="он тебя целует руки вверх" onclick="openChords(112)" role="button" tabindex="0">
   <span class="card-num">28</span>
   <div class="card-body">
     <div class="card-title">Он тебя целует</div>
     <div class="card-artist">Руки Вверх</div>
     <div class="card-tags">
-      <span class="badge" style="background:#2ecc71;color:#111">A</span>
       <span class="card-key">A min</span>
       <span class="card-style">Русский поп</span>
-      <span class="chk" title="Саша">С</span>
     </div>
   </div>
   <div class="card-links" onclick="event.stopPropagation()">
@@ -759,16 +733,14 @@ header{
     <a class="sp" href="https://open.spotify.com/search/%D0%A0%D1%83%D0%BA%D0%B8+%D0%92%D0%B2%D0%B5%D1%80%D1%85+%D0%BE%D0%BD+%D1%82%D0%B5%D0%B1%D1%8F+%D1%86%D0%B5%D0%BB%D1%83%D0%B5%D1%82" target="_blank">♫</a>
   </div>
 </div>
-<div class="song-card" data-priority="B" data-search="ты не верь слезам шура" onclick="openChords(113)" role="button" tabindex="0">
+<div class="song-card" data-search="ты не верь слезам шура" onclick="openChords(113)" role="button" tabindex="0">
   <span class="card-num">29</span>
   <div class="card-body">
     <div class="card-title">Ты не верь слезам</div>
     <div class="card-artist">Шура</div>
     <div class="card-tags">
-      <span class="badge" style="background:#f39c12;color:#111">B</span>
       <span class="card-key">F maj</span>
       <span class="card-style">Русский поп</span>
-      <span class="chk" title="Дима">Д</span>
     </div>
   </div>
   <div class="card-links" onclick="event.stopPropagation()">
@@ -782,18 +754,11 @@ header{
 <script>
 var cards = Array.from(document.querySelectorAll('.song-card'));
 var total = cards.length;
-var currentPriority = 'all';
-
 function openChords(n) {
   window.location.href = 'chords_cover.html#song-' + n;
 }
 
-function filterP(p, btn) {
-  currentPriority = p;
-  document.querySelectorAll('.filters button').forEach(function(b){b.classList.remove('active')});
-  btn.classList.add('active');
-  applyFilter();
-}
+
 
 document.getElementById('search').addEventListener('input', applyFilter);
 
@@ -801,9 +766,9 @@ function applyFilter() {
   var q = document.getElementById('search').value.toLowerCase().trim();
   var shown = 0;
   cards.forEach(function(c) {
-    var matchP = currentPriority === 'all' || c.dataset.priority === currentPriority;
+    
     var matchQ = !q || c.dataset.search.includes(q);
-    var vis = matchP && matchQ;
+    var vis = matchQ;
     c.style.display = vis ? '' : 'none';
     if (vis) shown++;
   });
