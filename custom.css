@@ -2436,8 +2436,20 @@ h1,h2,h3,h4,h5,h6{margin-bottom:20px;}
 .header-block.fastfood .header-m{padding-right:70px;}
 }
 
-/* Мобильное меню: убираем overflow:hidden чтобы раскрытый navbar не обрезался */
+/* Мобильное меню: absolute позиционирование bypass overflow:hidden */
 @media (max-width:991.98px){
-  .t4-content-inner{overflow:visible;}
-  .t4-megamenu.navbar-collapse{background-color:rgba(0,0,0,0.95)!important;z-index:200;position:relative;}
+  .t4-content-inner{overflow:visible !important;}
+  #t4-header.t4-sticky,header.header-block,.header-wrap,.t4-navbar,nav.navbar{overflow:visible !important;}
+  #t4-megamenu-mainmenu.navbar-collapse.show,
+  #t4-megamenu-mainmenu.navbar-collapse.collapsing{
+    position:absolute !important;
+    top:100% !important;
+    left:0;right:0;
+    background:rgba(0,0,0,0.97) !important;
+    z-index:9999 !important;
+    border-top:2px solid #fe0178;
+    box-shadow:0 8px 24px rgba(0,0,0,.7);
+    max-height:80vh;
+    overflow-y:auto !important;
+  }
 }
