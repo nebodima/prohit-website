@@ -13,6 +13,13 @@
 <meta name="robots" content="index, follow">
 <link rel="canonical" href="https://про-хит.рф/setlist_2026.html">
 <link rel="icon" href="favicon.svg" type="image/svg+xml">
+<link rel="manifest" href="./manifest.json">
+<meta name="theme-color" content="#fe0178">
+<meta name="mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+<meta name="apple-mobile-web-app-title" content="ПРО•ХИТ">
+<link rel="apple-touch-icon" href="./ico/icon-192.png">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Poiret+One&family=Raleway:wght@300;400;500;600;700&display=swap" rel="stylesheet">
@@ -704,5 +711,10 @@ function applyFilter() {
 <script>window.Joomla=window.Joomla||{getOptions:function(){return null;},sanitizeHtml:function(s){return s;},Modal:{setCurrent:function(){},getCurrent:function(){return null;}}}</script>
 <script src="./bootstrap-es5.min.js" defer></script>
 <script src="./megamenu.js"></script>
+<script>
+if('serviceWorker' in navigator){
+  window.addEventListener('load',()=>navigator.serviceWorker.register('./sw.js'));
+}
+</script>
 </body>
 </html>
