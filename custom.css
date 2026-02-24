@@ -1,3 +1,11 @@
+/* CSS-переменные темы (дублируем из 12.css для страниц без него) */
+:root{
+  --mainnav-link-color:#ffffff;
+  --mainnav-link-hover-color:#fe0178;
+  --mainnav-link-active-color:#fe0178;
+  --color-primary:#fe0178;
+}
+
 /* icomoon font files not available locally - using Font Awesome fallbacks */
 .icon-n-earphone:before,.icon-microphone:before,.icon-microphone-big:before,.icon-equalizer:before {font-family:'Font Awesome 6 Free' !important;font-weight:900 !important;speak:never;font-style:normal;font-variant:normal;
   text-transform:none;
