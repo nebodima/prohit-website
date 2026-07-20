@@ -1,0 +1,8 @@
+User-agent: *
+Allow: /
+Disallow: /chords.html
+Disallow: /chords_cover.html
+Disallow: /setlist_2026.html
+Disallow: /card.html
+Disallow: /card-print.html
+Disallow: /bot/

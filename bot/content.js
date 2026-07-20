@@ -65,7 +65,7 @@ let contentIndex = 0;
 
 async function askClaude(prompt) {
   const msg = await client.messages.create({
-    model: 'claude-sonnet-4-20250514',
+    model: 'claude-sonnet-4-6',
     max_tokens: 500,
     system: BAND_CONTEXT,
     messages: [{ role: 'user', content: prompt }]
@@ -159,7 +159,7 @@ async function chatWithClaude(userId, userMessage) {
   if (history.length > 20) history.splice(0, history.length - 20);
 
   const msg = await client.messages.create({
-    model: 'claude-sonnet-4-20250514',
+    model: 'claude-sonnet-4-6',
     max_tokens: 300,
     system: BAND_CONTEXT + '\n\nСейчас ты ведёшь живой диалог с пользователем. Отвечай коротко, дружелюбно, по-русски. Без HTML-тегов.',
     messages: history
